@@ -5,9 +5,9 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" , "dev"]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" , "dev"]
 
 jobs:
   build:
@@ -23,12 +23,15 @@ jobs:
     - name: Restore dependencies (Heatington)
       run: dotnet restore
       working-directory: Heatington
+      
     - name: Build (Heatington)
       run: dotnet build --no-restore
       working-directory: Heatington
+      
     - name: Restore dependencies (Heatington.Tests)
       run: dotnet restore
       working-directory: Heatington.Tests
+      
     - name: Test (Heatington.Tests)
       run: dotnet test
       working-directory: Heatington.Tests
