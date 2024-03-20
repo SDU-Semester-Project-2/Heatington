@@ -16,8 +16,7 @@ public class Optimizer
         // Sorts the production Units by their production cost.
         _pUnits = _pUnits.OrderBy(o => o.ProductionCost).ToList();
 
-        ComputeAndStoreBoilerCounts(); 
-
+        ComputeAndStoreBoilerCounts();
     }
 
     private bool ComputeAndStoreBoilerCounts()
@@ -51,6 +50,7 @@ public class Optimizer
                 throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
             }
         }
+
         return i;
     }
 
