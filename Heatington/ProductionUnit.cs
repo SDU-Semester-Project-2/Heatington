@@ -5,6 +5,7 @@ public class ProductionUnit(string name, double operationPoint, double maxHeat, 
     public Guid Id = new Guid();
     public string Name { get; set; } = name;
     public double OperationPoint { get; set; } = operationPoint;
+    public double MaxHeat { get; set; } = maxHeat;
     public double ProductionCost { get; set; } = productionCost;
     public double MaxElectricity { get; set; } = maxElectricity;
     public double GasConsumption { get; set; } = gasConsumption;
