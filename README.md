@@ -1,7 +1,8 @@
 # Heatington
 
----
-**What are we developing**
+#### [Open Coding Style Guidelines](Documents/CODING-STYLE.md)
+
+## What are we developing
 - Heat production optimization for a district heating utility
   - Secure heat availability for all buildings in the district heating network
   - Produce heat for the lowest costs
@@ -19,11 +20,9 @@
   - Winter period
   - Summer Period
 
----
 ## Example of heating net
 ![img.png](Assets%2Fimg.png)
 
----
 ## Component Diagram
 ![component-diagram.png](Assets%2Fcomponent-diagram.png)
 
