@@ -94,9 +94,9 @@ public class OptimizerTests(ITestOutputHelper testOutputHelper) // Constructor i
         /// 4. Continue this process until the heat demand is fulfilled or all units are used.
         /// </summary>
         /// <returns>A dictionary representing the time series data, where the key is the heat demand and the value is a dictionary of boiler operation data.</returns>
-        public Dictionary<double, Dictionary<string, double>>? CreateTimeSeriesData()
+        public Dictionary<double, Dictionary<string, double>>? CreateDemandScenarioData()
         {
-            Dictionary<double, Dictionary<string, double>> timeSeriesData = new();
+            Dictionary<double, Dictionary<string, double>> demandScenarioData = new();
             ;
             const int stubMaxHeatDemand = 9;
 
@@ -117,10 +117,10 @@ public class OptimizerTests(ITestOutputHelper testOutputHelper) // Constructor i
                     remainingHeatDemand -= operationPoint * unit.MaxHeat;
 
                 }
-                timeSeriesData[heatDemand] = boilerOperationData;
+                demandScenarioData[heatDemand] = boilerOperationData;
             }
 
-            return timeSeriesData;
+            return demandScenarioData;
         }
     }
 
@@ -288,15 +288,15 @@ public class OptimizerTests(ITestOutputHelper testOutputHelper) // Constructor i
     /// Generates time series data for heat demand step, ensuring correct data is returned.
     /// </summary>
     /// <remarks>
-    /// This method tests the <see cref="StubOptimizer.CreateTimeSeriesData"/> method by comparing the expected keys against the actual data.
+    /// This method tests the <see cref="StubOptimizer.CreateDemandScenarioData"/> method by comparing the expected keys against the actual data.
     /// It verifies that the generated time series data contains all the expected keys from 0 to 9.0 in steps of 0.1.
     /// </remarks>
     [Fact]
-    public void CreateTimeSeriesData_HeatDemandStepIsCorrect()
+    public void CreateDemandScenarioData_HeatDemandStepIsCorrect()
     {
         // Arrange
         _optimizer.CompareUnits(_gasBoiler, _oilBoiler);
-        Dictionary<double, Dictionary<string, double>>? actualData = _optimizer.CreateTimeSeriesData();
+        Dictionary<double, Dictionary<string, double>>? actualData = _optimizer.CreateDemandScenarioData();
 
         // Act
         // Create expectedKeys list from 0 to 9.0 in 0.1 steps.
@@ -323,19 +323,19 @@ public class OptimizerTests(ITestOutputHelper testOutputHelper) // Constructor i
         testOutputHelper.WriteLine("All expected keys are present in the actual data.");
     }
     /// <summary>
-    /// Test method to verify that the CreateTimeSeriesData method returns the correct data when the heat demand is nine.
+    /// Test method to verify that the CreateDemandScenarioData method returns the correct data when the heat demand is nine.
     /// </summary>
     /// <remarks>
-    ///<see cref="StubOptimizer.CreateTimeSeriesData"/>
+    ///<see cref="StubOptimizer.CreateDemandScenarioData"/>
     /// This test method creates a StubOptimizer object and two StubProductionUnit objects: _gasBoiler and _oilBoiler.
     /// The expected operation points are defined in the dictionary expectedOperationPoints.
     /// The CompareUnits method of the StubOptimizer object is called with the _gasBoiler and _oilBoiler as parameters.
-    /// The CreateTimeSeriesData method of the StubOptimizer object is then called. The returned data is stored in the actualData variable.
+    /// The CreateDemandScenarioData method of the StubOptimizer object is then called. The returned data is stored in the actualData variable.
     /// If the actualData dictionary contains the key 9.0, the actual operation points for the gas boiler and oil boiler are retrieved.
     /// Finally, the test asserts that the actual operation points match the expected operation points.
     /// </remarks>
     [Fact]
-    public void CreateTimeSeriesData_WhenHeatDemandIsNine_ReturnsCorrectData()
+    public void CreateDemandScenarioData_WhenHeatDemandIsNine_ReturnsCorrectData()
     {
         // Arrange
         var expectedOperationPoints = new Dictionary<double, Dictionary<string, double>>()
@@ -345,7 +345,7 @@ public class OptimizerTests(ITestOutputHelper testOutputHelper) // Constructor i
 
         // Act
         _optimizer.CompareUnits(_gasBoiler, _oilBoiler);
-        Dictionary<double, Dictionary<string, double>>? actualData = _optimizer.CreateTimeSeriesData();
+        Dictionary<double, Dictionary<string, double>>? actualData = _optimizer.CreateDemandScenarioData();
 
         if (actualData?.ContainsKey(9.0) == true)
         {
