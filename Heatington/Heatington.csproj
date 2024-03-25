@@ -8,4 +8,8 @@
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="CsvHelper" Version="31.0.2" />
+    </ItemGroup>
+
 </Project>
