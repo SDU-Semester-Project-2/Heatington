@@ -22,7 +22,7 @@ public class ProductionUnitFs(string name, double operationPoint, double maxHeat
 
     public override string ToString()
     {
-        string s = string.Concat("Name: ", Name, " Operation point: ", operationPoint, " Production cost: ", productionCost,
+        string s = string.Concat("Name: ", Name, " Max heat: ", MaxHeat, " Production cost: ", productionCost,
             " Max electricity: ", MaxElectricity, " Gas consumption: ", gasConsumption, " Co2 emissions: ", co2Emissions);
         return s;
     }
