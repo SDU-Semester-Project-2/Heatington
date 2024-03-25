@@ -24,11 +24,7 @@ public class Optimizer
             _resultEntries.Add(new ResultHolder(entry.StartTime, entry.EndTime, numberOfBoilers));
         }
 
-        // Method which calculates based on the heating demand how many boilers are to be activated
-        // It assumes that the boilers are ordered by their efficiency / production cost
-        // It returns an int which represents how many boilers need to be activated
-        // ATTENTION: "0" boilers means only the first boiler as it references the index 0
-        // "2" would mean all boilers with index 0, 1, 2
+        // Method which calculates based on the heating demand how many boilers are to be activated.
         int CalculateHeatUnitsRequired(FrancescoEnergyData entry)
         {
             double totProductionCapacity = 0;
