@@ -1,25 +1,22 @@
 
+using Xunit.Abstractions;
+
 namespace Heatington.Tests;
 
 /// <summary>
 /// Contains unit tests for the Optimizer class.
 /// </summary>
-public class OptimizerTests
+public class OptimizerTests(ITestOutputHelper testOutputHelper)
 {
+    /// <summary>
+    /// This class represents an optimizer for production units.
+    /// </summary>
+    readonly StubOptimizer _optimizer = new StubOptimizer();
 
     /// <summary>
-    /// TODO: Delete the stub optimizer class and its methods and replace them with the actual implementation.
-    /// I'm not sure what the actual implementation should look like, so I'm just going to leave this here for now.
-    /// This is after my research the one way of TDD with a class that has no implementation yet.
-    /// After the actual implementation is done, the tests should be updated to reflect the actual implementation
-    /// and the stub class should be deleted.
+    /// Represents a gas boiler production unit.
     /// </summary>
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="StubOptimizer"/> class and StubProductionUnit class. <see cref="StubProductionUnit"/>
-    /// </summary>
-    StubOptimizer _optimizer = new StubOptimizer();
-    StubProductionUnit _gasBoiler = new StubProductionUnit(
+    readonly StubProductionUnit _gasBoiler = new StubProductionUnit(
         Guid.NewGuid(),
         "Gas Boiler",
         "img/gas-boiler.png",
@@ -30,7 +27,10 @@ public class OptimizerTests
         1.1, // MWh(gas)/MWh(th)
         215); // kgCO2/MWh(th)
 
-    StubProductionUnit _oilBoiler = new StubProductionUnit(
+    /// <summary>
+    /// Represents an oil boiler for heating.
+    /// </summary>
+    readonly StubProductionUnit _oilBoiler = new StubProductionUnit(
         Guid.NewGuid(),
         "Oil Boiler",
         "img/oil-boiler.png",
@@ -48,13 +48,26 @@ public class OptimizerTests
     /// </summary>
     private class StubOptimizer
     {
-        /// to store the optimized data for different heat demand levels.
+        /// <summary>
+        /// The optimized data for different heat demand levels.
+        /// </summary>
         private Dictionary<double, double> _optimizedData = new();
 
-        /// <summary>
-        /// Contains a sorted list of production units by production cost.
-        /// </summary>
-        private List<StubProductionUnit> _sortedUnitsByProductionCost = new();
+        /// The `_sortedUnitsByProductionCost` variable is a private variable in the `StubOptimizer` class.
+        /// It is a sorted list of production units based on their production cost.
+        /// The list is sorted in ascending order, with the production unit with the lowest cost at the beginning of the list.
+        /// The variable is initially an empty list.
+        /// The list is populated and updated when the `CompareUnits` method is called.
+        /// The `CompareUnits` method takes an array of `StubProductionUnit` objects as input.
+        /// It calculates the production cost for each unit and sorts them in ascending order based on the production cost.
+        /// The sorted list of production units is then assigned to the `_sortedUnitsByProductionCost` variable.
+        /// The `_sortedUnitsByProductionCost` variable is used internally within the `StubOptimizer` class.
+        /// It is used in the `CalculateNetProductionCost` and `CreateTimeSeriesData` methods.
+        /// @see `StubOptimizer.CompareUnits`
+        /// @see `StubOptimizer.CalculateNetProductionCost`
+        /// @see `StubOptimizer.CreateTimeSeriesData`
+        /// /
+        private List<StubProductionUnit> _sortedUnitsByProductionCost = [];
 
 
         /// <summary>
@@ -86,6 +99,11 @@ public class OptimizerTests
 
         /// <summary>
         /// Creates time series data for the optimized boiler operation based on heat demand.
+        /// Steps:
+        /// Starts from the most efficient unit (the first in the sorted list).
+        /// Tries to supply the current heat demand with this unit.
+        /// If the heat demand is higher than the max heat this unit can produce, move to add next efficient unit.
+        /// Continue this process until the heat demand is fulfilled or all units are used.
         /// </summary>
         /// <returns>A dictionary representing the time series data, where the key is the heat demand and the value is a dictionary of boiler operation data.</returns>
         public Dictionary<double, Dictionary<string, double>>? CreateTimeSeriesData()
@@ -171,9 +189,12 @@ public class OptimizerTests
         /// Represents the gas consumption of a production unit.
         /// </summary>
         public readonly double GasConsumption = gasConsumption;
+
+        /// <summary>
+        /// Represents the CO2 emission value of a production unit.
+        /// </summary>
         public readonly double Co2Emission = co2Emission;
     }
-
 
 
     /// <summary>
@@ -184,25 +205,33 @@ public class OptimizerTests
     public void CalculateNetProductionCost_GasBoiler_ReturnsCorrectValue()
     {
         // Arrange
+        double expected = _gasBoiler.ProductionCost;
 
         // Act
+        double result = _optimizer.CalculateNetProductionCost(_gasBoiler);
 
         // Assert
+        testOutputHelper.WriteLine($"Expected: {expected}, Result: {result}");
+        Assert.Equal(expected, result);
 
     }
 
     /// <summary>
     /// Calculates the net production cost for a gas boiler and ensures the result is a positive number.
     /// </summary>
-    /// <returns>The net production cost for a gas boiler, which should be positive</returns>
+    /// <returns>
+    /// The net production cost for a gas boiler, which should be positive.
+    /// </returns>
     [Fact]
     public void CalculateNetProductionCost_GasBoiler_ReturnsPositiveNumber()
     {
         // Arrange
 
         // Act
-
+        double result = _optimizer.CalculateNetProductionCost(_gasBoiler);
         // Assert
+        testOutputHelper.WriteLine($"Result: {result}");
+        Assert.True(result > 0);
 
     }
 
@@ -214,26 +243,30 @@ public class OptimizerTests
     public void CalculateNetProductionCost_OilBoiler_ReturnsCorrectValue()
     {
         // Arrange
-
+        double expected = _oilBoiler.ProductionCost;
         // Act
+        double result = _optimizer.CalculateNetProductionCost(_oilBoiler);
 
         // Assert
+        testOutputHelper.WriteLine($"Expected: {expected}, Result: {result}");
+        Assert.Equal(_oilBoiler.ProductionCost, result);
     }
 
     /// <summary>
     /// Calculates the net production cost for an oil boiler and verifies that it returns a positive number.
     /// </summary>
-    /// <return>
-    /// The net production cost for an oil boiler, which should be positive.
-    /// </return>
+    /// <returns>The net production cost for an oil boiler, which should be positive.</returns>
     [Fact]
     public void CalculateNetProductionCost_OilBoiler_ReturnsPositiveNumber()
     {
         // Arrange
 
         // Act
+        double result = _optimizer.CalculateNetProductionCost(_oilBoiler);
 
         // Assert
+        testOutputHelper.WriteLine($"Result: {result}");
+        Assert.True(result > 0);
     }
 
 
@@ -247,30 +280,38 @@ public class OptimizerTests
     /// This method is used to test the correctness of comparing gas boiler and oil boiler units.
     /// </remarks>
     [Fact]
-    public void CompareUnits_GasAndOilBoiler_ReturnsCorrectComparisionResult()
+    public void CompareUnits_GasAndOilBoiler_ReturnsCorrectComparisonResult()
     {
         // Arrange
+        List<StubProductionUnit> expected = [_gasBoiler, _oilBoiler];
 
         // Act
+        List<StubProductionUnit> result = _optimizer.CompareUnits(_gasBoiler, _oilBoiler);
+
+        // Represent each list as a string
+        string expectedToStr = string.Join(", ", expected.Select(x => $"Name: {x.Name}, ProductionCost: {x.ProductionCost}"));
+        string resultToStr = string.Join(", ", result.Select(x => $"Name: {x.Name}, ProductionCost: {x.ProductionCost}"));
 
         // Assert
+        testOutputHelper.WriteLine($"Expected: {expectedToStr}, Result: {resultToStr}");
+        Assert.Equal(expected, result);
     }
 
     /// <summary>
-    /// Tests the method to create time series data with optimized data and returns a boolean indicating success.
+    /// Calculates the net production cost for a gas boiler and returns the correct value.
     /// </summary>
-    /// <returns>
-    /// true if the method successfully creates time series data with optimized data, false otherwise.
-    /// </returns>
+    /// <returns>The net production cost for a gas boiler.</returns>
     [Fact]
-    public void CreateTimeSeriesData_OptimizedData_ReturnsSuccessBool()
+    public void CreateTimeSeriesData_WithSortedUnits_ReturnsCorrectData()
     {
         // Arrange
-
         // Act
-
         // Assert
+
     }
+
+
+
 }
 
 
