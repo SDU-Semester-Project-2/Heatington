@@ -7,6 +7,7 @@ public class Optimizer
     private List<ProductionUnitFs> _pUnits = new List<ProductionUnitFs>();
     private List<FrancescoEnergyData> _energyDataEntries = new List<FrancescoEnergyData>();
     private List<ResultHolder> _resultEntries = new List<ResultHolder>();
+
     public void OptimizerScenario1()
     {
         GetProductionUnits();
@@ -14,20 +15,21 @@ public class Optimizer
 
         // Sorts the production Units by their production cost.
         _pUnits = _pUnits.OrderBy(o => o.ProductionCost).ToList();
+
         int numberOfBoilers = 0;
 
         foreach (var entry in _energyDataEntries)
         {
-            numberOfBoilers = HelloHello(entry);
+            numberOfBoilers = CalculateHeatUnitsRequired(entry);
             _resultEntries.Add(new ResultHolder(entry.StartTime, entry.EndTime, numberOfBoilers));
         }
 
-        foreach (var entry in _resultEntries)
-        {
-            Console.WriteLine(entry.ToString());
-        }
-
-        int HelloHello(FrancescoEnergyData entry)
+        // Method which calculates based on the heating demand how many boilers are to be activated
+        // It assumes that the boilers are ordered by their efficiency / production cost
+        // It returns an int which represents how many boilers need to be activated
+        // ATTENTION: "0" boilers means only the first boiler as it references the index 0
+        // "2" would mean all boilers with index 0, 1, 2
+        int CalculateHeatUnitsRequired(FrancescoEnergyData entry)
         {
             double totProductionCapacity = 0;
             int i = 0;
