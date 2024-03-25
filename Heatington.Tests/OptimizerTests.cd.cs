@@ -12,15 +12,43 @@ public class OptimizerTests
     /// I'm not sure what the actual implementation should look like, so I'm just going to leave this here for now.
     /// This is after my research the one way of TDD with a class that has no implementation yet.
     /// </summary>
-    public class Optimizer
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StubOptimizer"/> class and StubProductionUnit class. <see cref="StubProductionUnit"/>
+    /// </summary>
+    StubOptimizer _optimizer = new StubOptimizer();
+    StubProductionUnit _gasBoiler = new StubProductionUnit(
+        Guid.NewGuid(),
+        "Gas Boiler",
+        "img/gas-boiler.png",
+        0, // TODO: Set the correct value for operation point, this is just a placeholder.
+        5, // MWh(th)
+        500, // DKK/MWh(th)
+        0,
+        1.1, // MWh(gas)/MWh(th)
+        215); // kgCO2/MWh(th)
+
+    StubProductionUnit _oilBoiler = new StubProductionUnit(
+        Guid.NewGuid(),
+        "Oil Boiler",
+        "img/oil-boiler.png",
+        0, // TODO: Set the correct value for operation point, this is just a placeholder.
+        4, // MWh(th)
+        700, // DKK/MWh(th)
+        0,
+        1.2, // MWh(oil)/MWh(th)
+        265); // kgCO2/MWh(th)
+
+
+    private class StubOptimizer
     {
-        private Dictionary<string, double> _optimizedData = new Dictionary<string, double>();
-        public double CalculateNetProductionCost(ProductionUnit unit)
+        private Dictionary<double, double> _optimizedData = new Dictionary<double, double>();
+        public double CalculateNetProductionCost(StubProductionUnit unit)
         {
             return 0;
         }
 
-        public bool CompareUnits(ProductionUnit unit1, ProductionUnit unit2)
+        public bool CompareUnits(StubProductionUnit unit1, StubProductionUnit unit2)
         {
             return true;
         }
@@ -31,7 +59,7 @@ public class OptimizerTests
         }
     }
 
-    public class ProductionUnit(
+    private class StubProductionUnit(
         Guid id,
         string name,
         string imgPath,
@@ -52,6 +80,7 @@ public class OptimizerTests
         private double _gasConsumption = gasConsumption;
         private double _co2Emission = co2Emission;
     }
+
 
 
     /// <summary>
