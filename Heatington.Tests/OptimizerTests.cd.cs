@@ -1,3 +1,4 @@
+
 namespace Heatington.Tests;
 
 /// <summary>
@@ -5,6 +6,54 @@ namespace Heatington.Tests;
 /// </summary>
 public class OptimizerTests
 {
+
+    /// <summary>
+    /// TODO: Delete the stub optimizer class and its methods and replace them with the actual implementation.
+    /// I'm not sure what the actual implementation should look like, so I'm just going to leave this here for now.
+    /// This is after my research the one way of TDD with a class that has no implementation yet.
+    /// </summary>
+    public class Optimizer
+    {
+        private Dictionary<string, double> _optimizedData = new Dictionary<string, double>();
+        public double CalculateNetProductionCost(ProductionUnit unit)
+        {
+            return 0;
+        }
+
+        public bool CompareUnits(ProductionUnit unit1, ProductionUnit unit2)
+        {
+            return true;
+        }
+
+        public bool CreateTimeSeriesData()
+        {
+            return true;
+        }
+    }
+
+    public class ProductionUnit(
+        Guid id,
+        string name,
+        string imgPath,
+        double operationPoint,
+        double maxHeat,
+        double productionCost,
+        double maxElectricity,
+        double gasConsumption,
+        double co2Emission)
+    {
+        private Guid _id = id;
+        private string _name = name;
+        private string _imgPath = imgPath;
+        private double _operationPoint = operationPoint;
+        private double _maxHeat = maxHeat;
+        private double _productionCost = productionCost;
+        private double _maxElectricity = maxElectricity;
+        private double _gasConsumption = gasConsumption;
+        private double _co2Emission = co2Emission;
+    }
+
+
     /// <summary>
     /// Calculates the net production cost for a gas boiler and returns the correct value.
     /// </summary>
@@ -101,3 +150,5 @@ public class OptimizerTests
         // Assert
     }
 }
+
+
