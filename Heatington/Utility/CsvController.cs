@@ -17,10 +17,12 @@ namespace CsvHandle
             {
                 throw new Exception("Number of fields not consistent throughout csv.");
             }
+
             if (header != null && header.Length != numberOfFields)
             {
                 throw new Exception("Number of fields in csv header does not match number of fields in csv body.");
             }
+
             Table = data;
             Header = header;
         }
@@ -52,28 +54,37 @@ namespace CsvHandle
             }
             else
             {
-                ConstructorInfo[] csvConstructors = allCtors.Where(x => Attribute.IsDefined(x, typeof(CsvConstructorAttribute))).ToArray();
+                ConstructorInfo[] csvConstructors =
+                    allCtors.Where(x => Attribute.IsDefined(x, typeof(CsvConstructorAttribute))).ToArray();
                 if (csvConstructors.Length == 0)
                 {
-                    throw new Exception($"The type '{typeof(T)}' must have at one constructor with CsvConsturcotrAttribute.");
+                    throw new Exception(
+                        $"The type '{typeof(T)}' must have at one constructor with CsvConsturcotrAttribute.");
                 }
                 else if (csvConstructors.Length > 1)
                 {
-                    throw new Exception($"The type '{typeof(T)}' must have at most one constructor with CsvConsturcotrAttribute.");
+                    throw new Exception(
+                        $"The type '{typeof(T)}' must have at most one constructor with CsvConsturcotrAttribute.");
                 }
                 else
                 {
                     ctor = csvConstructors[0];
                 }
             }
+
             ParameterInfo[] parameters = ctor.GetParameters();
-            Dictionary<string, ParameterInfo> paramDict = parameters.ToDictionary(param => param.Name ?? throw new Exception("Expected parameter from parameter list, got return parameter."), param => param);
+            Dictionary<string, ParameterInfo> paramDict = parameters.ToDictionary(
+                param => param.Name ??
+                         throw new Exception("Expected parameter from parameter list, got return parameter."),
+                param => param);
 
             List<T> res = new();
             if (parameters.Length != Table[0].Length)
             {
-                throw new Exception($"Number of parameters in {typeof(T)}'s constructor does not match number of entries in a record of the CsvTable.");
+                throw new Exception(
+                    $"Number of parameters in {typeof(T)}'s constructor does not match number of entries in a record of the CsvTable.");
             }
+
             bool useHeader = checkMatchesParameters(paramDict);
             foreach (string[] values in Table)
             {
@@ -84,14 +95,17 @@ namespace CsvHandle
                     var value = Convert.ChangeType(values[i], currentParam.ParameterType);
                     parameterValues[currentParam.Position] = value;
                 }
+
                 res.Add((T)ctor.Invoke(parameterValues));
             }
+
             return res;
         }
 
         private bool checkMatchesParameters(Dictionary<string, ParameterInfo> paramDict)
         {
-            return (Header != null) && (Header.Distinct().Count() == Header.Length) && Array.TrueForAll(Header, x => paramDict.ContainsKey(x));
+            return (Header != null) && (Header.Distinct().Count() == Header.Length) &&
+                   Array.TrueForAll(Header, x => paramDict.ContainsKey(x));
         }
     }
 
@@ -108,25 +122,26 @@ namespace CsvHandle
         public static CsvData Deserialize(string rawData, bool includesHeader)
         {
             State currentState = State.Start;
-            
+
             int i = 0;
             List<string> currentRecord = new();
             List<string[]> all = new();
             string currentEntry = "";
-            while(true)
+            while (true)
             {
-                if(currentState == State.Start)
+                if (currentState == State.Start)
                 {
-                    if(!(i < rawData.Length))
+                    if (!(i < rawData.Length))
                     {
-                        if(currentEntry == "" && currentRecord.Count == 0)
+                        if (currentEntry == "" && currentRecord.Count == 0)
                         {
                             break;
                         }
+
                         currentState = State.Start;
                         currentRecord.Add(currentEntry);
                         all.Add(currentRecord.ToArray());
-                        currentRecord.Clear();                       
+                        currentRecord.Clear();
                         break;
                     }
                     else if (rawData[i] == '"')
@@ -151,9 +166,9 @@ namespace CsvHandle
                         currentEntry += rawData[i];
                     }
                 }
-                else if(currentState == State.UnquotedEntry)
+                else if (currentState == State.UnquotedEntry)
                 {
-                    if(!(i < rawData.Length))
+                    if (!(i < rawData.Length))
                     {
                         currentState = State.Start;
                         currentRecord.Add(currentEntry);
@@ -164,7 +179,8 @@ namespace CsvHandle
                     }
                     else if (rawData[i] == '"')
                     {
-                        throw new Exception("To have a '\"' character in a CSV entry you need to encoles the entry with '\"' and escape the required '\"' with another '\"'.");
+                        throw new Exception(
+                            "To have a '\"' character in a CSV entry you need to encoles the entry with '\"' and escape the required '\"' with another '\"'.");
                     }
                     else if (rawData[i] == '\n')
                     {
@@ -185,9 +201,9 @@ namespace CsvHandle
                         currentEntry += rawData[i];
                     }
                 }
-                else if(currentState == State.QuotedEntry)
+                else if (currentState == State.QuotedEntry)
                 {
-                    if(!(i < rawData.Length))
+                    if (!(i < rawData.Length))
                     {
                         throw new Exception("All entries opened with '\"' have to be closed.");
                     }
@@ -200,9 +216,9 @@ namespace CsvHandle
                         currentEntry += rawData[i];
                     }
                 }
-                else if(currentState == State.AnotherQuote)
+                else if (currentState == State.AnotherQuote)
                 {
-                    if(!(i < rawData.Length))
+                    if (!(i < rawData.Length))
                     {
                         currentState = State.Start;
                         currentRecord.Add(currentEntry);
@@ -216,7 +232,7 @@ namespace CsvHandle
                         currentState = State.QuotedEntry;
                         currentEntry += rawData[i];
                     }
-                    else if(rawData[i] == '\n')
+                    else if (rawData[i] == '\n')
                     {
                         currentState = State.Start;
                         currentRecord.Add(currentEntry);
@@ -235,6 +251,7 @@ namespace CsvHandle
                         throw new Exception("'\"' characters have to be escaped with '\"' characters.");
                     }
                 }
+
                 i++;
             }
 
@@ -242,7 +259,6 @@ namespace CsvHandle
                 includesHeader ? all[1..] : all,
                 includesHeader ? all[0] : null
             );
-
         }
 
         public static string Serialize(CsvData data, bool includeHeaderIfNotNull = true)
@@ -252,27 +268,23 @@ namespace CsvHandle
                 data.Table.Select(
                     arr => arr.Select(
                         str =>
-                        requiresQuotes.Any(chr => str.Contains(chr))
-                        ?
-                        '"' + String.Join("\"\"", str.Split('"')) + '"'
-                        :
-                        str
+                            requiresQuotes.Any(chr => str.Contains(chr))
+                                ? '"' + String.Join("\"\"", str.Split('"')) + '"'
+                                : str
                     ).ToArray()
                 ).ToList();
 
-            string[]? escapedHeader = data.Header != null ?
-                data.Header.Select(
+            string[]? escapedHeader = data.Header != null
+                ? data.Header.Select(
                     str =>
-                    requiresQuotes.Any(chr => str.Contains(chr))
-                    ?
-                    '"' + String.Join("\"\"", str.Split('"')) + '"'
-                    :
-                    str
+                        requiresQuotes.Any(chr => str.Contains(chr))
+                            ? '"' + String.Join("\"\"", str.Split('"')) + '"'
+                            : str
                 ).ToArray()
                 : null;
 
             return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) : "") + '\n' +
-                    String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
+                   String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
         }
     }
 }
