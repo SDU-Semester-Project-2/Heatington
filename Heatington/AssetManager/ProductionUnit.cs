@@ -21,6 +21,7 @@ public class ProductionUnit
             {
                 throw new ArgumentOutOfRangeException("OperationPoint must be between 0 and 1");
             }
+
             _operationPoint = value;
         }
     }
@@ -31,30 +32,33 @@ public class ProductionUnit
         Id = Guid.NewGuid();
         Name = name;
         PicturePath = picturePath;
-        OperationPoint = 0;                 // operation point set to 0 on default, meaning when created it is turned off
+        OperationPoint = 0; // operation point set to 0 on default, meaning when created it is turned off
         MaxHeat = maxHeat;
         ProductionCost = productionCost;
-        MaxElectricity = maxElectricity;    // not every unit has electricity, in that case set the value to 0
-        GasConsumption = gasConsumption;    // not every unit has gas, in that case set the value to 0
-        Co2Emission = co2Emission;          // not every unit has co2 emission, in that case set the value to 0
+        MaxElectricity = maxElectricity; // not every unit has electricity, in that case set the value to 0
+        GasConsumption = gasConsumption; // not every unit has gas, in that case set the value to 0
+        Co2Emission = co2Emission; // not every unit has co2 emission, in that case set the value to 0
     }
 
     public override string ToString()
     {
         if (MaxElectricity != 0 && GasConsumption == 0)
         {
-            return $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
-                   $"Max Electricity:{MaxElectricity}";
+            return
+                $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                $"Max Electricity:{MaxElectricity}";
         }
         else if (MaxElectricity == 0 && GasConsumption != 0)
         {
-            return $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
-                   $"Gas Consumption:{GasConsumption}, CO2 Emission:{Co2Emission}";
+            return
+                $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                $"Gas Consumption:{GasConsumption}, CO2 Emission:{Co2Emission}";
         }
         else
         {
-            return $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
-                   $"Max Electricity:{MaxElectricity}, Gas Consumption:{GasConsumption}, CO2 Emission:{Co2Emission}";
+            return
+                $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                $"Max Electricity:{MaxElectricity}, Gas Consumption:{GasConsumption}, CO2 Emission:{Co2Emission}";
         }
     }
 }
