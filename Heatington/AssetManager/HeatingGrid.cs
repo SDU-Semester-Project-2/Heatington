@@ -3,13 +3,13 @@ namespace Heatington.AssetManager;
 public class HeatingGrid
 {
     public Guid Id { get; set; }
-    public string Picture { get; set; } //path to picture of the grid
+    public string PicturePath { get; set; }
     public string Name { get; set; }
 
-    public HeatingGrid(string picture, string name)
+    public HeatingGrid(string picturePath, string name)
     {
         Id = Guid.NewGuid();
-        Picture = picture;
+        PicturePath = picturePath;
         Name = name;
     }
 }
