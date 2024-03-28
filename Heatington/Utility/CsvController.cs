@@ -2,26 +2,29 @@ namespace CsvHandle
 {
     class CsvData
     {
-        public List<string[]> Data {get; set;}
+        public List<string[]> Table { get; set; }
 
         public CsvData(List<string[]> data)
         {
-            Data = data;
+            Table = data.Select(x => x.Select(y => y.ToString()).ToArray()).ToList();
+            int numberOfFields = Table[0].Length;
+            if (!Table.TrueForAll(x => x.Length == numberOfFields))
+            {
+                throw new Exception("Number of fields not consistent throughout csv.");
+            }
         }
 
         public List<T> ConvertRecords<T>() where T : new()
         {
             List<T> res = new();
             var properties = typeof(T).GetProperties();
-            if (properties.Length != Data[0].Length)
+            if (properties.Length != Table[0].Length)
             {
-                throw new Exception($"Number of properties in {typeof(T)} does not match number of entries in one record of the CsvData.");
+                throw new Exception($"Number of properties in {typeof(T)} does not match number of entries in one record of the CsvTable.");
             }
-            foreach (string[] values in Data)
+            foreach (string[] values in Table)
             {
                 var obj = new T();
-
-                Console.WriteLine(properties.Length);
                 for (int i = 0; i < properties.Length && i < values.Length; i++)
                 {
                     var propertyType = properties[i].PropertyType;
@@ -34,34 +37,16 @@ namespace CsvHandle
         }
     }
 
-    class CsvController// : IReadWriteController
+    static class CsvController
     {
-        private string _PathToFile;
-
-        public CsvController(string _PathToFile)
+        public static CsvData Deserialize(string rawData)
         {
-            this._PathToFile = _PathToFile;
+            return new CsvData(
+                rawData.Split("\n", StringSplitOptions.RemoveEmptyEntries)
+                .Select(x => x.Split(",", StringSplitOptions.TrimEntries))
+                .ToList()
+            );
         }
 
-        public CsvData ReadData()
-        {
-            List<string[]> res = new();
-            int? numberOfFields = null;
-            using (StreamReader sr = new(_PathToFile))
-            {
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    string[] data = line.Split(",");
-                    numberOfFields = numberOfFields ?? data.Length;
-                    if (data.Length != numberOfFields)
-                    {
-                        throw new Exception("Number of fields not consistent.");
-                    }
-                    res.Add(data);
-                }
-            }
-            return new CsvData(res);
-        }
     }
 }
