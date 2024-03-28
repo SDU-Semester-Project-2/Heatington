@@ -22,6 +22,10 @@ public class FileController : IReadWriteController
         _path = pathToFile;
     }
 
+    /// <summary>
+    /// Simple eye-candy for better readability of errors
+    /// </summary>
+    /// <param name="message">Error message to display</param>
     private static void DisplayException(string message)
     {
         Console.ForegroundColor = ConsoleColor.Red;
@@ -29,6 +33,12 @@ public class FileController : IReadWriteController
         Console.ResetColor();
     }
 
+    /// <summary>
+    /// Helper method performing try-catch clauses in file oriented manner
+    /// </summary>
+    /// <param name="funcToTry">Function to run inside of try-catch block</param>
+    /// <typeparam name="T">Return type of a function</typeparam>
+    /// <returns>Return the outcome of run function, if function return void, make the lambda function to return 0</returns>
     private T TryFileOperationRunner<T>(Func<T> funcToTry)
     {
         try
@@ -68,6 +78,10 @@ public class FileController : IReadWriteController
         return fileContent;
     }
 
+    /// <summary>
+    /// Function for writing string data into a local file from a path
+    /// </summary>
+    /// <param name="content">Content to be written to a file as a string</param>
     private void WriteToFileFromPath(string content)
     {
         TryFileOperationRunner(() =>
