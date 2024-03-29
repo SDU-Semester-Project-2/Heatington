@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace CsvHandle
 {
     class CsvData
@@ -6,12 +8,26 @@ namespace CsvHandle
 
         public CsvData(List<string[]> data)
         {
-            Table = data.Select(x => x.Select(y => y.ToString()).ToArray()).ToList();
+            Table = data;
             int numberOfFields = Table[0].Length;
             if (!Table.TrueForAll(x => x.Length == numberOfFields))
             {
                 throw new Exception("Number of fields not consistent throughout csv.");
             }
+        }
+
+        public static CsvData Create<T>(List<T> data)
+        {
+            PropertyInfo[] props = typeof(T).GetProperties();
+            List<string[]> res = data.Select(
+                x => props.Select(
+                    prop => {
+                        object? value = prop.GetValue(x);
+                        return value != null ? value.ToString() : "";
+                    }
+                ).ToArray()
+            ).ToList();
+            return new CsvData(res);
         }
 
         public List<T> ConvertRecords<T>() where T : new()
