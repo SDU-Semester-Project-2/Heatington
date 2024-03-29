@@ -48,5 +48,9 @@ namespace CsvHandle
             );
         }
 
+        public static string Serialize(CsvData data)
+        {
+            return String.Join("\n", data.Table.Select(x => String.Join(", ", x)));
+        }
     }
 }
