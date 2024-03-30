@@ -2,6 +2,9 @@ using System.Reflection;
 
 namespace CsvHandle
 {
+    [System.AttributeUsage(System.AttributeTargets.Constructor, AllowMultiple=false)]
+    public sealed class CsvConstructorAttribute : Attribute;
+
     class CsvData
     {
         public List<string[]> Table { get; set; }
@@ -36,26 +39,57 @@ namespace CsvHandle
             return new CsvData(res);
         }
 
-        public List<T> ConvertRecords<T>() where T : new()
+        public List<T> ConvertRecords<T>()
         {
-            List<T> res = new();
-            PropertyInfo[] properties = typeof(T).GetProperties();
-            if (properties.Length != Table[0].Length)
+            ConstructorInfo ctor;
+            ConstructorInfo[] allCtors = typeof(T).GetConstructors();
+            Console.WriteLine(allCtors.Length);
+            if(allCtors.Length == 1)
             {
-                throw new Exception($"Number of properties in {typeof(T)} does not match number of entries in one record of the CsvTable.");
+                ctor = allCtors[0];
             }
+            else
+            {
+                ConstructorInfo[] csvConstructors = allCtors.Where(x => Attribute.IsDefined(x, typeof(CsvConstructorAttribute))).ToArray();
+                if(csvConstructors.Length == 0)
+                {
+                    throw new Exception($"The type '{typeof(T)}' must have at one constructor with CsvConsturcotrAttribute.");
+                }
+                else if(csvConstructors.Length > 1)
+                {
+                    throw new Exception($"The type '{typeof(T)}' must have at most one constructor with CsvConsturcotrAttribute.");
+                }
+                else
+                {
+                    ctor = csvConstructors[0];
+                }
+            }
+            ParameterInfo[] parameters = ctor.GetParameters();
+            Dictionary<string, ParameterInfo> paramDict = parameters.ToDictionary(param => param.Name, param => param);
+
+            List<T> res = new();
+            if (parameters.Length != Table[0].Length)
+            {
+                throw new Exception($"Number of parameters in {typeof(T)}'s constructor does not match number of entries in a record of the CsvTable.");
+            }
+            bool useHeader = Header != null && checkMatchesParameters(paramDict);
             foreach (string[] values in Table)
             {
-                T obj = new T();
-                for (int i = 0; i < properties.Length; i++)
+                object[] parameterValues = new object[parameters.Length];
+                for (int i = 0; i < parameters.Length; i++)
                 {
-                    Type propertyType = properties[i].PropertyType;
-                    var value = Convert.ChangeType(values[i], propertyType);
-                    properties[i].SetValue(obj, value);
+                    ParameterInfo currentParam = useHeader ? paramDict[Header[i]] : parameters[i];
+                    var value = Convert.ChangeType(values[i], currentParam.ParameterType);
+                    parameterValues[currentParam.Position] = value;
                 }
-                res.Add(obj);
+                res.Add((T) ctor.Invoke(parameterValues));
             }
             return res;
+        }
+
+        private bool checkMatchesParameters(Dictionary<string, ParameterInfo> paramDict)
+        {
+            return (Header.Distinct().Count() == Header.Length) && Array.TrueForAll(Header, x => paramDict.ContainsKey(x));
         }
     }
 
