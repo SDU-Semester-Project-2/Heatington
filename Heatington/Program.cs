@@ -1,1 +1,9 @@
-﻿Console.WriteLine("Hello, World!");
+namespace Heatington
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
