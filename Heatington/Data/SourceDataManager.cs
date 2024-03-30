@@ -92,24 +92,23 @@ namespace Heatington.Data
                 return;
             }
 
-            // Define Danish culture
-            CultureInfo danishCulture = new CultureInfo("da-DK");
-
-            // Define Danish time zone (Central European Time)
-            TimeZoneInfo danishTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
-
             foreach (DataPoint dataPoint in TimeSeriesData)
             {
                 // Convert UTC time to Danish local time
+                TimeZoneInfo danishTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
                 DateTime startTimeInDanish = TimeZoneInfo.ConvertTimeFromUtc(dataPoint.StartTime, danishTimeZone);
                 DateTime endTimeInDanish = TimeZoneInfo.ConvertTimeFromUtc(dataPoint.EndTime, danishTimeZone);
 
-                // Log the data in console with Danish culture and Danish local time, and add "MWh" to Heat Demand and Electricity Price
+                // Format times as "dd.MM.yyyy HH:mm"
+                string formattedStart = startTimeInDanish.ToString("dd.MM.yyyy HH:mm");
+                string formattedEnd = endTimeInDanish.ToString("dd.MM.yyyy HH:mm");
+
+                // Log the data in console and add "MWh" to Heat Demand and Electricity Price
                 Console.WriteLine(
-                    $"Start Time: {startTimeInDanish.ToString(danishCulture)}; " +
-                    $"End Time: {endTimeInDanish.ToString(danishCulture)}; " +
-                    $"Heat Demand: {dataPoint.HeatDemand.ToString(danishCulture)} MWh; " +
-                    $"Electricity Price: {dataPoint.ElectricityPrice.ToString(danishCulture)} DKK/MWh");
+                    $"Start Time: {formattedStart}; " +
+                    $"End Time: {formattedEnd}; " +
+                    $"Heat Demand: {dataPoint.HeatDemand} MWh; " +
+                    $"Electricity Price: {dataPoint.ElectricityPrice} DKK/MWh");
             }
         }
     }
