@@ -53,11 +53,11 @@ public class Optimizer
 
         foreach (var entry in _resultEntries)
         {
-            hourlyProductionCost = GetCost(entry.NumberOfBoilers);
+            hourlyProductionCost = GetTotalCost(entry.NumberOfBoilers);
             Console.WriteLine(hourlyProductionCost + "\tkr");
         }
 
-        double GetCost(int numberOfBoilers)
+        double GetTotalCost(int numberOfBoilers)
         {
             double totalCost = 0;
 
