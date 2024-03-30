@@ -1,22 +1,18 @@
-namespace Heatington.Models;
-
-/// <summary>
-/// Represents a data point containing information about time, heat demand, and electricity price.
-/// </summary>
-public class DataPoint
+namespace Heatington.Models
 {
-    /// <summary>
-    /// Represents the time of a data point.
-    /// </summary>
-    public DateTime Time { get; set; }
+    public class DataPoint
+    {
+        public DataPoint(DateTime startTime, DateTime endTime, double heatDemand,double electricityPrice)
+        {
+            StartTime = startTime;
+            EndTime = endTime;
+            HeatDemand = heatDemand / 100.0; // Convert to kWh
+            ElectricityPrice = electricityPrice / 100.0; // Convert to DKK
+        }
 
-    /// <summary>
-    /// Represents the heat demand value for a specific time.
-    /// </summary>
-    public double HeatDemand { get; set; }
-
-    /// <summary>
-    /// Represents the electricity price for a specific data point.
-    /// </summary>
-    public double ElectricityPrice  { get; set; }
+        public DateTime StartTime { get; }
+        public DateTime EndTime { get; }
+        public double HeatDemand { get; }
+        public double ElectricityPrice { get; }
+    }
 }
