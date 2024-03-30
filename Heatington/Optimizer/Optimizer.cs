@@ -16,6 +16,12 @@ public class Optimizer
         // Sorts the production Units by their production cost.
         _pUnits = _pUnits.OrderBy(o => o.ProductionCost).ToList();
 
+        ComputeAndStoreBoilerCounts(); 
+
+    }
+
+    private bool ComputeAndStoreBoilerCounts()
+    {
         int numberOfBoilers = 0;
 
         foreach (var entry in _energyDataEntries)
@@ -23,6 +29,8 @@ public class Optimizer
             numberOfBoilers = CalculateHeatUnitsRequired(entry);
             _resultEntries.Add(new ResultHolder(entry.StartTime, entry.EndTime, numberOfBoilers));
         }
+
+        return true;
     }
 
     private int CalculateHeatUnitsRequired(FrancescoEnergyData entry)
