@@ -22,7 +22,15 @@ namespace Heatington.Data
 
         public void FetchTimeSeriesData()
         {
-            TimeSeriesData = _dataSource.GetData(FilePath);
+            Console.WriteLine("Start fetching time series data from the data source...");
+            try
+            {
+                TimeSeriesData = _dataSource.GetData(FilePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while fetching time series data: " + ex.Message);
+            }
         }
 
         public void LogTimeSeriesData()
