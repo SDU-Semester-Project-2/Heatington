@@ -1,7 +1,4 @@
 ﻿using Heatington.Data;
-using Heatington.Models;
-using System;
-using System.Globalization;
 
 namespace Heatington
 {
