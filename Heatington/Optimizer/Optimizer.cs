@@ -24,27 +24,28 @@ public class Optimizer
             _resultEntries.Add(new ResultHolder(entry.StartTime, entry.EndTime, numberOfBoilers));
         }
 
-        // Method which calculates based on the heating demand how many boilers are to be activated.
-        int CalculateHeatUnitsRequired(FrancescoEnergyData entry)
+
+    }
+
+    private int CalculateHeatUnitsRequired(FrancescoEnergyData entry)
+    {
+        double totProductionCapacity = 0;
+        int i = 0;
+
+        totProductionCapacity += _pUnits[i].MaxHeat;
+
+        while (entry.HeatDemandMwh > totProductionCapacity)
         {
-            double totProductionCapacity = 0;
-            int i = 0;
-
             totProductionCapacity += _pUnits[i].MaxHeat;
+            i++;
 
-            while (entry.HeatDemandMwh > totProductionCapacity)
+            if (i > _pUnits.Count)
             {
-                totProductionCapacity += _pUnits[i].MaxHeat;
-                i++;
-
-                if (i > _pUnits.Count)
-                {
-                    Console.WriteLine("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
-                    throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
-                }
+                Console.WriteLine("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
+                throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
             }
-            return i;
         }
+        return i;
     }
 
     // Method which calculates Hourly NetProductionCost for heat only boilers
