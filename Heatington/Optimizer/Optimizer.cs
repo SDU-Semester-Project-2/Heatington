@@ -23,8 +23,6 @@ public class Optimizer
             numberOfBoilers = CalculateHeatUnitsRequired(entry);
             _resultEntries.Add(new ResultHolder(entry.StartTime, entry.EndTime, numberOfBoilers));
         }
-
-
     }
 
     private int CalculateHeatUnitsRequired(FrancescoEnergyData entry)
@@ -49,7 +47,7 @@ public class Optimizer
     }
 
     // Method which calculates Hourly NetProductionCost for heat only boilers
-    public void NetProductionCost()
+    public void CalculateNetProductionCost()
     {
         double hourlyProductionCost = 0;
 
