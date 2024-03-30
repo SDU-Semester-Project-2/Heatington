@@ -1,7 +1,7 @@
 using CsvHelper.Configuration.Attributes;
 
 namespace Heatington.Optimizer;
-public class FrancescoEnergyData
+public class EnergyData
 {
     [Index(0)]
     public DateTime StartTime { get; set; }

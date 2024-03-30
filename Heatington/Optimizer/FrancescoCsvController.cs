@@ -7,9 +7,9 @@ namespace Heatington.Optimizer;
 
 public class FrancescoCsvController(string pathToFile)
 {
-    public List<FrancescoEnergyData> ReadTimeSeriesEnergyData()
+    public List<EnergyData> ReadTimeSeriesEnergyData()
     {
-        IEnumerable<FrancescoEnergyData> timeSeries;
+        IEnumerable<EnergyData> timeSeries;
 
         CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
@@ -22,7 +22,7 @@ public class FrancescoCsvController(string pathToFile)
 
         try
         {
-            timeSeries = csvReader.GetRecords<FrancescoEnergyData>();
+            timeSeries = csvReader.GetRecords<EnergyData>();
         }
         catch (Exception e)
         {
@@ -30,7 +30,7 @@ public class FrancescoCsvController(string pathToFile)
             throw;
         }
 
-        List<FrancescoEnergyData> timeDataList = timeSeries.ToList();
+        List<EnergyData> timeDataList = timeSeries.ToList();
         return timeDataList;
     }
 }
