@@ -1,4 +1,4 @@
-using System.Globalization;
+using CsvHandle;
 using Heatington.Models;
 
 namespace Heatington.Data
@@ -13,24 +13,15 @@ namespace Heatington.Data
     public class CsvDataSource : IDataSource
     {
         /// <summary>
-        /// Retrieves the data points from the specified file path.
+        /// Retrieves the time series data from the specified data source.
         /// </summary>
-        /// <param name="filePath">The file path of the CSV file.</param>
+        /// <param name="filePath">The file path of the CSV file containing the data.</param>
         /// <returns>A list of DataPoint objects representing the heat demand and electricity price data.</returns>
         public List<DataPoint>? GetData(string filePath)
         {
-            string[] lines = File.ReadAllLines(filePath);
-
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            const string format = "M/d/yy H:mm";
-
-            return lines.Select(line => line.Split(','))
-                .Select(parts => new DataPoint(
-                    startTime: DateTime.ParseExact(parts[0], format, provider),
-                    endTime: DateTime.ParseExact(parts[1], format, provider),
-                    heatDemand: double.Parse(parts[2]),
-                    electricityPrice: double.Parse(parts[3])
-                )).ToList();
+            string rawData = File.ReadAllText(filePath);
+            CsvData csvData = CsvController.Deserialize(rawData, false);
+            return csvData.ConvertRecords<DataPoint>();
         }
 
         /// <summary>
