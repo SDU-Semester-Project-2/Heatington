@@ -1,56 +1,116 @@
+using System.Reflection;
+
 namespace CsvHandle
 {
+    [System.AttributeUsage(System.AttributeTargets.Constructor, AllowMultiple=false)]
+    public sealed class CsvConstructorAttribute : Attribute;
+
     class CsvData
     {
         public List<string[]> Table { get; set; }
+        public string[] Header { get; set; }
 
-        public CsvData(List<string[]> data)
+        public CsvData(List<string[]> data, string[] header = null)
         {
-            Table = data.Select(x => x.Select(y => y.ToString()).ToArray()).ToList();
-            int numberOfFields = Table[0].Length;
-            if (!Table.TrueForAll(x => x.Length == numberOfFields))
+            int numberOfFields = data[0].Length;
+            if(!data.TrueForAll(x => x.Length == numberOfFields))
             {
                 throw new Exception("Number of fields not consistent throughout csv.");
             }
+            if(header != null && header.Length != numberOfFields)
+            {
+                throw new Exception("Number of fields in csv header does not match number of fields in csv body.");
+            }
+            Table = data;
+            Header = header;
         }
 
-        public List<T> ConvertRecords<T>() where T : new()
+        public static CsvData Create<T>(List<T> data, string[] header = null)
         {
-            List<T> res = new();
-            var properties = typeof(T).GetProperties();
-            if (properties.Length != Table[0].Length)
+            PropertyInfo[] props = typeof(T).GetProperties();
+            List<string[]> res = data.Select(
+                x => props.Select(
+                    prop => {
+                        object? value = prop.GetValue(x);
+                        return value != null ? value.ToString() : "";
+                    }
+                ).ToArray()
+            ).ToList();
+            return new CsvData(res);
+        }
+
+        public List<T> ConvertRecords<T>()
+        {
+            ConstructorInfo ctor;
+            ConstructorInfo[] allCtors = typeof(T).GetConstructors();
+            Console.WriteLine(allCtors.Length);
+            if(allCtors.Length == 1)
             {
-                throw new Exception($"Number of properties in {typeof(T)} does not match number of entries in one record of the CsvTable.");
+                ctor = allCtors[0];
             }
+            else
+            {
+                ConstructorInfo[] csvConstructors = allCtors.Where(x => Attribute.IsDefined(x, typeof(CsvConstructorAttribute))).ToArray();
+                if(csvConstructors.Length == 0)
+                {
+                    throw new Exception($"The type '{typeof(T)}' must have at one constructor with CsvConsturcotrAttribute.");
+                }
+                else if(csvConstructors.Length > 1)
+                {
+                    throw new Exception($"The type '{typeof(T)}' must have at most one constructor with CsvConsturcotrAttribute.");
+                }
+                else
+                {
+                    ctor = csvConstructors[0];
+                }
+            }
+            ParameterInfo[] parameters = ctor.GetParameters();
+            Dictionary<string, ParameterInfo> paramDict = parameters.ToDictionary(param => param.Name, param => param);
+
+            List<T> res = new();
+            if (parameters.Length != Table[0].Length)
+            {
+                throw new Exception($"Number of parameters in {typeof(T)}'s constructor does not match number of entries in a record of the CsvTable.");
+            }
+            bool useHeader = Header != null && checkMatchesParameters(paramDict);
             foreach (string[] values in Table)
             {
-                var obj = new T();
-                for (int i = 0; i < properties.Length && i < values.Length; i++)
+                object[] parameterValues = new object[parameters.Length];
+                for (int i = 0; i < parameters.Length; i++)
                 {
-                    var propertyType = properties[i].PropertyType;
-                    var value = Convert.ChangeType(values[i], propertyType);
-                    properties[i].SetValue(obj, value);
+                    ParameterInfo currentParam = useHeader ? paramDict[Header[i]] : parameters[i];
+                    var value = Convert.ChangeType(values[i], currentParam.ParameterType);
+                    parameterValues[currentParam.Position] = value;
                 }
-                res.Add(obj);
+                res.Add((T) ctor.Invoke(parameterValues));
             }
             return res;
+        }
+
+        private bool checkMatchesParameters(Dictionary<string, ParameterInfo> paramDict)
+        {
+            return (Header.Distinct().Count() == Header.Length) && Array.TrueForAll(Header, x => paramDict.ContainsKey(x));
         }
     }
 
     static class CsvController
     {
-        public static CsvData Deserialize(string rawData)
+        public static CsvData Deserialize(string rawData, bool includesHeader)
         {
+            List<string[]> all = rawData
+                                .Split("\n", StringSplitOptions.RemoveEmptyEntries)
+                                .Select(x => x.Split(",", StringSplitOptions.TrimEntries))
+                                .ToList();
             return new CsvData(
-                rawData.Split("\n", StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Split(",", StringSplitOptions.TrimEntries))
-                .ToList()
+                includesHeader ? all[1..] : all,
+                includesHeader ? all[0] : null
             );
         }
 
         public static string Serialize(CsvData data)
         {
-            return String.Join("\n", data.Table.Select(x => String.Join(", ", x)));
+            return (data.Header != null ? String.Join(", ", data.Header) : "") + '\n' +
+                    String.Join("\n", data.Table.Select(x => String.Join(", ", x)));
         }
     }
 }
