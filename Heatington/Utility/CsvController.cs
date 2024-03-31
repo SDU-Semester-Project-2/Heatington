@@ -85,7 +85,7 @@ namespace Heatington.Utility
                     $"Number of parameters in {typeof(T)}'s constructor does not match number of entries in a record of the CsvTable.");
             }
 
-            bool useHeader = Header != null && checkMatchesParameters(paramDict);
+            bool useHeader = checkMatchesParameters(paramDict);
             foreach (string[] values in Table)
             {
                 object[] parameterValues = new object[parameters.Length];
