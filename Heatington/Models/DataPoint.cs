@@ -1,4 +1,5 @@
 using System.Globalization;
+using Heatington.Utility;
 
 namespace Heatington.Models
 {
@@ -10,7 +11,7 @@ namespace Heatington.Models
         /// <summary>
         /// Represents a data point containing information about heat demand and electricity price.
         /// </summary>
-        [CsvHandle.CsvConstructorAttribute]
+        [CsvConstructor]
         public DataPoint(string startTime, string endTime, string heatDemand, string electricityPrice)
         {
             this.StartTime = DateTime.ParseExact(startTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
