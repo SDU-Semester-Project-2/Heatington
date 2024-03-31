@@ -2,10 +2,10 @@
 
 namespace Heatington
 {
-    class Program
+    internal static class Program
     {
         // This is only for the purpose of testing the implementation
-        // TODO: Remove this method and implement the actual application logic
+        // TODO: Rewrite this method and implement the actual application logic
         static void Main(string[] args)
         {
             const string filePath = "../Assets/winter_period.csv";
@@ -13,13 +13,13 @@ namespace Heatington
             // Create a new CsvDataSource
             IDataSource dataSource = new CsvDataSource();
 
-            SourceDataManager SDM = new SourceDataManager(dataSource, filePath);
+            SourceDataManager sdm = new(dataSource, filePath);
 
             // Fetch data from dataSource
-            SDM.FetchTimeSeriesData();
+            sdm.FetchTimeSeriesData();
 
             // Log the loaded data to the console
-            SDM.LogTimeSeriesData();
+            sdm.LogTimeSeriesData();
 
             Console.WriteLine("Data loaded successfully.");
         }
