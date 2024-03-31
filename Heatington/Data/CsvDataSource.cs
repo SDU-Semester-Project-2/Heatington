@@ -5,6 +5,10 @@ namespace Heatington.Data
 {
     /// <summary>
     /// Represents a data source for reading and writing data in CSV format.
+    /// <remarks>
+    /// This is replaced by CsvController.cs, the current existence is only for the purpose of the documentation
+    /// </remarks>
+    /// TODO: Delete this class in the refactoring phase
     /// </summary>
     public class CsvDataSource : IDataSource
     {
