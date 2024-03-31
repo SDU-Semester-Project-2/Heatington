@@ -4,10 +4,6 @@ namespace Heatington.Data
 {
     /// <summary>
     /// Represents a data source for reading and writing data.
-    /// <remarks>
-    /// This is replaced by CsvController.cs, the current existence is only for the purpose of the documentation
-    /// </remarks>
-    /// TODO: Delete this interface in the refactoring phase
     /// </summary>
     public interface IDataSource
     {

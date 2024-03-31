@@ -1,9 +1,8 @@
 namespace Heatington
 {
-    class Program
+    internal static class Program
     {
-        // This is only for the purpose of testing the implementation
-        // TODO: Remove this method and implement the actual application logic
+        // TODO: Rewrite this method and implement the actual application logic
         static void Main(string[] args)
         {
         }
