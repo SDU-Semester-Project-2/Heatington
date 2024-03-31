@@ -15,11 +15,7 @@
  * we can easily mock the IDataSource interface.
  */
 
-
-
-
 using Heatington.Models;
-using System.Globalization;
 
 namespace Heatington.Data
 {
@@ -85,6 +81,10 @@ namespace Heatington.Data
         /// <summary>
         /// Logs the time series data to the console.
         /// </summary>
+        /// <remarks>
+        /// This for testing purpose only
+        /// </remarks>
+        /// TODO: Remove this method, when moving to Blazor
         public void LogTimeSeriesData()
         {
             if (TimeSeriesData == null)
@@ -105,6 +105,7 @@ namespace Heatington.Data
 
                 // Log the data in console and add "MWh" to Heat Demand and Electricity Price
                 Console.WriteLine(
+                    $"Index: {TimeSeriesData.IndexOf(dataPoint)}; "+
                     $"Start Time: {formattedStart}; " +
                     $"End Time: {formattedEnd}; " +
                     $"Heat Demand: {dataPoint.HeatDemand} MWh; " +
