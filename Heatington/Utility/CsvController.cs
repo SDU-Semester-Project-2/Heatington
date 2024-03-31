@@ -85,7 +85,7 @@ namespace Heatington.Utility
                     $"Number of parameters in {typeof(T)}'s constructor does not match number of entries in a record of the CsvTable.");
             }
 
-            bool useHeader = checkMatchesParameters(paramDict);
+            bool useHeader = Header != null && checkMatchesParameters(paramDict);
             foreach (string[] values in Table)
             {
                 object[] parameterValues = new object[parameters.Length];
@@ -283,7 +283,8 @@ namespace Heatington.Utility
                 ).ToArray()
                 : null;
 
-            return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) : "") + '\n' +
+            return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) : "") +
+                   '\n' +
                    String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
         }
     }
