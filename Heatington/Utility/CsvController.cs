@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace CsvHandle
+namespace Heatington.Utility
 {
     [System.AttributeUsage(System.AttributeTargets.Constructor, AllowMultiple = false)]
     public sealed class CsvConstructorAttribute : Attribute;
