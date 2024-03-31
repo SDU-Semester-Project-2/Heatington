@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace CsvHandle
+namespace Heatington.Utility
 {
     [System.AttributeUsage(System.AttributeTargets.Constructor, AllowMultiple=false)]
     public sealed class CsvConstructorAttribute : Attribute;
@@ -109,7 +109,7 @@ namespace CsvHandle
 
         public static string Serialize(CsvData data)
         {
-            return (data.Header != null ? String.Join(", ", data.Header) : "") + '\n' + 
+            return (data.Header != null ? String.Join(", ", data.Header) : "") + '\n' +
                     String.Join("\n", data.Table.Select(x => String.Join(", ", x)));
         }
     }
