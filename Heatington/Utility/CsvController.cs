@@ -220,8 +220,11 @@ namespace CsvHandle
 
         public static string Serialize(CsvData data)
         {
-            return (data.Header != null ? String.Join(", ", data.Header) : "") + '\n' + 
-                    String.Join("\n", data.Table.Select(x => String.Join(", ", x)));
+            char[] requiresQuotes = new[] {',', '\n', '"'};
+            List<string[]> escapedTable = data.Table.Select(x => x.Select(str => requiresQuotes.Any(chr => str.Contains(chr)) ? '"' + String.Join("\"\"", str.Split('"')) + '"' : str).ToArray()).ToList();
+            string[] escapedHeader = data.Header.Select(str => requiresQuotes.Any(chr => str.Contains(chr)) ? '"' + String.Join("\"\"", str.Split('"')) + '"' : str).ToArray();
+            return (escapedHeader != null ? String.Join(",", escapedHeader) : "") + '\n' + 
+                    String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
         }
     }
 }
