@@ -8,16 +8,15 @@ namespace Heatington.Utility
     class CsvData
     {
         public List<string[]> Table { get; set; }
-        public string[] Header { get; set; }
+        public string[]? Header { get; set; }
 
-        public CsvData(List<string[]> data, string[] header = null)
+        public CsvData(List<string[]> data, string[]? header = null)
         {
             int numberOfFields = data[0].Length;
             if (!data.TrueForAll(x => x.Length == numberOfFields))
             {
                 throw new Exception("Number of fields not consistent throughout csv.");
             }
-
             if (header != null && header.Length != numberOfFields)
             {
                 throw new Exception("Number of fields in csv header does not match number of fields in csv body.");
@@ -27,19 +26,20 @@ namespace Heatington.Utility
             Header = header;
         }
 
-        public static CsvData Create<T>(List<T> data, string[] header = null)
+        public static CsvData Create<T>(List<T> data, string[]? header = null)
         {
             PropertyInfo[] props = typeof(T).GetProperties();
+            header = header ?? props.Select(x => x.Name).ToArray();
             List<string[]> res = data.Select(
                 x => props.Select(
                     prop =>
                     {
                         object? value = prop.GetValue(x);
-                        return value != null ? value.ToString() : "";
+                        return value != null ? (value.ToString() ?? "") : "";
                     }
                 ).ToArray()
             ).ToList();
-            return new CsvData(res);
+            return new CsvData(res, header);
         }
 
         public List<T> ConvertRecords<T>()
@@ -53,8 +53,7 @@ namespace Heatington.Utility
             }
             else
             {
-                ConstructorInfo[] csvConstructors =
-                    allCtors.Where(x => Attribute.IsDefined(x, typeof(CsvConstructorAttribute))).ToArray();
+                ConstructorInfo[] csvConstructors = allCtors.Where(x => Attribute.IsDefined(x, typeof(CsvConstructorAttribute))).ToArray();
                 if (csvConstructors.Length == 0)
                 {
                     throw new Exception(
@@ -72,7 +71,7 @@ namespace Heatington.Utility
             }
 
             ParameterInfo[] parameters = ctor.GetParameters();
-            Dictionary<string, ParameterInfo> paramDict = parameters.ToDictionary(param => param.Name, param => param);
+            Dictionary<string, ParameterInfo> paramDict = parameters.ToDictionary(param => param.Name ?? throw new Exception("Expected parameter from parameter list, got return parameter."), param => param);
 
             List<T> res = new();
             if (parameters.Length != Table[0].Length)
@@ -81,7 +80,7 @@ namespace Heatington.Utility
                     $"Number of parameters in {typeof(T)}'s constructor does not match number of entries in a record of the CsvTable.");
             }
 
-            bool useHeader = Header != null && checkMatchesParameters(paramDict);
+            bool useHeader = checkMatchesParameters(paramDict);
             foreach (string[] values in Table)
             {
                 object[] parameterValues = new object[parameters.Length];
@@ -91,7 +90,6 @@ namespace Heatington.Utility
                     var value = Convert.ChangeType(values[i], currentParam.ParameterType);
                     parameterValues[currentParam.Position] = value;
                 }
-
                 res.Add((T)ctor.Invoke(parameterValues));
             }
 
@@ -100,8 +98,8 @@ namespace Heatington.Utility
 
         private bool checkMatchesParameters(Dictionary<string, ParameterInfo> paramDict)
         {
-            return (Header.Distinct().Count() == Header.Length) &&
-                   Array.TrueForAll(Header, x => paramDict.ContainsKey(x));
+
+            return (Header != null) && (Header.Distinct().Count() == Header.Length) && Array.TrueForAll(Header, x => paramDict.ContainsKey(x));
         }
     }
 
@@ -210,7 +208,6 @@ namespace Heatington.Utility
 
                     i++;
                 }
-
                 if (inEntry)
                 {
                     if (isDoubleQuoted)
@@ -231,23 +228,37 @@ namespace Heatington.Utility
                 includesHeader ? all[1..] : all,
                 includesHeader ? all[0] : null
             );
+
         }
 
-        public static string Serialize(CsvData data)
+        public static string Serialize(CsvData data, bool includeHeaderIfNotNull = true)
         {
             char[] requiresQuotes = new[] { ',', '\n', '"' };
-            List<string[]> escapedTable = data.Table.Select(x =>
-                x.Select(str =>
+            List<string[]> escapedTable =
+                data.Table.Select(
+                    arr => arr.Select(
+                        str =>
+                        requiresQuotes.Any(chr => str.Contains(chr))
+                        ?
+                        '"' + String.Join("\"\"", str.Split('"')) + '"'
+                        :
+                        str
+                    ).ToArray()
+                ).ToList();
+
+            string[]? escapedHeader = data.Header != null ?
+                data.Header.Select(
+                    str =>
                     requiresQuotes.Any(chr => str.Contains(chr))
-                        ? '"' + String.Join("\"\"", str.Split('"')) + '"'
-                        : str).ToArray()).ToList();
-            string[] escapedHeader = data.Header.Select(str =>
-                    requiresQuotes.Any(chr => str.Contains(chr))
-                        ? '"' + String.Join("\"\"", str.Split('"')) + '"'
-                        : str)
-                .ToArray();
-            return (escapedHeader != null ? String.Join(",", escapedHeader) : "") + '\n' +
-                   String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
+                    ?
+                    '"' + String.Join("\"\"", str.Split('"')) + '"'
+                    :
+                    str
+                ).ToArray()
+                : null;
+
+            return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) : "") + '\n' +
+                    String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
         }
     }
 }
