@@ -28,6 +28,7 @@ namespace CsvHandle
         public static CsvData Create<T>(List<T> data, string[] header = null)
         {
             PropertyInfo[] props = typeof(T).GetProperties();
+            header = header ?? props.Select(x => x.Name).ToArray();
             List<string[]> res = data.Select(
                 x => props.Select(
                     prop => {
@@ -36,7 +37,7 @@ namespace CsvHandle
                     }
                 ).ToArray()
             ).ToList();
-            return new CsvData(res);
+            return new CsvData(res, header);
         }
 
         public List<T> ConvertRecords<T>()
@@ -218,12 +219,12 @@ namespace CsvHandle
             
         }
 
-        public static string Serialize(CsvData data)
+        public static string Serialize(CsvData data, bool includeHeaderIfNotNull = true)
         {
             char[] requiresQuotes = new[] {',', '\n', '"'};
             List<string[]> escapedTable = data.Table.Select(x => x.Select(str => requiresQuotes.Any(chr => str.Contains(chr)) ? '"' + String.Join("\"\"", str.Split('"')) + '"' : str).ToArray()).ToList();
-            string[] escapedHeader = data.Header.Select(str => requiresQuotes.Any(chr => str.Contains(chr)) ? '"' + String.Join("\"\"", str.Split('"')) + '"' : str).ToArray();
-            return (escapedHeader != null ? String.Join(",", escapedHeader) : "") + '\n' + 
+            string[] escapedHeader = data.Header != null ? data.Header.Select(str => requiresQuotes.Any(chr => str.Contains(chr)) ? '"' + String.Join("\"\"", str.Split('"')) + '"' : str).ToArray() : null;
+            return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) : "") + '\n' + 
                     String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
         }
     }
