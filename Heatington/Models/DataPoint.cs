@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Heatington.Models
 {
     /// <summary>
@@ -6,18 +8,15 @@ namespace Heatington.Models
     public class DataPoint
     {
         /// <summary>
-        /// Initializes a new instance of the DataPoint class with the specified start time, end time, heat demand, and electricity price.
+        /// Represents a data point containing information about heat demand and electricity price.
         /// </summary>
-        /// <param name="startTime">The start time of the data point.</param>
-        /// <param name="endTime">The end time of the data point.</param>
-        /// <param name="heatDemand">The heat demand of the data point in kWh.</param>
-        /// <param name="electricityPrice">The electricity price of the data point in DKK.</param>
-        public DataPoint(DateTime startTime, DateTime endTime, double heatDemand,double electricityPrice)
+        [CsvHandle.CsvConstructorAttribute]
+        public DataPoint(string startTime, string endTime, string heatDemand, string electricityPrice)
         {
-            StartTime = startTime;
-            EndTime = endTime;
-            HeatDemand = heatDemand / 100.0; // Convert to kWh
-            ElectricityPrice = electricityPrice / 100.0; // Convert to DKK
+            this.StartTime = DateTime.ParseExact(startTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
+            this.EndTime = DateTime.ParseExact(endTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
+            this.HeatDemand = double.Parse(heatDemand);
+            this.ElectricityPrice = double.Parse(electricityPrice);
         }
 
         /// <summary>
