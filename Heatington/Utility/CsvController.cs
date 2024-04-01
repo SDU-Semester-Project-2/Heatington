@@ -8,9 +8,9 @@ namespace CsvHandle
     class CsvData
     {
         public List<string[]> Table { get; set; }
-        public string[] Header { get; set; }
+        public string[]? Header { get; set; }
 
-        public CsvData(List<string[]> data, string[] header = null)
+        public CsvData(List<string[]> data, string[]? header = null)
         {
             int numberOfFields = data[0].Length;
             if(!data.TrueForAll(x => x.Length == numberOfFields))
@@ -25,7 +25,7 @@ namespace CsvHandle
             Header = header;
         }
 
-        public static CsvData Create<T>(List<T> data, string[] header = null)
+        public static CsvData Create<T>(List<T> data, string[]? header = null)
         {
             PropertyInfo[] props = typeof(T).GetProperties();
             header = header ?? props.Select(x => x.Name).ToArray();
@@ -33,7 +33,7 @@ namespace CsvHandle
                 x => props.Select(
                     prop => {
                         object? value = prop.GetValue(x);
-                        return value != null ? value.ToString() : "";
+                        return value != null ? (value.ToString() ?? "") : "";
                     }
                 ).ToArray()
             ).ToList();
@@ -66,14 +66,14 @@ namespace CsvHandle
                 }
             }
             ParameterInfo[] parameters = ctor.GetParameters();
-            Dictionary<string, ParameterInfo> paramDict = parameters.ToDictionary(param => param.Name, param => param);
+            Dictionary<string, ParameterInfo> paramDict = parameters.ToDictionary(param => param.Name ?? throw new Exception("Expected parameter from parameter list, got return parameter."), param => param);
 
             List<T> res = new();
             if (parameters.Length != Table[0].Length)
             {
                 throw new Exception($"Number of parameters in {typeof(T)}'s constructor does not match number of entries in a record of the CsvTable.");
             }
-            bool useHeader = Header != null && checkMatchesParameters(paramDict);
+            bool useHeader = checkMatchesParameters(paramDict);
             foreach (string[] values in Table)
             {
                 object[] parameterValues = new object[parameters.Length];
@@ -90,7 +90,7 @@ namespace CsvHandle
 
         private bool checkMatchesParameters(Dictionary<string, ParameterInfo> paramDict)
         {
-            return (Header.Distinct().Count() == Header.Length) && Array.TrueForAll(Header, x => paramDict.ContainsKey(x));
+            return (Header != null) && (Header.Distinct().Count() == Header.Length) && Array.TrueForAll(Header, x => paramDict.ContainsKey(x));
         }
     }
 
@@ -223,7 +223,7 @@ namespace CsvHandle
         {
             char[] requiresQuotes = new[] {',', '\n', '"'};
             List<string[]> escapedTable = data.Table.Select(x => x.Select(str => requiresQuotes.Any(chr => str.Contains(chr)) ? '"' + String.Join("\"\"", str.Split('"')) + '"' : str).ToArray()).ToList();
-            string[] escapedHeader = data.Header != null ? data.Header.Select(str => requiresQuotes.Any(chr => str.Contains(chr)) ? '"' + String.Join("\"\"", str.Split('"')) + '"' : str).ToArray() : null;
+            string[]? escapedHeader = data.Header != null ? data.Header.Select(str => requiresQuotes.Any(chr => str.Contains(chr)) ? '"' + String.Join("\"\"", str.Split('"')) + '"' : str).ToArray() : null;
             return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) : "") + '\n' + 
                     String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
         }
