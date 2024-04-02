@@ -7,8 +7,8 @@ namespace CsvHandle
 
     class CsvData
     {
-        public List<string[]> Table { get; set; }
-        public string[]? Header { get; set; }
+        public List<string[]> Table { get; private set; }
+        public string[]? Header { get; private set; }
 
         public CsvData(List<string[]> data, string[]? header = null)
         {
