@@ -11,7 +11,7 @@ public interface IReadWriteController
     /// <returns>
     /// Data as a string
     /// </returns>
-    internal string? ReadData();
+    public string? ReadData();
 
     /// <summary>
     /// Function for Writing data into the model
@@ -19,5 +19,5 @@ public interface IReadWriteController
     /// <param name="content">
     /// content to write into the model, as a string
     /// </param>
-    internal void WriteData(string content);
+    public void WriteData(string content);
 }

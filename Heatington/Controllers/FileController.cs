@@ -38,7 +38,7 @@ public class FileController : IReadWriteController
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Unknown exception: {e}");
+            Utilities.DisplayException($"Unknown exception: {e}");
             throw;
         }
     }
