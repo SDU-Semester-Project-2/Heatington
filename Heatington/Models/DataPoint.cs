@@ -20,6 +20,8 @@ namespace Heatington.Models
             ElectricityPrice = double.Parse(electricityPrice) / 100; // else 100x bigger, formatting issue TODO: Fix this
         }
 
+        // TODO: Maybe implement factory method to increase the abstraction
+
         /// <summary>
         /// Gets the start time of a data point.
         /// </summary>
