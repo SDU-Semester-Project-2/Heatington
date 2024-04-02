@@ -8,6 +8,7 @@ namespace Heatington
         }
     }
 }
+
 //     // SDM Test
 //     const string filePath = "../Assets/winter_period.csv";
 //
@@ -23,3 +24,6 @@ namespace Heatington
 //     sdm.LogTimeSeriesData();
 //
 //     Console.WriteLine("Data loaded successfully.");
+=======
+>>>>>>> 79be7f3(SP2 - 90 - Add detailed documentation for data access
+classes and removed documentation in the codebase.)
