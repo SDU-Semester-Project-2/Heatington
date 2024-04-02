@@ -32,7 +32,7 @@ namespace Heatington.Data
         /// <summary>
         /// Gets the file path for the data source.
         /// </summary>
-        private string FilePath { get; }
+        private readonly string _filePath;
 
         /// <summary>
         /// Represents a time series data for heat demand and electricity price.
@@ -42,7 +42,7 @@ namespace Heatington.Data
         /// each representing a data point with information about the start time, end time,
         /// heat demand (in kWh) and electricity price (in DKK/MWh).
         /// </remarks>
-        private List<DataPoint>? TimeSeriesData { get; set; }
+        public List<DataPoint>? TimeSeriesData { get; set; }
 
         /// <summary>
         /// The SourceDataManager class manages the data retrieval and conversion operations from a data source.
@@ -50,16 +50,17 @@ namespace Heatington.Data
         public SourceDataManager(IDataSource dataSource, string filePath)
         {
             _dataSource = dataSource;
-            FilePath = filePath;
+            _filePath = filePath;
         }
 
         /// <summary>
         /// Converts data from an API to a CSV file and saves it using the specified file path.
         /// </summary>
         /// <param name="dataFromApi">The data retrieved from the API.</param>
+        /// TODO: Take a look at this method again
         public void ConvertApiToCsv(List<DataPoint> dataFromApi)
         {
-            _dataSource.SaveData(dataFromApi, FilePath);
+            _dataSource.SaveData(dataFromApi, _filePath);
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace Heatington.Data
             Console.WriteLine("Start fetching time series data from the data source...");
             try
             {
-                TimeSeriesData = _dataSource.GetData(FilePath);
+                TimeSeriesData = _dataSource.GetData(_filePath);
             }
             catch (Exception ex)
             {
