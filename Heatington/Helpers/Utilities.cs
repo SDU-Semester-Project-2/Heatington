@@ -1,8 +1,8 @@
+// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
 namespace Heatington.Helpers;
 
-/// <summary>
-/// Documentation in Documents/Heatington/Helpers/Utilities.md
-/// </summary>
 public static class Utilities
 {
     public static void DisplayException(string message)
@@ -11,7 +11,6 @@ public static class Utilities
         Console.WriteLine(message);
         Console.ResetColor();
     }
-
     public static T ConvertObject<T>(object? obj)
     {
         return (T)Convert.ChangeType(obj, typeof(T))!;
