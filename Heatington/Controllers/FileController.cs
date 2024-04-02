@@ -89,7 +89,8 @@ public class FileController(string pathToFile) : IReadWriteController
 
     public async Task<OperationStatus> WriteData<T>(T content)
     {
-        pathToFile = File.Exists(pathToFile) ? FormatFileName(pathToFile) : pathToFile; //if file exists write to a new one
+        pathToFile =
+            File.Exists(pathToFile) ? FormatFileName(pathToFile) : pathToFile; //if file exists write to a new one
         string contentAsString = Utilities.ConvertObject<string>(content); //convert to string
 
         return await WriteToFileFromPath(contentAsString);
