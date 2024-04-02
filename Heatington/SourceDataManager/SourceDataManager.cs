@@ -44,16 +44,13 @@ namespace Heatington.Data
 
             foreach (DataPoint dataPoint in TimeSeriesData)
             {
-                // Convert UTC time to Danish local time
                 TimeZoneInfo danishTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
                 DateTime startTimeInDanish = TimeZoneInfo.ConvertTimeFromUtc(dataPoint.StartTime, danishTimeZone);
                 DateTime endTimeInDanish = TimeZoneInfo.ConvertTimeFromUtc(dataPoint.EndTime, danishTimeZone);
 
-                // Format times as "dd.MM.yyyy HH:mm"
                 string formattedStart = startTimeInDanish.ToString("dd.MM.yyyy HH:mm");
                 string formattedEnd = endTimeInDanish.ToString("dd.MM.yyyy HH:mm");
 
-                // Log the data in console and add "MWh" to Heat Demand and Electricity Price
                 Console.WriteLine(
                     $"Index: {TimeSeriesData.IndexOf(dataPoint)}; "+
                     $"Start Time: {formattedStart}; " +
