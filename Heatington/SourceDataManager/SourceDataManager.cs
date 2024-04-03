@@ -1,6 +1,7 @@
+using Heatington.Data;
 using Heatington.Models;
 
-namespace Heatington.Data
+namespace Heatington.SourceDataManager
 {
 
     public class SourceDataManager
