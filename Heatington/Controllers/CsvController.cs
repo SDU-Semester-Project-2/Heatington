@@ -1,6 +1,7 @@
 using System.Reflection;
 
-namespace Heatington.Utility
+namespace Heatington.Controllers
+
 {
     [System.AttributeUsage(System.AttributeTargets.Constructor, AllowMultiple = false)]
     public sealed class CsvConstructorAttribute : Attribute;
