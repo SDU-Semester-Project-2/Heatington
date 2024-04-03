@@ -1,5 +1,5 @@
+using Heatington.Controllers;
 using Heatington.Models;
-using Heatington.Utility;
 
 namespace Heatington.Data
 {
