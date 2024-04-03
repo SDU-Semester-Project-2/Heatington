@@ -12,7 +12,7 @@ namespace Heatington.Controllers
             try
             {
                 string rawData = await File.ReadAllTextAsync(filePath).ConfigureAwait(false);
-                CsvData csvData = Controllers.Serializers.CsvController.Deserialize(rawData, false);
+                CsvData csvData = Controllers.Serializers.CsvSerializer.Deserialize(rawData, false);
                 return csvData.ConvertRecords<DataPoint>();
             }
             catch (Exception e)
@@ -24,5 +24,5 @@ namespace Heatington.Controllers
 
         // TODO: Check if this method is actually required
         public void SaveData(List<DataPoint> data, string filePath) => throw new NotImplementedException();
+        }
     }
-}

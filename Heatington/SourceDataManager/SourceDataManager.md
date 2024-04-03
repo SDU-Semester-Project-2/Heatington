@@ -13,7 +13,7 @@ It gets data from and saves data to a specific data source, which is an form of 
 - `_filePath`: This is a private copy of the path to the file where the data operations happen.
 
 - `TimeSeriesData`: This public `List<DataPoint>` works like a holding area for the data. Each item represents a
-data point at a specific time.
+  data point at a specific time.
 
 ## Constructor
 
@@ -26,15 +26,15 @@ flexibility to work with any type of data source and file location. We use const
 ## Core Methods
 
 - `ConvertApiToCsv(List<DataPoint> dataFromApi)`: This takes a list of `DataPoint` items and saves them using the
-`SaveData` method from `IDataSource`.
-**This method is for future use when we implement the API-driven iteration.**
+  `SaveData` method from `IDataSource`.
+  **This method is for future use when we implement the API-driven iteration.**
 
 - `FetchTimeSeriesData()`: This method fetches the data from the `_dataSource` using the `GetData` method and stores it
-in the `TimeSeriesData` property.
+  in the `TimeSeriesData` property.
 
 - `LogTimeSeriesData()`: This method logs the data in `TimeSeriesData`. Each log message contains the index, formatted
-start and end times, heat demand, and electricity price for each data point.
-**This method will be removed once we move to the GUI-driven iteration.**
+  start and end times, heat demand, and electricity price for each data point.
+  **This method will be removed once we move to the GUI-driven iteration.**
 
 ## Quick Note
 
@@ -42,6 +42,7 @@ The `SourceDataManager` implementation simplifies testing because `IDataSource` 
 flexibility, as different implementations of `IDataSource` can be used without major code changes.
 
 ## An Example Of How To Use It
+
 ```csharp
 using Heatington.Data;
 
@@ -72,6 +73,4 @@ namespace Heatington
         }
     }
 }
-
-
  ```
