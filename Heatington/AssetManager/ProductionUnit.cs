@@ -17,8 +17,10 @@ public class ProductionUnit
         get { return _operationPoint; }
         set
         {
-            if (value >= 0 || value <= 1)
+            if (value < 0 || value > 1)
+            {
                 throw new ArgumentOutOfRangeException("OperationPoint must be between 0 and 1");
+            }
             _operationPoint = value;
         }
     }
