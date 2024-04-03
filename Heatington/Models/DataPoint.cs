@@ -1,5 +1,5 @@
 using System.Globalization;
-using Heatington.Utility;
+using Heatington.Controllers;
 
 namespace Heatington.Models
 {
