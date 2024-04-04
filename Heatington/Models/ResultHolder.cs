@@ -8,6 +8,7 @@ public class ResultHolder
     public DateTime EndTime { get; }
     public double HeatDemand { get; }
     public double ElectricityPrice { get; }
+    public double NetProductionCost { get; }
     public List<ProductionUnit> Boilers { get; set; }
 
     public override string ToString()
@@ -29,7 +30,8 @@ public class ResultHolder
         }
 
         string s = string.Concat($"Start Time: {formattedStart} ", $"End Time: {formattedEnd}; ",
-            $"Heat Demand: {HeatDemand} MWh; ", $"Electricity Price: {ElectricityPrice} DKK/MWh", boilers);
+            $"Heat Demand: {HeatDemand} MWh; ", $"Electricity Price: {ElectricityPrice} DKK/MWh",
+            $"Net Production Cost {NetProductionCost}", boilers);
 
         return s;
     }
