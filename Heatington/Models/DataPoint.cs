@@ -12,8 +12,8 @@ namespace Heatington.Models
         {
             StartTime = DateTime.ParseExact(startTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
             EndTime = DateTime.ParseExact(endTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
-            HeatDemand = double.Parse(heatDemand) / 100; // else 100x bigger, formatting issue TODO: Fix this
-            ElectricityPrice = double.Parse(electricityPrice) / 100; // else 100x bigger, formatting issue TODO: Fix this
+            HeatDemand = double.Parse(heatDemand, CultureInfo.InvariantCulture);
+            ElectricityPrice = double.Parse(electricityPrice, CultureInfo.InvariantCulture);
         }
 
         // TODO: Maybe implement factory method to increase the abstraction

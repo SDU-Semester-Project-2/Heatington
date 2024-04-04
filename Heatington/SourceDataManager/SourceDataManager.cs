@@ -1,6 +1,6 @@
 using Heatington.Data;
 using Heatington.Models;
-
+using Heatington.Helpers;
 namespace Heatington.SourceDataManager
 {
 
@@ -22,16 +22,17 @@ namespace Heatington.SourceDataManager
             _dataSource.SaveData(dataFromApi, _filePath);
         }
 
-        public void FetchTimeSeriesData()
+        public async Task FetchTimeSeriesDataAsync()
         {
             Console.WriteLine("Start fetching time series data from the data source...");
             try
             {
-                TimeSeriesData = _dataSource.GetData(_filePath);
+                TimeSeriesData = await _dataSource.GetDataAsync(_filePath).ConfigureAwait(true);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred while fetching time series data: " + ex.Message);
+                Utilities.DisplayException(ex.Message);
+                throw;
             }
         }
 
