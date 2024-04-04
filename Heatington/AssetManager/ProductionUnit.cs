@@ -2,15 +2,15 @@ namespace Heatington.AssetManager;
 
 public class ProductionUnit
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; }
     public string Name { get; set; }
-    public string PicturePath { get; set; }
+    public string PicturePath { get; }
     private double _operationPoint;
-    public double MaxHeat { get; set; } // MW
-    public double ProductionCost { get; set; } // DKK/MWh
-    public double MaxElectricity { get; set; } // MW
-    public double GasConsumption { get; set; } // MWh(gas/oil)/MWh
-    public double Co2Emission { get; set; } // kg/MWh
+    public double MaxHeat { get; } // MW
+    public double ProductionCost { get; } // DKK/MWh
+    public double MaxElectricity { get; } // MW
+    public double GasConsumption { get; } // MWh(gas/oil)/MWh
+    public double Co2Emission { get; } // kg/MWh
 
     public double OperationPoint
     {
