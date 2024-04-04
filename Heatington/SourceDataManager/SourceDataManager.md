@@ -1,47 +1,47 @@
-# SourceDataManager Class
+# `SourceDataManager` Class
 
-## Overview
+## Brief Overview
 
-The `SourceDataManager` class is central to the Heatington application's data management. It coordinates data retrieval from and saving to a specific data source instance, packaged as the `IDataSource` interface.
+The `SourceDataManager` class is the static repository for the Heatington application's core data management.
+It gets data from and saves data to a specific data source, which is an form of `IDataSource` interface.
 
-Following the Dependency Inversion Principle, this class depends on an abstraction, the `IDataSource` interface, and not on a concrete class. This abstraction defines the getFile() and saveFile() methods and can be implemented by any data storage solution (e.g., `CsvDataSource`, `XmlDataSource`).
+## Important Bits
 
-## Properties
+- `_dataSource`: This is a private copy of the the `IDataSource` interface. It has all the methods needed to work with
+- a specific data source.
 
-- `_dataSource`: A private, read-only `IDataSource` instance that provides methods for accessing a specific data source.
+- `_filePath`: This is a private copy of the path to the file where the data operations happen.
 
-- `_filePath`: A private, read-only string for storing the path of the file used for the data operations.
-
-- `TimeSeriesData`: A public `List<DataPoint>` instance. It represents the collection of data, each entry indicating a specific point in time for which data is available.
+- `TimeSeriesData`: This public `List<DataPoint>` works like a holding area for the data. Each item represents a
+data point at a specific time.
 
 ## Constructor
 
-- `SourceDataManager(IDataSource dataSource, string filePath)`
+### `SourceDataManager(IDataSource dataSource, string filePath)`
 
-The class constructor accepts an instance of `IDataSource` and a file path as a string. These are stored in the `_dataSource` and `_filePath` properties, respectively. This approach enables the flexibility of the data source type and location.
+Constructing a new `SourceDataManager` needs an `IDataSource` instance and a file path string. This gives it the
+flexibility to work with any type of data source and file location. We use constructor injection to make sure that
+`SourceDataManager` is not tightly coupled to any specific data source.
 
-## Methods
+## Core Methods
 
-- `ConvertApiToCsv(List<DataPoint> dataFromApi)`
+- `ConvertApiToCsv(List<DataPoint> dataFromApi)`: This takes a list of `DataPoint` items and saves them using the
+`SaveData` method from `IDataSource`.
+**This method is for future use when we implement the API-driven iteration.**
 
-This method accepts a list of `DataPoint` items. These data points are then passed to the `IDataSource` instance's `SaveData` method along with the `_filePath`, and saved in the relevant data format.
+- `FetchTimeSeriesData()`: This method fetches the data from the `_dataSource` using the `GetData` method and stores it
+in the `TimeSeriesData` property.
 
-- `FetchTimeSeriesData()`
+- `LogTimeSeriesData()`: This method logs the data in `TimeSeriesData`. Each log message contains the index, formatted
+start and end times, heat demand, and electricity price for each data point.
+**This method will be removed once we move to the GUI-driven iteration.**
 
-This method uses the `_dataSource` instance to call its `GetData` method, passing the `_filePath`. The result is then stored in the public `TimeSeriesData` property.
+## Quick Note
 
-- `LogTimeSeriesData()`
+The `SourceDataManager` implementation simplifies testing because `IDataSource` can be easily mocked. It also adds
+flexibility, as different implementations of `IDataSource` can be used without major code changes.
 
-This method logs each `DataPoint` in `TimeSeriesData`. The log message includes the index, formatted start and end times, heat demand, and electricity price for each `DataPoint`. **This method will be removed after moving to the iteration with GUI**.
-
-## Note
-
-The implementation of the `SourceDataManager` class provides flexibility and extensibility for the Heatington application. Furthermore, this approach simplifies testing as `IDataSource` can be mocked easily.
-
-## Usage Example
-
-Here is an example of how to use the `SourceDataManager` class:
-
+## An Example Of How To Use It
 ```csharp
 using Heatington.Data;
 
