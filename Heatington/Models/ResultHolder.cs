@@ -2,14 +2,20 @@ using Heatington.Optimizer;
 
 namespace Heatington.Models;
 
-public class ResultHolder
+public class ResultHolder(
+    DateTime startTime,
+    DateTime endTime,
+    double heatDemand,
+    double electricityPrice,
+    double netProductionCost,
+    List<ProductionUnit> boilers)
 {
-    public DateTime StartTime { get; }
-    public DateTime EndTime { get; }
-    public double HeatDemand { get; }
-    public double ElectricityPrice { get; }
-    public double NetProductionCost { get; }
-    public List<ProductionUnit> Boilers { get; set; }
+    public DateTime StartTime { get; } = startTime;
+    public DateTime EndTime { get; } = endTime;
+    public double HeatDemand { get; } = heatDemand;
+    public double ElectricityPrice { get; } = electricityPrice;
+    public double NetProductionCost { get; } = netProductionCost;
+    public List<ProductionUnit> Boilers { get; set; } = boilers;
 
     public override string ToString()
     {
