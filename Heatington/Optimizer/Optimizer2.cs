@@ -9,10 +9,22 @@ public class Optimizer2
     private List<DataPoint>? _dataPoints = new List<DataPoint>();
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
 
+    public Optimizer2()
+    {
+        GetDataPoints();
+        GetProductionUnits();
 
+        _productionUnits = _productionUnits.OrderBy(o => o.ProductionCost).ToList();
+    }
+    
+    public void OptimizeScenario1()
+    {
+
+    }
 
 
     public void GetDataPoints()
+    private void GetDataPoints()
     {
         IDataSource dataSource = new CsvDataSource();
 
@@ -41,22 +53,24 @@ public class Optimizer2
     }
 
     // Will call Asset Manager eventually.
-    public void GetProductionUnits()
+    private void GetProductionUnits()
     {
+        ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5,800,0,1.5,310);
         ProductionUnit gasBoiler = new ProductionUnit("Gas Boiler", "", 5,500,0,1.1,215);
         ProductionUnit oilBoiler = new ProductionUnit("Oil Boiler", "", 4,700,0,1.2,265);
-        ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5,800,0,1.5,310);
 
-        _productionUnits.Add(gasBoiler);
-        _productionUnits.Add(oilBoiler);
         _productionUnits.Add(controlBoiler);
+        _productionUnits.Add(oilBoiler);
+        _productionUnits.Add(gasBoiler);
     }
 
     public void LogProductionUnits()
     {
+        int i = 0;
         foreach (ProductionUnit productionUnit in _productionUnits)
         {
-            Console.WriteLine(productionUnit);
+            Console.WriteLine($"{i} " + productionUnit);
+            i++;
         }
     }
 }
