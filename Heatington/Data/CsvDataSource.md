@@ -1,25 +1,42 @@
-# CsvDataSource Class
+# `CsvDataSource` Class
 
 ## Overview
 
-The `CsvDataSource` class serves as a concrete implementation of the `IDataSource` interface. It structures its operations around data that is specifically in CSV format, enabling the reading and writing of such data in the Heatington application.
+The `CsvDataSource` class provides a concrete implementation of the `IDataSource` interface specific to data in CSV
+format, allowing for the reading of such data within the Heatington application.
 
 ## Methods
 
-### `List<DataPoint>? GetData(string filePath)`
+### `Task<List<DataPoint>?> GetDataAsync(string filePath)`
 
-This method attempts to fetch time series data from a CSV file residing at the provided `filePath`.
+The `GetDataAsync` method is a function for asynchronously fetching data from a CSV file located at a provided file path.
 
-The process begins by reading all the content of the file as a string (`rawData`). Afterwards, using the `CsvController` utility class, it deserializes this `rawData` into a `CsvData` object. The `CsvData` object can specifically handle and manipulate data that resides in a CSV format.
+The method initiates by asynchronously reading the file’s entire content into a string (`rawData`). The `rawData` is
+then deserialized by the `CsvController` utility class into a `CsvData` object – a controller specifically designed to handle
+and manipulate data in CSV format.
 
-Subsequently, these deserialized records are converted into a list of `DataPoint` objects, which encapsulate the heat demand and electricity price data. If there is an issue in retrieving the data or if no data exists at the provided file path, the method returns `null`.
+Following the successful deserialization of the `rawData`, the `CsvData` object is converted into a `List` of `DataPoint`
+objects. Each `DataPoint` object encapsulates heat demand and electricity price data.
+
+Should the method fail to retrieve data from the file or if no data exists at the provided file path, then the method
+will return `null`.
+
+Upon the occurrence of an exception, the exception's message is displayed using the
+`Utilities.DisplayException(e.Message)` method and the exception is then re-thrown.
 
 ### `void SaveData(List<DataPoint> data, string filePath)`
 
-This method is currently not implemented and throws a `NotImplementedException` when called. In future development, it's designed to save a list of `DataPoint` objects to a CSV file at the specified `filePath`.
+The `SaveData` method remains unimplemented and consequently triggers a `NotImplementedException` when called.
 
-The `List<DataPoint> data` represents the data points to be stored while the `string filePath` indicates the destination file path where the corresponding CSV file will be written. However, this method might not be used in the project depending on the application requirements.
+It is projected that in the future, the method will save a `List` of `DataPoint` objects into a CSV file located at a
+specified file path. The `List<DataPoint> data` parameter represents the data points to be stored. The `string filePath`
+parameter provides the location of where the CSV file will be created or rewritten.
+
+The utilization of this method remains dependent upon the needs of the Heatington project.
 
 ## Remarks
 
-Though the intention of the `CsvDataSource` class is to provide a concrete way to handle CSV data within the application, it's important to note that its ability to *write* data is currently not implemented, and may or may not be required depending on future development decisions. Future iterations may also explore options such as factory or builder patterns to enhance object creation or modification.
+While the `CsvDataSource` class is intended to offer a concrete manner for handling CSV data in the application,
+it's worth to mention that its ability to write data is not implemented. Depending on future development decisions,
+this feature could potentially remain so. The future of object creation and modification may also leverage design
+patterns such as the Factory or Builder.
