@@ -14,7 +14,7 @@ public class ResultHolder(
     public DateTime EndTime { get; } = endTime;
     public double HeatDemand { get; } = heatDemand;
     public double ElectricityPrice { get; } = electricityPrice;
-    public double NetProductionCost { get; } = netProductionCost;
+    public double NetProductionCost { get; set; } = netProductionCost;
     public List<ProductionUnit> Boilers { get; set; } = boilers;
 
     public override string ToString()
