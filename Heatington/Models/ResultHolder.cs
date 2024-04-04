@@ -35,9 +35,9 @@ public class ResultHolder(
                 $"Operation point: {productionUnit.OperationPoint}");
         }
 
-        string s = string.Concat($"Start Time: {formattedStart} ", $"End Time: {formattedEnd}; ",
+        string s = string.Concat($"\n\nStart Time: {formattedStart} ", $"End Time: {formattedEnd}; ",
             $"Heat Demand: {HeatDemand} MWh; ", $"Electricity Price: {ElectricityPrice} DKK/MWh",
-            $"Net Production Cost {NetProductionCost}", boilers);
+            $"Net Production Cost {NetProductionCost} ", boilers);
 
         return s;
     }
