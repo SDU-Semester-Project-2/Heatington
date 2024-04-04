@@ -6,7 +6,7 @@ namespace Heatington.Data
     public interface IDataSource
     {
 
-        List<DataPoint>? GetData(string filePath);
+        Task<List<DataPoint>?> GetDataAsync(string filePath);
         void SaveData(List<DataPoint> data, string filePath);
     }
 }

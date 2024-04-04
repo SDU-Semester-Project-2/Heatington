@@ -42,23 +42,36 @@ The implementation of the `SourceDataManager` class provides flexibility and ext
 
 Here is an example of how to use the `SourceDataManager` class:
 
-    ```csharp
-        // Import the necessary namespaces
-        using Heatington.Data;
+```csharp
+using Heatington.Data;
 
-        // Define the file path
-        const string filePath = "../Assets/winter_period.csv";
+namespace Heatington
+{
+    internal static class Program
+    {
 
-        // Create a new CsvDataSource
-        IDataSource dataSource = new CsvDataSource();
+        public static async Task Main(string[] args) // async Task -> if we want to implement async operation
+                                                     // especially for IO
+        {
+            // Define the file path
+            const string filePath = "../Assets/winter_period.csv";
 
-        SourceDataManager sdm = new(dataSource, filePath);
+            // Create a new CsvDataSource
+            IDataSource dataSource = new CsvDataSource();
 
-        // Fetch data from dataSource
-        sdm.FetchTimeSeriesData();
+            SourceDataManager.SourceDataManager sdm = new(dataSource, filePath);
 
-        // Log the loaded data to the console
-        sdm.LogTimeSeriesData();
+            // Fetch data from dataSource
+            await sdm.FetchTimeSeriesDataAsync().ConfigureAwait(true);
 
-        Console.WriteLine("Data loaded successfully.");
-    ```
+            // Log the loaded data to the console
+            sdm.LogTimeSeriesData();
+
+            Console.WriteLine("Data loaded successfully.");
+
+        }
+    }
+}
+
+
+ ```
