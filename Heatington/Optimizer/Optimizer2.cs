@@ -11,6 +11,18 @@ public class Optimizer2
 
 
 
+    public void LogDataPoints()
+    {
+        if (_dataPoints == null)
+        {
+            return;
+        }
+
+        foreach (DataPoint dataPoint in _dataPoints)
+        {
+            Console.WriteLine(dataPoint);
+        }
+    }
 
     public void GetDataPoints()
     {
