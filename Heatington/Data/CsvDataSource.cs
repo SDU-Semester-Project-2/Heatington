@@ -1,4 +1,5 @@
 using Heatington.Controllers;
+using Heatington.Helpers;
 using Heatington.Models;
 
 namespace Heatington.Data
@@ -7,11 +8,19 @@ namespace Heatington.Data
     public class CsvDataSource : IDataSource
     {
 
-        public List<DataPoint>? GetData(string filePath)
+        public async Task<List<DataPoint>?> GetDataAsync(string filePath)
         {
-            string rawData = File.ReadAllText(filePath);
-            CsvData csvData = CsvController.Deserialize(rawData, false);
-            return csvData.ConvertRecords<DataPoint>();
+            try
+            {
+                string rawData = await File.ReadAllTextAsync(filePath).ConfigureAwait(false);
+                CsvData csvData = CsvController.Deserialize(rawData, false);
+                return csvData.ConvertRecords<DataPoint>();
+            }
+            catch (Exception e)
+            {
+               Utilities.DisplayException(e.Message);
+               throw;
+            }
         }
 
         // TODO: Check if this method is actually required
