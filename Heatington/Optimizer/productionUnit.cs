@@ -41,4 +41,24 @@ public class ProductionUnit
         GasConsumption = gasConsumption;    // not every unit has gas, in that case set the value to 0
         Co2Emission = co2Emission;          // not every unit has co2 emission, in that case set the value to 0
     }
+
+
+    public override string ToString()
+    {
+        if (MaxElectricity != 0 && GasConsumption == 0)
+        {
+            return $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                   $"Max Electricity:{MaxElectricity}";
+        }
+        else if (MaxElectricity == 0 && GasConsumption != 0)
+        {
+            return $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                   $"Gas Consumption:{GasConsumption}, CO2 Emission:{Co2Emission}";
+        }
+        else
+        {
+            return $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                   $"Max Electricity:{MaxElectricity}, Gas Consumption:{GasConsumption}, CO2 Emission:{Co2Emission}";
+        }
+    }
 }
