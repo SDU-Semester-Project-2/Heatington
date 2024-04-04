@@ -34,7 +34,7 @@ public class ProductionUnit
         Id = Guid.NewGuid();
         Name = name;
         PicturePath = picturePath;
-        OperationPoint = 1; // operation point set to 1 on default, meaning when created it is on maximum capacity
+        OperationPoint = 0;
         MaxHeat = maxHeat;
         ProductionCost = productionCost;
         MaxElectricity = maxElectricity;    // not every unit has electricity, in that case set the value to 0
