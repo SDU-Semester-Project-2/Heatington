@@ -3,7 +3,7 @@
 
 namespace Heatington.Optimizer;
 
-public class ProductionUnit
+public class ProductionUnit : ICloneable
 {
     public Guid Id { get; }
     public string Name { get; set; }
@@ -40,6 +40,11 @@ public class ProductionUnit
         MaxElectricity = maxElectricity;    // not every unit has electricity, in that case set the value to 0
         GasConsumption = gasConsumption;    // not every unit has gas, in that case set the value to 0
         Co2Emission = co2Emission;          // not every unit has co2 emission, in that case set the value to 0
+    }
+
+    public object Clone()
+    {
+        return this.MemberwiseClone();
     }
 
 
