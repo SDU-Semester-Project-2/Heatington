@@ -31,12 +31,12 @@ public class ResultHolder(
         foreach (ProductionUnit productionUnit in Boilers)
         {
             boilers = string.Concat(boilers, "\n", $"Name: {productionUnit.Name} ",
-                $"Production cost: {productionUnit.ProductionCost }",
+                $"Production cost: {productionUnit.ProductionCost} ",
                 $"Operation point: {productionUnit.OperationPoint}");
         }
 
         string s = string.Concat($"\n\nStart Time: {formattedStart} ", $"End Time: {formattedEnd}; ",
-            $"Heat Demand: {HeatDemand} MWh; ", $"Electricity Price: {ElectricityPrice} DKK/MWh",
+            $"Heat Demand: {HeatDemand} MWh; ", $"Electricity Price: {ElectricityPrice} DKK/MWh ",
             $"Net Production Cost {NetProductionCost} ", boilers);
 
         return s;
