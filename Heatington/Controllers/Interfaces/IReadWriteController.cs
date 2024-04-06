@@ -1,4 +1,4 @@
-namespace Heatington.Contollers;
+namespace Heatington.Controllers;
 
 /// <summary>
 /// Generic Interface for all controllers performing I/O operations
@@ -9,15 +9,18 @@ public interface IReadWriteController
     /// Function for reading data out of a model
     /// </summary>
     /// <returns>
-    /// Data as a string
+    /// task to wait for Data
     /// </returns>
-    public string? ReadData();
+    public Task<T?> ReadData<T>();
 
     /// <summary>
     /// Function for Writing data into the model
     /// </summary>
     /// <param name="content">
-    /// content to write into the model, as a string
+    /// content to write into the model, generic type
     /// </param>
-    public void WriteData(string content);
+    /// <returns>
+    /// Task to wait for status of the operation
+    /// </returns>
+    public Task<OperationStatus> WriteData<T>(T content);
 }
