@@ -7,7 +7,7 @@ namespace Heatington.Controllers.Interfaces;
 /// </summary>
 public interface IReadWriteController
 {
-    public Task<T?> ReadData<T>();
+    public Task<T> ReadData<T>();
     public Task<OperationStatus> WriteData<T>(T content);
     public string ToString();
 }

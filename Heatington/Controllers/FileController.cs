@@ -10,16 +10,14 @@ namespace Heatington.Controllers;
 /// </summary>
 public class FileController(string pathToFile) : IReadWriteController
 {
-    private readonly string _path = File.Exists(pathToFile) ? FormatFileName(pathToFile) : pathToFile;
-
-    private static string FormatFileName(string pathToFile)
+    private static string FormatFileName(string filePath)
     {
         return Path.Combine(
-            Path.GetDirectoryName(pathToFile) ?? Path.GetTempPath(),
-            Path.GetFileNameWithoutExtension(pathToFile) + "-" +
+            Path.GetDirectoryName(filePath) ?? Path.GetTempPath(),
+            Path.GetFileNameWithoutExtension(filePath) + "-" +
             DateTime.Now.ToString("yyyyMMddTHHmmss") + "-" +
             Random.Shared.Next().ToString() +
-            Path.GetExtension(pathToFile)
+            Path.GetExtension(filePath)
         );
     }
 
@@ -31,13 +29,13 @@ public class FileController(string pathToFile) : IReadWriteController
         }
         catch (FileNotFoundException e)
         {
-            Utilities.DisplayException($"File does not exist!\nPath: {_path}\n{e.FileName}");
+            Utilities.DisplayException($"File does not exist!\nPath: {pathToFile}\n{e.FileName}");
             throw;
         }
         catch (DirectoryNotFoundException e)
         {
             Utilities.DisplayException(
-                $"You passed a wrong path! Directory does not exist.\nPath: {_path}\n{e.Message}");
+                $"You passed a wrong path! Directory does not exist.\nPath: {pathToFile}\n{e.Message}");
             throw;
         }
         catch (Exception e)
@@ -51,12 +49,12 @@ public class FileController(string pathToFile) : IReadWriteController
     {
         string fileContent = await TryFileOperationAsync(async () =>
         {
-            if (!File.Exists(_path)) // TODO: Explicit check if file exists = more readable?
+            if (!File.Exists(pathToFile)) // TODO: Explicit check if file exists = more readable?
             {
                 throw new FileNotFoundException();
             }
 
-            return await File.ReadAllTextAsync(_path);
+            return await File.ReadAllTextAsync(pathToFile);
         });
 
         return fileContent;
@@ -68,9 +66,9 @@ public class FileController(string pathToFile) : IReadWriteController
 
         OperationStatus status = await TryFileOperationAsync(async () =>
         {
-            await File.WriteAllTextAsync(_path, content, Encoding.UTF8);
+            await File.WriteAllTextAsync(pathToFile, content, Encoding.UTF8);
 
-            if (!File.Exists(_path) || new FileInfo(_path).Length == 0)
+            if (!File.Exists(pathToFile) || new FileInfo(pathToFile).Length == 0)
             {
                 return OperationStatus.FAILURE;
             }
@@ -82,7 +80,7 @@ public class FileController(string pathToFile) : IReadWriteController
     }
 
     // make it generic --> actual endpoints for others
-    public async Task<T?> ReadData<T>()
+    public async Task<T> ReadData<T>()
     {
         string? fileData = await ReadFileFromPath();
 
@@ -91,6 +89,7 @@ public class FileController(string pathToFile) : IReadWriteController
 
     public async Task<OperationStatus> WriteData<T>(T content)
     {
+        pathToFile = File.Exists(pathToFile) ? FormatFileName(pathToFile) : pathToFile; //if file exists write to a new one
         string contentAsString = Utilities.ConvertObject<string>(content); //convert to string
 
         return await WriteToFileFromPath(contentAsString);
@@ -98,6 +97,6 @@ public class FileController(string pathToFile) : IReadWriteController
 
     public override string ToString()
     {
-        return $"Controlling file: ${_path}";
+        return $"Controlling file: ${pathToFile}";
     }
 }
