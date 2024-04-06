@@ -1,20 +1,22 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-
-using Heatington.Contollers;
+using Heatington.Controllers;
+using Heatington.Controllers.Interfaces;
 
 namespace Heatington.Tests.Controllers;
 
-public class FileController_Tests : IDisposable
+/// <summary>
+/// Documentation in Documents/Heatington.Tests/Controllers/FileController.Tests.md
+/// </summary>
+public class FileControllerTests : IDisposable
 {
     private const string TestsDirectory = "tests";
-    public string TestsDirPath = Path.Combine(Path.GetTempPath(), TestsDirectory);
+    private readonly string _testsDirPath = Path.Combine(Path.GetTempPath(), TestsDirectory);
 
-    public FileController_Tests()
+    public FileControllerTests() // NOT A TEST
     {
-        if (!Directory.Exists(TestsDirPath))
+        // create temporary test folder
+        if (!Directory.Exists(_testsDirPath))
         {
-            Directory.CreateDirectory(TestsDirPath);
+            Directory.CreateDirectory(_testsDirPath);
         }
         else
         {
@@ -23,57 +25,73 @@ public class FileController_Tests : IDisposable
     }
 
     [Fact]
-    public void ReadFileFromPath_ReadFile_ReadsCorrectContent()
+    public async void ReadFileFromPath_ReadFile_ReadsCorrectContent()
     {
-        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
-        string content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod";
-        IReadWriteController fileController = new FileController(TestFilePath);
+        //Arrange
+        string TestFilePath = Path.Combine(_testsDirPath, Path.GetRandomFileName());
+        string expectedContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod";
+        IReadWriteController mockFileController = new FileController(TestFilePath);
 
-        File.WriteAllText(TestFilePath, content);
+        //Act
+        await File.WriteAllTextAsync(TestFilePath, expectedContent);
 
-        Assert.Equal(content, fileController.ReadData());
+        //Assert
+        string? actualContent = await mockFileController.ReadData<string>();
+        Assert.Equal(expectedContent, actualContent);
     }
 
     [Fact]
     public void WriteFileFromPath_WriteFile_WritesCorrectContent()
     {
-        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
-        string content = "Test content with some \t formatting and \n stuff to see! if  everything works. Fine :)";
-
+        //Arrange
+        string TestFilePath = Path.Combine(_testsDirPath, Path.GetRandomFileName());
+        string expectedContent =
+            "Lorem ipsum dolor\t sit amet\n, consectetur\r adipiscing elit\t. Quisque euismod";
         IReadWriteController fileController = new FileController(TestFilePath);
-        fileController.WriteData(content);
 
-        Assert.Equal(content, File.ReadAllText(TestFilePath));
+        //Act
+        fileController.WriteData(expectedContent);
+
+        //Assert
+        string actualContent = File.ReadAllText(TestFilePath);
+        Assert.Equal(expectedContent, actualContent);
     }
 
     [Fact]
     public void WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
     {
-        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
-        string content = "";
-
+        //Arrange
+        string TestFilePath = Path.Combine(_testsDirPath, Path.GetRandomFileName());
+        string emptyContent = "";
         IReadWriteController fileController = new FileController(TestFilePath);
-        fileController.WriteData(content);
 
+        //Act
+        fileController.WriteData(emptyContent);
+
+        //Assert
         Assert.True(File.Exists(TestFilePath));
     }
 
     [Fact]
     public void WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
     {
-        string TestFilePath = Path.Combine(TestsDirPath, "file1.txt");
-        string fakeContent = "asfsadf";
-        IReadWriteController fileController1 = new FileController(TestFilePath);
+        //Arrange
+        string TestFilePath = Path.Combine(_testsDirPath, "file1.txt");
+        string fakeContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod";
+        IReadWriteController fileController1;
+        IReadWriteController fileController2;
+
+        //Act
+        fileController1 = new FileController(TestFilePath);
         fileController1.WriteData(fakeContent);
-        IReadWriteController fileController2 = new FileController(TestFilePath);
+
+        fileController2 = new FileController(TestFilePath);
         fileController2.WriteData(fakeContent);
 
-        foreach (var file in Directory.GetFiles(TestsDirPath))
-        {
-            Console.WriteLine(file + "\n");
-        }
-
-        Assert.Equal(2, Directory.GetParent(TestFilePath)!.GetFiles().Length);
+        //Assert
+        int expectedNumOfFiles = 2;
+        int actualNumOfFiles = Directory.GetParent(TestFilePath)!.GetFiles().Length;
+        Assert.Equal(expectedNumOfFiles, actualNumOfFiles);
     }
 
     [Theory]
@@ -88,17 +106,20 @@ public class FileController_Tests : IDisposable
     [InlineData("./123")]
     public void ReadFileFromPath_ReadNotExistingFile_FileNotFound(string wrongFileName)
     {
+        //Arrange
         IReadWriteController fileController = new FileController(wrongFileName);
 
-        Assert.Throws<FileNotFoundException>(() =>
-        {
-            fileController.ReadData();
-        });
+        //Act
+        Func<Task<string?>> readNotExistingData = async () => await fileController.ReadData<string>();
+
+        //Assert
+        Assert.ThrowsAsync<FileNotFoundException>(async () => await readNotExistingData());
     }
 
-    private void ClearTestsDirectory()
+    private void ClearTestsDirectory() // NOT A TEST
     {
-        System.IO.DirectoryInfo di = new DirectoryInfo(TestsDirPath);
+        // clear and remove temporary test folder
+        DirectoryInfo di = new DirectoryInfo(_testsDirPath);
 
         foreach (FileInfo file in di.GetFiles())
         {
@@ -114,6 +135,7 @@ public class FileController_Tests : IDisposable
     public void Dispose()
     {
         //Clear Tests Directory
+
         ClearTestsDirectory();
     }
 }
