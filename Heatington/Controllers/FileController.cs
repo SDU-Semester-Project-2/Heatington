@@ -8,14 +8,9 @@ namespace Heatington.Controllers;
 /// <summary>
 /// Documentation in Documents/Heatington/Controllers/FileController.md
 /// </summary>
-public class FileController : IReadWriteController
+public class FileController(string pathToFile) : IReadWriteController
 {
-    private readonly string _path;
-
-    public FileController(string pathToFile)
-    {
-        _path = File.Exists(pathToFile) ? FormatFileName(pathToFile) : pathToFile;
-    }
+    private readonly string _path = File.Exists(pathToFile) ? FormatFileName(pathToFile) : pathToFile;
 
     private static string FormatFileName(string pathToFile)
     {
@@ -99,5 +94,10 @@ public class FileController : IReadWriteController
         string contentAsString = Utilities.ConvertObject<string>(content); //convert to string
 
         return await WriteToFileFromPath(contentAsString);
+    }
+
+    public override string ToString()
+    {
+        return $"Controlling file: ${_path}";
     }
 }
