@@ -39,4 +39,9 @@ public static class Utilities
     {
         return Path.Combine(Utilities.GetAbsolutePathToAssetsDirectory(), fileName);
     }
+
+    public static string ToString()
+    {
+        return "Class containing method helping with certain tasks";
+    }
 }
