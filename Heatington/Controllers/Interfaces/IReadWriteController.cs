@@ -9,5 +9,5 @@ public interface IReadWriteController
 {
     public Task<T> ReadData<T>();
     public Task<OperationStatus> WriteData<T>(T content);
-    public string ToString();
+    public abstract string? ToString();
 }
