@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "GB",
+    "FullName": "Gas Boiler",
+    "PicturePath": "AssetManager/gas-boiler.jpg",
+    "MaxHeat": 5,
+    "ProductionCost": 500,
+    "MaxElectricity": 0,
+    "GasConsumption": 1.1,
+    "Co2Emission": 0
+  },
+  {
+    "Name": "OB",
+    "FullName": "Oil Boiler",
+    "PicturePath": "AssetManager/oil-boiler.jpg",
+    "MaxHeat": 4,
+    "ProductionCost": 700,
+    "MaxElectricity": 0,
+    "GasConsumption": 1.2,
+    "Co2Emission": 265
+  },
+  {
+    "Name": "GM",
+    "FullName": "Gas Motor",
+    "PicturePath": "AssetManager/gas-motor.jpg",
+    "MaxHeat": 3.6,
+    "ProductionCost": 1100,
+    "MaxElectricity": 2.7,
+    "GasConsumption": 1.9,
+    "Co2Emission": 640
+  },
+  {
+    "Name": "EK",
+    "FullName": "Electric Boiler",
+    "PicturePath": "AssetManager/electric-boiler.jpg",
+    "MaxHeat": 8,
+    "ProductionCost": 50,
+    "MaxElectricity": -8,
+    "GasConsumption": 0,
+    "Co2Emission": 0
+  }
+]
