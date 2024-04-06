@@ -1,11 +1,11 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
+namespace Heatington.Controllers.Enums;
 
-namespace Heatington.Controllers;
-
+/// <summary>
+/// Documentation in Documents/Heatington/Controllers/Enums/OperationStatus.md
+/// </summary>
 public enum OperationStatus
 {
-    SUCCESS = 0, // or 200
+    SUCCESS = 0,
     LOADING = 1,
-    FAILURE = 2, // or 404
+    FAILURE = 2,
 }
