@@ -2,7 +2,7 @@ using FrancescoDummyClasses;
 
 namespace Heatington.Optimizer;
 
-public class Optimizer
+public class Opt
 {
     private List<ProductionUnitFs> _pUnits = new List<ProductionUnitFs>();
     private List<FrancescoEnergyData> _energyDataEntries = new List<FrancescoEnergyData>();
