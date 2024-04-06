@@ -1,29 +1,38 @@
-namespace Heatington.Contollers;
-
-using Heatington.Documentation.Controllers;
+using System.Text;
+using Heatington.Controllers.Enums;
+using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 
-//TODO: add global path for imports?
+namespace Heatington.Controllers;
 
-/// <include file='../Documentation/Controllers/FileControllerDocs.xml' path='/doc/members[@name="FileControllerClass"]/*' />
-/// <example> <see cref="FileControllerExampleUsage"/> </example>
+/// <summary>
+/// Documentation in Documents/Heatington/Controllers/FileController.md
+/// </summary>
 public class FileController : IReadWriteController
 {
-    /// <include file='../Documentation/Controllers/FileControllerDocs.xml' path='/doc/members[@name="_path"]/*' />
     private readonly string _path;
 
-    /// <include file='../Documentation/Controllers/FileControllerDocs.xml' path='/doc/members[@name="FileController"]/*' />
     public FileController(string pathToFile)
     {
-        _path = pathToFile;
+        _path = File.Exists(pathToFile) ? FormatFileName(pathToFile) : pathToFile;
     }
 
-    /// <include file='../Documentation/Controllers/FileControllerDocs.xml' path='/doc/members[@name="TryFileOperationRunner"]/*' />
-    private T TryFileOperationRunner<T>(Func<T> funcToTry)
+    private static string FormatFileName(string pathToFile)
+    {
+        return Path.Combine(
+            Path.GetDirectoryName(pathToFile) ?? Path.GetTempPath(),
+            Path.GetFileNameWithoutExtension(pathToFile) + "-" +
+            DateTime.Now.ToString("yyyyMMddTHHmmss") + "-" +
+            Random.Shared.Next().ToString() +
+            Path.GetExtension(pathToFile)
+        );
+    }
+
+    private async Task<T> TryFileOperationAsync<T>(Func<Task<T>> funcToTry)
     {
         try
         {
-            return funcToTry();
+            return await funcToTry();
         }
         catch (FileNotFoundException e)
         {
@@ -43,36 +52,52 @@ public class FileController : IReadWriteController
         }
     }
 
-    /// <include file='../Documentation/Controllers/FileControllerDocs.xml' path='/doc/members[@name="ReadFileFromPath"]/*' />
-    private string? ReadFileFromPath()
+    private async Task<string?> ReadFileFromPath()
     {
-        string? fileContent = TryFileOperationRunner(() =>
+        string fileContent = await TryFileOperationAsync(async () =>
         {
-            return File.ReadAllText(_path);
+            if (!File.Exists(_path)) // TODO: Explicit check if file exists = more readable?
+            {
+                throw new FileNotFoundException();
+            }
+
+            return await File.ReadAllTextAsync(_path);
         });
 
         return fileContent;
     }
 
-    /// <include file='../Documentation/Controllers/FileControllerDocs.xml' path='/doc/members[@name="WriteToFileFromPath"]/*' />
-    private void WriteToFileFromPath(string content)
+    private async Task<OperationStatus> WriteToFileFromPath(string content)
     {
-        TryFileOperationRunner(() =>
+        ArgumentNullException.ThrowIfNull(content); // if content == null throw exception
+
+        OperationStatus status = await TryFileOperationAsync(async () =>
         {
-            File.WriteAllText(_path, content);
-            return 0;
+            await File.WriteAllTextAsync(_path, content, Encoding.UTF8);
+
+            if (!File.Exists(_path) || new FileInfo(_path).Length == 0)
+            {
+                return OperationStatus.FAILURE;
+            }
+
+            return OperationStatus.SUCCESS;
         });
+
+        return status;
     }
 
-    /// <include file='../Documentation/Controllers/FileControllerDocs.xml' path='/doc/members[@name="ReadData"]/*' />
-    public string? ReadData()
+    // make it generic --> actual endpoints for others
+    public async Task<T?> ReadData<T>()
     {
-        return ReadFileFromPath();
+        string? fileData = await ReadFileFromPath();
+
+        return Utilities.ConvertObject<T>(fileData);
     }
 
-    /// <include file='../Documentation/Controllers/FileControllerDocs.xml' path='/doc/members[@name="WriteData"]/*' />
-    public void WriteData(string content)
+    public async Task<OperationStatus> WriteData<T>(T content)
     {
-        WriteToFileFromPath(content);
+        string contentAsString = Utilities.ConvertObject<string>(content); //convert to string
+
+        return await WriteToFileFromPath(contentAsString);
     }
 }
