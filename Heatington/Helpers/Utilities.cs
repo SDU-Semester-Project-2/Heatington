@@ -40,7 +40,7 @@ public static class Utilities
         return Path.Combine(Utilities.GetAbsolutePathToAssetsDirectory(), fileName);
     }
 
-    public static string ToString()
+    public static new string ToString()
     {
         return "Class containing method helping with certain tasks";
     }
