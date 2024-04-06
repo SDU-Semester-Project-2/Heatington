@@ -5,16 +5,16 @@ namespace Heatington.ResultDataManager
 
     public class ResultDataManager
     {
-        private readonly string _filePath;
+        private readonly FileController _fileController;
 
         public ResultDataManager(string filePath)
         {
-            _filePath = filePath;
+            _fileController = new FileController(filePath);
         }
 
         public void WriteOptimizationResultToCSV()
         {
-
+            _fileController.WriteData("");
         }
     }
 }
