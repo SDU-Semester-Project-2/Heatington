@@ -1,5 +1,45 @@
 # Documentation for optimizer
 
+- Optimizer module for the first scenario
+
+**Properties**
+- _dataPoints -> will hold the hourly information loaded from the csv from the sdm
+- _productionUnits -> hold the production units loaded
+- Results -> public get, will hold the computed results
+
+
+**Public methods**
+- LoadData() -> Loads data from the SDM to the OPT which are needed to compute the optimization
+- OptimizeScenario1() -> Once the data is loaded, it will optimize the activation of heat boilers and make the results accessible
+- CalculateNetProductionCost() -> Once the optimizer was run, this method will calculate the Net production costs for
+heat only boilers
+- LogResults() -> Will display the computed results
+- LogDataPoints() -> Will display the dataPoints if they are loaded from the SDM
+- LogProductionUnits() -> Will display the loaded production units which will be used for the optimization
+
+**Private methods**
+- SetOperationPoint() -> will be called to set the operation point on each boiler
+- CalculateHeatUnitsRequired() -> is the main part of the optimizer as it organises the data and sets the appropriate
+computed values
+- GetDataPoints() -> Loads data from the SDM
+- GetProductionUnits() -> Loads production units (eventually from AM)
+
+**How the logic works**
+Once the optimizer starts optimizing:
+- each dataPoint loaded needs to be optimized
+- production Units need to be stored sorted by efficiency
+
+1. Determines how many boilers need to be activated
+2. Based on that number the correct boilers are selected
+3. Once the boilers are selected their operation point is set
+4. All the information is added to an object ResultHolder which is added to a local list
+5. After the foreach loop is completed the results are added to the public property
+6. Now the netProductionCosts can be computed
+
+## First iteration of the OPT module
+
+### Everything under here is left as history, nothing applies anymore.
+
 ## Scenario 1
 
 The optimizer class has three private fields.
