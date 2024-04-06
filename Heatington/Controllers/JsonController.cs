@@ -30,6 +30,7 @@ public class JsonController(string filePath) : ISerializeDeserialize, IReadWrite
     {
         return $"Path to file {filePath}";
     }
+
     public static string Serialize<T>(T obj)
     {
         var serializeOptions = new JsonSerializerOptions { WriteIndented = true };
@@ -106,5 +107,6 @@ class AssetManagerJsonConverterFactory : JsonConverterFactory
                typeToConvert.GetGenericTypeDefinition() == typeof(HeatingGrid);
     }
 
-    public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
+    public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options) =>
+        throw new NotImplementedException();
 }
