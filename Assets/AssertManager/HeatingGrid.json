@@ -1,0 +1,7 @@
+{
+    "PicturePath": "/AssetManager/heating-grid.png",
+    "Name": "Heatington Grid / Heating Area",
+    "Architecture":	"single district heating network",
+    "Size":	"1600 buildings",
+    "City":	"Heatington"
+}
