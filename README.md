@@ -1,6 +1,6 @@
 # Heatington
 
-#### [Open Coding Style Guidelines](Documents/CODING-STYLE.md)
+#### [Open Coding Style Guidelines](Documentation/CODING-STYLE.md)
 
 ## What are we developing
 - Heat production optimization for a district heating utility
