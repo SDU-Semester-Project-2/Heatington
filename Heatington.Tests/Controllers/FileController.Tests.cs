@@ -135,6 +135,7 @@ public class FileControllerTests : IDisposable
     public void Dispose()
     {
         //Clear Tests Directory
+
         ClearTestsDirectory();
     }
 }
