@@ -1,20 +1,25 @@
-using Heatington.Contollers;
+using Heatington.Controllers;
 
 namespace Heatington.ResultDataManager
 {
 
     public class ResultDataManager
     {
-        private readonly FileController _fileController;
+        private readonly string _filePath;
+        private readonly List<string> _data = new List<string>();
 
         public ResultDataManager(string filePath)
         {
-            _fileController = new FileController(filePath);
+            _filePath = filePath;
         }
 
-        public void WriteOptimizationResultToCSV()
+        public void WriteDataToCsv()
         {
-            _fileController.WriteData("");
+            CsvData csvData = new CsvData(_data);
+
+            String serializedString = CsvController.Serialize(_csvData);
+
+
         }
     }
 }
