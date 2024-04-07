@@ -1,4 +1,5 @@
 using Heatington.Controllers;
+using Heatington.Contollers;
 using Heatington.Models;
 using Heatington.Optimizer;
 
@@ -6,13 +7,14 @@ namespace Heatington.ResultDataManager
 {
     public class ResultDataManager
     {
-        private readonly string _filePath;
+        private FileController _fileController;
+
         private readonly List<string[]> _data = new List<string[]>();
         private List<ResultHolder> _optResults;
 
         public ResultDataManager(string filePath)
         {
-            _filePath = filePath;
+            _fileController = new FileController(filePath);
         }
 
         public void FetchOptimizationData(Opt opt)
@@ -34,20 +36,15 @@ namespace Heatington.ResultDataManager
                 {
                     list.Add(boiler.Name.ToString());
                 }
-
                 _data.Add(list.ToArray());
             }
-
-            //Console.WriteLine(_data.Count());
         }
 
         public void WriteDataToCsv()
         {
             CsvData csvData = new CsvData(_data);
-
             string serializedString = CsvController.Serialize(csvData);
-
-
+            _fileController.WriteData(serializedString);
         }
     }
 }
