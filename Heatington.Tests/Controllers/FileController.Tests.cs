@@ -36,7 +36,7 @@ public class FileControllerTests : IDisposable
         await File.WriteAllTextAsync(TestFilePath, expectedContent);
 
         //Assert
-        string? actualContent = await mockFileController.ReadData<string>();
+        string actualContent = await mockFileController.ReadData<string>();
         Assert.Equal(expectedContent, actualContent);
     }
 
@@ -135,7 +135,6 @@ public class FileControllerTests : IDisposable
     public void Dispose()
     {
         //Clear Tests Directory
-
         ClearTestsDirectory();
     }
 }
