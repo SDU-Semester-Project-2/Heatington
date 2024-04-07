@@ -15,8 +15,8 @@ namespace Heatington.AssetManager;
 /// </example>
 public class AssetManager
 {
-    public HeatingGrid? HeatingGridInformation;
-    public Dictionary<ProductionUnitsEnum, ProductionUnit>? ProductionUnits;
+    public HeatingGrid? HeatingGridInformation { get; private set; }
+    public Dictionary<ProductionUnitsEnum, ProductionUnit>? ProductionUnits { get; private set; }
 
     private readonly string _pathToHeatingGrid =
         Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/HeatingGrid.json");
@@ -32,13 +32,6 @@ public class AssetManager
         _heatingGridJsonController = new JsonController(_pathToHeatingGrid);
         _productionUnitsJsonController = new JsonController(_pathToProductionUnits);
     }
-
-    // Alternative version:
-    // public AssetManager(IReadWriteController heatingGridJsonController, IReadWriteController productionUnitsJsonController)
-    // {
-    //     _heatingGridJsonController = heatingGridJsonController;
-    //     _productionUnitsJsonController = productionUnitsJsonController;
-    // }
 
     public async Task LoadAssets()
     {
@@ -59,29 +52,89 @@ public class AssetManager
         }
     }
 
+    private static ArgumentException ThrowExceptionProductionUnitsEmpty()
+    {
+            Utilities.DisplayException("ProductionUnits are empty!\nDid you forget to LoadAssets before?");
+            throw new ArgumentException("ProductionUnits empty.");
+    }
+
     public Dictionary<ProductionUnitsEnum, ProductionUnit> ReadHeatingUnits()
     {
         if (ProductionUnits == null)
         {
-            Utilities.DisplayException("ProductionUnits are empty!\nDid you forget to LoadAssets before?");
-            throw new MissingMemberException();
+            throw ThrowExceptionProductionUnitsEmpty();
         }
 
         // TODO: right now it does nothing but may be useful in different scenarios?
         Dictionary<ProductionUnitsEnum, ProductionUnit> heatingUnits =
             ProductionUnits.Where(
-                kvp => kvp.Value.MaxHeat != 0
-            )
-            .ToDictionary(item =>
-                    item.Key, item => item.Value
-            );
+                    kvp => kvp.Value.MaxHeat != 0
+                )
+                .ToDictionary(item =>
+                        item.Key, item => item.Value
+                );
 
         return heatingUnits;
     }
 
-    public void WriteHeatingUnit(Guid UnitId)
+
+    // Pass unitId and body to update unit.
+    public void WriteHeatingUnit(Guid unitId, ProductionUnit heatingUnitNewbBody)
     {
-        // TODO: I'm sure in which way we'll be writing the Heating Units
-        throw new NotImplementedException();
+        if (ProductionUnits == null)
+        {
+            throw ThrowExceptionProductionUnitsEmpty();
+        }
+
+        KeyValuePair<ProductionUnitsEnum, ProductionUnit> productionUnitToWrite =
+            ProductionUnits.FirstOrDefault(value => value.Value.Id == unitId);
+
+        ProductionUnits[productionUnitToWrite.Key] = heatingUnitNewbBody;
+    }
+
+    // Pass key to the unit(the key that you would use to access the Dictonary) and body to update unit.
+    public void WriteHeatingUnit(ProductionUnitsEnum productionUnitKey, ProductionUnit heatingUnitNewbBody)
+    {
+        if (ProductionUnits == null)
+        {
+            throw ThrowExceptionProductionUnitsEmpty();
+        }
+
+        ProductionUnits[productionUnitKey] = heatingUnitNewbBody;
+    }
+
+    // Pass only edited HeatingUnit and it should update automatically
+    public void WriteHeatingUnit(ProductionUnit editedHeatingUnit)
+    {
+        if (ProductionUnits == null)
+        {
+            throw ThrowExceptionProductionUnitsEmpty();
+        }
+
+        KeyValuePair<ProductionUnitsEnum, ProductionUnit> productionUnitToWrite =
+            ProductionUnits.FirstOrDefault(value => value.Value.Id == editedHeatingUnit.Id);
+
+        ProductionUnits[productionUnitToWrite.Key] = editedHeatingUnit;
+    }
+
+    public override string ToString()
+    {
+        string strRepresentation = $"HeatingGridInformation:\n{HeatingGridInformation}";
+
+
+        if (ProductionUnits != null)
+        {
+            strRepresentation += "ProductionUnits:\n";
+            foreach ((ProductionUnitsEnum _, ProductionUnit prodUnit) in ProductionUnits)
+            {
+                strRepresentation += $"\t{prodUnit}\n";
+            }
+        }
+        else
+        {
+            strRepresentation += "\nError: No string represantation of ProductionUnits(equals null)";
+        }
+
+        return strRepresentation;
     }
 }
