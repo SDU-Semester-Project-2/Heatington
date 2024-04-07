@@ -14,8 +14,6 @@ public class AssetManager
 {
     public HeatingGrid? HeatingGridInformation { get; private set; }
     public Dictionary<ProductionUnitsEnum, ProductionUnit>? ProductionUnits { get; private set; }
-    public HeatingGrid? HeatingGridInformation;
-    public Dictionary<string, ProductionUnit>? ProductionUnits;
 
     private readonly string _pathToHeatingGrid =
         Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/HeatingGrid.json");
@@ -79,7 +77,6 @@ public class AssetManager
 
         return heatingUnits;
     }
-
 
     // Pass unitId and body to update unit.
     public void WriteHeatingUnit(Guid unitId, ProductionUnit heatingUnitNewbBody)
