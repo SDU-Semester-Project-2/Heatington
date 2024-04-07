@@ -7,7 +7,7 @@ using Heatington.Controllers.Interfaces;
 
 namespace Heatington.Data;
 
-public class JsonDataSource(string filePath) : IReadWriteController
+public class JsonDataSource(string filePath) : IReadWriteController //UNUSED
 {
 
     //TODO: for now both JsonController and JsonDataSource implement IReadWriteController. Remove one, after talking with team.
