@@ -7,7 +7,7 @@ using Heatington.Helpers;
 
 namespace Heatington.Controllers;
 
-public class JsonController(string filePath): ISerializeDeserialize, IReadWriteController
+public class JsonController(string filePath) : ISerializeDeserialize, IReadWriteController
 {
     //TODO: for now both JsonController and JsonDataSource implement IReadWriteController. Remove one, after talking with team.
     private readonly IReadWriteController _fileController = new FileController(filePath);
@@ -15,7 +15,7 @@ public class JsonController(string filePath): ISerializeDeserialize, IReadWriteC
     public async Task<T> ReadData<T>()
     {
         string data = await _fileController.ReadData<string>();
-        T? result = JsonController.Deserialize<T>(data);
+        T result = JsonController.Deserialize<T>(data);
 
         return result;
     }
@@ -23,10 +23,10 @@ public class JsonController(string filePath): ISerializeDeserialize, IReadWriteC
     public async Task<OperationStatus> WriteData<T>(T content)
     {
         string serializedData = JsonController.Serialize(content);
-        return await _fileController.WriteData<string>(serializedData);
+        return await _fileController.WriteData(serializedData);
     }
 
-    public override string? ToString()
+    public override string ToString()
     {
         return $"Path to file {filePath}";
     }
@@ -86,7 +86,7 @@ public class ProductionUintJsonConverter : JsonConverter<ProductionUnit>
     public override ProductionUnit Read(
         ref Utf8JsonReader reader,
         Type typeToConvert,
-        JsonSerializerOptions options) => new ProductionUnit("", "",1,1,1,1,1);
+        JsonSerializerOptions options) => new ProductionUnit("", "", 1, 1, 1, 1, 1);
 
     public override void Write(
         Utf8JsonWriter writer,
@@ -102,15 +102,8 @@ class AssetManagerJsonConverterFactory : JsonConverterFactory
 
     public override bool CanConvert(Type typeToConvert)
     {
-        if (
-            typeToConvert.GetGenericTypeDefinition() != typeof(List<ProductionUnit>) ||
-            typeToConvert.GetGenericTypeDefinition() != typeof(HeatingGrid)
-            )
-        {
-            return false;
-        };
-
-        return true;
+        return typeToConvert.GetGenericTypeDefinition() == typeof(List<ProductionUnit>) &&
+               typeToConvert.GetGenericTypeDefinition() == typeof(HeatingGrid);
     }
 
     public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
