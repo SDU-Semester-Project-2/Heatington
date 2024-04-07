@@ -5,8 +5,15 @@ namespace Heatington.Helpers;
 /// </summary>
 public static class Utilities
 {
+    public const bool Verbose = true;
+
     public static void DisplayException(string message)
     {
+        if (!Verbose)
+        {
+            return;
+        }
+
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(message);
         Console.ResetColor();
@@ -30,7 +37,7 @@ public static class Utilities
             throw new DirectoryNotFoundException();
         }
 
-        Console.WriteLine(Path.Combine(pathToProjectRootDirectory.FullName, defaultAssetsDirectory));
+        // Console.WriteLine(Path.Combine(pathToProjectRootDirectory.FullName, defaultAssetsDirectory));
 
         return Path.Combine(pathToProjectRootDirectory.FullName, defaultAssetsDirectory);
     }

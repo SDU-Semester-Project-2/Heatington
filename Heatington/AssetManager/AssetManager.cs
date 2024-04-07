@@ -1,4 +1,3 @@
-using System.Buffers;
 using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
@@ -10,27 +9,42 @@ public class AssetManager
     public HeatingGrid? HeatingGridInformation;
     public Dictionary<string, ProductionUnit>? ProductionUnits;
 
-
     private readonly string _pathToHeatingGrid =
         Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/HeatingGrid.json");
-    private readonly string _pathToProductionUnits=
+
+    private readonly string _pathToProductionUnits =
         Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/ProductionUnits.json");
 
-    private IReadWriteController _heatingGridJsonController;
-    private IReadWriteController _productionUnitsJsonController;
+    private readonly IReadWriteController _heatingGridJsonController;
+    private readonly IReadWriteController _productionUnitsJsonController;
 
     public AssetManager()
     {
         _heatingGridJsonController = new JsonController(_pathToHeatingGrid);
         _productionUnitsJsonController = new JsonController(_pathToProductionUnits);
-        LoadAssets();
     }
 
-    private async void LoadAssets()
+    // Alternative version:
+    // public AssetManager(IReadWriteController heatingGridJsonController, IReadWriteController productionUnitsJsonController)
+    // {
+    //     _heatingGridJsonController = heatingGridJsonController;
+    //     _productionUnitsJsonController = productionUnitsJsonController;
+    // }
+
+    public async Task LoadAssets()
     {
+        Console.WriteLine("Loading assets");
         HeatingGridInformation = await _heatingGridJsonController.ReadData<HeatingGrid>();
-        List<ProductionUnit> units = new();
-        units = await _productionUnitsJsonController.ReadData<List<ProductionUnit>>();
+        Console.WriteLine(HeatingGridInformation.Name);
+
+        ProductionUnit[] units;
+        units = await _productionUnitsJsonController.ReadData<ProductionUnit[]>();
+
+
+        foreach (var unit in units)
+        {
+            Console.WriteLine(unit);
+        }
     }
 
     public ProductionUnit ReadHeatingUnits()
@@ -42,5 +56,4 @@ public class AssetManager
     {
         throw new NotImplementedException();
     }
-
 }

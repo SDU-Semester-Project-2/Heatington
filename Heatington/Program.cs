@@ -5,3 +5,5 @@ using Heatington.AssetManager;
 Console.WriteLine("Hello, World!");
 
 AssetManager AM = new AssetManager();
+
+await AM.LoadAssets();
