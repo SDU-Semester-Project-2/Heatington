@@ -4,9 +4,6 @@ using Heatington.Helpers;
 
 namespace Heatington.AssetManager;
 
-/// <summary>
-///
-/// </summary>
 /// <example>
 /// <code>
 /// AssetManager AM = new AssetManager();
@@ -31,6 +28,10 @@ public class AssetManager
     {
         _heatingGridJsonController = new JsonController(_pathToHeatingGrid);
         _productionUnitsJsonController = new JsonController(_pathToProductionUnits);
+
+        // Only if there is no other way then we can load assets in constructor
+        // it's a bad idea tho bcs there is no option to wait for a method inside of a constructor
+        // LoadAssets();
     }
 
     public async Task LoadAssets()
@@ -54,8 +55,8 @@ public class AssetManager
 
     private static ArgumentException ThrowExceptionProductionUnitsEmpty()
     {
-            Utilities.DisplayException("ProductionUnits are empty!\nDid you forget to LoadAssets before?");
-            throw new ArgumentException("ProductionUnits empty.");
+        Utilities.DisplayException("ProductionUnits are empty!\nDid you forget to run LoadAssets() before?");
+        throw new ArgumentException("ProductionUnits empty.");
     }
 
     public Dictionary<ProductionUnitsEnum, ProductionUnit> ReadHeatingUnits()
