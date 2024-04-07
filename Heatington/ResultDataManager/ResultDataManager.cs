@@ -25,17 +25,17 @@ namespace Heatington.ResultDataManager
             foreach (ResultHolder result in _optResults)
             {
                 List<string> list = new List<string>();
-                list.Append(result.StartTime.ToString());
-                list.Append(result.EndTime.ToString());
-                list.Append(result.HeatDemand.ToString());
-                list.Append(result.ElectricityPrice.ToString());
-                list.Append(result.NetProductionCost.ToString());
+                list.Add(result.StartTime.ToString());
+                list.Add(result.EndTime.ToString());
+                list.Add(result.HeatDemand.ToString());
+                list.Add(result.ElectricityPrice.ToString());
+                list.Add(result.NetProductionCost.ToString());
                 foreach (ProductionUnit boiler in result.Boilers)
                 {
-                    list.Append(boiler.ToString());
+                    list.Add(boiler.Name.ToString());
                 }
 
-                _data.Append(list.ToArray());
+                _data.Add(list.ToArray());
             }
 
             //Console.WriteLine(_data.Count());
@@ -45,7 +45,7 @@ namespace Heatington.ResultDataManager
         {
             CsvData csvData = new CsvData(_data);
 
-            String serializedString = CsvController.Serialize(csvData);
+            string serializedString = CsvController.Serialize(csvData);
 
 
         }
