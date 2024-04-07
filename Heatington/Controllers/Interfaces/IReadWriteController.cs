@@ -3,7 +3,7 @@ using Heatington.Controllers.Enums;
 namespace Heatington.Controllers.Interfaces;
 
 /// <summary>
-/// Documentation in Documents/Heatington/Controllers/FileController.md
+/// Documentation in Documents/Heatington/Controllers/Interfaces/IReadWriteController.md
 /// </summary>
 public interface IReadWriteController
 {
