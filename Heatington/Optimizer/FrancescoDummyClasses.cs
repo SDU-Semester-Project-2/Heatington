@@ -57,7 +57,8 @@ public class FrancescoCsvController(string pathToFile)
 
         CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
-            NewLine = Environment.NewLine, HasHeaderRecord = false
+            NewLine = Environment.NewLine,
+            HasHeaderRecord = false
         };
 
         using StreamReader streamReader = new StreamReader(pathToFile);
