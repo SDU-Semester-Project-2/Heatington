@@ -25,8 +25,8 @@ namespace Heatington.ResultDataManager
         public string FormatDateTime(DateTime time)
         {
             TimeZoneInfo danishTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
-            DateTime startTimeInDanish = TimeZoneInfo.ConvertTimeFromUtc(time, danishTimeZone);
-            return startTimeInDanish.ToString("dd.MM.yyyy HH:mm");
+            DateTime timeInDanish = TimeZoneInfo.ConvertTimeFromUtc(time, danishTimeZone);
+            return timeInDanish.ToString("dd.MM.yyyy HH:mm");
         }
 
         public void ConvertOptResultsToData()
