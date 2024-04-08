@@ -81,7 +81,7 @@ public class JsonController(string filePath) : ISerializeDeserialize, IReadWrite
 }
 
 // WORK IN PROGRESS
-public class ProductionUintJsonConverter : JsonConverter<ProductionUnit>
+public class ProductionUnitJsonConverter : JsonConverter<ProductionUnit>
 {
     public override ProductionUnit Read(
         ref Utf8JsonReader reader,
