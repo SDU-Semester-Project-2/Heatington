@@ -97,122 +97,147 @@ namespace CsvHandle
 
     static class CsvController
     {
+        private enum State
+        {
+            Start,
+            UnquotedEntry,
+            QuotedEntry,
+            AnotherQuote
+        }
+
         public static CsvData Deserialize(string rawData, bool includesHeader)
         {
+            State currentState = State.Start;
+            
             int i = 0;
             List<string> currentRecord = new();
             List<string[]> all = new();
-            bool isDoubleQuoted = false;
-            string current = "";
-            while (i < rawData.Length)
+            string currentEntry = "";
+            while(true)
             {
-                isDoubleQuoted = false;
-                current = "";
-                if (rawData[i] == '"')
+                if(currentState == State.Start)
                 {
-                    isDoubleQuoted = true;
-                }
-                else if (rawData[i] == '\n')
-                {
-                    throw new Exception("Entries can't start with new line.");
-                }
-                else
-                {
-                    current += rawData[i];
-                }
-
-                i++;
-                bool inEntry = true;
-                while (inEntry && i < rawData.Length)
-                {
-                    if (rawData[i] == '"')
+                    if(!(i < rawData.Length))
                     {
-                        if (isDoubleQuoted)
+                        if(currentEntry == "" && currentRecord.Count == 0)
                         {
-                            if (i + 1 < rawData.Length)
-                            {
-                                i++;
-                                if (rawData[i] == '"')
-                                {
-                                    current += rawData[i];
-                                }
-                                else if (rawData[i] == ',')
-                                {
-                                    currentRecord.Add(current);
-                                    inEntry = false;
-                                }
-                                else if (rawData[i] == '\n')
-                                {
-                                    currentRecord.Add(current);
-                                    all.Add(currentRecord.ToArray());
-                                    currentRecord.Clear();
-                                    inEntry = false;
-                                }
-                                else
-                                {
-                                    throw new Exception("'\"' characters have to be escaped with '\"' characters.");
-                                }
-                            }
-                            else
-                            {
-                                currentRecord.Add(current);
-                                all.Add(currentRecord.ToArray());
-                                currentRecord.Clear();
-                                inEntry = false;
-                            }
+                            break;
                         }
-                        else
-                        {
-                            throw new Exception("To have a '\"' character in a CSV entry you need to encoles the entry with '\"' and escape the required '\"' with another '\"'.");
-                        }
+                        currentState = State.Start;
+                        currentRecord.Add(currentEntry);
+                        all.Add(currentRecord.ToArray());
+                        currentRecord.Clear();                       
+                        break;
                     }
-                    else if (rawData[i] == ',')
+                    else if (rawData[i] == '"')
                     {
-                        if (isDoubleQuoted)
-                        {
-                            current += rawData[i];
-                        }
-                        else
-                        {
-                            currentRecord.Add(current);
-                            inEntry = false;
-                        }
+                        currentState = State.QuotedEntry;
                     }
                     else if (rawData[i] == '\n')
                     {
-                        if (isDoubleQuoted)
-                        {
-                            current += rawData[i];
-                        }
-                        else
-                        {
-                            currentRecord.Add(current);
-                            all.Add(currentRecord.ToArray());
-                            currentRecord.Clear();
-                            inEntry = false;
-                        }
-                    }
-                    else
-                    {
-                        current += rawData[i];
-                    }
-                    i++;
-                }
-                if (inEntry)
-                {
-                    if (isDoubleQuoted)
-                    {
-                        throw new Exception("All entries have to close the opened '\"'.");
-                    }
-                    else
-                    {
-                        currentRecord.Add(current);
+                        currentRecord.Add(currentEntry);
                         all.Add(currentRecord.ToArray());
                         currentRecord.Clear();
-                        inEntry = false;
+                        currentEntry = "";
+                    }
+                    else if (rawData[i] == ',')
+                    {
+                        currentRecord.Add(currentEntry);
+                        currentEntry = "";
+                    }
+                    else
+                    {
+                        currentState = State.UnquotedEntry;
+                        currentEntry += rawData[i];
                     }
                 }
+                else if(currentState == State.UnquotedEntry)
+                {
+                    if(!(i < rawData.Length))
+                    {
+                        currentState = State.Start;
+                        currentRecord.Add(currentEntry);
+                        currentEntry = "";
+                        all.Add(currentRecord.ToArray());
+                        currentRecord.Clear();
+                        break;
+                    }
+                    else if (rawData[i] == '"')
+                    {
+                        throw new Exception("To have a '\"' character in a CSV entry you need to encoles the entry with '\"' and escape the required '\"' with another '\"'.");
+                    }
+                    else if (rawData[i] == '\n')
+                    {
+                        currentState = State.Start;
+                        currentRecord.Add(currentEntry);
+                        currentEntry = "";
+                        all.Add(currentRecord.ToArray());
+                        currentRecord.Clear();
+                    }
+                    else if (rawData[i] == ',')
+                    {
+                        currentState = State.Start;
+                        currentRecord.Add(currentEntry);
+                        currentEntry = "";
+                    }
+                    else
+                    {
+                        currentEntry += rawData[i];
+                    }
+                }
+                else if(currentState == State.QuotedEntry)
+                {
+                    if(!(i < rawData.Length))
+                    {
+                        throw new Exception("All entries opened with '\"' have to be closed.");
+                    }
+                    else if (rawData[i] == '"')
+                    {
+                        currentState = State.AnotherQuote;
+                    }
+                    else
+                    {
+                        currentEntry += rawData[i];
+                    }
+                }
+                else if(currentState == State.AnotherQuote)
+                {
+                    if(!(i < rawData.Length))
+                    {
+                        currentState = State.Start;
+                        currentRecord.Add(currentEntry);
+                        currentEntry = "";
+                        all.Add(currentRecord.ToArray());
+                        currentRecord.Clear();
+                        break;
+                    }
+                    else if (rawData[i] == '"')
+                    {
+                        currentState = State.QuotedEntry;
+                        currentEntry += rawData[i];
+                    }
+                    else if(rawData[i] == '\n')
+                    {
+                        currentState = State.Start;
+                        currentRecord.Add(currentEntry);
+                        currentEntry = "";
+                        all.Add(currentRecord.ToArray());
+                        currentRecord.Clear();
+                    }
+                    else if (rawData[i] == ',')
+                    {
+                        currentState = State.Start;
+                        currentRecord.Add(currentEntry);
+                        currentEntry = "";
+                    }
+                    else
+                    {
+                        throw new Exception("'\"' characters have to be escaped with '\"' characters.");
+                    }
+                }
+                i++;
             }
+
             return new CsvData(
                 includesHeader ? all[1..] : all,
                 includesHeader ? all[0] : null
