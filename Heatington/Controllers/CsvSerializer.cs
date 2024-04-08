@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace CsvSerializer
+namespace Heatington.Controllers
 {
     [System.AttributeUsage(System.AttributeTargets.Constructor, AllowMultiple = false)]
     public sealed class CsvConstructorAttribute : Attribute;
@@ -80,7 +80,7 @@ namespace CsvSerializer
                 object[] parameterValues = new object[parameters.Length];
                 for (int i = 0; i < parameters.Length; i++)
                 {
-                    ParameterInfo currentParam = useHeader ? paramDict[Header[i]] : parameters[i];
+                    ParameterInfo currentParam = Header != null && useHeader ? paramDict[Header[i]] : parameters[i];
                     var value = Convert.ChangeType(values[i], currentParam.ParameterType);
                     parameterValues[currentParam.Position] = value;
                 }
@@ -108,7 +108,7 @@ namespace CsvSerializer
         public static CsvData Deserialize(string rawData, bool includesHeader)
         {
             State currentState = State.Start;
-            
+
             int i = 0;
             List<string> currentRecord = new();
             List<string[]> all = new();
@@ -126,7 +126,7 @@ namespace CsvSerializer
                         currentState = State.Start;
                         currentRecord.Add(currentEntry);
                         all.Add(currentRecord.ToArray());
-                        currentRecord.Clear();                       
+                        currentRecord.Clear();
                         break;
                     }
                     else if (rawData[i] == '"')
