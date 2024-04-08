@@ -1,6 +1,6 @@
 using Heatington.Data;
-using Heatington.Models;
 using Heatington.Helpers;
+using Heatington.Models;
 namespace Heatington.SourceDataManager
 {
 
@@ -54,7 +54,7 @@ namespace Heatington.SourceDataManager
                 string formattedEnd = endTimeInDanish.ToString("dd.MM.yyyy HH:mm");
 
                 Console.WriteLine(
-                    $"Index: {TimeSeriesData.IndexOf(dataPoint)}; "+
+                    $"Index: {TimeSeriesData.IndexOf(dataPoint)}; " +
                     $"Start Time: {formattedStart}; " +
                     $"End Time: {formattedEnd}; " +
                     $"Heat Demand: {dataPoint.HeatDemand} MWh; " +
