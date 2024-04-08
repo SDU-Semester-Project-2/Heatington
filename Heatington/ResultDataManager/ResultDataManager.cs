@@ -22,13 +22,21 @@ namespace Heatington.ResultDataManager
             _optResults = opt.Results;
         }
 
+        public string FormatDateTime(DateTime time)
+        {
+            TimeZoneInfo danishTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
+            DateTime startTimeInDanish = TimeZoneInfo.ConvertTimeFromUtc(time, danishTimeZone);
+            return startTimeInDanish.ToString("dd.MM.yyyy HH:mm");
+        }
+
         public void ConvertOptResultsToData()
         {
             foreach (ResultHolder result in _optResults)
             {
                 List<string> list = new List<string>();
-                list.Add(result.StartTime.ToString());
-                list.Add(result.EndTime.ToString());
+
+                list.Add(FormatDateTime(result.StartTime));
+                list.Add(FormatDateTime(result.EndTime));
                 list.Add(result.HeatDemand.ToString());
                 list.Add(result.ElectricityPrice.ToString());
                 list.Add(result.NetProductionCost.ToString());
