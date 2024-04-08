@@ -1,25 +1,24 @@
-using Heatington.Controllers;
+using Heatington.Controllers.Serializers;
+using Heatington.Data;
 using Heatington.Helpers;
 using Heatington.Models;
 
-namespace Heatington.Data
+namespace Heatington.Controllers
 {
-
-    public class CsvDataSource : IDataSource
+    public class CsvController : IDataSource
     {
-
         public async Task<List<DataPoint>?> GetDataAsync(string filePath)
         {
             try
             {
                 string rawData = await File.ReadAllTextAsync(filePath).ConfigureAwait(false);
-                CsvData csvData = CsvController.Deserialize(rawData, false);
+                CsvData csvData = Controllers.Serializers.CsvController.Deserialize(rawData, false);
                 return csvData.ConvertRecords<DataPoint>();
             }
             catch (Exception e)
             {
-               Utilities.DisplayException(e.Message);
-               throw;
+                Utilities.DisplayException(e.Message);
+                throw;
             }
         }
 
