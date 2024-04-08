@@ -24,5 +24,5 @@ namespace Heatington.Controllers
 
         // TODO: Check if this method is actually required
         public void SaveData(List<DataPoint> data, string filePath) => throw new NotImplementedException();
-        }
     }
+}
