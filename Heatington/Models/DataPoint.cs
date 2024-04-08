@@ -1,12 +1,11 @@
 using System.Globalization;
 using Heatington.Controllers;
+using Heatington.Controllers.Serializers;
 
 namespace Heatington.Models
 {
-
     public class DataPoint
     {
-
         [CsvConstructor]
         public DataPoint(string startTime, string endTime, string heatDemand, string electricityPrice)
         {
