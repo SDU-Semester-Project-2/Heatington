@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: JsonController
     path: Heatington/Controllers/JsonController.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Controllers/JsonController.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadData
     path: Heatington/Controllers/JsonController.cs
@@ -126,7 +126,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteData
     path: Heatington/Controllers/JsonController.cs
@@ -165,7 +165,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Controllers/JsonController.cs
@@ -199,7 +199,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Serialize
     path: Heatington/Controllers/JsonController.cs
@@ -238,7 +238,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize
     path: Heatington/Controllers/JsonController.cs

@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnitJsonConverter
     path: Heatington/Controllers/JsonController.cs
@@ -59,7 +59,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Read
     path: Heatington/Controllers/JsonController.cs
@@ -104,7 +104,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Write
     path: Heatington/Controllers/JsonController.cs

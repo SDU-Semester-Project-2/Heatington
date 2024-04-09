@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CsvController
     path: Heatington/Controllers/CsvController.cs
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GetDataAsync
     path: Heatington/Controllers/CsvController.cs
@@ -91,7 +91,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SaveData
     path: Heatington/Controllers/CsvController.cs
