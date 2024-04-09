@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/Serializers/CsvSerializer.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CsvConstructorAttribute
     path: Heatington/Controllers/Serializers/CsvSerializer.cs

@@ -12,136 +12,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "Documentation/CODING-STYLE.md",
-      "output": {
-        ".html": {
-          "relative_path": "Documentation/CODING-STYLE.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Documentation/Heatington.Tests/Controllers/FileController.Tests.md",
-      "output": {
-        ".html": {
-          "relative_path": "Documentation/Heatington.Tests/Controllers/FileController.Tests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Documentation/Heatington/AssetManager/AssetManagerDescription.md",
-      "output": {
-        ".html": {
-          "relative_path": "Documentation/Heatington/AssetManager/AssetManagerDescription.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Documentation/Heatington/Controllers/Enums/OperationStatus.md",
-      "output": {
-        ".html": {
-          "relative_path": "Documentation/Heatington/Controllers/Enums/OperationStatus.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Documentation/Heatington/Controllers/FileController.md",
-      "output": {
-        ".html": {
-          "relative_path": "Documentation/Heatington/Controllers/FileController.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Documentation/Heatington/Controllers/Interfaces/IReadWriteController.md",
-      "output": {
-        ".html": {
-          "relative_path": "Documentation/Heatington/Controllers/Interfaces/IReadWriteController.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Documentation/Heatington/Controllers/JsonController.md",
-      "output": {
-        ".html": {
-          "relative_path": "Documentation/Heatington/Controllers/JsonController.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Documentation/Heatington/Helpers/Utilities.md",
-      "output": {
-        ".html": {
-          "relative_path": "Documentation/Heatington/Helpers/Utilities.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Heatington/Controllers/CsvDataSource.md",
-      "output": {
-        ".html": {
-          "relative_path": "Heatington/Controllers/CsvDataSource.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Heatington/Controllers/Interfaces/IDataSource.md",
-      "output": {
-        ".html": {
-          "relative_path": "Heatington/Controllers/Interfaces/IDataSource.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Heatington/Models/DataPoint.md",
-      "output": {
-        ".html": {
-          "relative_path": "Heatington/Models/DataPoint.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Heatington/Optimizer/Optimizer.md",
-      "output": {
-        ".html": {
-          "relative_path": "Heatington/Optimizer/Optimizer.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "Heatington/SourceDataManager/SourceDataManager.md",
-      "output": {
-        ".html": {
-          "relative_path": "Heatington/SourceDataManager/SourceDataManager.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "README.md",
       "output": {
         ".html": {
@@ -485,20 +355,130 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/Optimizer.md",
+      "source_relative_path": "docs/CODING-STYLE.md",
       "output": {
         ".html": {
-          "relative_path": "docs/Optimizer.html"
+          "relative_path": "docs/CODING-STYLE.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/getting-started.md",
+      "source_relative_path": "docs/Heatington.Tests/Controllers/FileController.Tests.md",
       "output": {
         ".html": {
-          "relative_path": "docs/getting-started.html"
+          "relative_path": "docs/Heatington.Tests/Controllers/FileController.Tests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/AssetManager/AssetManagerDescription.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/AssetManager/AssetManagerDescription.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Controllers/CsvDataSource.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Controllers/CsvDataSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Controllers/Enums/OperationStatus.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Controllers/Enums/OperationStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Controllers/FileController.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Controllers/FileController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Controllers/Interfaces/IDataSource.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Controllers/Interfaces/IDataSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Controllers/Interfaces/IReadWriteController.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Controllers/Interfaces/IReadWriteController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Controllers/JsonController.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Controllers/JsonController.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Helpers/Utilities.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Helpers/Utilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Models/DataPoint.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Models/DataPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/Optimizer/Optimizer.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/Optimizer/Optimizer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Heatington/SourceDataManager/SourceDataManager.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Heatington/SourceDataManager/SourceDataManager.html"
         }
       },
       "version": ""

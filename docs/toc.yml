@@ -1,9 +1,5 @@
 - name: Introduction
   href: introduction.md
-- name: Getting Started
-  href: getting-started.md
-- name : Optimizer
-  href: Optimizer.md
 - name: Coding Style
   href: CODING-STYLE.md
 - name: Heatington

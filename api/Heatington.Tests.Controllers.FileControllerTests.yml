@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/FileController.Tests.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FileControllerTests
     path: Heatington.Tests/Controllers/FileController.Tests.cs
@@ -61,7 +61,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/FileController.Tests.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington.Tests/Controllers/FileController.Tests.cs
@@ -90,7 +90,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/FileController.Tests.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadFileFromPath_ReadFile_ReadsCorrectContent
     path: Heatington.Tests/Controllers/FileController.Tests.cs
@@ -126,7 +126,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/FileController.Tests.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteFileFromPath_WriteFile_WritesCorrectContent
     path: Heatington.Tests/Controllers/FileController.Tests.cs
@@ -162,7 +162,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/FileController.Tests.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
     path: Heatington.Tests/Controllers/FileController.Tests.cs
@@ -198,7 +198,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/FileController.Tests.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
     path: Heatington.Tests/Controllers/FileController.Tests.cs
@@ -234,7 +234,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/FileController.Tests.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadFileFromPath_ReadNotExistingFile_FileNotFound
     path: Heatington.Tests/Controllers/FileController.Tests.cs
@@ -312,7 +312,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/FileController.Tests.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Dispose
     path: Heatington.Tests/Controllers/FileController.Tests.cs
