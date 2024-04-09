@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Controllers
+  commentId: N:Heatington.Controllers
+  id: Heatington.Controllers
+  children:
+  - Heatington.Controllers.CsvController
+  - Heatington.Controllers.FileController
+  - Heatington.Controllers.JsonController
+  - Heatington.Controllers.ProductionUnitJsonConverter
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Controllers
+  nameWithType: Heatington.Controllers
+  fullName: Heatington.Controllers
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.Controllers.CsvController
+  commentId: T:Heatington.Controllers.CsvController
+  href: Heatington.Controllers.CsvController.html
+  name: CsvController
+  nameWithType: CsvController
+  fullName: Heatington.Controllers.CsvController
+- uid: Heatington.Controllers.FileController
+  commentId: T:Heatington.Controllers.FileController
+  href: Heatington.Controllers.FileController.html
+  name: FileController
+  nameWithType: FileController
+  fullName: Heatington.Controllers.FileController
+- uid: Heatington.Controllers.JsonController
+  commentId: T:Heatington.Controllers.JsonController
+  href: Heatington.Controllers.JsonController.html
+  name: JsonController
+  nameWithType: JsonController
+  fullName: Heatington.Controllers.JsonController
+- uid: Heatington.Controllers.ProductionUnitJsonConverter
+  commentId: T:Heatington.Controllers.ProductionUnitJsonConverter
+  href: Heatington.Controllers.ProductionUnitJsonConverter.html
+  name: ProductionUnitJsonConverter
+  nameWithType: ProductionUnitJsonConverter
+  fullName: Heatington.Controllers.ProductionUnitJsonConverter

@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.AssetManager
+  commentId: N:Heatington.AssetManager
+  id: Heatington.AssetManager
+  children:
+  - Heatington.AssetManager.AssetManager
+  - Heatington.AssetManager.HeatingGrid
+  - Heatington.AssetManager.ProductionUnit
+  - Heatington.AssetManager.ProductionUnitsEnum
+  langs:
+  - csharp
+  - vb
+  name: Heatington.AssetManager
+  nameWithType: Heatington.AssetManager
+  fullName: Heatington.AssetManager
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.AssetManager.AssetManager
+  commentId: T:Heatington.AssetManager.AssetManager
+  href: Heatington.AssetManager.AssetManager.html
+  name: AssetManager
+  nameWithType: AssetManager
+  fullName: Heatington.AssetManager.AssetManager
+- uid: Heatington.AssetManager.ProductionUnitsEnum
+  commentId: T:Heatington.AssetManager.ProductionUnitsEnum
+  parent: Heatington.AssetManager
+  href: Heatington.AssetManager.ProductionUnitsEnum.html
+  name: ProductionUnitsEnum
+  nameWithType: ProductionUnitsEnum
+  fullName: Heatington.AssetManager.ProductionUnitsEnum
+- uid: Heatington.AssetManager.HeatingGrid
+  commentId: T:Heatington.AssetManager.HeatingGrid
+  parent: Heatington.AssetManager
+  href: Heatington.AssetManager.HeatingGrid.html
+  name: HeatingGrid
+  nameWithType: HeatingGrid
+  fullName: Heatington.AssetManager.HeatingGrid
+- uid: Heatington.AssetManager.ProductionUnit
+  commentId: T:Heatington.AssetManager.ProductionUnit
+  parent: Heatington.AssetManager
+  href: Heatington.AssetManager.ProductionUnit.html
+  name: ProductionUnit
+  nameWithType: ProductionUnit
+  fullName: Heatington.AssetManager.ProductionUnit
+- uid: Heatington.AssetManager
+  commentId: N:Heatington.AssetManager
+  href: Heatington.html
+  name: Heatington.AssetManager
+  nameWithType: Heatington.AssetManager
+  fullName: Heatington.AssetManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.AssetManager
+    name: AssetManager
+    href: Heatington.AssetManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.AssetManager
+    name: AssetManager
+    href: Heatington.AssetManager.html

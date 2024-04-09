@@ -1,0 +1,361 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Data.IDataSource
+  commentId: T:Heatington.Data.IDataSource
+  id: IDataSource
+  parent: Heatington.Data
+  children:
+  - Heatington.Data.IDataSource.GetDataAsync(System.String)
+  - Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
+  langs:
+  - csharp
+  - vb
+  name: IDataSource
+  nameWithType: IDataSource
+  fullName: Heatington.Data.IDataSource
+  type: Interface
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/IDataSource.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: IDataSource
+    path: Heatington/Controllers/Interfaces/IDataSource.cs
+    startLine: 5
+  assemblies:
+  - Heatington
+  namespace: Heatington.Data
+  syntax:
+    content: public interface IDataSource
+    content.vb: Public Interface IDataSource
+- uid: Heatington.Data.IDataSource.GetDataAsync(System.String)
+  commentId: M:Heatington.Data.IDataSource.GetDataAsync(System.String)
+  id: GetDataAsync(System.String)
+  parent: Heatington.Data.IDataSource
+  langs:
+  - csharp
+  - vb
+  name: GetDataAsync(string)
+  nameWithType: IDataSource.GetDataAsync(string)
+  fullName: Heatington.Data.IDataSource.GetDataAsync(string)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/IDataSource.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: GetDataAsync
+    path: Heatington/Controllers/Interfaces/IDataSource.cs
+    startLine: 8
+  assemblies:
+  - Heatington
+  namespace: Heatington.Data
+  syntax:
+    content: Task<List<DataPoint>?> GetDataAsync(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
+    content.vb: Function GetDataAsync(filePath As String) As Task(Of List(Of DataPoint))
+  overload: Heatington.Data.IDataSource.GetDataAsync*
+  nameWithType.vb: IDataSource.GetDataAsync(String)
+  fullName.vb: Heatington.Data.IDataSource.GetDataAsync(String)
+  name.vb: GetDataAsync(String)
+- uid: Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
+  commentId: M:Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
+  id: SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
+  parent: Heatington.Data.IDataSource
+  langs:
+  - csharp
+  - vb
+  name: SaveData(List<DataPoint>, string)
+  nameWithType: IDataSource.SaveData(List<DataPoint>, string)
+  fullName: Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>, string)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/IDataSource.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SaveData
+    path: Heatington/Controllers/Interfaces/IDataSource.cs
+    startLine: 9
+  assemblies:
+  - Heatington
+  namespace: Heatington.Data
+  syntax:
+    content: void SaveData(List<DataPoint> data, string filePath)
+    parameters:
+    - id: data
+      type: System.Collections.Generic.List{Heatington.Models.DataPoint}
+    - id: filePath
+      type: System.String
+    content.vb: Sub SaveData(data As List(Of DataPoint), filePath As String)
+  overload: Heatington.Data.IDataSource.SaveData*
+  nameWithType.vb: IDataSource.SaveData(List(Of DataPoint), String)
+  fullName.vb: Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint), String)
+  name.vb: SaveData(List(Of DataPoint), String)
+references:
+- uid: Heatington.Data
+  commentId: N:Heatington.Data
+  href: Heatington.html
+  name: Heatington.Data
+  nameWithType: Heatington.Data
+  fullName: Heatington.Data
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Data
+    name: Data
+    href: Heatington.Data.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Data
+    name: Data
+    href: Heatington.Data.html
+- uid: Heatington.Data.IDataSource.GetDataAsync*
+  commentId: Overload:Heatington.Data.IDataSource.GetDataAsync
+  href: Heatington.Data.IDataSource.html#Heatington_Data_IDataSource_GetDataAsync_System_String_
+  name: GetDataAsync
+  nameWithType: IDataSource.GetDataAsync
+  fullName: Heatington.Data.IDataSource.GetDataAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<DataPoint>>
+  nameWithType: Task<List<DataPoint>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<Heatington.Models.DataPoint>>
+  nameWithType.vb: Task(Of List(Of DataPoint))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: Task(Of List(Of DataPoint))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Heatington.Data.IDataSource.SaveData*
+  commentId: Overload:Heatington.Data.IDataSource.SaveData
+  href: Heatington.Data.IDataSource.html#Heatington_Data_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__System_String_
+  name: SaveData
+  nameWithType: IDataSource.SaveData
+  fullName: Heatington.Data.IDataSource.SaveData
+- uid: System.Collections.Generic.List{Heatington.Models.DataPoint}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.DataPoint}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<DataPoint>
+  nameWithType: List<DataPoint>
+  fullName: System.Collections.Generic.List<Heatington.Models.DataPoint>
+  nameWithType.vb: List(Of DataPoint)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.DataPoint)
+  name.vb: List(Of DataPoint)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

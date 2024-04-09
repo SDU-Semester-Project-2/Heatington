@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.SourceDataManager
+  commentId: N:Heatington.SourceDataManager
+  id: Heatington.SourceDataManager
+  children:
+  - Heatington.SourceDataManager.SourceDataManager
+  langs:
+  - csharp
+  - vb
+  name: Heatington.SourceDataManager
+  nameWithType: Heatington.SourceDataManager
+  fullName: Heatington.SourceDataManager
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.SourceDataManager.SourceDataManager
+  commentId: T:Heatington.SourceDataManager.SourceDataManager
+  href: Heatington.SourceDataManager.SourceDataManager.html
+  name: SourceDataManager
+  nameWithType: SourceDataManager
+  fullName: Heatington.SourceDataManager.SourceDataManager

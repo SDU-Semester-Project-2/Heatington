@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Controllers.Interfaces
+  commentId: N:Heatington.Controllers.Interfaces
+  id: Heatington.Controllers.Interfaces
+  children:
+  - Heatington.Controllers.Interfaces.IReadWriteController
+  - Heatington.Controllers.Interfaces.ISerializeDeserialize
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Controllers.Interfaces
+  nameWithType: Heatington.Controllers.Interfaces
+  fullName: Heatington.Controllers.Interfaces
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.Controllers.Interfaces.IReadWriteController
+  commentId: T:Heatington.Controllers.Interfaces.IReadWriteController
+  parent: Heatington.Controllers.Interfaces
+  href: Heatington.Controllers.Interfaces.IReadWriteController.html
+  name: IReadWriteController
+  nameWithType: IReadWriteController
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController
+- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize
+  commentId: T:Heatington.Controllers.Interfaces.ISerializeDeserialize
+  parent: Heatington.Controllers.Interfaces
+  href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html
+  name: ISerializeDeserialize
+  nameWithType: ISerializeDeserialize
+  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize
+- uid: Heatington.Controllers.Interfaces
+  commentId: N:Heatington.Controllers.Interfaces
+  href: Heatington.html
+  name: Heatington.Controllers.Interfaces
+  nameWithType: Heatington.Controllers.Interfaces
+  fullName: Heatington.Controllers.Interfaces
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html

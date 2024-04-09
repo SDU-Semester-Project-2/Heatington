@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Controllers.Enums
+  commentId: N:Heatington.Controllers.Enums
+  id: Heatington.Controllers.Enums
+  children:
+  - Heatington.Controllers.Enums.OperationStatus
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Controllers.Enums
+  nameWithType: Heatington.Controllers.Enums
+  fullName: Heatington.Controllers.Enums
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.Controllers.Enums.OperationStatus
+  commentId: T:Heatington.Controllers.Enums.OperationStatus
+  parent: Heatington.Controllers.Enums
+  href: Heatington.Controllers.Enums.OperationStatus.html
+  name: OperationStatus
+  nameWithType: OperationStatus
+  fullName: Heatington.Controllers.Enums.OperationStatus
+- uid: Heatington.Controllers.Enums
+  commentId: N:Heatington.Controllers.Enums
+  href: Heatington.html
+  name: Heatington.Controllers.Enums
+  nameWithType: Heatington.Controllers.Enums
+  fullName: Heatington.Controllers.Enums
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Enums
+    name: Enums
+    href: Heatington.Controllers.Enums.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Enums
+    name: Enums
+    href: Heatington.Controllers.Enums.html

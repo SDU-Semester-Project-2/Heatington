@@ -1,0 +1,334 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Controllers.Interfaces.IReadWriteController
+  commentId: T:Heatington.Controllers.Interfaces.IReadWriteController
+  id: IReadWriteController
+  parent: Heatington.Controllers.Interfaces
+  children:
+  - Heatington.Controllers.Interfaces.IReadWriteController.ReadData``1
+  - Heatington.Controllers.Interfaces.IReadWriteController.ToString
+  - Heatington.Controllers.Interfaces.IReadWriteController.WriteData``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: IReadWriteController
+  nameWithType: IReadWriteController
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController
+  type: Interface
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/IReadWriteController.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: IReadWriteController
+    path: Heatington/Controllers/Interfaces/IReadWriteController.cs
+    startLine: 7
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Interfaces
+  summary: Documentation in Documents/Heatington/Controllers/Interfaces/IReadWriteController.md
+  example: []
+  syntax:
+    content: public interface IReadWriteController
+    content.vb: Public Interface IReadWriteController
+- uid: Heatington.Controllers.Interfaces.IReadWriteController.ReadData``1
+  commentId: M:Heatington.Controllers.Interfaces.IReadWriteController.ReadData``1
+  id: ReadData``1
+  parent: Heatington.Controllers.Interfaces.IReadWriteController
+  langs:
+  - csharp
+  - vb
+  name: ReadData<T>()
+  nameWithType: IReadWriteController.ReadData<T>()
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController.ReadData<T>()
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/IReadWriteController.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ReadData
+    path: Heatington/Controllers/Interfaces/IReadWriteController.cs
+    startLine: 9
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Interfaces
+  syntax:
+    content: Task<T> ReadData<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Function ReadData(Of T)() As Task(Of T)
+  overload: Heatington.Controllers.Interfaces.IReadWriteController.ReadData*
+  nameWithType.vb: IReadWriteController.ReadData(Of T)()
+  fullName.vb: Heatington.Controllers.Interfaces.IReadWriteController.ReadData(Of T)()
+  name.vb: ReadData(Of T)()
+- uid: Heatington.Controllers.Interfaces.IReadWriteController.WriteData``1(``0)
+  commentId: M:Heatington.Controllers.Interfaces.IReadWriteController.WriteData``1(``0)
+  id: WriteData``1(``0)
+  parent: Heatington.Controllers.Interfaces.IReadWriteController
+  langs:
+  - csharp
+  - vb
+  name: WriteData<T>(T)
+  nameWithType: IReadWriteController.WriteData<T>(T)
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController.WriteData<T>(T)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/IReadWriteController.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: WriteData
+    path: Heatington/Controllers/Interfaces/IReadWriteController.cs
+    startLine: 10
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Interfaces
+  syntax:
+    content: Task<OperationStatus> WriteData<T>(T content)
+    parameters:
+    - id: content
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{Heatington.Controllers.Enums.OperationStatus}
+    content.vb: Function WriteData(Of T)(content As T) As Task(Of OperationStatus)
+  overload: Heatington.Controllers.Interfaces.IReadWriteController.WriteData*
+  nameWithType.vb: IReadWriteController.WriteData(Of T)(T)
+  fullName.vb: Heatington.Controllers.Interfaces.IReadWriteController.WriteData(Of T)(T)
+  name.vb: WriteData(Of T)(T)
+- uid: Heatington.Controllers.Interfaces.IReadWriteController.ToString
+  commentId: M:Heatington.Controllers.Interfaces.IReadWriteController.ToString
+  id: ToString
+  parent: Heatington.Controllers.Interfaces.IReadWriteController
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: IReadWriteController.ToString()
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController.ToString()
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/IReadWriteController.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ToString
+    path: Heatington/Controllers/Interfaces/IReadWriteController.cs
+    startLine: 11
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Interfaces
+  syntax:
+    content: string? ToString()
+    return:
+      type: System.String
+    content.vb: Function ToString() As String
+  overload: Heatington.Controllers.Interfaces.IReadWriteController.ToString*
+references:
+- uid: Heatington.Controllers.Interfaces
+  commentId: N:Heatington.Controllers.Interfaces
+  href: Heatington.html
+  name: Heatington.Controllers.Interfaces
+  nameWithType: Heatington.Controllers.Interfaces
+  fullName: Heatington.Controllers.Interfaces
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
+- uid: Heatington.Controllers.Interfaces.IReadWriteController.ReadData*
+  commentId: Overload:Heatington.Controllers.Interfaces.IReadWriteController.ReadData
+  href: Heatington.Controllers.Interfaces.IReadWriteController.html#Heatington_Controllers_Interfaces_IReadWriteController_ReadData__1
+  name: ReadData
+  nameWithType: IReadWriteController.ReadData
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController.ReadData
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Heatington.Controllers.Interfaces.IReadWriteController.WriteData*
+  commentId: Overload:Heatington.Controllers.Interfaces.IReadWriteController.WriteData
+  href: Heatington.Controllers.Interfaces.IReadWriteController.html#Heatington_Controllers_Interfaces_IReadWriteController_WriteData__1___0_
+  name: WriteData
+  nameWithType: IReadWriteController.WriteData
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController.WriteData
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Threading.Tasks.Task{Heatington.Controllers.Enums.OperationStatus}
+  commentId: T:System.Threading.Tasks.Task{Heatington.Controllers.Enums.OperationStatus}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OperationStatus>
+  nameWithType: Task<OperationStatus>
+  fullName: System.Threading.Tasks.Task<Heatington.Controllers.Enums.OperationStatus>
+  nameWithType.vb: Task(Of OperationStatus)
+  fullName.vb: System.Threading.Tasks.Task(Of Heatington.Controllers.Enums.OperationStatus)
+  name.vb: Task(Of OperationStatus)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Heatington.Controllers.Enums.OperationStatus
+    name: OperationStatus
+    href: Heatington.Controllers.Enums.OperationStatus.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Controllers.Enums.OperationStatus
+    name: OperationStatus
+    href: Heatington.Controllers.Enums.OperationStatus.html
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Heatington.Controllers.Interfaces.IReadWriteController.ToString*
+  commentId: Overload:Heatington.Controllers.Interfaces.IReadWriteController.ToString
+  href: Heatington.Controllers.Interfaces.IReadWriteController.html#Heatington_Controllers_Interfaces_IReadWriteController_ToString
+  name: ToString
+  nameWithType: IReadWriteController.ToString
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

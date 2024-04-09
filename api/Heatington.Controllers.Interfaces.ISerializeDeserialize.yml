@@ -1,0 +1,173 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize
+  commentId: T:Heatington.Controllers.Interfaces.ISerializeDeserialize
+  id: ISerializeDeserialize
+  parent: Heatington.Controllers.Interfaces
+  children:
+  - Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  - Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: ISerializeDeserialize
+  nameWithType: ISerializeDeserialize
+  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize
+  type: Interface
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ISerializeDeserialize
+    path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
+    startLine: 4
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Interfaces
+  syntax:
+    content: public interface ISerializeDeserialize
+    content.vb: Public Interface ISerializeDeserialize
+- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  commentId: M:Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  id: Serialize``1(``0)
+  parent: Heatington.Controllers.Interfaces.ISerializeDeserialize
+  langs:
+  - csharp
+  - vb
+  name: Serialize<T>(T)
+  nameWithType: ISerializeDeserialize.Serialize<T>(T)
+  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize<T>(T)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Serialize
+    path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
+    startLine: 6
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Interfaces
+  syntax:
+    content: public static abstract string? Serialize<T>(T obj)
+    parameters:
+    - id: obj
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.String
+    content.vb: Public Shared MustInherit Function Serialize(Of T)(obj As T) As String
+  overload: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize*
+  nameWithType.vb: ISerializeDeserialize.Serialize(Of T)(T)
+  fullName.vb: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
+  name.vb: Serialize(Of T)(T)
+- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  commentId: M:Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  id: Deserialize``1(System.String)
+  parent: Heatington.Controllers.Interfaces.ISerializeDeserialize
+  langs:
+  - csharp
+  - vb
+  name: Deserialize<T>(string)
+  nameWithType: ISerializeDeserialize.Deserialize<T>(string)
+  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize<T>(string)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize
+    path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
+    startLine: 7
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Interfaces
+  syntax:
+    content: public static abstract T? Deserialize<T>(string file)
+    parameters:
+    - id: file
+      type: System.String
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared MustInherit Function Deserialize(Of T)(file As String) As T
+  overload: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize*
+  nameWithType.vb: ISerializeDeserialize.Deserialize(Of T)(String)
+  fullName.vb: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize(Of T)(String)
+  name.vb: Deserialize(Of T)(String)
+references:
+- uid: Heatington.Controllers.Interfaces
+  commentId: N:Heatington.Controllers.Interfaces
+  href: Heatington.html
+  name: Heatington.Controllers.Interfaces
+  nameWithType: Heatington.Controllers.Interfaces
+  fullName: Heatington.Controllers.Interfaces
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
+- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize*
+  commentId: Overload:Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize
+  href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Serialize__1___0_
+  name: Serialize
+  nameWithType: ISerializeDeserialize.Serialize
+  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize*
+  commentId: Overload:Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize
+  href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
+  name: Deserialize
+  nameWithType: ISerializeDeserialize.Deserialize
+  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize

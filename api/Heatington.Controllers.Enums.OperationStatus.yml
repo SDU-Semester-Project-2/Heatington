@@ -1,0 +1,149 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Controllers.Enums.OperationStatus
+  commentId: T:Heatington.Controllers.Enums.OperationStatus
+  id: OperationStatus
+  parent: Heatington.Controllers.Enums
+  children:
+  - Heatington.Controllers.Enums.OperationStatus.FAILURE
+  - Heatington.Controllers.Enums.OperationStatus.LOADING
+  - Heatington.Controllers.Enums.OperationStatus.SUCCESS
+  langs:
+  - csharp
+  - vb
+  name: OperationStatus
+  nameWithType: OperationStatus
+  fullName: Heatington.Controllers.Enums.OperationStatus
+  type: Enum
+  source:
+    remote:
+      path: Heatington/Controllers/Enums/OperationStatus.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: OperationStatus
+    path: Heatington/Controllers/Enums/OperationStatus.cs
+    startLine: 5
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Enums
+  summary: Documentation in Documents/Heatington/Controllers/Enums/OperationStatus.md
+  example: []
+  syntax:
+    content: public enum OperationStatus
+    content.vb: Public Enum OperationStatus
+- uid: Heatington.Controllers.Enums.OperationStatus.SUCCESS
+  commentId: F:Heatington.Controllers.Enums.OperationStatus.SUCCESS
+  id: SUCCESS
+  parent: Heatington.Controllers.Enums.OperationStatus
+  langs:
+  - csharp
+  - vb
+  name: SUCCESS
+  nameWithType: OperationStatus.SUCCESS
+  fullName: Heatington.Controllers.Enums.OperationStatus.SUCCESS
+  type: Field
+  source:
+    remote:
+      path: Heatington/Controllers/Enums/OperationStatus.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SUCCESS
+    path: Heatington/Controllers/Enums/OperationStatus.cs
+    startLine: 7
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Enums
+  syntax:
+    content: SUCCESS = 0
+    return:
+      type: Heatington.Controllers.Enums.OperationStatus
+- uid: Heatington.Controllers.Enums.OperationStatus.LOADING
+  commentId: F:Heatington.Controllers.Enums.OperationStatus.LOADING
+  id: LOADING
+  parent: Heatington.Controllers.Enums.OperationStatus
+  langs:
+  - csharp
+  - vb
+  name: LOADING
+  nameWithType: OperationStatus.LOADING
+  fullName: Heatington.Controllers.Enums.OperationStatus.LOADING
+  type: Field
+  source:
+    remote:
+      path: Heatington/Controllers/Enums/OperationStatus.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: LOADING
+    path: Heatington/Controllers/Enums/OperationStatus.cs
+    startLine: 8
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Enums
+  syntax:
+    content: LOADING = 1
+    return:
+      type: Heatington.Controllers.Enums.OperationStatus
+- uid: Heatington.Controllers.Enums.OperationStatus.FAILURE
+  commentId: F:Heatington.Controllers.Enums.OperationStatus.FAILURE
+  id: FAILURE
+  parent: Heatington.Controllers.Enums.OperationStatus
+  langs:
+  - csharp
+  - vb
+  name: FAILURE
+  nameWithType: OperationStatus.FAILURE
+  fullName: Heatington.Controllers.Enums.OperationStatus.FAILURE
+  type: Field
+  source:
+    remote:
+      path: Heatington/Controllers/Enums/OperationStatus.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FAILURE
+    path: Heatington/Controllers/Enums/OperationStatus.cs
+    startLine: 9
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers.Enums
+  syntax:
+    content: FAILURE = 2
+    return:
+      type: Heatington.Controllers.Enums.OperationStatus
+references:
+- uid: Heatington.Controllers.Enums
+  commentId: N:Heatington.Controllers.Enums
+  href: Heatington.html
+  name: Heatington.Controllers.Enums
+  nameWithType: Heatington.Controllers.Enums
+  fullName: Heatington.Controllers.Enums
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Enums
+    name: Enums
+    href: Heatington.Controllers.Enums.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Enums
+    name: Enums
+    href: Heatington.Controllers.Enums.html
+- uid: Heatington.Controllers.Enums.OperationStatus
+  commentId: T:Heatington.Controllers.Enums.OperationStatus
+  parent: Heatington.Controllers.Enums
+  href: Heatington.Controllers.Enums.OperationStatus.html
+  name: OperationStatus
+  nameWithType: OperationStatus
+  fullName: Heatington.Controllers.Enums.OperationStatus
