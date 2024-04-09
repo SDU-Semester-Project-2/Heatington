@@ -1,6 +1,6 @@
 namespace Heatington.AssetManager;
 
-public class ProductionUnit
+public class ProductionUnit : ICloneable
 {
     public Guid Id { get; }
     public string Name { get; set; }
@@ -40,6 +40,10 @@ public class ProductionUnit
         Co2Emission = co2Emission; // not every unit has co2 emission, in that case set the value to 0
     }
 
+    public object Clone()
+    {
+        return this.MemberwiseClone();
+    }
 
     public override string ToString()
     {
