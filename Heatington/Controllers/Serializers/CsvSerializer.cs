@@ -108,7 +108,7 @@ namespace Heatington.Controllers.Serializers
         }
     }
 
-    static class CsvController
+    static class CsvSerializer
     {
         private enum State
         {
