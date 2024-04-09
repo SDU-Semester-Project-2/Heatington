@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Optimizer
+  commentId: N:Heatington.Optimizer
+  id: Heatington.Optimizer
+  children:
+  - Heatington.Optimizer.Opt
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Optimizer
+  nameWithType: Heatington.Optimizer
+  fullName: Heatington.Optimizer
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.Optimizer.Opt
+  commentId: T:Heatington.Optimizer.Opt
+  href: Heatington.Optimizer.Opt.html
+  name: Opt
+  nameWithType: Opt
+  fullName: Heatington.Optimizer.Opt

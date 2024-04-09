@@ -1,0 +1,816 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.AssetManager.ProductionUnit
+  commentId: T:Heatington.AssetManager.ProductionUnit
+  id: ProductionUnit
+  parent: Heatington.AssetManager
+  children:
+  - Heatington.AssetManager.ProductionUnit.#ctor(System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - Heatington.AssetManager.ProductionUnit.Clone
+  - Heatington.AssetManager.ProductionUnit.Co2Emission
+  - Heatington.AssetManager.ProductionUnit.GasConsumption
+  - Heatington.AssetManager.ProductionUnit.Id
+  - Heatington.AssetManager.ProductionUnit.MaxElectricity
+  - Heatington.AssetManager.ProductionUnit.MaxHeat
+  - Heatington.AssetManager.ProductionUnit.Name
+  - Heatington.AssetManager.ProductionUnit.OperationPoint
+  - Heatington.AssetManager.ProductionUnit.PicturePath
+  - Heatington.AssetManager.ProductionUnit.ProductionCost
+  - Heatington.AssetManager.ProductionUnit.ToString
+  langs:
+  - csharp
+  - vb
+  name: ProductionUnit
+  nameWithType: ProductionUnit
+  fullName: Heatington.AssetManager.ProductionUnit
+  type: Class
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ProductionUnit
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 2
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: 'public class ProductionUnit : ICloneable'
+    content.vb: Public Class ProductionUnit Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Heatington.AssetManager.ProductionUnit.Id
+  commentId: P:Heatington.AssetManager.ProductionUnit.Id
+  id: Id
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ProductionUnit.Id
+  fullName: Heatington.AssetManager.ProductionUnit.Id
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Id
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 4
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public Guid Id { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public ReadOnly Property Id As Guid
+  overload: Heatington.AssetManager.ProductionUnit.Id*
+- uid: Heatington.AssetManager.ProductionUnit.Name
+  commentId: P:Heatington.AssetManager.ProductionUnit.Name
+  id: Name
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ProductionUnit.Name
+  fullName: Heatington.AssetManager.ProductionUnit.Name
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Name
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 5
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Heatington.AssetManager.ProductionUnit.Name*
+- uid: Heatington.AssetManager.ProductionUnit.PicturePath
+  commentId: P:Heatington.AssetManager.ProductionUnit.PicturePath
+  id: PicturePath
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: PicturePath
+  nameWithType: ProductionUnit.PicturePath
+  fullName: Heatington.AssetManager.ProductionUnit.PicturePath
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: PicturePath
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 6
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public string PicturePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property PicturePath As String
+  overload: Heatington.AssetManager.ProductionUnit.PicturePath*
+- uid: Heatington.AssetManager.ProductionUnit.MaxHeat
+  commentId: P:Heatington.AssetManager.ProductionUnit.MaxHeat
+  id: MaxHeat
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: MaxHeat
+  nameWithType: ProductionUnit.MaxHeat
+  fullName: Heatington.AssetManager.ProductionUnit.MaxHeat
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: MaxHeat
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 8
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public double MaxHeat { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property MaxHeat As Double
+  overload: Heatington.AssetManager.ProductionUnit.MaxHeat*
+- uid: Heatington.AssetManager.ProductionUnit.ProductionCost
+  commentId: P:Heatington.AssetManager.ProductionUnit.ProductionCost
+  id: ProductionCost
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: ProductionCost
+  nameWithType: ProductionUnit.ProductionCost
+  fullName: Heatington.AssetManager.ProductionUnit.ProductionCost
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ProductionCost
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 9
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public double ProductionCost { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ProductionCost As Double
+  overload: Heatington.AssetManager.ProductionUnit.ProductionCost*
+- uid: Heatington.AssetManager.ProductionUnit.MaxElectricity
+  commentId: P:Heatington.AssetManager.ProductionUnit.MaxElectricity
+  id: MaxElectricity
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: MaxElectricity
+  nameWithType: ProductionUnit.MaxElectricity
+  fullName: Heatington.AssetManager.ProductionUnit.MaxElectricity
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: MaxElectricity
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 10
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public double MaxElectricity { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property MaxElectricity As Double
+  overload: Heatington.AssetManager.ProductionUnit.MaxElectricity*
+- uid: Heatington.AssetManager.ProductionUnit.GasConsumption
+  commentId: P:Heatington.AssetManager.ProductionUnit.GasConsumption
+  id: GasConsumption
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: GasConsumption
+  nameWithType: ProductionUnit.GasConsumption
+  fullName: Heatington.AssetManager.ProductionUnit.GasConsumption
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: GasConsumption
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 11
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public double GasConsumption { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property GasConsumption As Double
+  overload: Heatington.AssetManager.ProductionUnit.GasConsumption*
+- uid: Heatington.AssetManager.ProductionUnit.Co2Emission
+  commentId: P:Heatington.AssetManager.ProductionUnit.Co2Emission
+  id: Co2Emission
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: Co2Emission
+  nameWithType: ProductionUnit.Co2Emission
+  fullName: Heatington.AssetManager.ProductionUnit.Co2Emission
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Co2Emission
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 12
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public double Co2Emission { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Co2Emission As Double
+  overload: Heatington.AssetManager.ProductionUnit.Co2Emission*
+- uid: Heatington.AssetManager.ProductionUnit.OperationPoint
+  commentId: P:Heatington.AssetManager.ProductionUnit.OperationPoint
+  id: OperationPoint
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: OperationPoint
+  nameWithType: ProductionUnit.OperationPoint
+  fullName: Heatington.AssetManager.ProductionUnit.OperationPoint
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: OperationPoint
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 14
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public double OperationPoint { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property OperationPoint As Double
+  overload: Heatington.AssetManager.ProductionUnit.OperationPoint*
+- uid: Heatington.AssetManager.ProductionUnit.#ctor(System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:Heatington.AssetManager.ProductionUnit.#ctor(System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)'
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: ProductionUnit(string, string, double, double, double, double, double)
+  nameWithType: ProductionUnit.ProductionUnit(string, string, double, double, double, double, double)
+  fullName: Heatington.AssetManager.ProductionUnit.ProductionUnit(string, string, double, double, double, double, double)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 28
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public ProductionUnit(string name, string picturePath, double maxHeat, double productionCost, double maxElectricity, double gasConsumption, double co2Emission)
+    parameters:
+    - id: name
+      type: System.String
+    - id: picturePath
+      type: System.String
+    - id: maxHeat
+      type: System.Double
+    - id: productionCost
+      type: System.Double
+    - id: maxElectricity
+      type: System.Double
+    - id: gasConsumption
+      type: System.Double
+    - id: co2Emission
+      type: System.Double
+    content.vb: Public Sub New(name As String, picturePath As String, maxHeat As Double, productionCost As Double, maxElectricity As Double, gasConsumption As Double, co2Emission As Double)
+  overload: Heatington.AssetManager.ProductionUnit.#ctor*
+  nameWithType.vb: ProductionUnit.New(String, String, Double, Double, Double, Double, Double)
+  fullName.vb: Heatington.AssetManager.ProductionUnit.New(String, String, Double, Double, Double, Double, Double)
+  name.vb: New(String, String, Double, Double, Double, Double, Double)
+- uid: Heatington.AssetManager.ProductionUnit.Clone
+  commentId: M:Heatington.AssetManager.ProductionUnit.Clone
+  id: Clone
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ProductionUnit.Clone()
+  fullName: Heatington.AssetManager.ProductionUnit.Clone()
+  type: Method
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Clone
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 42
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  summary: Creates a new object that is a copy of the current instance.
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+      description: A new object that is a copy of this instance.
+    content.vb: Public Function Clone() As Object
+  overload: Heatington.AssetManager.ProductionUnit.Clone*
+  implements:
+  - System.ICloneable.Clone
+- uid: Heatington.AssetManager.ProductionUnit.ToString
+  commentId: M:Heatington.AssetManager.ProductionUnit.ToString
+  id: ToString
+  parent: Heatington.AssetManager.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ProductionUnit.ToString()
+  fullName: Heatington.AssetManager.ProductionUnit.ToString()
+  type: Method
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ToString
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 47
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Heatington.AssetManager.ProductionUnit.ToString*
+references:
+- uid: Heatington.AssetManager
+  commentId: N:Heatington.AssetManager
+  href: Heatington.html
+  name: Heatington.AssetManager
+  nameWithType: Heatington.AssetManager
+  fullName: Heatington.AssetManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.AssetManager
+    name: AssetManager
+    href: Heatington.AssetManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.AssetManager
+    name: AssetManager
+    href: Heatington.AssetManager.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.AssetManager.ProductionUnit.Id*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.Id
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_Id
+  name: Id
+  nameWithType: ProductionUnit.Id
+  fullName: Heatington.AssetManager.ProductionUnit.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Heatington.AssetManager.ProductionUnit.Name*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.Name
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_Name
+  name: Name
+  nameWithType: ProductionUnit.Name
+  fullName: Heatington.AssetManager.ProductionUnit.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Heatington.AssetManager.ProductionUnit.PicturePath*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.PicturePath
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_PicturePath
+  name: PicturePath
+  nameWithType: ProductionUnit.PicturePath
+  fullName: Heatington.AssetManager.ProductionUnit.PicturePath
+- uid: Heatington.AssetManager.ProductionUnit.MaxHeat*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.MaxHeat
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_MaxHeat
+  name: MaxHeat
+  nameWithType: ProductionUnit.MaxHeat
+  fullName: Heatington.AssetManager.ProductionUnit.MaxHeat
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Heatington.AssetManager.ProductionUnit.ProductionCost*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.ProductionCost
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_ProductionCost
+  name: ProductionCost
+  nameWithType: ProductionUnit.ProductionCost
+  fullName: Heatington.AssetManager.ProductionUnit.ProductionCost
+- uid: Heatington.AssetManager.ProductionUnit.MaxElectricity*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.MaxElectricity
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_MaxElectricity
+  name: MaxElectricity
+  nameWithType: ProductionUnit.MaxElectricity
+  fullName: Heatington.AssetManager.ProductionUnit.MaxElectricity
+- uid: Heatington.AssetManager.ProductionUnit.GasConsumption*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.GasConsumption
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_GasConsumption
+  name: GasConsumption
+  nameWithType: ProductionUnit.GasConsumption
+  fullName: Heatington.AssetManager.ProductionUnit.GasConsumption
+- uid: Heatington.AssetManager.ProductionUnit.Co2Emission*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.Co2Emission
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_Co2Emission
+  name: Co2Emission
+  nameWithType: ProductionUnit.Co2Emission
+  fullName: Heatington.AssetManager.ProductionUnit.Co2Emission
+- uid: Heatington.AssetManager.ProductionUnit.OperationPoint*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.OperationPoint
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_OperationPoint
+  name: OperationPoint
+  nameWithType: ProductionUnit.OperationPoint
+  fullName: Heatington.AssetManager.ProductionUnit.OperationPoint
+- uid: Heatington.AssetManager.ProductionUnit.#ctor*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.#ctor
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit__ctor_System_String_System_String_System_Double_System_Double_System_Double_System_Double_System_Double_
+  name: ProductionUnit
+  nameWithType: ProductionUnit.ProductionUnit
+  fullName: Heatington.AssetManager.ProductionUnit.ProductionUnit
+  nameWithType.vb: ProductionUnit.New
+  fullName.vb: Heatington.AssetManager.ProductionUnit.New
+  name.vb: New
+- uid: Heatington.AssetManager.ProductionUnit.Clone*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.Clone
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_Clone
+  name: Clone
+  nameWithType: ProductionUnit.Clone
+  fullName: Heatington.AssetManager.ProductionUnit.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icloneable.clone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Heatington.AssetManager.ProductionUnit.ToString*
+  commentId: Overload:Heatington.AssetManager.ProductionUnit.ToString
+  href: Heatington.AssetManager.ProductionUnit.html#Heatington_AssetManager_ProductionUnit_ToString
+  name: ToString
+  nameWithType: ProductionUnit.ToString
+  fullName: Heatington.AssetManager.ProductionUnit.ToString

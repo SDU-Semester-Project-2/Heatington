@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Documentation for optimizer | Heatington </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Documentation for optimizer | Heatington ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/SDU-Semester-Project-2/Heatington/blob/SP2-105-Fix-file-structure/docs/Optimizer.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Heatington">
+            Heatington
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="documentation-for-optimizer">Documentation for optimizer</h1>
+
+<ul>
+<li>Optimizer module for the first scenario</li>
+</ul>
+<p><strong>Properties</strong></p>
+<ul>
+<li>_dataPoints -&gt; will hold the hourly information loaded from the csv from the sdm</li>
+<li>_productionUnits -&gt; hold the production units loaded</li>
+<li>Results -&gt; public get, will hold the computed results</li>
+</ul>
+<p><strong>Public methods</strong></p>
+<ul>
+<li>LoadData() -&gt; Loads data from the SDM to the OPT which are needed to compute the optimization</li>
+<li>OptimizeScenario1() -&gt; Once the data is loaded, it will optimize the activation of heat boilers and make the results accessible</li>
+<li>CalculateNetProductionCost() -&gt; Once the optimizer was run, this method will calculate the Net production costs for
+heat only boilers</li>
+<li>LogResults() -&gt; Will display the computed results</li>
+<li>LogDataPoints() -&gt; Will display the dataPoints if they are loaded from the SDM</li>
+<li>LogProductionUnits() -&gt; Will display the loaded production units which will be used for the optimization</li>
+</ul>
+<p><strong>Private methods</strong></p>
+<ul>
+<li>SetOperationPoint() -&gt; will be called to set the operation point on each boiler</li>
+<li>CalculateHeatUnitsRequired() -&gt; is the main part of the optimizer as it organises the data and sets the appropriate
+computed values</li>
+<li>GetDataPoints() -&gt; Loads data from the SDM</li>
+<li>GetProductionUnits() -&gt; Loads production units (eventually from AM)</li>
+</ul>
+<p><strong>How the logic works</strong>
+Once the optimizer starts optimizing:</p>
+<ul>
+<li>each dataPoint loaded needs to be optimized</li>
+<li>production Units need to be stored sorted by efficiency</li>
+</ul>
+<ol>
+<li>Determines how many boilers need to be activated</li>
+<li>Based on that number the correct boilers are selected</li>
+<li>Once the boilers are selected their operation point is set</li>
+<li>All the information is added to an object ResultHolder which is added to a local list</li>
+<li>After the foreach loop is completed the results are added to the public property</li>
+<li>Now the netProductionCosts can be computed</li>
+</ol>
+<h2 id="first-iteration-of-the-opt-module">First iteration of the OPT module</h2>
+<h3 id="everything-under-here-is-left-as-history-nothing-applies-anymore">Everything under here is left as history, nothing applies anymore.</h3>
+<h2 id="scenario-1">Scenario 1</h2>
+<p>The optimizer class has three private fields.</p>
+<ul>
+<li><code>_productionUnits</code> holds the production units objects</li>
+<li><code>_energyDataEntries</code> hold the data eventually provided by the SDM, which reads them from the CSV</li>
+<li><code>_resultEntries</code> currently holds how many boilers need to be activated for any given time period</li>
+</ul>
+<h3 id="optimize-scenario-1">Optimize scenario 1</h3>
+<p><code>OptimzeScenario1</code>does what it sounds like. It optimizes the first scenario, there are only heat boilers,
+no electricity has to be taken into consideration</p>
+<ol>
+<li>After getting the production units and the time series data which holds how many Mwh are to be produced it orders
+the production units by their production cost</li>
+<li>For each &quot;hour&quot; it calls <code>CalculateHeatingUnitsRequired</code> which calculates how many heating units have to be activated
+to satisfy the heating demand</li>
+</ol>
+<p><strong>BEWARE</strong> <code>CalculateHeatingUnitsRequired</code> returns how many heating units need to be activated. This number references
+the index of the productionUnit list, meaning that 0 means only the production unit with index 0.
+2 would mean all the production units with index 0, 1, 2</p>
+<h3 id="net-production-cost">Net Production cost</h3>
+<p>Since heat only boilers have no further income or expenses it useful to know what the cost of production is.
+Once the <code>OptimzeScenario1()</code> has run <code>NetProductionCost()</code> can be executed.
+Currently it just calculates it and displays it on screen. Once RDM is implemented it will
+correctly format the data and make it available to the RDM.</p>
+<h3 id="general-expedients">General expedients</h3>
+<ul>
+<li>The class is not completed, this is only the initial implementation</li>
+<li>Most classes with which it works with, are going to be changed calling for major refactoring</li>
+<li>It tried to adhere to the SOLID principle as much as possible, refactoring should work ok</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/SDU-Semester-Project-2/Heatington/blob/SP2-105-Fix-file-structure/docs/Optimizer.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
