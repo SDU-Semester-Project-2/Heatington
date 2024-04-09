@@ -25,4 +25,12 @@
     <ProjectReference Include="..\Heatington\Heatington.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="AssetManager\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Optimizer\" />
+    <Folder Include="SourceDataManager\" />
+  </ItemGroup>
+
 </Project>
