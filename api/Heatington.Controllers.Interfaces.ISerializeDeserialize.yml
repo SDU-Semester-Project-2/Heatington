@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ISerializeDeserialize
     path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
@@ -42,7 +42,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Serialize
     path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
@@ -78,7 +78,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize
     path: Heatington/Controllers/Interfaces/ISerializeDeserialize.cs

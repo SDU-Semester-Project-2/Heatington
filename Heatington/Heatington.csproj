@@ -7,10 +7,14 @@
     <Nullable>enable</Nullable>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
   </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="CsvHelper" Version="31.0.2" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Docfx.App" Version="2.73.2"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="31.0.2"/>
+  </ItemGroup>
 
 </Project>

@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: AssetManager
     path: Heatington/AssetManager/AssetManager.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatingGridInformation
     path: Heatington/AssetManager/AssetManager.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnits
     path: Heatington/AssetManager/AssetManager.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/AssetManager/AssetManager.cs
@@ -150,7 +150,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LoadAssets
     path: Heatington/AssetManager/AssetManager.cs
@@ -178,7 +178,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadHeatingUnits
     path: Heatington/AssetManager/AssetManager.cs
@@ -206,7 +206,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
@@ -237,7 +237,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
@@ -268,7 +268,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
@@ -297,7 +297,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-105-Fix-file-structure
+      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/AssetManager/AssetManager.cs
