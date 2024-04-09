@@ -1,3 +1,4 @@
+using Heatington.Controllers;
 using Heatington.Data;
 using Heatington.Models;
 
@@ -160,7 +161,7 @@ public class Opt
 
     private void GetDataPoints()
     {
-        IDataSource dataSource = new CsvDataSource();
+        IDataSource dataSource = new CsvController();
 
         SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, "../../../../Assets/winter_period.csv");
 
