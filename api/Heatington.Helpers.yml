@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Helpers
+  commentId: N:Heatington.Helpers
+  id: Heatington.Helpers
+  children:
+  - Heatington.Helpers.Utilities
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Helpers
+  nameWithType: Heatington.Helpers
+  fullName: Heatington.Helpers
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.Helpers.Utilities
+  commentId: T:Heatington.Helpers.Utilities
+  href: Heatington.Helpers.Utilities.html
+  name: Utilities
+  nameWithType: Utilities
+  fullName: Heatington.Helpers.Utilities

@@ -1,0 +1,79 @@
+### YamlMime:TableOfContent
+items:
+- uid: Heatington.AssetManager
+  name: Heatington.AssetManager
+  items:
+  - uid: Heatington.AssetManager.AssetManager
+    name: AssetManager
+  - uid: Heatington.AssetManager.HeatingGrid
+    name: HeatingGrid
+  - uid: Heatington.AssetManager.ProductionUnit
+    name: ProductionUnit
+  - uid: Heatington.AssetManager.ProductionUnitsEnum
+    name: ProductionUnitsEnum
+- uid: Heatington.Controllers
+  name: Heatington.Controllers
+  items:
+  - uid: Heatington.Controllers.CsvController
+    name: CsvController
+  - uid: Heatington.Controllers.FileController
+    name: FileController
+  - uid: Heatington.Controllers.JsonController
+    name: JsonController
+  - uid: Heatington.Controllers.ProductionUnitJsonConverter
+    name: ProductionUnitJsonConverter
+- uid: Heatington.Controllers.Enums
+  name: Heatington.Controllers.Enums
+  items:
+  - uid: Heatington.Controllers.Enums.OperationStatus
+    name: OperationStatus
+- uid: Heatington.Controllers.Interfaces
+  name: Heatington.Controllers.Interfaces
+  items:
+  - uid: Heatington.Controllers.Interfaces.IReadWriteController
+    name: IReadWriteController
+  - uid: Heatington.Controllers.Interfaces.ISerializeDeserialize
+    name: ISerializeDeserialize
+- uid: Heatington.Controllers.Serializers
+  name: Heatington.Controllers.Serializers
+  items:
+  - uid: Heatington.Controllers.Serializers.CsvConstructorAttribute
+    name: CsvConstructorAttribute
+- uid: Heatington.Data
+  name: Heatington.Data
+  items:
+  - uid: Heatington.Data.IDataSource
+    name: IDataSource
+- uid: Heatington.Helpers
+  name: Heatington.Helpers
+  items:
+  - uid: Heatington.Helpers.Utilities
+    name: Utilities
+- uid: Heatington.Models
+  name: Heatington.Models
+  items:
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+  - uid: Heatington.Models.ResultHolder
+    name: ResultHolder
+- uid: Heatington.Optimizer
+  name: Heatington.Optimizer
+  items:
+  - uid: Heatington.Optimizer.Opt
+    name: Opt
+- uid: Heatington.SourceDataManager
+  name: Heatington.SourceDataManager
+  items:
+  - uid: Heatington.SourceDataManager.SourceDataManager
+    name: SourceDataManager
+- uid: Heatington.Tests
+  name: Heatington.Tests
+  items:
+  - uid: Heatington.Tests.UnitTest1
+    name: UnitTest1
+- uid: Heatington.Tests.Controllers
+  name: Heatington.Tests.Controllers
+  items:
+  - uid: Heatington.Tests.Controllers.FileControllerTests
+    name: FileControllerTests
+memberLayout: SamePage

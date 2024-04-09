@@ -1,0 +1,684 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.Controllers.FileControllerTests
+  commentId: T:Heatington.Tests.Controllers.FileControllerTests
+  id: FileControllerTests
+  parent: Heatington.Tests.Controllers
+  children:
+  - Heatington.Tests.Controllers.FileControllerTests.#ctor
+  - Heatington.Tests.Controllers.FileControllerTests.Dispose
+  - Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent
+  - Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound(System.String)
+  - Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+  - Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent
+  - Heatington.Tests.Controllers.FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+  langs:
+  - csharp
+  - vb
+  name: FileControllerTests
+  nameWithType: FileControllerTests
+  fullName: Heatington.Tests.Controllers.FileControllerTests
+  type: Class
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/FileController.Tests.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FileControllerTests
+    path: Heatington.Tests/Controllers/FileController.Tests.cs
+    startLine: 8
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  summary: Documentation in Documents/Heatington.Tests/Controllers/FileController.Tests.md
+  example: []
+  syntax:
+    content: 'public class FileControllerTests : IDisposable'
+    content.vb: Public Class FileControllerTests Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Tests.Controllers.FileControllerTests.#ctor
+  commentId: M:Heatington.Tests.Controllers.FileControllerTests.#ctor
+  id: '#ctor'
+  parent: Heatington.Tests.Controllers.FileControllerTests
+  langs:
+  - csharp
+  - vb
+  name: FileControllerTests()
+  nameWithType: FileControllerTests.FileControllerTests()
+  fullName: Heatington.Tests.Controllers.FileControllerTests.FileControllerTests()
+  type: Constructor
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/FileController.Tests.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington.Tests/Controllers/FileController.Tests.cs
+    startLine: 13
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  syntax:
+    content: public FileControllerTests()
+    content.vb: Public Sub New()
+  overload: Heatington.Tests.Controllers.FileControllerTests.#ctor*
+  nameWithType.vb: FileControllerTests.New()
+  fullName.vb: Heatington.Tests.Controllers.FileControllerTests.New()
+  name.vb: New()
+- uid: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent
+  commentId: M:Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent
+  id: ReadFileFromPath_ReadFile_ReadsCorrectContent
+  parent: Heatington.Tests.Controllers.FileControllerTests
+  langs:
+  - csharp
+  - vb
+  name: ReadFileFromPath_ReadFile_ReadsCorrectContent()
+  nameWithType: FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent()
+  fullName: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/FileController.Tests.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ReadFileFromPath_ReadFile_ReadsCorrectContent
+    path: Heatington.Tests/Controllers/FileController.Tests.cs
+    startLine: 26
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  syntax:
+    content: >-
+      [Fact]
+
+      public void ReadFileFromPath_ReadFile_ReadsCorrectContent()
+    content.vb: >-
+      <Fact>
+
+      Public Sub ReadFileFromPath_ReadFile_ReadsCorrectContent()
+  overload: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent
+  commentId: M:Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent
+  id: WriteFileFromPath_WriteFile_WritesCorrectContent
+  parent: Heatington.Tests.Controllers.FileControllerTests
+  langs:
+  - csharp
+  - vb
+  name: WriteFileFromPath_WriteFile_WritesCorrectContent()
+  nameWithType: FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent()
+  fullName: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/FileController.Tests.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: WriteFileFromPath_WriteFile_WritesCorrectContent
+    path: Heatington.Tests/Controllers/FileController.Tests.cs
+    startLine: 42
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  syntax:
+    content: >-
+      [Fact]
+
+      public void WriteFileFromPath_WriteFile_WritesCorrectContent()
+    content.vb: >-
+      <Fact>
+
+      Public Sub WriteFileFromPath_WriteFile_WritesCorrectContent()
+  overload: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+  commentId: M:Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+  id: WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+  parent: Heatington.Tests.Controllers.FileControllerTests
+  langs:
+  - csharp
+  - vb
+  name: WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
+  nameWithType: FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
+  fullName: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/FileController.Tests.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+    path: Heatington.Tests/Controllers/FileController.Tests.cs
+    startLine: 59
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  syntax:
+    content: >-
+      [Fact]
+
+      public void WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
+    content.vb: >-
+      <Fact>
+
+      Public Sub WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
+  overload: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Controllers.FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+  commentId: M:Heatington.Tests.Controllers.FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+  id: WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+  parent: Heatington.Tests.Controllers.FileControllerTests
+  langs:
+  - csharp
+  - vb
+  name: WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
+  nameWithType: FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
+  fullName: Heatington.Tests.Controllers.FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/FileController.Tests.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+    path: Heatington.Tests/Controllers/FileController.Tests.cs
+    startLine: 74
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  syntax:
+    content: >-
+      [Fact]
+
+      public void WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
+    content.vb: >-
+      <Fact>
+
+      Public Sub WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
+  overload: Heatington.Tests.Controllers.FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound(System.String)
+  commentId: M:Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound(System.String)
+  id: ReadFileFromPath_ReadNotExistingFile_FileNotFound(System.String)
+  parent: Heatington.Tests.Controllers.FileControllerTests
+  langs:
+  - csharp
+  - vb
+  name: ReadFileFromPath_ReadNotExistingFile_FileNotFound(string)
+  nameWithType: FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound(string)
+  fullName: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound(string)
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/FileController.Tests.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ReadFileFromPath_ReadNotExistingFile_FileNotFound
+    path: Heatington.Tests/Controllers/FileController.Tests.cs
+    startLine: 96
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  syntax:
+    content: >-
+      [Theory]
+
+      [InlineData(new object[] { "aaa1" })]
+
+      [InlineData(new object[] { "test.cvs" })]
+
+      [InlineData(new object[] { "csv.ctest" })]
+
+      [InlineData(new object[] { "./adsfsaf.json" })]
+
+      [InlineData(new object[] { "../../asets" })]
+
+      [InlineData(new object[] { "c:\\78fe9lk" })]
+
+      [InlineData(new object[] { "/root12" })]
+
+      [InlineData(new object[] { "./Jsons" })]
+
+      [InlineData(new object[] { "./123" })]
+
+      public void ReadFileFromPath_ReadNotExistingFile_FileNotFound(string wrongFileName)
+    parameters:
+    - id: wrongFileName
+      type: System.String
+    content.vb: >-
+      <Theory>
+
+      <InlineData(New Object() { "aaa1" })>
+
+      <InlineData(New Object() { "test.cvs" })>
+
+      <InlineData(New Object() { "csv.ctest" })>
+
+      <InlineData(New Object() { "./adsfsaf.json" })>
+
+      <InlineData(New Object() { "../../asets" })>
+
+      <InlineData(New Object() { "c:\78fe9lk" })>
+
+      <InlineData(New Object() { "/root12" })>
+
+      <InlineData(New Object() { "./Jsons" })>
+
+      <InlineData(New Object() { "./123" })>
+
+      Public Sub ReadFileFromPath_ReadNotExistingFile_FileNotFound(wrongFileName As String)
+  overload: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound(String)
+  fullName.vb: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound(String)
+  name.vb: ReadFileFromPath_ReadNotExistingFile_FileNotFound(String)
+- uid: Heatington.Tests.Controllers.FileControllerTests.Dispose
+  commentId: M:Heatington.Tests.Controllers.FileControllerTests.Dispose
+  id: Dispose
+  parent: Heatington.Tests.Controllers.FileControllerTests
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: FileControllerTests.Dispose()
+  fullName: Heatington.Tests.Controllers.FileControllerTests.Dispose()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/FileController.Tests.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Dispose
+    path: Heatington.Tests/Controllers/FileController.Tests.cs
+    startLine: 134
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  summary: Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: Heatington.Tests.Controllers.FileControllerTests.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+references:
+- uid: Heatington.Tests.Controllers
+  commentId: N:Heatington.Tests.Controllers
+  href: Heatington.html
+  name: Heatington.Tests.Controllers
+  nameWithType: Heatington.Tests.Controllers
+  fullName: Heatington.Tests.Controllers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Controllers
+    name: Controllers
+    href: Heatington.Tests.Controllers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Controllers
+    name: Controllers
+    href: Heatington.Tests.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Tests.Controllers.FileControllerTests.#ctor*
+  commentId: Overload:Heatington.Tests.Controllers.FileControllerTests.#ctor
+  href: Heatington.Tests.Controllers.FileControllerTests.html#Heatington_Tests_Controllers_FileControllerTests__ctor
+  name: FileControllerTests
+  nameWithType: FileControllerTests.FileControllerTests
+  fullName: Heatington.Tests.Controllers.FileControllerTests.FileControllerTests
+  nameWithType.vb: FileControllerTests.New
+  fullName.vb: Heatington.Tests.Controllers.FileControllerTests.New
+  name.vb: New
+- uid: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent*
+  commentId: Overload:Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent
+  href: Heatington.Tests.Controllers.FileControllerTests.html#Heatington_Tests_Controllers_FileControllerTests_ReadFileFromPath_ReadFile_ReadsCorrectContent
+  name: ReadFileFromPath_ReadFile_ReadsCorrectContent
+  nameWithType: FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent
+  fullName: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadFile_ReadsCorrectContent
+- uid: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent*
+  commentId: Overload:Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent
+  href: Heatington.Tests.Controllers.FileControllerTests.html#Heatington_Tests_Controllers_FileControllerTests_WriteFileFromPath_WriteFile_WritesCorrectContent
+  name: WriteFileFromPath_WriteFile_WritesCorrectContent
+  nameWithType: FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent
+  fullName: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteFile_WritesCorrectContent
+- uid: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile*
+  commentId: Overload:Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+  href: Heatington.Tests.Controllers.FileControllerTests.html#Heatington_Tests_Controllers_FileControllerTests_WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+  name: WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+  nameWithType: FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+  fullName: Heatington.Tests.Controllers.FileControllerTests.WriteFileFromPath_WriteEmptyStringToFile_CreatesFile
+- uid: Heatington.Tests.Controllers.FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo*
+  commentId: Overload:Heatington.Tests.Controllers.FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+  href: Heatington.Tests.Controllers.FileControllerTests.html#Heatington_Tests_Controllers_FileControllerTests_WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+  name: WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+  nameWithType: FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+  fullName: Heatington.Tests.Controllers.FileControllerTests.WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo
+- uid: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound*
+  commentId: Overload:Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound
+  href: Heatington.Tests.Controllers.FileControllerTests.html#Heatington_Tests_Controllers_FileControllerTests_ReadFileFromPath_ReadNotExistingFile_FileNotFound_System_String_
+  name: ReadFileFromPath_ReadNotExistingFile_FileNotFound
+  nameWithType: FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound
+  fullName: Heatington.Tests.Controllers.FileControllerTests.ReadFileFromPath_ReadNotExistingFile_FileNotFound
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Heatington.Tests.Controllers.FileControllerTests.Dispose*
+  commentId: Overload:Heatington.Tests.Controllers.FileControllerTests.Dispose
+  href: Heatington.Tests.Controllers.FileControllerTests.html#Heatington_Tests_Controllers_FileControllerTests_Dispose
+  name: Dispose
+  nameWithType: FileControllerTests.Dispose
+  fullName: Heatington.Tests.Controllers.FileControllerTests.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )

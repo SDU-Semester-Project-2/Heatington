@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Data
+  commentId: N:Heatington.Data
+  id: Heatington.Data
+  children:
+  - Heatington.Data.IDataSource
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Data
+  nameWithType: Heatington.Data
+  fullName: Heatington.Data
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.Data.IDataSource
+  commentId: T:Heatington.Data.IDataSource
+  parent: Heatington.Data
+  href: Heatington.Data.IDataSource.html
+  name: IDataSource
+  nameWithType: IDataSource
+  fullName: Heatington.Data.IDataSource
+- uid: Heatington.Data
+  commentId: N:Heatington.Data
+  href: Heatington.html
+  name: Heatington.Data
+  nameWithType: Heatington.Data
+  fullName: Heatington.Data
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Data
+    name: Data
+    href: Heatington.Data.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Data
+    name: Data
+    href: Heatington.Data.html

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests
+  commentId: N:Heatington.Tests
+  id: Heatington.Tests
+  children:
+  - Heatington.Tests.UnitTest1
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Tests
+  nameWithType: Heatington.Tests
+  fullName: Heatington.Tests
+  type: Namespace
+  assemblies:
+  - Heatington.Tests
+references:
+- uid: Heatington.Tests.UnitTest1
+  commentId: T:Heatington.Tests.UnitTest1
+  href: Heatington.Tests.UnitTest1.html
+  name: UnitTest1
+  nameWithType: UnitTest1
+  fullName: Heatington.Tests.UnitTest1

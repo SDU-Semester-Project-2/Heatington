@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Controllers.Serializers
+  commentId: N:Heatington.Controllers.Serializers
+  id: Heatington.Controllers.Serializers
+  children:
+  - Heatington.Controllers.Serializers.CsvConstructorAttribute
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Controllers.Serializers
+  nameWithType: Heatington.Controllers.Serializers
+  fullName: Heatington.Controllers.Serializers
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.Controllers.Serializers.CsvConstructorAttribute
+  commentId: T:Heatington.Controllers.Serializers.CsvConstructorAttribute
+  href: Heatington.Controllers.Serializers.CsvConstructorAttribute.html
+  name: CsvConstructorAttribute
+  nameWithType: CsvConstructorAttribute
+  fullName: Heatington.Controllers.Serializers.CsvConstructorAttribute

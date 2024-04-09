@@ -1,0 +1,670 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.SourceDataManager.SourceDataManager
+  commentId: T:Heatington.SourceDataManager.SourceDataManager
+  id: SourceDataManager
+  parent: Heatington.SourceDataManager
+  children:
+  - Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Data.IDataSource,System.String)
+  - Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  - Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync
+  - Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData
+  - Heatington.SourceDataManager.SourceDataManager.TimeSeriesData
+  langs:
+  - csharp
+  - vb
+  name: SourceDataManager
+  nameWithType: SourceDataManager
+  fullName: Heatington.SourceDataManager.SourceDataManager
+  type: Class
+  source:
+    remote:
+      path: Heatington/SourceDataManager/SourceDataManager.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SourceDataManager
+    path: Heatington/SourceDataManager/SourceDataManager.cs
+    startLine: 6
+  assemblies:
+  - Heatington
+  namespace: Heatington.SourceDataManager
+  syntax:
+    content: public class SourceDataManager
+    content.vb: Public Class SourceDataManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.SourceDataManager.SourceDataManager.TimeSeriesData
+  commentId: P:Heatington.SourceDataManager.SourceDataManager.TimeSeriesData
+  id: TimeSeriesData
+  parent: Heatington.SourceDataManager.SourceDataManager
+  langs:
+  - csharp
+  - vb
+  name: TimeSeriesData
+  nameWithType: SourceDataManager.TimeSeriesData
+  fullName: Heatington.SourceDataManager.SourceDataManager.TimeSeriesData
+  type: Property
+  source:
+    remote:
+      path: Heatington/SourceDataManager/SourceDataManager.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: TimeSeriesData
+    path: Heatington/SourceDataManager/SourceDataManager.cs
+    startLine: 11
+  assemblies:
+  - Heatington
+  namespace: Heatington.SourceDataManager
+  syntax:
+    content: public List<DataPoint>? TimeSeriesData { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Heatington.Models.DataPoint}
+    content.vb: Public Property TimeSeriesData As List(Of DataPoint)
+  overload: Heatington.SourceDataManager.SourceDataManager.TimeSeriesData*
+- uid: Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Data.IDataSource,System.String)
+  commentId: M:Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Data.IDataSource,System.String)
+  id: '#ctor(Heatington.Data.IDataSource,System.String)'
+  parent: Heatington.SourceDataManager.SourceDataManager
+  langs:
+  - csharp
+  - vb
+  name: SourceDataManager(IDataSource, string)
+  nameWithType: SourceDataManager.SourceDataManager(IDataSource, string)
+  fullName: Heatington.SourceDataManager.SourceDataManager.SourceDataManager(Heatington.Data.IDataSource, string)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/SourceDataManager/SourceDataManager.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/SourceDataManager/SourceDataManager.cs
+    startLine: 12
+  assemblies:
+  - Heatington
+  namespace: Heatington.SourceDataManager
+  syntax:
+    content: public SourceDataManager(IDataSource dataSource, string filePath)
+    parameters:
+    - id: dataSource
+      type: Heatington.Data.IDataSource
+    - id: filePath
+      type: System.String
+    content.vb: Public Sub New(dataSource As IDataSource, filePath As String)
+  overload: Heatington.SourceDataManager.SourceDataManager.#ctor*
+  nameWithType.vb: SourceDataManager.New(IDataSource, String)
+  fullName.vb: Heatington.SourceDataManager.SourceDataManager.New(Heatington.Data.IDataSource, String)
+  name.vb: New(IDataSource, String)
+- uid: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  commentId: M:Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  id: ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  parent: Heatington.SourceDataManager.SourceDataManager
+  langs:
+  - csharp
+  - vb
+  name: ConvertApiToCsv(List<DataPoint>)
+  nameWithType: SourceDataManager.ConvertApiToCsv(List<DataPoint>)
+  fullName: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List<Heatington.Models.DataPoint>)
+  type: Method
+  source:
+    remote:
+      path: Heatington/SourceDataManager/SourceDataManager.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ConvertApiToCsv
+    path: Heatington/SourceDataManager/SourceDataManager.cs
+    startLine: 19
+  assemblies:
+  - Heatington
+  namespace: Heatington.SourceDataManager
+  example: []
+  syntax:
+    content: public void ConvertApiToCsv(List<DataPoint> dataFromApi)
+    parameters:
+    - id: dataFromApi
+      type: System.Collections.Generic.List{Heatington.Models.DataPoint}
+    content.vb: Public Sub ConvertApiToCsv(dataFromApi As List(Of DataPoint))
+  overload: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv*
+  nameWithType.vb: SourceDataManager.ConvertApiToCsv(List(Of DataPoint))
+  fullName.vb: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: ConvertApiToCsv(List(Of DataPoint))
+- uid: Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync
+  commentId: M:Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync
+  id: FetchTimeSeriesDataAsync
+  parent: Heatington.SourceDataManager.SourceDataManager
+  langs:
+  - csharp
+  - vb
+  name: FetchTimeSeriesDataAsync()
+  nameWithType: SourceDataManager.FetchTimeSeriesDataAsync()
+  fullName: Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync()
+  type: Method
+  source:
+    remote:
+      path: Heatington/SourceDataManager/SourceDataManager.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FetchTimeSeriesDataAsync
+    path: Heatington/SourceDataManager/SourceDataManager.cs
+    startLine: 24
+  assemblies:
+  - Heatington
+  namespace: Heatington.SourceDataManager
+  syntax:
+    content: public Task FetchTimeSeriesDataAsync()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function FetchTimeSeriesDataAsync() As Task
+  overload: Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync*
+- uid: Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData
+  commentId: M:Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData
+  id: LogTimeSeriesData
+  parent: Heatington.SourceDataManager.SourceDataManager
+  langs:
+  - csharp
+  - vb
+  name: LogTimeSeriesData()
+  nameWithType: SourceDataManager.LogTimeSeriesData()
+  fullName: Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData()
+  type: Method
+  source:
+    remote:
+      path: Heatington/SourceDataManager/SourceDataManager.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: LogTimeSeriesData
+    path: Heatington/SourceDataManager/SourceDataManager.cs
+    startLine: 39
+  assemblies:
+  - Heatington
+  namespace: Heatington.SourceDataManager
+  example: []
+  syntax:
+    content: public void LogTimeSeriesData()
+    content.vb: Public Sub LogTimeSeriesData()
+  overload: Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData*
+references:
+- uid: Heatington.SourceDataManager
+  commentId: N:Heatington.SourceDataManager
+  href: Heatington.html
+  name: Heatington.SourceDataManager
+  nameWithType: Heatington.SourceDataManager
+  fullName: Heatington.SourceDataManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.SourceDataManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.SourceDataManager.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.SourceDataManager.SourceDataManager.TimeSeriesData*
+  commentId: Overload:Heatington.SourceDataManager.SourceDataManager.TimeSeriesData
+  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager_TimeSeriesData
+  name: TimeSeriesData
+  nameWithType: SourceDataManager.TimeSeriesData
+  fullName: Heatington.SourceDataManager.SourceDataManager.TimeSeriesData
+- uid: System.Collections.Generic.List{Heatington.Models.DataPoint}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.DataPoint}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<DataPoint>
+  nameWithType: List<DataPoint>
+  fullName: System.Collections.Generic.List<Heatington.Models.DataPoint>
+  nameWithType.vb: List(Of DataPoint)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.DataPoint)
+  name.vb: List(Of DataPoint)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Heatington.SourceDataManager.SourceDataManager.#ctor*
+  commentId: Overload:Heatington.SourceDataManager.SourceDataManager.#ctor
+  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager__ctor_Heatington_Data_IDataSource_System_String_
+  name: SourceDataManager
+  nameWithType: SourceDataManager.SourceDataManager
+  fullName: Heatington.SourceDataManager.SourceDataManager.SourceDataManager
+  nameWithType.vb: SourceDataManager.New
+  fullName.vb: Heatington.SourceDataManager.SourceDataManager.New
+  name.vb: New
+- uid: Heatington.Data.IDataSource
+  commentId: T:Heatington.Data.IDataSource
+  parent: Heatington.Data
+  href: Heatington.Data.IDataSource.html
+  name: IDataSource
+  nameWithType: IDataSource
+  fullName: Heatington.Data.IDataSource
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Heatington.Data
+  commentId: N:Heatington.Data
+  href: Heatington.html
+  name: Heatington.Data
+  nameWithType: Heatington.Data
+  fullName: Heatington.Data
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Data
+    name: Data
+    href: Heatington.Data.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Data
+    name: Data
+    href: Heatington.Data.html
+- uid: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv*
+  commentId: Overload:Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv
+  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager_ConvertApiToCsv_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  name: ConvertApiToCsv
+  nameWithType: SourceDataManager.ConvertApiToCsv
+  fullName: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv
+- uid: Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync*
+  commentId: Overload:Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync
+  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager_FetchTimeSeriesDataAsync
+  name: FetchTimeSeriesDataAsync
+  nameWithType: SourceDataManager.FetchTimeSeriesDataAsync
+  fullName: Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData*
+  commentId: Overload:Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData
+  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager_LogTimeSeriesData
+  name: LogTimeSeriesData
+  nameWithType: SourceDataManager.LogTimeSeriesData
+  fullName: Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData

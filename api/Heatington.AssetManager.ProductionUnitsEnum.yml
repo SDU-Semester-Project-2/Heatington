@@ -1,0 +1,166 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.AssetManager.ProductionUnitsEnum
+  commentId: T:Heatington.AssetManager.ProductionUnitsEnum
+  id: ProductionUnitsEnum
+  parent: Heatington.AssetManager
+  children:
+  - Heatington.AssetManager.ProductionUnitsEnum.ElectricBoiler
+  - Heatington.AssetManager.ProductionUnitsEnum.GasBoiler
+  - Heatington.AssetManager.ProductionUnitsEnum.GasMotor
+  - Heatington.AssetManager.ProductionUnitsEnum.OilBoiler
+  langs:
+  - csharp
+  - vb
+  name: ProductionUnitsEnum
+  nameWithType: ProductionUnitsEnum
+  fullName: Heatington.AssetManager.ProductionUnitsEnum
+  type: Enum
+  source:
+    remote:
+      path: Heatington/AssetManager/ProductionUnitsEnum.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ProductionUnitsEnum
+    path: Heatington/AssetManager/ProductionUnitsEnum.cs
+    startLine: 2
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: public enum ProductionUnitsEnum
+    content.vb: Public Enum ProductionUnitsEnum
+- uid: Heatington.AssetManager.ProductionUnitsEnum.GasBoiler
+  commentId: F:Heatington.AssetManager.ProductionUnitsEnum.GasBoiler
+  id: GasBoiler
+  parent: Heatington.AssetManager.ProductionUnitsEnum
+  langs:
+  - csharp
+  - vb
+  name: GasBoiler
+  nameWithType: ProductionUnitsEnum.GasBoiler
+  fullName: Heatington.AssetManager.ProductionUnitsEnum.GasBoiler
+  type: Field
+  source:
+    remote:
+      path: Heatington/AssetManager/ProductionUnitsEnum.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: GasBoiler
+    path: Heatington/AssetManager/ProductionUnitsEnum.cs
+    startLine: 4
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: GasBoiler = 0
+    return:
+      type: Heatington.AssetManager.ProductionUnitsEnum
+- uid: Heatington.AssetManager.ProductionUnitsEnum.OilBoiler
+  commentId: F:Heatington.AssetManager.ProductionUnitsEnum.OilBoiler
+  id: OilBoiler
+  parent: Heatington.AssetManager.ProductionUnitsEnum
+  langs:
+  - csharp
+  - vb
+  name: OilBoiler
+  nameWithType: ProductionUnitsEnum.OilBoiler
+  fullName: Heatington.AssetManager.ProductionUnitsEnum.OilBoiler
+  type: Field
+  source:
+    remote:
+      path: Heatington/AssetManager/ProductionUnitsEnum.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: OilBoiler
+    path: Heatington/AssetManager/ProductionUnitsEnum.cs
+    startLine: 5
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: OilBoiler = 1
+    return:
+      type: Heatington.AssetManager.ProductionUnitsEnum
+- uid: Heatington.AssetManager.ProductionUnitsEnum.GasMotor
+  commentId: F:Heatington.AssetManager.ProductionUnitsEnum.GasMotor
+  id: GasMotor
+  parent: Heatington.AssetManager.ProductionUnitsEnum
+  langs:
+  - csharp
+  - vb
+  name: GasMotor
+  nameWithType: ProductionUnitsEnum.GasMotor
+  fullName: Heatington.AssetManager.ProductionUnitsEnum.GasMotor
+  type: Field
+  source:
+    remote:
+      path: Heatington/AssetManager/ProductionUnitsEnum.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: GasMotor
+    path: Heatington/AssetManager/ProductionUnitsEnum.cs
+    startLine: 6
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: GasMotor = 2
+    return:
+      type: Heatington.AssetManager.ProductionUnitsEnum
+- uid: Heatington.AssetManager.ProductionUnitsEnum.ElectricBoiler
+  commentId: F:Heatington.AssetManager.ProductionUnitsEnum.ElectricBoiler
+  id: ElectricBoiler
+  parent: Heatington.AssetManager.ProductionUnitsEnum
+  langs:
+  - csharp
+  - vb
+  name: ElectricBoiler
+  nameWithType: ProductionUnitsEnum.ElectricBoiler
+  fullName: Heatington.AssetManager.ProductionUnitsEnum.ElectricBoiler
+  type: Field
+  source:
+    remote:
+      path: Heatington/AssetManager/ProductionUnitsEnum.cs
+      branch: SP2-105-Fix-file-structure
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ElectricBoiler
+    path: Heatington/AssetManager/ProductionUnitsEnum.cs
+    startLine: 7
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: ElectricBoiler = 3
+    return:
+      type: Heatington.AssetManager.ProductionUnitsEnum
+references:
+- uid: Heatington.AssetManager
+  commentId: N:Heatington.AssetManager
+  href: Heatington.html
+  name: Heatington.AssetManager
+  nameWithType: Heatington.AssetManager
+  fullName: Heatington.AssetManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.AssetManager
+    name: AssetManager
+    href: Heatington.AssetManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.AssetManager
+    name: AssetManager
+    href: Heatington.AssetManager.html
+- uid: Heatington.AssetManager.ProductionUnitsEnum
+  commentId: T:Heatington.AssetManager.ProductionUnitsEnum
+  parent: Heatington.AssetManager
+  href: Heatington.AssetManager.ProductionUnitsEnum.html
+  name: ProductionUnitsEnum
+  nameWithType: ProductionUnitsEnum
+  fullName: Heatington.AssetManager.ProductionUnitsEnum

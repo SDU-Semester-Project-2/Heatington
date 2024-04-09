@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.Controllers
+  commentId: N:Heatington.Tests.Controllers
+  id: Heatington.Tests.Controllers
+  children:
+  - Heatington.Tests.Controllers.FileControllerTests
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Tests.Controllers
+  nameWithType: Heatington.Tests.Controllers
+  fullName: Heatington.Tests.Controllers
+  type: Namespace
+  assemblies:
+  - Heatington.Tests
+references:
+- uid: Heatington.Tests.Controllers.FileControllerTests
+  commentId: T:Heatington.Tests.Controllers.FileControllerTests
+  href: Heatington.Tests.Controllers.FileControllerTests.html
+  name: FileControllerTests
+  nameWithType: FileControllerTests
+  fullName: Heatington.Tests.Controllers.FileControllerTests
