@@ -11,6 +11,116 @@
       }
     },
     {
+      "type": "Resource",
+      "source_relative_path": "Assets/AssetManager/HeatingGrid.json",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/AssetManager/HeatingGrid.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/AssetManager/ProductionUnits.json",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/AssetManager/ProductionUnits.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/AssetManager/electric-boiler.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/AssetManager/electric-boiler.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/AssetManager/gas-boiler.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/AssetManager/gas-boiler.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/AssetManager/gas-motor.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/AssetManager/gas-motor.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/AssetManager/heating-grid.png",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/AssetManager/heating-grid.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/AssetManager/oil-boiler.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/AssetManager/oil-boiler.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/class-diagram.png",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/class-diagram.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/component-diagram.png",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/component-diagram.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/example-grid.png",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/example-grid.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Assets/winter_period.csv",
+      "output": {
+        "resource": {
+          "relative_path": "Assets/winter_period.csv"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "README.md",
       "output": {
@@ -594,19 +704,6 @@
       "version": ""
     },
     {
-      "type": "Toc",
-      "source_relative_path": "docs/Heatington/AssetManager/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "docs/Heatington/AssetManager/toc.html"
-        },
-        ".json": {
-          "relative_path": "docs/Heatington/AssetManager/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Conceptual",
       "source_relative_path": "docs/Heatington/Controllers/CsvController.md",
       "output": {
@@ -852,16 +949,6 @@
         },
         ".json": {
           "relative_path": "docs/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/Assets/class-diagram.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/Assets/class-diagram.png"
         }
       },
       "version": ""
