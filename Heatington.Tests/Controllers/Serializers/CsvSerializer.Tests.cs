@@ -40,14 +40,6 @@ public class CsvSerializerTests
         )};
         yield return new object[] { String.Join("\n", 
             "a,,c",
-            "d,e,f"),
-            new CsvData(new List<string[]>(){
-                new string[] {"a", "", "c"},
-                new string[] {"d", "e", "f"}
-            }
-        )};
-        yield return new object[] { String.Join("\n", 
-            "a,,c",
             "d,e,"),
             new CsvData(new List<string[]>(){
                 new string[] {"a", "", "c"},
@@ -175,14 +167,6 @@ public class CsvSerializerTests
         )};
         yield return new object[] { String.Join("\n", 
             "a,,c",
-            "d,e,f"),
-            new CsvData(new List<string[]>(){
-                new string[] {"d", "e", "f"}
-            },
-            new string[] {"a", "", "c"}
-        )};
-        yield return new object[] { String.Join("\n", 
-            "a,,c",
             "d,e,"),
             new CsvData(new List<string[]>(){
                 new string[] {"d", "e", ""}
@@ -245,7 +229,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "bcd", "ef"}
         )};
-    }  
+    }
 
     [Theory]
     [MemberData(nameof(GetCsvTestsWithHeader))]
@@ -272,5 +256,103 @@ public class CsvSerializerTests
         //Assert
         Assert.Equal(expected.Header, result.Header);
         Assert.Equal(expected.Table, result.Table);
+    }
+
+    public static IEnumerable<object[]> SerializeTests()
+    {
+        yield return new object[] {
+            new CsvData(new List<string[]>(){new string[] {"abc"}}
+            ), 
+            String.Join("\n", 
+            "abc"
+            )
+        };
+        yield return new object[] {
+            new CsvData(new List<string[]>(){},
+            new string[] {"abc"}
+            ), 
+            String.Join("\n", 
+            "abc\n"
+            )
+        };
+        yield return new object[] { 
+            new CsvData(new List<string[]>(){
+                new string[] {"a", "b", "c"},
+                new string[] {"d", "e", "f"}
+            }),
+            String.Join("\n", 
+            "a,b,c",
+            "d,e,f")
+        };
+        yield return new object[] { 
+            new CsvData(new List<string[]>(){
+                new string[] {"a", "b", "c"},
+                new string[] {"d", "e", "f"}
+            }),
+            String.Join("\n", 
+            "a,b,c",
+            "d,e,f")
+        };
+
+        yield return new object[] {
+            new CsvData(new List<string[]>(){
+                new string[] {"a", "", "c"},
+                new string[] {"d", "e", "f"}
+            }), 
+            String.Join("\n", 
+            "a,,c",
+            "d,e,f")
+        };
+        yield return new object[] {
+            new CsvData(new List<string[]>(){
+                new string[] {"a", "", "c"},
+                new string[] {"d", "e", ""}
+            }),
+            String.Join("\n", 
+            "a,,c",
+            "d,e,"
+            )
+        
+        };
+        yield return new object[] {
+            new CsvData(new List<string[]>(){
+                new string[] {"a", "bcd", "ef"},
+                new string[] {"gh", " ijkl  ", " mno "},
+                new string[] {"456", "*/\\,()\nhello=%`", " pol"}
+            }),
+            String.Join("\n", 
+            "a,bcd,ef",
+            "gh, ijkl  , mno ",
+            "456,\"*/\\,()\nhello=%`\", pol"
+            ),
+        };
+        yield return new object[] {
+            new CsvData(new List<string[]>(){
+                new string[] {"a", "bcd", "ef"},
+                new string[] {"gh", " ijkl  ", " mno "},
+                new string[] {"456", "normal", " pol"},
+                new string[] {"\"\"sometext\"othertext,\"\n\"", "", "all"}
+            }),
+             String.Join("\n", 
+            "a,bcd,ef",
+            "gh, ijkl  , mno ",
+            "456,normal, pol",
+            "\"\"\"\"\"sometext\"\"othertext,\"\"\n\"\"\",,all"
+
+            ),
+
+        };
+    }
+
+    [Theory]
+    [MemberData(nameof(SerializeTests))]
+    public void EmptyCsvWithHeader_Serialize_ReturnsCorrectString(CsvData csv, string expected)
+    {
+        //Arrange
+        string rawCsv = ""; 
+        //Act
+        string result = CsvSerializer.Serialize(csv);
+        //Assert
+        Assert.Equal(expected, result);
     }
 }
