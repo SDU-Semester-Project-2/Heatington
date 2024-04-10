@@ -9,7 +9,7 @@ namespace Heatington.Services.Serializers
     {
         public CsvData(List<string[]> data, string[]? header = null)
         {
-            int numberOfFields = data[0].Length;
+            int numberOfFields = data.Count == 0 ? 0 : data[0].Length;
             if (!data.TrueForAll(x => x.Length == numberOfFields))
             {
                 throw new Exception("Number of fields not consistent throughout csv.");
