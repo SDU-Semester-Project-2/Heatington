@@ -99,15 +99,32 @@
 </code></pre>
 <h2 id="how-does-it-work">How does it work?</h2>
 <p>DocFx automatically creates documentation based on the contents of a file.
-This Documentation is available in the <code>api</code> tab on server.</p>
+This Documentation is available in the <code>API</code> tab on server.</p>
 <p>If you want to add your own, more detailed documentation. Simply add a Markdown (<code>.md</code>) file to
 <code>/docs</code> directory in the right folder coresponding to the real location of a class in a project.</p>
-<p>It's available in the `` tab.</p>
+<p>It's available in the <code>Docs</code> tab.</p>
 <h2 id="how-to-run-it">How to run it?</h2>
 <p>Run in the same directory as <code>docfx.json</code></p>
-<pre><code class="lang-shell">docfx docfx.json
+<pre><code class="lang-shell">docfx docfx.json --serve
 </code></pre>
 <p>Now you can preview the website on http://localhost:8080.</p>
+<p><strong>If you want to rebuild your documentation run this command in a <em>new</em> terminal window</strong></p>
+<pre><code class="lang-shell">docfx docfx.json
+</code></pre>
+<h3 id="how-to-add-markdown-files">How to add Markdown files?</h3>
+<p>in <code>toc.yml</code> file inside your directory add a desired markdown file,
+then add this to the YAML file</p>
+<pre><code class="lang-yaml">- name: &lt;Name of the component&gt;
+- href: &lt;NameOfTheFile&gt;.md
+</code></pre>
+<h3 id="how-to-add-new-directories">How to add new directories?</h3>
+<p>in <code>toc.yml</code> file inside your directory add a new directory
+then add this to the YAML file</p>
+<pre><code class="lang-yaml">- name: &lt;Name of the directory&gt;
+- href: &lt;PathToTheDirectory&gt;/
+</code></pre>
+<p><strong>REMEMBER to add the <code>toc.yml</code> file later inside of the new directory,
+pointing onto the <code>.md</code> files</strong></p>
 <h1 id="useful-resources">Useful Resources</h1>
 <h5 id="docfx-runs-their-own-of-course-version-of-markdown">DocFx runs their own (of course) version of Markdown</h5>
 <blockquote>
