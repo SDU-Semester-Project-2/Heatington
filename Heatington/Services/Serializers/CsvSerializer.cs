@@ -248,17 +248,17 @@ namespace Heatington.Services.Serializers
 
             List<string[]> table;
             string[]? header = null;
-            if(includesHeader)
+            if (includesHeader)
             {
-                if(all.Count == 0)
+                if (all.Count == 0)
                 {
                     header = null;
-                    table = new List<string[]> {};
+                    table = new List<string[]> { };
                 }
-                else if(all.Count == 1)
+                else if (all.Count == 1)
                 {
                     header = all[0];
-                    table = new List<string[]> {};
+                    table = new List<string[]> { };
                 }
                 else
                 {

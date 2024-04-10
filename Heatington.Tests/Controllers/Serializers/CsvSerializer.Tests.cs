@@ -6,14 +6,14 @@ public class CsvSerializerTests
 {
     public static IEnumerable<object[]> GetTests()
     {
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "abc"
             ),
             new CsvData(new List<string[]>(){
                 new string[] {"abc"},
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,b,c",
             "d,e,f"),
             new CsvData(new List<string[]>(){
@@ -21,7 +21,7 @@ public class CsvSerializerTests
                 new string[] {"d", "e", "f"}
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,b,c",
             "d,e,f",
             ""),
@@ -30,7 +30,7 @@ public class CsvSerializerTests
                 new string[] {"d", "e", "f"}
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,,c",
             "d,e,f"),
             new CsvData(new List<string[]>(){
@@ -38,7 +38,7 @@ public class CsvSerializerTests
                 new string[] {"d", "e", "f"}
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,,c",
             "d,e,"),
             new CsvData(new List<string[]>(){
@@ -46,7 +46,7 @@ public class CsvSerializerTests
                 new string[] {"d", "e", ""}
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,,c",
             "d,e,",
             ""),
@@ -55,7 +55,7 @@ public class CsvSerializerTests
                 new string[] {"d", "e", ""}
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,bcd,\"ef\"",
             "\"gh\", ijkl  , mno "
             ),
@@ -64,7 +64,7 @@ public class CsvSerializerTests
                 new string[] {"gh", " ijkl  ", " mno "}
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,bcd,\"ef\"",
             "\"gh\", ijkl  , mno ",
             "456,\"*/\\,()\nhello=%`\", pol"
@@ -75,7 +75,7 @@ public class CsvSerializerTests
                 new string[] {"456", "*/\\,()\nhello=%`", " pol"}
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,bcd,\"ef\"",
             "\"gh\", ijkl  , mno ",
             "456,\"normal\", pol",
@@ -88,7 +88,7 @@ public class CsvSerializerTests
                 new string[] {"\"\"sometext\"othertext\"\"", "", "all"}
             }
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,bcd,\"ef\"",
             "\"gh\", ijkl  , mno ",
             "456,\"*/\\,()\nhello=%`\", pol",
@@ -121,9 +121,9 @@ public class CsvSerializerTests
     public void EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData()
     {
         //Arrange
-        string rawCsv = ""; 
+        string rawCsv = "";
         bool includesHeader = false;
-        CsvData expected = new CsvData(new List<string[]> {} );
+        CsvData expected = new CsvData(new List<string[]> { });
         //Act
         CsvData result = CsvSerializer.Deserialize(rawCsv, includesHeader);
         //Assert
@@ -133,14 +133,14 @@ public class CsvSerializerTests
 
     public static IEnumerable<object[]> GetCsvTestsWithHeader()
     {
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "abc"
             ),
             new CsvData(new List<string[]>(){
             },
             new string[] {"abc"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,b,c",
             "d,e,f"),
             new CsvData(new List<string[]>(){
@@ -148,7 +148,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "b", "c"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,b,c",
             "d,e,f",
             ""),
@@ -157,7 +157,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "b", "c"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,,c",
             "d,e,f"),
             new CsvData(new List<string[]>(){
@@ -165,7 +165,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "", "c"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,,c",
             "d,e,"),
             new CsvData(new List<string[]>(){
@@ -173,7 +173,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "", "c"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,,c",
             "d,e,",
             ""),
@@ -182,7 +182,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "", "c"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,bcd,\"ef\"",
             "\"gh\", ijkl  , mno "
             ),
@@ -191,7 +191,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "bcd", "ef"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,bcd,\"ef\"",
             "\"gh\", ijkl  , mno ",
             "456,\"*/\\,()\nhello=%`\", pol"
@@ -202,7 +202,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "bcd", "ef"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,bcd,\"ef\"",
             "\"gh\", ijkl  , mno ",
             "456,\"normal\", pol",
@@ -215,7 +215,7 @@ public class CsvSerializerTests
             },
             new string[] {"a", "bcd", "ef"}
         )};
-        yield return new object[] { String.Join("\n", 
+        yield return new object[] { String.Join("\n",
             "a,bcd,\"ef\"",
             "\"gh\", ijkl  , mno ",
             "456,\"*/\\,()\nhello=%`\", pol",
@@ -246,19 +246,19 @@ public class CsvSerializerTests
 
     [Theory]
     [InlineData(
-        "abc,d\"ef,ghi\n"+
+        "abc,d\"ef,ghi\n" +
         "jklm,nopqr,st"
     )]
     [InlineData(
-        "abc,def,ghi\n"+
+        "abc,def,ghi\n" +
         "jklm,\"no\"pqr\",st"
     )]
     [InlineData(
-        "abc,def,ghi\n"+
+        "abc,def,ghi\n" +
         "jklm,\"no\"\"\"pqr\",st"
     )]
     [InlineData(
-        "abc,def,ghi\n"+
+        "abc,def,ghi\n" +
         "jklm,\"nopqr,st"
     )]
     public void InvalidCsv_Deserialize_ThrowsException(string rawData)
@@ -266,7 +266,7 @@ public class CsvSerializerTests
         //Arrange
         bool includesHeader = false;
         //Act
-    
+
         //Assert
         Assert.Throws<Exception>(() => CsvSerializer.Deserialize(rawData, includesHeader));
     }
@@ -275,9 +275,9 @@ public class CsvSerializerTests
     public void EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData()
     {
         //Arrange
-        string rawCsv = ""; 
+        string rawCsv = "";
         bool includesHeader = true;
-        CsvData expected = new CsvData(new List<string[]> {} );
+        CsvData expected = new CsvData(new List<string[]> { });
         //Act
         CsvData result = CsvSerializer.Deserialize(rawCsv, includesHeader);
         //Assert
@@ -289,34 +289,34 @@ public class CsvSerializerTests
     {
         yield return new object[] {
             new CsvData(new List<string[]>(){new string[] {"abc"}}
-            ), 
-            String.Join("\n", 
+            ),
+            String.Join("\n",
             "abc"
             )
         };
         yield return new object[] {
             new CsvData(new List<string[]>(){},
             new string[] {"abc"}
-            ), 
-            String.Join("\n", 
+            ),
+            String.Join("\n",
             "abc\n"
             )
         };
-        yield return new object[] { 
+        yield return new object[] {
             new CsvData(new List<string[]>(){
                 new string[] {"a", "b", "c"},
                 new string[] {"d", "e", "f"}
             }),
-            String.Join("\n", 
+            String.Join("\n",
             "a,b,c",
             "d,e,f")
         };
-        yield return new object[] { 
+        yield return new object[] {
             new CsvData(new List<string[]>(){
                 new string[] {"a", "b", "c"},
                 new string[] {"d", "e", "f"}
             }),
-            String.Join("\n", 
+            String.Join("\n",
             "a,b,c",
             "d,e,f")
         };
@@ -325,8 +325,8 @@ public class CsvSerializerTests
             new CsvData(new List<string[]>(){
                 new string[] {"a", "", "c"},
                 new string[] {"d", "e", "f"}
-            }), 
-            String.Join("\n", 
+            }),
+            String.Join("\n",
             "a,,c",
             "d,e,f")
         };
@@ -335,11 +335,11 @@ public class CsvSerializerTests
                 new string[] {"a", "", "c"},
                 new string[] {"d", "e", ""}
             }),
-            String.Join("\n", 
+            String.Join("\n",
             "a,,c",
             "d,e,"
             )
-        
+
         };
         yield return new object[] {
             new CsvData(new List<string[]>(){
@@ -347,7 +347,7 @@ public class CsvSerializerTests
                 new string[] {"gh", " ijkl  ", " mno "},
                 new string[] {"456", "*/\\,()\nhello=%`", " pol"}
             }),
-            String.Join("\n", 
+            String.Join("\n",
             "a,bcd,ef",
             "gh, ijkl  , mno ",
             "456,\"*/\\,()\nhello=%`\", pol"
@@ -360,7 +360,7 @@ public class CsvSerializerTests
                 new string[] {"456", "normal", " pol"},
                 new string[] {"\"\"sometext\"othertext,\"\n\"", "", "all"}
             }),
-             String.Join("\n", 
+             String.Join("\n",
             "a,bcd,ef",
             "gh, ijkl  , mno ",
             "456,normal, pol",
