@@ -9,13 +9,13 @@ namespace Heatington.Services.Serializers
     {
         public CsvData(List<string[]> data, string[]? header = null)
         {
-            int numberOfFields = data.Count == 0 ? 0 : data[0].Length;
+            int? numberOfFields = data.Count != 0 ? data[0].Length : null;
             if (!data.TrueForAll(x => x.Length == numberOfFields))
             {
                 throw new Exception("Number of fields not consistent throughout csv.");
             }
 
-            if (header != null && header.Length != numberOfFields)
+            if (header != null && numberOfFields != null && header.Length != numberOfFields)
             {
                 throw new Exception("Number of fields in csv header does not match number of fields in csv body.");
             }
@@ -246,9 +246,34 @@ namespace Heatington.Services.Serializers
                 i++;
             }
 
+            List<string[]> table;
+            string[]? header = null;
+            if(includesHeader)
+            {
+                if(all.Count == 0)
+                {
+                    header = null;
+                    table = new List<string[]> {};
+                }
+                else if(all.Count == 1)
+                {
+                    header = all[0];
+                    table = new List<string[]> {};
+                }
+                else
+                {
+                    header = all[0];
+                    table = all[1..];
+                }
+            }
+            else
+            {
+                table = all;
+            }
+
             return new CsvData(
-                includesHeader ? all[1..] : all,
-                includesHeader ? all[0] : null
+                table,
+                header
             );
         }
 
