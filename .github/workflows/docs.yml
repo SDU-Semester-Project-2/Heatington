@@ -3,7 +3,7 @@
 on:
   push:
     branches:
-      - main
+      - dev
       - SP2-*
 #  pull_request:
 #    branches:
