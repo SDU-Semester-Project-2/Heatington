@@ -244,6 +244,33 @@ public class CsvSerializerTests
         Assert.Equal(expected.Table, result.Table);
     }
 
+    [Theory]
+    [InlineData(
+        "abc,d\"ef,ghi\n"+
+        "jklm,nopqr,st"
+    )]
+    [InlineData(
+        "abc,def,ghi\n"+
+        "jklm,\"no\"pqr\",st"
+    )]
+    [InlineData(
+        "abc,def,ghi\n"+
+        "jklm,\"no\"\"\"pqr\",st"
+    )]
+    [InlineData(
+        "abc,def,ghi\n"+
+        "jklm,\"nopqr,st"
+    )]
+    public void InvalidCsv_Deserialize_ThrowsException(string rawData)
+    {
+        //Arrange
+        bool includesHeader = false;
+        //Act
+    
+        //Assert
+        Assert.Throws<Exception>(() => CsvSerializer.Deserialize(rawData, includesHeader));
+    }
+
     [Fact]
     public void EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData()
     {
@@ -349,7 +376,7 @@ public class CsvSerializerTests
     public void EmptyCsvWithHeader_Serialize_ReturnsCorrectString(CsvData csv, string expected)
     {
         //Arrange
-        string rawCsv = ""; 
+
         //Act
         string result = CsvSerializer.Serialize(csv);
         //Assert
