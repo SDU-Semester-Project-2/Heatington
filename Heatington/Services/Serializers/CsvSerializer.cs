@@ -299,7 +299,7 @@ namespace Heatington.Services.Serializers
                 ).ToArray()
                 : null;
 
-            return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) : "") + '\n' +
+            return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) + '\n' : "") +
                    String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
         }
 
