@@ -1,12 +1,12 @@
 - name: Asset Manager (AM)
-  href: AssetManager/
+  href: AssetManager/AssetManagerDescription.md
 - name: Controllers
-  href: Controllers/
+  href: Controllers/toc.yml
 - name: Helpers
-  href: Helpers/
+  href: Helpers/toc.yml
 - name: Models
-  href: Models/
+  href: Models/toc.yml
 - name: Optimizer (OPT)
-  href: Optimizer/
+  href: Optimizer/toc.yml
 - name: Source Data Manager (SDM)
-  href: SourceDataManager/
+  href: SourceDataManager/toc.yml
