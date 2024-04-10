@@ -111,17 +111,26 @@ This Documentation is available in the <code>API</code> tab on server.</p>
 <p><strong>If you want to rebuild your documentation run this command in a <em>new</em> terminal window</strong></p>
 <pre><code class="lang-shell">docfx docfx.json
 </code></pre>
+<hr>
+<p><em>You may encounter some probles with running <code>docfx</code> command</em></p>
+<p>Sometimes <code>docfx</code> is not automatically added to your <code>PATH</code>. In order to fix that
+find the location of your dotnet tools. For UNIX based systems it should be <code>~/.dotnet/tools/docfx</code>.
+Then either add your <code>dotnet/tools</code> directory to global <code>PATH</code> or just run <code>docfx</code> from explicitly
+specified path.</p>
+<p>e.g</p>
+<pre><code class="lang-shell">~/.dotnet/tools/docfx docfx.json --serve
+</code></pre>
 <h3 id="how-to-add-markdown-files">How to add Markdown files?</h3>
 <p>in <code>toc.yml</code> file inside your directory add a desired markdown file,
 then add this to the YAML file</p>
 <pre><code class="lang-yaml">- name: &lt;Name of the component&gt;
-- href: &lt;NameOfTheFile&gt;.md
+  href: &lt;NameOfTheFile&gt;.md
 </code></pre>
 <h3 id="how-to-add-new-directories">How to add new directories?</h3>
 <p>in <code>toc.yml</code> file inside your directory add a new directory
 then add this to the YAML file</p>
 <pre><code class="lang-yaml">- name: &lt;Name of the directory&gt;
-- href: &lt;PathToTheDirectory&gt;/
+  href: &lt;PathToTheDirectory&gt;/toc.yml
 </code></pre>
 <p><strong>REMEMBER to add the <code>toc.yml</code> file later inside of the new directory,
 pointing onto the <code>.md</code> files</strong></p>

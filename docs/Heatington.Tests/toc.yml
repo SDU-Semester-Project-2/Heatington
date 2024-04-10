@@ -1,15 +1,15 @@
 - name: Asset Manager Tests (AM)
-  href: AssetManager/
+  href: AssetManager/toc.yml
 - name: Controllers Tests
-  href: Controllers/
+  href: Controllers/toc.yml
 - name: Helpers Tests
-  href: Helpers/
+  href: Helpers/toc.yml
 - name: Models Tests
-  href: Models/
+  href: Models/toc.yml
 - name: Optimizer Tests (OPT)
-  href: Optimizer/
+  href: Optimizer/toc.yml
 - name: Source Data Manager Tests (SDM)
-  href: SourceDataManager/
+  href: SourceDataManager/toc.yml
 
 # for more directories
 #- name: AssetManager

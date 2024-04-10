@@ -37,13 +37,26 @@ Now you can preview the website on http://localhost:8080.
 ```shell
 docfx docfx.json
 ```
+---
+_You may encounter some probles with running `docfx` command_
+
+Sometimes `docfx` is not automatically added to your `PATH`. In order to fix that
+find the location of your dotnet tools. For UNIX based systems it should be `~/.dotnet/tools/docfx`.
+Then either add your `dotnet/tools` directory to global `PATH` or just run `docfx` from explicitly
+specified path.
+
+e.g
+```shell
+~/.dotnet/tools/docfx docfx.json --serve
+```
+
 
 ### How to add Markdown files?
 in `toc.yml` file inside your directory add a desired markdown file,
 then add this to the YAML file
 ```yaml
 - name: <Name of the component>
-- href: <NameOfTheFile>.md
+  href: <NameOfTheFile>.md
 ```
 
 ### How to add new directories?
@@ -51,7 +64,7 @@ in `toc.yml` file inside your directory add a new directory
 then add this to the YAML file
 ```yaml
 - name: <Name of the directory>
-- href: <PathToTheDirectory>/
+  href: <PathToTheDirectory>/toc.yml
 ```
 
 **REMEMBER to add the `toc.yml` file later inside of the new directory,
