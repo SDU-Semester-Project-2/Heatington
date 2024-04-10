@@ -131,7 +131,7 @@ public class CsvSerializerTests
         //Arrange
         string rawCsv = ""; 
         bool includesHeader = false;
-        CsvData expected = new CsvData(new List<string[]> {new string[] {""}} );
+        CsvData expected = new CsvData(new List<string[]> {} );
         //Act
         CsvData result = CsvSerializer.Deserialize(rawCsv, includesHeader);
         //Assert
