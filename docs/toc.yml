@@ -3,6 +3,6 @@
 - name: Coding Style
   href: CODING-STYLE.md
 - name: Heatington
-  href: Heatington
+  href: Heatington/
 - name: Heatington Tests
-  href: Heatington.Tests
+  href: Heatington.Tests/

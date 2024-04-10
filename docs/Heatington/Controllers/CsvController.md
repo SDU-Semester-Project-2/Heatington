@@ -1,8 +1,8 @@
-# `CsvDataSource` Class
+# `CsvController` Class
 
 ## Overview
 
-The `CsvDataSource` class provides a concrete implementation of the `IDataSource` interface specific to data in CSV
+The `CsvController` class provides a concrete implementation of the `IDataSource` interface specific to data in CSV
 format, allowing for the reading of such data within the Heatington application.
 
 ## Methods
@@ -36,7 +36,7 @@ The utilization of this method remains dependent upon the needs of the Heatingto
 
 ## Remarks
 
-While the `CsvDataSource` class is intended to offer a concrete manner for handling CSV data in the application,
+While the `CsvController` class is intended to offer a concrete manner for handling CSV data in the application,
 it's worth to mention that its ability to write data is not implemented. Depending on future development decisions,
 this feature could potentially remain so. The future of object creation and modification may also leverage design
 patterns such as the Factory or Builder.

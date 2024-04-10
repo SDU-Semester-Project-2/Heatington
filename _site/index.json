@@ -169,20 +169,60 @@
     "title": "SP2 Coding Guidelines | Heatington",
     "keywords": "SP2 Coding Guidelines Semester Project: Development of Software Systems, (F24) - Group 16 March 2024 Run code formatter dotnet format Coding style This document defines the coding style used throughout the project. The coding style is essentialy the one outlined by Microsoft for C# projects It is a slightly modified version of the following document. We use Allman style braces, where each brace begins on a new line. A single line statement block can go without braces but the block must be properly indented on its own line and must not be nested in other statement blocks that use braces (See rule 18 for more details). One exception is that a using statement is permitted to be nested within another using statement by starting on the following line at the same indentation level, even if the nested using contains a controlled block. We use four spaces of indentation (no tabs). We use _camelCase for internal and private fields and use readonly where possible. Prefix internal and private instance fields with _, static fields with s_ and thread static fields with t_ . When used on static fields, readonly should come after static (e.g. static readonly not readonly static). Public fields should be used sparingly and should use PascalCasing with no prefix when used. We avoid this. unless absolutely necessary. We always specify the visibility, even if it’s the default (e.g. private string foo not string foo). Visibility should be the first modifier (e.g. public abstract not abstract public). Namespace imports should be specified at the top of the file, outside of namespace declarations, and should be sorted alphabetically, with the exception of System.* namespaces, which are to be placed on top of all others. Avoid more than one empty line at any time. For example, do not have two blank lines between members of a type. Avoid spurious free spaces. For example avoid if (someVar = 0). . . =, where the dots mark the spurious free spaces. If a file happens to differ in style from these guidelines (e.g. private members are named m_member rather than member), the existing style in that file takes precedence. We only use var when the type is explicitly named on the right-hand side, typically due to either new or an explicit cast, e.g. var stream = new FileStream(...) not var stream = OpenStandardInput(). We use language keywords instead of BCL types (e.g. int, string, float instead of Int32, String, Single, etc) for both type references as well as method calls (e.g. int.Parse instead of Int32.Parse). We use PascalCasing to name all our constant local variables and fields. The only exception is for interop code where the constant value should exactly match the name and value of the code you are calling via interop. We use PascalCasing for all method names, including local functions. We use nameof(...) instead of \"...\" whenever possible and relevant. Fields should be specified at the top within type declarations. When including non-ASCII characters in the source code use Unicode escape sequences instead of literal characters. Literal non-ASCII characters occasionally get garbled by a tool or editor. When using labels (for goto), indent the label one less than the current indentation. 1 When using a single-statement if, we follow these conventions Never use single-line form (for example: if (source = null) throw new ArgumentNullException(‘‘source’’); Using braces is always accepted, and required if any block of an if=/=else if=/.../=else compound statement uses braces or if a single statement body spans multiple lines. Braces may be omitted only if the body of every block associated with an if=/=else if=/.../=else.compound statement is placed on a single line. Make allinternal and private types static or sealed unless derivation from them is required. As with any implementation detail, they can be changed if/when derivation is required in the future."
   },
+  "docs/Heatington.Tests/AssetManager/AssetManager.html": {
+    "href": "docs/Heatington.Tests/AssetManager/AssetManager.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED YET"
+  },
+  "docs/Heatington.Tests/Controllers/Enums/OperationStatus.html": {
+    "href": "docs/Heatington.Tests/Controllers/Enums/OperationStatus.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED YET"
+  },
   "docs/Heatington.Tests/Controllers/FileController.Tests.html": {
     "href": "docs/Heatington.Tests/Controllers/FileController.Tests.html",
     "title": "FileControllerTests Class | Heatington",
     "keywords": "FileControllerTests Class Namespace: Heatington.Tests.Controllers Description Unit tests for the FileController class. Constructor FileControllerTests() Creates a temporary test folder for testing purposes. Members ReadFileFromPath_ReadFile_ReadsCorrectContent() Unit test to verify that reading a file from a specified path reads the correct content. WriteFileFromPath_WriteFile_WritesCorrectContent() Unit test to verify that writing to a file from a specified path writes the correct content. WriteFileFromPath_WriteEmptyStringToFile_CreatesFile() Unit test to verify that writing an empty string to a file creates the file. WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo() Unit test to verify that writing to the same file twice creates two files with the same name. ReadFileFromPath_ReadNotExistingFile_FileNotFound(string wrongFileName) Unit test to verify that reading from a path to a file that does not exist throws a FileNotFoundException. IDisposable Implementation Dispose() Clears the temporary test directory after all tests have been run."
+  },
+  "docs/Heatington.Tests/Controllers/Interfaces/IReadWriteController.html": {
+    "href": "docs/Heatington.Tests/Controllers/Interfaces/IReadWriteController.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED YET"
+  },
+  "docs/Heatington.Tests/Controllers/Serializers/FileSerializer.html": {
+    "href": "docs/Heatington.Tests/Controllers/Serializers/FileSerializer.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED YET"
+  },
+  "docs/Heatington.Tests/Helpers/Utilities.html": {
+    "href": "docs/Heatington.Tests/Helpers/Utilities.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED YET"
+  },
+  "docs/Heatington.Tests/Models/DataPoint.html": {
+    "href": "docs/Heatington.Tests/Models/DataPoint.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED YET"
+  },
+  "docs/Heatington.Tests/Optimizer/Optimizer.html": {
+    "href": "docs/Heatington.Tests/Optimizer/Optimizer.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED YET"
+  },
+  "docs/Heatington.Tests/SourceDataManager/SourceDataManager.html": {
+    "href": "docs/Heatington.Tests/SourceDataManager/SourceDataManager.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED YET"
   },
   "docs/Heatington/AssetManager/AssetManagerDescription.html": {
     "href": "docs/Heatington/AssetManager/AssetManagerDescription.html",
     "title": "Asset Manager | Heatington",
     "keywords": "Asset Manager The AM is a repository for static system information and is responsible for making this information available for other modules. The AM can hold its data in local files. Through the AM, other modules can retrieve heating grid information such as name and a graphical representation of the grid. The AM provides all configuration data for the production units such as name, possible operation points and a graphical representation of the units itself. An operation point defines how a device can be operated. Parameters are produced heat, produced / consumed electricity, production costs, consumption of primary energy, produced CO2 emissions. There is typically a minimum and a maximum operation point but, in this case, we assume that there is a maximum operation point for each unit which can be regulated to zero, meaning the device is switched off."
   },
-  "docs/Heatington/Controllers/CsvDataSource.html": {
-    "href": "docs/Heatington/Controllers/CsvDataSource.html",
-    "title": "CsvDataSource Class | Heatington",
-    "keywords": "CsvDataSource Class Overview The CsvDataSource class provides a concrete implementation of the IDataSource interface specific to data in CSV format, allowing for the reading of such data within the Heatington application. Methods Task<List<DataPoint>?> GetDataAsync(string filePath) The GetDataAsync method is a function for asynchronously fetching data from a CSV file located at a provided file path. The method initiates by asynchronously reading the file’s entire content into a string (rawData). The rawData is then deserialized by the CsvController utility class into a CsvData object – a controller specifically designed to handle and manipulate data in CSV format. Following the successful deserialization of the rawData, the CsvData object is converted into a List of DataPoint objects. Each DataPoint object encapsulates heat demand and electricity price data. Should the method fail to retrieve data from the file or if no data exists at the provided file path, then the method will return null. Upon the occurrence of an exception, the exception's message is displayed using the Utilities.DisplayException(e.Message) method and the exception is then re-thrown. void SaveData(List<DataPoint> data, string filePath) The SaveData method remains unimplemented and consequently triggers a NotImplementedException when called. It is projected that in the future, the method will save a List of DataPoint objects into a CSV file located at a specified file path. The List<DataPoint> data parameter represents the data points to be stored. The string filePath parameter provides the location of where the CSV file will be created or rewritten. The utilization of this method remains dependent upon the needs of the Heatington project. Remarks While the CsvDataSource class is intended to offer a concrete manner for handling CSV data in the application, it's worth to mention that its ability to write data is not implemented. Depending on future development decisions, this feature could potentially remain so. The future of object creation and modification may also leverage design patterns such as the Factory or Builder."
+  "docs/Heatington/Controllers/CsvController.html": {
+    "href": "docs/Heatington/Controllers/CsvController.html",
+    "title": "CsvController Class | Heatington",
+    "keywords": "CsvController Class Overview The CsvController class provides a concrete implementation of the IDataSource interface specific to data in CSV format, allowing for the reading of such data within the Heatington application. Methods Task<List<DataPoint>?> GetDataAsync(string filePath) The GetDataAsync method is a function for asynchronously fetching data from a CSV file located at a provided file path. The method initiates by asynchronously reading the file’s entire content into a string (rawData). The rawData is then deserialized by the CsvController utility class into a CsvData object – a controller specifically designed to handle and manipulate data in CSV format. Following the successful deserialization of the rawData, the CsvData object is converted into a List of DataPoint objects. Each DataPoint object encapsulates heat demand and electricity price data. Should the method fail to retrieve data from the file or if no data exists at the provided file path, then the method will return null. Upon the occurrence of an exception, the exception's message is displayed using the Utilities.DisplayException(e.Message) method and the exception is then re-thrown. void SaveData(List<DataPoint> data, string filePath) The SaveData method remains unimplemented and consequently triggers a NotImplementedException when called. It is projected that in the future, the method will save a List of DataPoint objects into a CSV file located at a specified file path. The List<DataPoint> data parameter represents the data points to be stored. The string filePath parameter provides the location of where the CSV file will be created or rewritten. The utilization of this method remains dependent upon the needs of the Heatington project. Remarks While the CsvController class is intended to offer a concrete manner for handling CSV data in the application, it's worth to mention that its ability to write data is not implemented. Depending on future development decisions, this feature could potentially remain so. The future of object creation and modification may also leverage design patterns such as the Factory or Builder."
   },
   "docs/Heatington/Controllers/Enums/OperationStatus.html": {
     "href": "docs/Heatington/Controllers/Enums/OperationStatus.html",
@@ -209,6 +249,11 @@
     "title": "| Heatington",
     "keywords": ""
   },
+  "docs/Heatington/Controllers/Serializers/FileSerializer.html": {
+    "href": "docs/Heatington/Controllers/Serializers/FileSerializer.html",
+    "title": "| Heatington",
+    "keywords": "NOT IMPLEMENTED"
+  },
   "docs/Heatington/Helpers/Utilities.html": {
     "href": "docs/Heatington/Helpers/Utilities.html",
     "title": "Utilities Class | Heatington",
@@ -232,11 +277,11 @@
   "docs/introduction.html": {
     "href": "docs/introduction.html",
     "title": "Introduction | Heatington",
-    "keywords": "Introduction This is Group's number 16, Second Semester Project Documentation Project Name: Heatington Installation following the official documentation Documentation Link To install using .NET SDK (it has to be installed previously) dotnet tool update -g docfx How does it work? DocFx automatically creates documentation based on the contents of a file. This Documentation is available in the api tab on server. If you want to add your own, more detailed documentation. Simply add a Markdown (.md) file to /docs directory in the right folder coresponding to the real location of a class in a project. It's available in the `` tab. How to run it? Run in the same directory as docfx.json docfx docfx.json Now you can preview the website on http://localhost:8080. Useful Resources DocFx runs their own (of course) version of Markdown Brief Introduction to a DocFx (15min Video) Documentation about docfx markdown"
+    "keywords": "Introduction This is Group's number 16, Second Semester Project Documentation Project Name: Heatington Installation following the official documentation Documentation Link To install using .NET SDK (it has to be installed previously) dotnet tool update -g docfx How does it work? DocFx automatically creates documentation based on the contents of a file. This Documentation is available in the API tab on server. If you want to add your own, more detailed documentation. Simply add a Markdown (.md) file to /docs directory in the right folder coresponding to the real location of a class in a project. It's available in the Docs tab. How to run it? Run in the same directory as docfx.json docfx docfx.json --serve Now you can preview the website on http://localhost:8080. If you want to rebuild your documentation run this command in a new terminal window docfx docfx.json How to add Markdown files? in toc.yml file inside your directory add a desired markdown file, then add this to the YAML file - name: <Name of the component> - href: <NameOfTheFile>.md How to add new directories? in toc.yml file inside your directory add a new directory then add this to the YAML file - name: <Name of the directory> - href: <PathToTheDirectory>/ REMEMBER to add the toc.yml file later inside of the new directory, pointing onto the .md files Useful Resources DocFx runs their own (of course) version of Markdown Brief Introduction to a DocFx (15min Video) Documentation about docfx markdown"
   },
   "index.html": {
     "href": "index.html",
-    "title": "This is the HOMEPAGE. | Heatington",
-    "keywords": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+    "title": "Welcome! | Heatington",
+    "keywords": "Welcome! Refer to Markdown for how to write markdown files. README"
   }
 }
