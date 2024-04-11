@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Reflection;
 
 namespace Heatington.Services.Serializers
@@ -7,6 +8,9 @@ namespace Heatington.Services.Serializers
 
     public class CsvData
     {
+        public List<string[]> Table { get; private set; }
+        public string[]? Header { get; private set; }
+
         public CsvData(List<string[]> data, string[]? header = null)
         {
             int? numberOfFields = data.Count != 0 ? data[0].Length : null;
@@ -24,11 +28,10 @@ namespace Heatington.Services.Serializers
             Header = header;
         }
 
-        public List<string[]> Table { get; private set; }
-        public string[]? Header { get; private set; }
 
-        public static CsvData Create<T>(List<T> data, string[]? header = null)
+        public static CsvData Create<T>(List<T> data, string[]? header = null, CultureInfo? culture = null)
         {
+            culture = culture ?? new("da-da");
             PropertyInfo[] props = typeof(T).GetProperties();
             header = header ?? props.Select(x => x.Name).ToArray();
             List<string[]> res = data.Select(
@@ -36,15 +39,16 @@ namespace Heatington.Services.Serializers
                     prop =>
                     {
                         object? value = prop.GetValue(x);
-                        return value != null ? (value.ToString() ?? "") : "";
+                        return value != null ? (Convert.ToString(value, culture) ?? "") : "";
                     }
                 ).ToArray()
             ).ToList();
             return new CsvData(res, header);
         }
 
-        public List<T> ConvertRecords<T>()
+        public List<T> ConvertRecords<T>(CultureInfo? culture = null)
         {
+            culture = culture ?? new("da-da");
             ConstructorInfo ctor;
             ConstructorInfo[] allCtors = typeof(T).GetConstructors();
             if (allCtors.Length == 1)
@@ -58,7 +62,7 @@ namespace Heatington.Services.Serializers
                 if (csvConstructors.Length == 0)
                 {
                     throw new Exception(
-                        $"The type '{typeof(T)}' must have at one constructor with CsvConsturcotrAttribute.");
+                        $"The type '{typeof(T)}' must have at least one constructor.");
                 }
                 else if (csvConstructors.Length > 1)
                 {
@@ -91,7 +95,7 @@ namespace Heatington.Services.Serializers
                 for (int i = 0; i < parameters.Length; i++)
                 {
                     ParameterInfo currentParam = Header != null && useHeader ? paramDict[Header[i]] : parameters[i];
-                    var value = Convert.ChangeType(values[i], currentParam.ParameterType);
+                    var value = Convert.ChangeType(values[i], currentParam.ParameterType, culture);
                     parameterValues[currentParam.Position] = value;
                 }
 
@@ -110,6 +114,14 @@ namespace Heatington.Services.Serializers
 
     public static class CsvSerializer
     {
+        private enum State
+        {
+            Start,
+            UnquotedEntry,
+            QuotedEntry,
+            AnotherQuote
+        }
+
         public static CsvData Deserialize(string rawData, bool includesHeader)
         {
             State currentState = State.Start;
@@ -301,14 +313,6 @@ namespace Heatington.Services.Serializers
 
             return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) + '\n' : "") +
                    String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
-        }
-
-        private enum State
-        {
-            Start,
-            UnquotedEntry,
-            QuotedEntry,
-            AnotherQuote
         }
     }
 }
