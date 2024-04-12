@@ -948,3 +948,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,dotnetcore,aspnetcore,visualstudio,visualstudiocode,rider,emacs,vim,macos,windows,linux
 Heatington.sln.DotSettings
+Heatington/Program.cs
