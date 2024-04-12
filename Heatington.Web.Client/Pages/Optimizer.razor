@@ -1,13 +1,8 @@
-﻿@page "/counter"
-@rendermode InteractiveServer
-
-<MudPopoverProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
+﻿@page "/optimizer"
 
 <PageTitle>Counter</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
+<MudText Typo="Typo.h3" GutterBottom="true">Optimizer</MudText>
 <MudText Class="mb-4">Current count: @currentCount</MudText>
 <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
 
@@ -18,4 +13,5 @@
     {
         currentCount++;
     }
+
 }
