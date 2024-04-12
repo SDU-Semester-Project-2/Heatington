@@ -2,8 +2,6 @@
   href: Enums/toc.yml
 - name: Interfaces
   href: Interfaces/toc.yml
-- name: Serializers
-  href: Serializers/toc.yml
 - name: FileController Tests
   href: FileController.Tests.md
 
