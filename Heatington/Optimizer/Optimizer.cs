@@ -1,5 +1,6 @@
+using Heatington.AssetManager;
 using Heatington.Controllers;
-using Heatington.Controllers.Interfaces;
+using Heatington.Data;
 using Heatington.Helpers;
 using Heatington.Models;
 
@@ -114,7 +115,6 @@ public class Opt
                     throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
                 }
             }
-
             return i;
         }
 
@@ -130,26 +130,27 @@ public class Opt
             return selectedBoilers;
         }
     }
-
     public void CalculateNetProductionCost()
     {
-        // Should I make a copy of the list, set the Production Cost and update the public one OR
-        // keep manipulating it directly like I am now
         if (Results == null)
         {
             return;
         }
 
-        int i = 0;
+        List<ResultHolder> workingResults = new List<ResultHolder>();
 
-        foreach (var entry in Results)
+        foreach (ResultHolder result in Results)
         {
-            double hourlyProductionCost = Results[i].Boilers.Sum(o => o.ProductionCost);
+            ResultHolder resultClone = (ResultHolder)result.Clone();
 
-            Results[i].NetProductionCost = hourlyProductionCost;
+            double hourlyProductionCost = resultClone.Boilers.Sum(o => o.ProductionCost);
 
-            i++;
+            resultClone.NetProductionCost = hourlyProductionCost;
+
+            workingResults.Add(resultClone);
         }
+
+        Results = workingResults;
     }
 
     public void LogResults()
@@ -158,18 +159,17 @@ public class Opt
         {
             return;
         }
-
         Results.ForEach(Console.WriteLine);
     }
 
     private void GetDataPoints()
     {
+        IDataSource dataSource = new CsvController();
+
         string fileName = "winter_period.csv";
         string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
 
-        IDataSource dataSource = new CsvController(filePath);
-
-        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource);
+        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, filePath);
 
         Task fetchTimeSeriesDataAsync = sourceDataManager.FetchTimeSeriesDataAsync();
 
@@ -196,9 +196,9 @@ public class Opt
     // Will call Asset Manager eventually.
     private void GetProductionUnits()
     {
-        ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5, 800, 0, 1.5, 310);
-        ProductionUnit gasBoiler = new ProductionUnit("Gas Boiler", "", 5, 500, 0, 1.1, 215);
-        ProductionUnit oilBoiler = new ProductionUnit("Oil Boiler", "", 4, 700, 0, 1.2, 265);
+        ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5,800,0,1.5,310);
+        ProductionUnit gasBoiler = new ProductionUnit("Gas Boiler", "", 5,500,0,1.1,215);
+        ProductionUnit oilBoiler = new ProductionUnit("Oil Boiler", "", 4,700,0,1.2,265);
 
         _productionUnits.Add(controlBoiler);
         _productionUnits.Add(oilBoiler);
