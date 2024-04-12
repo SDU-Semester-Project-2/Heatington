@@ -4,22 +4,21 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.SourceDataManager
 {
+
     public class SourceDataManager
     {
-        private readonly IDataSource _dataSource;
-        private readonly string _filePath;
-        public List<DataPoint>? TimeSeriesData { get; set; }
 
-        public SourceDataManager(IDataSource dataSource, string filePath)
+        private readonly IDataSource _dataSource;
+        public List<DataPoint>? TimeSeriesData { get; set; }
+        public SourceDataManager(IDataSource dataSource)
         {
             _dataSource = dataSource;
-            _filePath = filePath;
         }
 
         /// TODO: Take a look at this method again
         public void ConvertApiToCsv(List<DataPoint> dataFromApi)
         {
-            _dataSource.SaveData(dataFromApi, _filePath);
+            _dataSource.SaveData(dataFromApi);
         }
 
         public async Task FetchTimeSeriesDataAsync()
@@ -27,7 +26,7 @@ namespace Heatington.SourceDataManager
             Console.WriteLine("Start fetching time series data from the data source...");
             try
             {
-                TimeSeriesData = await _dataSource.GetDataAsync(_filePath).ConfigureAwait(true);
+                TimeSeriesData = await _dataSource.GetDataAsync().ConfigureAwait(true);
             }
             catch (Exception ex)
             {
