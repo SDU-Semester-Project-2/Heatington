@@ -1,5 +1,5 @@
+using Heatington.AssetManager;
 using Heatington.Controllers;
-using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
 using Heatington.Services.Interfaces;
@@ -31,6 +31,7 @@ public class Opt
 
         foreach (var unit in productionUnits)
         {
+
             // For some reason if I don't clone the object C# confuses to which object I am referring to
             // and messes up all the objects in the "results" list
             ProductionUnit unitClone = (ProductionUnit)unit.Clone();
@@ -115,7 +116,6 @@ public class Opt
                     throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
                 }
             }
-
             return i;
         }
 
@@ -131,28 +131,25 @@ public class Opt
             return selectedBoilers;
         }
     }
-
     public void CalculateNetProductionCost()
     {
+        // Should I make a copy of the list, set the Production Cost and update the public one OR
+        // keep manipulating it directly like I am now
         if (Results == null)
         {
             return;
         }
 
-        List<ResultHolder> workingResults = new List<ResultHolder>();
+        int i = 0;
 
-        foreach (ResultHolder result in Results)
+        foreach (var entry in Results)
         {
-            ResultHolder resultClone = (ResultHolder)result.Clone();
+            double hourlyProductionCost = Results[i].Boilers.Sum(o => o.ProductionCost);
 
-            double hourlyProductionCost = resultClone.Boilers.Sum(o => o.ProductionCost);
+            Results[i].NetProductionCost = hourlyProductionCost;
 
-            resultClone.NetProductionCost = hourlyProductionCost;
-
-            workingResults.Add(resultClone);
+            i++;
         }
-
-        Results = workingResults;
     }
 
     public void LogResults()
@@ -161,7 +158,6 @@ public class Opt
         {
             return;
         }
-
         Results.ForEach(Console.WriteLine);
     }
 
@@ -169,10 +165,7 @@ public class Opt
     {
         IDataSource dataSource = new CsvController();
 
-        string fileName = "winter_period.csv";
-        string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
-
-        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, filePath);
+        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, "../../../../Assets/winter_period.csv");
 
         Task fetchTimeSeriesDataAsync = sourceDataManager.FetchTimeSeriesDataAsync();
 
@@ -199,9 +192,9 @@ public class Opt
     // Will call Asset Manager eventually.
     private void GetProductionUnits()
     {
-        ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5, 800, 0, 1.5, 310);
-        ProductionUnit gasBoiler = new ProductionUnit("Gas Boiler", "", 5, 500, 0, 1.1, 215);
-        ProductionUnit oilBoiler = new ProductionUnit("Oil Boiler", "", 4, 700, 0, 1.2, 265);
+        ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5,800,0,1.5,310);
+        ProductionUnit gasBoiler = new ProductionUnit("Gas Boiler", "", 5,500,0,1.1,215);
+        ProductionUnit oilBoiler = new ProductionUnit("Oil Boiler", "", 4,700,0,1.2,265);
 
         _productionUnits.Add(controlBoiler);
         _productionUnits.Add(oilBoiler);
