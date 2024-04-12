@@ -1,4 +1,4 @@
-using Heatington.Models;
+using Heatington.AssetManager;
 
 namespace Heatington.Tests.Models
 {
