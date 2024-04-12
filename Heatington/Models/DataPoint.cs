@@ -1,5 +1,6 @@
 using System.Globalization;
-using Heatington.Controllers.Serializers;
+using Heatington.Controllers;
+using Heatington.Services.Serializers;
 
 namespace Heatington.Models
 {
