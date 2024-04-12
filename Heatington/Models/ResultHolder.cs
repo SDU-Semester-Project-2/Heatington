@@ -9,7 +9,7 @@ public class ResultHolder(
     double heatDemand,
     double electricityPrice,
     double netProductionCost,
-    List<ProductionUnit> boilers)
+    List<ProductionUnit> boilers) : ICloneable
 {
     public DateTime StartTime { get; } = startTime;
     public DateTime EndTime { get; } = endTime;
@@ -17,6 +17,11 @@ public class ResultHolder(
     public double ElectricityPrice { get; } = electricityPrice;
     public double NetProductionCost { get; set; } = netProductionCost;
     public List<ProductionUnit> Boilers { get; set; } = boilers;
+
+    public object Clone()
+    {
+        return this.MemberwiseClone();
+    }
 
     public override string ToString()
     {
@@ -42,4 +47,5 @@ public class ResultHolder(
 
         return s;
     }
+
 }
