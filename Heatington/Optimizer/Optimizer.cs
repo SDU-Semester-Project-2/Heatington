@@ -164,7 +164,10 @@ public class Opt
     {
         IDataSource dataSource = new CsvController();
 
-        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, "../../../../Assets/winter_period.csv");
+        string fileName = "winter_period.csv";
+        string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
+
+        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, filePath);
 
         Task fetchTimeSeriesDataAsync = sourceDataManager.FetchTimeSeriesDataAsync();
 
