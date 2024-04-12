@@ -1,6 +1,7 @@
 using Heatington.AssetManager;
 using Heatington.Controllers;
 using Heatington.Data;
+using Heatington.Helpers;
 using Heatington.Models;
 
 namespace Heatington.Optimizer;
@@ -30,7 +31,6 @@ public class Opt
 
         foreach (var unit in productionUnits)
         {
-
             // For some reason if I don't clone the object C# confuses to which object I am referring to
             // and messes up all the objects in the "results" list
             ProductionUnit unitClone = (ProductionUnit)unit.Clone();
@@ -132,23 +132,25 @@ public class Opt
     }
     public void CalculateNetProductionCost()
     {
-        // Should I make a copy of the list, set the Production Cost and update the public one OR
-        // keep manipulating it directly like I am now
         if (Results == null)
         {
             return;
         }
 
-        int i = 0;
+        List<ResultHolder> workingResults = new List<ResultHolder>();
 
-        foreach (var entry in Results)
+        foreach (ResultHolder result in Results)
         {
-            double hourlyProductionCost = Results[i].Boilers.Sum(o => o.ProductionCost);
+            ResultHolder resultClone = (ResultHolder)result.Clone();
 
-            Results[i].NetProductionCost = hourlyProductionCost;
+            double hourlyProductionCost = resultClone.Boilers.Sum(o => o.ProductionCost);
 
-            i++;
+            resultClone.NetProductionCost = hourlyProductionCost;
+
+            workingResults.Add(resultClone);
         }
+
+        Results = workingResults;
     }
 
     public void LogResults()
