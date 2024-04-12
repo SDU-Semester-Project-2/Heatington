@@ -1,7 +1,7 @@
-using Heatington.Controllers.Serializers;
-using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
+using Heatington.Services.Interfaces;
+using Heatington.Services.Serializers;
 
 namespace Heatington.Controllers
 {
@@ -12,7 +12,7 @@ namespace Heatington.Controllers
             try
             {
                 string rawData = await File.ReadAllTextAsync(filePath).ConfigureAwait(false);
-                CsvData csvData = Controllers.Serializers.CsvSerializer.Deserialize(rawData, false);
+                CsvData csvData = CsvSerializer.Deserialize(rawData, false);
                 return csvData.ConvertRecords<DataPoint>();
             }
             catch (Exception e)
