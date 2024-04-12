@@ -24,5 +24,20 @@ namespace Heatington.Models
         public double HeatDemand { get; }
 
         public double ElectricityPrice { get; }
+
+        public override string ToString()
+        {
+            TimeZoneInfo danishTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
+            DateTime startTimeInDanish = TimeZoneInfo.ConvertTimeFromUtc(StartTime, danishTimeZone);
+            DateTime endTimeInDanish = TimeZoneInfo.ConvertTimeFromUtc(EndTime, danishTimeZone);
+
+            string formattedStart = startTimeInDanish.ToString("dd.MM.yyyy HH:mm");
+            string formattedEnd = endTimeInDanish.ToString("dd.MM.yyyy HH:mm");
+
+            string s = string.Concat($"Start Time: {formattedStart} ", $"End Time: {formattedEnd}; ",
+                $"Heat Demand: {HeatDemand} MWh; ", $"Electricity Price: {ElectricityPrice} DKK/MWh");
+
+            return s;
+        }
     }
 }
