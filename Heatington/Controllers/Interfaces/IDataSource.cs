@@ -1,8 +1,7 @@
 using Heatington.Models;
 
-namespace Heatington.Services.Interfaces
+namespace Heatington.Controllers.Interfaces
 {
-
     public interface IDataSource
     {
         Task<List<DataPoint>?> GetDataAsync();
