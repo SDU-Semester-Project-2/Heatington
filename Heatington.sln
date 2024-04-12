@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heatington.Tests", "Heating
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heatington.Web", "Heatington.Web\Heatington.Web.csproj", "{B3AB3421-2654-4EC0-A8B3-88437419A730}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heatington.Web.Client", "Heatington.Web.Client\Heatington.Web.Client.csproj", "{00000000-0000-0000-0000-000000000000}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,11 +38,18 @@ Global
 
 		{AAAAAAAA-0000-0000-0000-000000000000}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 
-    	{B3AB3421-2654-4EC0-A8B3-88437419A730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-   		{B3AB3421-2654-4EC0-A8B3-88437419A730}.Debug|Any CPU.Build.0 = Debug|Any CPU
-   		{B3AB3421-2654-4EC0-A8B3-88437419A730}.Release|Any CPU.ActiveCfg = Release|Any CPU
-   		{B3AB3421-2654-4EC0-A8B3-88437419A730}.Release|Any CPU.Build.0 = Release|Any CPU
+        {B3AB3421-2654-4EC0-A8B3-88437419A730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {B3AB3421-2654-4EC0-A8B3-88437419A730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {B3AB3421-2654-4EC0-A8B3-88437419A730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {B3AB3421-2654-4EC0-A8B3-88437419A730}.Release|Any CPU.Build.0 = Release|Any CPU
 
 		{B3AB3421-2654-4EC0-A8B3-88437419A730}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+
+		{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.Build.0 = Release|Any CPU
+
+		{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
