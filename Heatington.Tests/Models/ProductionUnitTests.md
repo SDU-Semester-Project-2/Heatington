@@ -1,6 +1,6 @@
 # ProductionUnit Tests
 
-This document provides an overview of the unit tests for the `ProductionUnit` class in the `Heatington.Models` namespace.
+This document provides an overview of the unit tests for the `ProductionUnit` class.
 
 ## Tests
 
