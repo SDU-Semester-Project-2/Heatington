@@ -1,16 +1,15 @@
-using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
+using Heatington.Services.Interfaces;
 
 namespace Heatington.SourceDataManager
 {
-
     public class SourceDataManager
     {
-
         private readonly IDataSource _dataSource;
         private readonly string _filePath;
         public List<DataPoint>? TimeSeriesData { get; set; }
+
         public SourceDataManager(IDataSource dataSource, string filePath)
         {
             _dataSource = dataSource;

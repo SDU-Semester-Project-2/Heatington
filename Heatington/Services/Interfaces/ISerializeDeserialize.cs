@@ -1,4 +1,4 @@
-namespace Heatington.Controllers.Interfaces;
+namespace Heatington.Services.Interfaces;
 
 public interface ISerializeDeserialize
 {
