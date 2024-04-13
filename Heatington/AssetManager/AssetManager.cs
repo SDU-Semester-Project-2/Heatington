@@ -1,6 +1,7 @@
 using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
+using Heatington.Models;
 
 namespace Heatington.AssetManager;
 
