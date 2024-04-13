@@ -1,16 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
-        <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+    <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.*"/>
-        <PackageReference Include="MudBlazor" Version="6.*"/>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.*"/>
+    <PackageReference Include="MudBlazor" Version="6.*"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\Assets\Data\HeatingGrid.json"/>
+    <_ContentIncludedByDefault Remove="wwwroot\Assets\Data\ProductionUnits.json"/>
+    <_ContentIncludedByDefault Remove="wwwroot\Assets\Data\winter-data.csv"/>
+    <_ContentIncludedByDefault Remove="wwwroot\Assets\Images\electric-boiler.jpg"/>
+    <_ContentIncludedByDefault Remove="wwwroot\Assets\Images\gas-motor.jpg"/>
+    <_ContentIncludedByDefault Remove="wwwroot\Assets\Images\GB.jpg"/>
+    <_ContentIncludedByDefault Remove="wwwroot\Assets\Images\heating-grid.png"/>
+    <_ContentIncludedByDefault Remove="wwwroot\Assets\Images\OB.jpg"/>
+  </ItemGroup>
 
 </Project>
