@@ -42,5 +42,21 @@ namespace Heatington.Controllers
                 throw;
             }
         }
+
+        // Overload function
+        public void SaveData(List<ResultHolder> data)
+        {
+            try
+            {
+                CsvData csv = CsvData.Create(data);
+                string rawCsvData = CsvSerializer.Serialize(csv);
+                _fileController.WriteData<string>(rawCsvData);
+            }
+            catch (Exception e)
+            {
+                Utilities.DisplayException(e.Message);
+                throw;
+            }
+        }
     }
 }
