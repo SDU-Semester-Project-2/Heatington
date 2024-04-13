@@ -1,9 +1,42 @@
 ﻿@page "/modules"
+@inject NavigationManager NavManager
+@using MudBlazor
 
 <PageTitle>Modules</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Modules</MudText>
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap; flex-direction: row;">
+    @foreach (var module in ModuleList)
+    {
+        <MudCard Style="width: 100%; max-width: 80%; margin: 1em; box-sizing: border-box;" class="module-card mx-2 my-3">
+            <MudCardContent>
+                <MudText Typo="Typo.h5">@module.Name</MudText>
+                <MudText>@module.Description</MudText>
+            </MudCardContent>
+            <MudCardActions Align="MudBlazor.Align.End">
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Filled.ArrowRightAlt" OnClick="@(()=>NavManager.NavigateTo(module.Link))">Go to Module</MudButton>
+            </MudCardActions>
+        </MudCard>
+    }
+</div>
 
 @code {
+    public class ModuleInfo
+    {
+        public string Name { get; set; }
+        public string Link { get; set; }
+        public string Description { get; set; }
+    }
 
+    private List<ModuleInfo> ModuleList = new()
+    {
+        new ModuleInfo() { Name = "Asset Manager (AM)", Link = "/resource-manager", Description = "Manages static system information accessible to other modules. Provides configuration data for heating grid and production units." },
+
+        new ModuleInfo() { Name = "Source Data Manager (SDM)", Link = "/resource-manager", Description = "Repository for dynamic system data. Provides time series for heating demand and electricity prices." },
+
+        new ModuleInfo() { Name = "Result Data Manager (RDM)", Link = "/optimizer", Description = "Stores optimization results. Data includes heat produced, electricity consumption, production costs, primary energy consumption, and CO2 emissions." },
+
+        new ModuleInfo() { Name = "Optimizer (OPT)", Link = "/optimizer", Description = "Core module for optimizing heat production. Schedules best economical usage of production units while ensuring heat availability." },
+
+        new ModuleInfo() { Name = "Data Visualizer (DV)", Link = "/#", Description = "Handles graphical presentation of source and result data. Allows inspection of heating grid configuration and visualization of key performance indicators." },
+    };
 }
