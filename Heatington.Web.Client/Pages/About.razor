@@ -3,16 +3,20 @@
 
 <PageTitle>About Us</PageTitle>
 
-<MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">Project</MudText>
+<MudText Typo="Typo.h4" GutterBottom="true" Class="mt-5 mb-5" Align="Align.Center">Project</MudText>
 
-<MudText Typo="Typo.body1" GutterBottom="true">
-   HeatItOn is a comprehensive system dedicated for efficient thermal energy management in the city of Heatington, securing heat delivery
-   to approximately 1600 buildings through a single district heating network. The heat is produced with a combination of traditional heat-only boilers and
-   units that combine the production of heat with the production / consumption of electricity. Our project aims to replace the current manual
-   procedure with an automated system to define heat schedules optimizing costs and maximizing profits in the electricity market.
-</MudText>
+<div Class="d-flex row align-center justify-center mb-7">
+    <MudText Style="width: 60%" Typo="Typo.body1" GutterBottom="true" Align="Align.Left">
+        HeatItOn is a comprehensive system dedicated for efficient thermal energy management in the city of Heatington, securing heat delivery
+        to approximately 1600 buildings through a single district heating network. The heat is produced with a combination of traditional heat-only boilers and
+        units that combine the production of heat with the production / consumption of electricity. Our project aims to replace the current manual
+        procedure with an automated system to define heat schedules optimizing costs and maximizing profits in the electricity market.
+    </MudText>
+</div>
 
-<MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">Team</MudText>
+<MudDivider></MudDivider>
+
+<MudText Typo="Typo.h4" class="mt-5 mb-5" GutterBottom="true" Align="Align.Center">Team</MudText>
 
 <MudGrid>
     @foreach (var member in TeamMembers)
@@ -22,13 +26,13 @@
                 <MudAvatar Image="@(member.Image)" SquareSize="100"/>
                 <MudText Typo="Typo.h6">@member.Name</MudText>
                 <MudItem Justify="Center">
-                    <MudIconButton Link="@member.Linkedin" Icon="@Icons.Material.Filled.Link"/>
-                    <MudIconButton Link="@member.Github" Icon="@Icons.Material.Filled.Link"/>
+                    <MudIconButton Link="@member.Linkedin" Icon="@Icons.Custom.Brands.LinkedIn"/>
+                    <MudIconButton Link="@member.Github" Icon="@Icons.Custom.Brands.GitHub"/>
                 </MudItem>
                 <a href="mailto:@member.Email">
                     <MudText>@member.Email</MudText>
                 </a>
-                @if(member.AdditionalLink is not null)
+                @if (member.AdditionalLink is not null)
                 {
                     <MudItem Justify="Center">
                         <MudIconButton Link="@member.AdditionalLink" Icon="@Icons.Material.Filled.Link"/>
@@ -40,6 +44,7 @@
 </MudGrid>
 
 @code {
+
     public record TeamMember(string Name, string Image, string Linkedin, string Github, string Email, string AdditionalLink);
 
     List<TeamMember> TeamMembers = new()
@@ -51,4 +56,5 @@
         new TeamMember("John Doe5", "placeholders/avatar.png", "https://www.linkedin.com/in/john_doe5", "https://github.com/john_doe5", "john_doe5@email.com", null),
         new TeamMember("John Doe6", "placeholders/avatar.png", "https://www.linkedin.com/in/john_doe6", "https://github.com/john_doe6", "john_doe6@email.com", null),
     };
+
 }
