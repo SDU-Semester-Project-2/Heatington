@@ -1,4 +1,217 @@
 ﻿@page "/"
 
+<style>
+.text-center {
+    text-align: center;
+}
+</style>
+
+
 <PageTitle>Dashboard</PageTitle>
-<MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
+
+<MudContainer Class="d-flex flex-column align-items-center text-align-center">
+    @* <MudImage Src="Assets/Images/heating-grid.png"></MudImage> *@
+    <h2 class="text-center">
+        Statistics
+    </h2>
+  <MudGrid>
+       <MudItem xs="12" sm="6" md="3">
+           <MudCard Elevation="8" class="mx-2 my-3 p-4">
+               <div class="d-flex align-items-start">
+                   <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" class="mr-3" />
+                   <div>
+                       <MudText Typo="Typo.h6" GutterBottom>Expenses</MudText>
+                       <MudText Typo="Typo.h4">@($"{TotalExpenses} DKK")</MudText>
+                   </div>
+               </div>
+           </MudCard>
+       </MudItem>
+       <MudItem xs="12" sm="6" md="3">
+           <MudCard Elevation="8" class="mx-2 my-3 p-4">
+               <div class="d-flex align-items-start">
+                   <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3" />
+                   <div>
+                       <MudText Typo="Typo.h6" GutterBottom>Profit</MudText>
+                       <MudText Typo="Typo.h4">@($"{totalProfit} DKK")</MudText>
+                   </div>
+               </div>
+           </MudCard>
+       </MudItem>
+       <MudItem xs="12" sm="6" md="3">
+           <MudCard Elevation="8" class="mx-2 my-3 p-4">
+               <div class="d-flex align-items-start">
+                   <MudIcon Icon="@Icons.Material.Filled.Cloud" Size="Size.Large" class="mr-3" />
+                   <div>
+                       <MudText Typo="Typo.h6" GutterBottom>CO2 Produced</MudText>
+                       <MudText Typo="Typo.h4">@($"{totalCO2Produced} kg")</MudText>
+                   </div>
+               </div>
+           </MudCard>
+       </MudItem>
+       <MudItem xs="12" sm="6" md="3">
+           <MudCard Elevation="8" class="mx-2 my-3 p-4">
+               <div class="d-flex align-items-start">
+                   <MudIcon Icon="@Icons.Material.Filled.WbSunny" Size="Size.Large" class="mr-3" />
+                   <div>
+                       <MudText Typo="Typo.h6" GutterBottom>Heat Produced</MudText>
+                       <MudText Typo="Typo.h4">@($"{totalHeatProduced} MW")</MudText>
+                   </div>
+               </div>
+           </MudCard>
+       </MudItem>
+   </MudGrid>
+    <h2 class="text-center">Heat</h2>
+    <div>
+        <MudChart ChartType="ChartType.Line" ChartSeries="@Series1" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels1" Width="100%" Height="350px" ChartOptions="@Options"/>
+        <MudGrid>
+            <MudItem xs="6">
+                <MudText Typo="Typo.body1" Class="py-3">Selected: @(Index < 0 ? "None" : Series1[Index].Name)</MudText>
+            </MudItem>
+        </MudGrid>
+    </div>
+    <h2 class="text-center">Electricity</h2>
+    <div>
+        <MudChart ChartType="ChartType.Line" ChartSeries="@Series1" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels1" Width="100%" Height="350px" ChartOptions="@Options"/>
+        <MudGrid>
+            <MudItem xs="6">
+                <MudText Typo="Typo.body1" Class="py-3">Selected: @(Index < 0 ? "None" : Series1[Index].Name)</MudText>
+            </MudItem>
+        </MudGrid>
+    </div>
+
+
+    <h2 class="text-center">Optimized Schedule</h2>
+    <div>
+        <MudChart ChartType="ChartType.Line" ChartSeries="@_series2" XAxisLabels="@XAxisLabels2" Width="100%" Height="350px" CanHideSeries/>
+    </div>
+</MudContainer>
+<h2 class="text-center">Boilers</h2>
+<MudTable Items="@Boilers">
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+        <MudTh>Max Heat</MudTh>
+        <MudTh>Max Electricity</MudTh>
+        <MudTh>Production Costs</MudTh>
+        <MudTh>CO2 Emissions</MudTh>
+        <MudTh>Gas Consumption</MudTh>
+        <MudTh></MudTh> <!-- Header for the 'View More' button -->
+    </HeaderContent>
+    <RowTemplate Context="boiler">
+        <MudTd DataLabel="Name">@boiler.Name</MudTd>
+        <MudTd DataLabel="Max Heat">@boiler.MaxHeat</MudTd>
+        <MudTd DataLabel="Max Electricity">@boiler.MaxElectricity</MudTd>
+        <MudTd DataLabel="Production Costs">@boiler.ProductionCosts</MudTd>
+        <MudTd DataLabel="CO2 Emissions">@boiler.CO2Emissions</MudTd>
+        <MudTd DataLabel="Primary Energy">@boiler.PrimaryEnergy</MudTd>
+        <MudTd>
+            <MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => ViewMore(boiler))">
+                View More
+            </MudButton>
+        </MudTd>
+    </RowTemplate>
+
+</MudTable>
+
+@code {
+
+    readonly List<Boiler> Boilers = new List<Boiler>()
+    {
+        new Boiler
+        {
+            Name = "Gas Boiler",
+            MaxHeat = "5.0 MW",
+            MaxElectricity = "",
+            ProductionCosts = "500 DKK / MWh(th)",
+            CO2Emissions = "215 kg / MWh(th)",
+            PrimaryEnergy = "1,1 MWh(gas) / MWh(th)"
+        },
+        new Boiler
+        {
+            Name = "Oil Boiler",
+            MaxHeat = "4.0 MW",
+            MaxElectricity = "",
+            ProductionCosts = "700 DKK / MWh(th)",
+            CO2Emissions = "265 kg / MWh(th)",
+            PrimaryEnergy = "1,2 MWh(oil) / MWh(th)"
+        },
+        new Boiler
+        {
+            Name = "Gas Motor",
+            MaxHeat = "3.6 MW",
+            MaxElectricity = "2.7 MW",
+            ProductionCosts = "1,100 DKK / MWh(th)",
+            CO2Emissions = "640 kg / MWh(th)",
+            PrimaryEnergy = "1.9 MWh(gas) / MWh(th)"
+        },
+        new Boiler
+        {
+            Name = "Electric Boiler",
+            MaxHeat = "8.0 MW",
+            MaxElectricity = "-8.0 MW",
+            ProductionCosts = "50 DKK / MWh(th)",
+            CO2Emissions = "", // As no value provided
+            PrimaryEnergy = "" // As no value provided
+        },
+    };
+
+    public class Boiler
+    {
+        public string Name { get; set; }
+        public string MaxHeat { get; set; }
+        public string MaxElectricity { get; set; }
+        public string ProductionCosts { get; set; }
+        public string CO2Emissions { get; set; }
+        public string PrimaryEnergy { get; set; }
+    }
+
+    private void ViewMore(Boiler boiler)
+    {
+        // Navigate to a new page to show more information about the boiler.
+    }
+
+
+    // for line chart example 1
+    private int Index = -1; //default value cannot be 0 -> first selectedindex is 0.
+    private ChartOptions Options = new ChartOptions();
+
+    private List<ChartSeries> Series1 = new List<ChartSeries>()
+    {
+        new ChartSeries() { Name = "Winter", Data = new double[] { 90, 79, 72, 69, 62, 68, 89} },
+
+    };
+    public readonly string[] XAxisLabels1 = {"01.01.2024", "02.01.2024","03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024"  };
+
+
+    // for line chart example 2
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        RandomizeData();
+    }
+
+    private List<ChartSeries> _series2 = new List<ChartSeries>();
+    private readonly string[] XAxisLabels2 = {"01.01.2024", "02.01.2024","03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024" };
+
+    readonly Random random = new Random();
+
+    private void RandomizeData()
+    {
+        var newSeries = new List<ChartSeries>();
+        for (int s = 1; s <= 4; s++)
+        {
+            var series = new ChartSeries() { Name = $"Boiler {s}", Data = new double[4] };
+            for (int i = 0; i < 4; i++)
+                series.Data[i] = random.NextDouble() * 100;
+            newSeries.Add(series);
+        }
+        _series2 = newSeries;
+        StateHasChanged();
+    }
+
+    const double TotalExpenses = 1000;
+    const double totalProfit = 2000;
+    const double totalCO2Produced = 3000;
+    const double totalHeatProduced = 4000;
+
+}
+
