@@ -11,12 +11,12 @@
 
 <MudContainer Class="d-flex flex-column align-items-center text-align-center">
     @* <MudImage Src="Assets/Images/heating-grid.png"></MudImage> *@
-    <h2 class="text-center">
+    <h1 class="text-center">
         Statistics
-    </h2>
+    </h1>
   <MudGrid>
        <MudItem xs="12" sm="6" md="3">
-           <MudCard Elevation="8" class="mx-2 my-3 p-4">
+           <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                <div class="d-flex align-items-start">
                    <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" class="mr-3" />
                    <div>
@@ -27,7 +27,7 @@
            </MudCard>
        </MudItem>
        <MudItem xs="12" sm="6" md="3">
-           <MudCard Elevation="8" class="mx-2 my-3 p-4">
+           <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                <div class="d-flex align-items-start">
                    <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3" />
                    <div>
@@ -38,7 +38,7 @@
            </MudCard>
        </MudItem>
        <MudItem xs="12" sm="6" md="3">
-           <MudCard Elevation="8" class="mx-2 my-3 p-4">
+           <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                <div class="d-flex align-items-start">
                    <MudIcon Icon="@Icons.Material.Filled.Cloud" Size="Size.Large" class="mr-3" />
                    <div>
@@ -49,7 +49,7 @@
            </MudCard>
        </MudItem>
        <MudItem xs="12" sm="6" md="3">
-           <MudCard Elevation="8" class="mx-2 my-3 p-4">
+           <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                <div class="d-flex align-items-start">
                    <MudIcon Icon="@Icons.Material.Filled.WbSunny" Size="Size.Large" class="mr-3" />
                    <div>
@@ -60,7 +60,7 @@
            </MudCard>
        </MudItem>
    </MudGrid>
-    <h2 class="text-center">Heat</h2>
+    <h1 class="text-center">Heat</h1>
     <div>
         <MudChart ChartType="ChartType.Line" ChartSeries="@Series1" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels1" Width="100%" Height="350px" ChartOptions="@Options"/>
         <MudGrid>
@@ -69,7 +69,7 @@
             </MudItem>
         </MudGrid>
     </div>
-    <h2 class="text-center">Electricity</h2>
+    <h1 class="text-center">Electricity</h1>
     <div>
         <MudChart ChartType="ChartType.Line" ChartSeries="@Series1" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels1" Width="100%" Height="350px" ChartOptions="@Options"/>
         <MudGrid>
@@ -80,12 +80,12 @@
     </div>
 
 
-    <h2 class="text-center">Optimized Schedule</h2>
+    <h1 class="text-center">Optimized Schedule</h1>
     <div>
         <MudChart ChartType="ChartType.Line" ChartSeries="@_series2" XAxisLabels="@XAxisLabels2" Width="100%" Height="350px" CanHideSeries/>
     </div>
 </MudContainer>
-<h2 class="text-center">Boilers</h2>
+<h1 class="text-center">Boilers</h1>
 <MudTable Items="@Boilers">
     <HeaderContent>
         <MudTh>Name</MudTh>
