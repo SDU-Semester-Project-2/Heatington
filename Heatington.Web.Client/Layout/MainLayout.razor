@@ -1,15 +1,21 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemingProvider Theme="@_theme" />
+<MudThemingProvider Theme="@_theme"/>
 <MudPopoverProvider/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
 
 <MudLayout>
-    <MudAppBar Elevation="1">
+    <MudAppBar Elevation="1" class="justify-center" Style="height: 74px;">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())"/>
-        <MudText Typo="Typo.h5" Class="ml-3">Heatington</MudText>
+        <MudText Typo="Typo.h5" Class="ml-3" Style="font-weight: bold">Heatington</MudText>
+
         <MudSpacer/>
+        @* <MudImage xs="2" Src="danfoss-logo-red.svg" *@
+        @*           Width="160" *@
+        @*           Alt="Danfoss Company Logo" Class="lg"/> *@
+        <MudSpacer/>
+
         <MudButton Href="https://sdu-semester-project-2.github.io/Heatington/"
                    Target="_blank"
                    Variant="Variant.Text"
@@ -19,12 +25,13 @@
         </MudButton>
         <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End"/>
     </MudAppBar>
+
     <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2" Variant="@DrawerVariant.Responsive">
         <MudLink href="https://www.danfoss.com/" Target="_blank">
             <MudDrawerHeader class="row justify-center">
                 <MudImage Src="danfoss-logo.png"
                           Width="160"
-                          Alt="Danfoss Company Logo" Class="-lg"/>
+                          Alt="Danfoss Company Logo" Class="lg"/>
             </MudDrawerHeader>
         </MudLink>
         <NavMenu/>
@@ -61,4 +68,5 @@
             DrawerWidthRight = "300px"
         },
     };
+
 }
