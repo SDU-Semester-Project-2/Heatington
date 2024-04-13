@@ -1,4 +1,5 @@
-﻿@page "/"
+﻿@inject NavigationManager NavManager
+@page "/"
 
 <style>
 .text-center {
@@ -6,10 +7,15 @@
 }
 </style>
 
+<style>
+.space-y-4 > * + * {
+    margin-top: 2rem;
+}
+</style>
 
 <PageTitle>Dashboard</PageTitle>
 
-<MudContainer Class="d-flex flex-column align-items-center text-align-center">
+<MudContainer Class="d-flex flex-column align-items-center text-align-center space-y-4">>
     @* <MudImage Src="Assets/Images/heating-grid.png"></MudImage> *@
     <h1 class="text-center">
         Statistics
@@ -20,8 +26,8 @@
                <div class="d-flex align-items-start">
                    <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" class="mr-3" />
                    <div>
-                       <MudText Typo="Typo.h6" GutterBottom>Expenses</MudText>
-                       <MudText Typo="Typo.h4">@($"{TotalExpenses} DKK")</MudText>
+                       <MudText Typo="Typo.h5" GutterBottom>Expenses</MudText>
+                       <MudText Typo="Typo.h6">@($"{TotalExpenses} DKK")</MudText>
                    </div>
                </div>
            </MudCard>
@@ -31,8 +37,8 @@
                <div class="d-flex align-items-start">
                    <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3" />
                    <div>
-                       <MudText Typo="Typo.h6" GutterBottom>Profit</MudText>
-                       <MudText Typo="Typo.h4">@($"{totalProfit} DKK")</MudText>
+                       <MudText Typo="Typo.h5" GutterBottom>Profit</MudText>
+                       <MudText Typo="Typo.h6">@($"{totalProfit} DKK")</MudText>
                    </div>
                </div>
            </MudCard>
@@ -42,8 +48,8 @@
                <div class="d-flex align-items-start">
                    <MudIcon Icon="@Icons.Material.Filled.Cloud" Size="Size.Large" class="mr-3" />
                    <div>
-                       <MudText Typo="Typo.h6" GutterBottom>CO2 Produced</MudText>
-                       <MudText Typo="Typo.h4">@($"{totalCO2Produced} kg")</MudText>
+                       <MudText Typo="Typo.h5" GutterBottom>CO2 Produced</MudText>
+                       <MudText Typo="Typo.h6">@($"{totalCO2Produced} kg")</MudText>
                    </div>
                </div>
            </MudCard>
@@ -53,49 +59,54 @@
                <div class="d-flex align-items-start">
                    <MudIcon Icon="@Icons.Material.Filled.WbSunny" Size="Size.Large" class="mr-3" />
                    <div>
-                       <MudText Typo="Typo.h6" GutterBottom>Heat Produced</MudText>
-                       <MudText Typo="Typo.h4">@($"{totalHeatProduced} MW")</MudText>
+                       <MudText Typo="Typo.h5" GutterBottom>Heat Produced</MudText>
+                       <MudText Typo="Typo.h6">@($"{totalHeatProduced} MW")</MudText>
                    </div>
                </div>
            </MudCard>
        </MudItem>
    </MudGrid>
-    <h1 class="text-center">Heat</h1>
-    <div>
-        <MudChart ChartType="ChartType.Line" ChartSeries="@Series1" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels1" Width="100%" Height="350px" ChartOptions="@Options"/>
-        <MudGrid>
-            <MudItem xs="6">
-                <MudText Typo="Typo.body1" Class="py-3">Selected: @(Index < 0 ? "None" : Series1[Index].Name)</MudText>
-            </MudItem>
-        </MudGrid>
-    </div>
-    <h1 class="text-center">Electricity</h1>
-    <div>
-        <MudChart ChartType="ChartType.Line" ChartSeries="@Series1" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels1" Width="100%" Height="350px" ChartOptions="@Options"/>
-        <MudGrid>
-            <MudItem xs="6">
-                <MudText Typo="Typo.body1" Class="py-3">Selected: @(Index < 0 ? "None" : Series1[Index].Name)</MudText>
-            </MudItem>
-        </MudGrid>
-    </div>
+  <h1 class="text-center">Heat</h1>
+     <div>
+         <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesHeat" @bind-SelectedIndex="_indexHeat" XAxisLabels="@_xAxisLabels1" Width="100%" Height="350px" ChartOptions="@_options"/>
+         <MudGrid>
+             @* <MudItem xs="12"> *@
+             @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexHeat < 0 ? "None" : _seriesHeat[_indexHeat].Name)</MudText> *@
+             @* </MudItem> *@
+         </MudGrid>
+     </div>
+      <h1 class="text-center">Electricity</h1>
+      <div>
+          <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesElectricity" @bind-SelectedIndex="_indexElectricity" XAxisLabels="@_xAxisLabels1" Width="100%" Height="350px" ChartOptions="@_options"/>
+          <MudGrid>
+              @* <MudItem xs="12"> *@
+              @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexElectricity < 0 ? "None" : _seriesElectricity[_indexElectricity].Name)</MudText> *@
+              @* </MudItem> *@
+          </MudGrid>
+      </div>
 
 
-    <h1 class="text-center">Optimized Schedule</h1>
-    <div>
-        <MudChart ChartType="ChartType.Line" ChartSeries="@_series2" XAxisLabels="@XAxisLabels2" Width="100%" Height="350px" CanHideSeries/>
-    </div>
-</MudContainer>
+     <h1 class="text-center">Optimizer</h1>
+       <div>
+           <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesBoilers" XAxisLabels="@_xAxisLabels3" Width="100%" Height="350px" CanHideSeries />
+           <MudGrid>
+               @* <MudItem xs="12"> *@
+               @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexBoilers < 0 ? "None" : _seriesBoilers[_indexBoilers].Name)</MudText> *@
+               @* </MudItem> *@
+           </MudGrid>
+       </div>
 <h1 class="text-center">Boilers</h1>
-<MudTable Items="@Boilers">
+<MudTable Items="@_boilers" ServerData="new Func<TableState, Task<TableData<Boiler>>>(GetBoilersAsync)">
     <HeaderContent>
-        <MudTh>Name</MudTh>
-        <MudTh>Max Heat</MudTh>
-        <MudTh>Max Electricity</MudTh>
-        <MudTh>Production Costs</MudTh>
-        <MudTh>CO2 Emissions</MudTh>
-        <MudTh>Gas Consumption</MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.Name)">Name</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.MaxHeat)">Max Heat</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.MaxElectricity)">Max Electricity</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.ProductionCosts)">Production Costs</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.CO2Emissions)">CO2 Emissions</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.PrimaryEnergy)">Primary Energy</MudTableSortLabel></MudTh>
         <MudTh></MudTh> <!-- Header for the 'View More' button -->
     </HeaderContent>
+
     <RowTemplate Context="boiler">
         <MudTd DataLabel="Name">@boiler.Name</MudTd>
         <MudTd DataLabel="Max Heat">@boiler.MaxHeat</MudTd>
@@ -109,13 +120,13 @@
             </MudButton>
         </MudTd>
     </RowTemplate>
-
 </MudTable>
 
+</MudContainer>
 @code {
 
-    readonly List<Boiler> Boilers = new List<Boiler>()
-    {
+    readonly List<Boiler> _boilers =
+    [
         new Boiler
         {
             Name = "Gas Boiler",
@@ -125,6 +136,7 @@
             CO2Emissions = "215 kg / MWh(th)",
             PrimaryEnergy = "1,1 MWh(gas) / MWh(th)"
         },
+
         new Boiler
         {
             Name = "Oil Boiler",
@@ -134,6 +146,7 @@
             CO2Emissions = "265 kg / MWh(th)",
             PrimaryEnergy = "1,2 MWh(oil) / MWh(th)"
         },
+
         new Boiler
         {
             Name = "Gas Motor",
@@ -143,6 +156,7 @@
             CO2Emissions = "640 kg / MWh(th)",
             PrimaryEnergy = "1.9 MWh(gas) / MWh(th)"
         },
+
         new Boiler
         {
             Name = "Electric Boiler",
@@ -151,8 +165,9 @@
             ProductionCosts = "50 DKK / MWh(th)",
             CO2Emissions = "", // As no value provided
             PrimaryEnergy = "" // As no value provided
-        },
-    };
+        }
+
+    ];
 
     public class Boiler
     {
@@ -162,56 +177,108 @@
         public string ProductionCosts { get; set; }
         public string CO2Emissions { get; set; }
         public string PrimaryEnergy { get; set; }
+        public SortDirection? SortDirection { get; set; }
     }
 
     private void ViewMore(Boiler boiler)
     {
-        // Navigate to a new page to show more information about the boiler.
+        NavManager.NavigateTo("/resource-manager");
     }
 
 
-    // for line chart example 1
-    private int Index = -1; //default value cannot be 0 -> first selectedindex is 0.
-    private ChartOptions Options = new ChartOptions();
+    // for heat chart
 
-    private List<ChartSeries> Series1 = new List<ChartSeries>()
+    private int _indexHeat = -1;
+    private int _indexElectricity = -1;
+    private int _indexBoilers = -1;private readonly ChartOptions _options = new ChartOptions();
+
+    private List<ChartSeries> _seriesHeat = new List<ChartSeries>()
     {
-        new ChartSeries() { Name = "Winter", Data = new double[] { 90, 79, 72, 69, 62, 68, 89} },
-
+        new ChartSeries() { Name = "Heat Demand", Data = new double[] { 90, 79, 72, 69, 62, 68, 89},  },
+        new ChartSeries() { Name = "Heat Produced", Data = new double[] { 92, 78, 73, 75, 60, 68, 89},  }
     };
-    public readonly string[] XAxisLabels1 = {"01.01.2024", "02.01.2024","03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024"  };
+
+    private readonly string[] _xAxisLabels1 = {"01.01.2024", "02.01.2024","03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024"  };
 
 
-    // for line chart example 2
+    // for electricity chart
+
+    private readonly List<ChartSeries> _seriesElectricity = new List<ChartSeries>()
+    {
+        new ChartSeries() { Name = "Electricity Production", Data = new double[] { 110, 105, 115, 120, 108, 112, 118},  },
+        new ChartSeries() { Name = "Electricity Consumption", Data = new double[] { 115, 100, 113, 118, 109, 115, 117},  },
+        new ChartSeries() { Name = "Electricity Price", Data = new double[] { 50, 55, 60, 53, 57, 54, 59},  }
+    };
+
+
+
+
+    // for optimizer chart
+
+    private List<ChartSeries> _seriesBoilers = new List<ChartSeries>();
+    private readonly string[] _xAxisLabels3 = {"01.01.2024", "02.01.2024","03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024" };
+
+    readonly Random random = new Random();
     protected override void OnInitialized()
     {
         base.OnInitialized();
         RandomizeData();
     }
 
-    private List<ChartSeries> _series2 = new List<ChartSeries>();
-    private readonly string[] XAxisLabels2 = {"01.01.2024", "02.01.2024","03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024" };
-
-    readonly Random random = new Random();
-
     private void RandomizeData()
     {
         var newSeries = new List<ChartSeries>();
-        for (int s = 1; s <= 4; s++)
+        foreach (var boiler in _boilers)
         {
-            var series = new ChartSeries() { Name = $"Boiler {s}", Data = new double[4] };
+            var series = new ChartSeries() { Name = boiler.Name, Data = new double[4] };
             for (int i = 0; i < 4; i++)
                 series.Data[i] = random.NextDouble() * 100;
             newSeries.Add(series);
         }
-        _series2 = newSeries;
+        _seriesBoilers = newSeries;
         StateHasChanged();
     }
 
-    const double TotalExpenses = 1000;
-    const double totalProfit = 2000;
-    const double totalCO2Produced = 3000;
-    const double totalHeatProduced = 4000;
+    private double TotalExpenses = new Random().Next(50000, 100000);
+    private double totalProfit = new Random().Next(100000, 200000);
+    private double totalCO2Produced = new Random().Next(20000, 50000);
+    private double totalHeatProduced = new Random().Next(5000, 10000);
 
+    // Trying to implement sorting TODO: not working on mobile version?!
+    public async Task<TableData<Boiler>> GetBoilersAsync(TableState state)
+    {
+        Func<Boiler, object> sortBy = null;
+        switch (state.SortLabel)
+        {
+            case "Max Heat":
+                sortBy = (boiler) => boiler.MaxHeat;
+                break;
+            case "Production Costs":
+                sortBy = (boiler) => boiler.ProductionCosts;
+                break;
+            case "CO2 Emissions":
+                sortBy = (boiler) => boiler.CO2Emissions;
+                break;
+            case "Primary Energy":
+                sortBy = (boiler) => boiler.PrimaryEnergy;
+                break;
+            default:
+                sortBy = (boiler) => boiler.Name;
+                break;
+        }
+
+        var sorted = state.SortDirection switch
+        {
+            SortDirection.Ascending => _boilers.OrderBy(sortBy).ToList(),
+            SortDirection.Descending => _boilers.OrderByDescending(sortBy).ToList(),
+            _ => _boilers
+        };
+
+        return await Task.FromResult(new TableData<Boiler>
+        {
+            TotalItems = sorted.Count,
+            Items = sorted.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList()
+        });
+    }
 }
 
