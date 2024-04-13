@@ -1,9 +1,95 @@
 ﻿@page "/resource-manager"
+@using Heatington.Web.Client.Components
+@inject IDialogService DialogService
 
-<PageTitle>Resource Manager</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Resource Manager</MudText>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    @foreach (var boiler in _boilers)
+    {
+        <MudCard Style="min-width: 400px ;max-width: 600px; margin: 15px">
+            <MudCardContent>
+                <MudImage Style="min-width: 400px; max-width: 400px; max-height: 400px; min-height: 400px" Src="@($"Assets/Images/{@boiler.ImagePath}.jpg")" Style="width: 200px;"></MudImage>
+                <h4>@boiler.Name</h4>
+                <p>Max Heat: @boiler.MaxHeat</p>
+                <p>Max Electricity: @boiler.MaxElectricity</p>
+                <p>Production Costs: @boiler.ProductionCosts</p>
+                <p>CO2 Emissions: @boiler.CO2Emissions</p>
+                <p>Primary Energy Consumption: @boiler.PrimaryEnergy</p>
+            </MudCardContent>
+        </MudCard>
+    }
+</div>
+
+<MudContainer Class="d-flex justify-content-center my-5 align-self-center">
+    <MudButton OnClick="() => OpenDialog()" Color="Color.Primary" Size="Size.Large" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add">Add Boiler</MudButton>
+</MudContainer>
 
 @code {
+    readonly List<Boiler> _boilers =
+    [
+        new Boiler
+        {
+            Name = "Gas Boiler",
+            ImagePath = "gas-boiler",
+            MaxHeat = "5.0 MW",
+            MaxElectricity = "",
+            ProductionCosts = "500 DKK / MWh(th)",
+            CO2Emissions = "215 kg / MWh(th)",
+            PrimaryEnergy = "1,1 MWh(gas) / MWh(th)"
+        },
 
+        new Boiler
+        {
+            Name = "Oil Boiler",
+            ImagePath = "oil-boiler",
+            MaxHeat = "4.0 MW",
+            MaxElectricity = "",
+            ProductionCosts = "700 DKK / MWh(th)",
+            CO2Emissions = "265 kg / MWh(th)",
+            PrimaryEnergy = "1,2 MWh(oil) / MWh(th)"
+        },
+
+        new Boiler
+        {
+            Name = "Gas Motor",
+            ImagePath = "gas-motor",
+            MaxHeat = "3.6 MW",
+            MaxElectricity = "2.7 MW",
+            ProductionCosts = "1,100 DKK / MWh(th)",
+            CO2Emissions = "640 kg / MWh(th)",
+            PrimaryEnergy = "1.9 MWh(gas) / MWh(th)"
+        },
+
+        new Boiler
+        {
+            Name = "Electric Boiler",
+            ImagePath = "electric-boiler",
+            MaxHeat = "8.0 MW",
+            MaxElectricity = "-8.0 MW",
+            ProductionCosts = "50 DKK / MWh(th)",
+            CO2Emissions = "", // As no value provided
+            PrimaryEnergy = "" // As no value provided
+        }
+
+    ];
+
+    public class Boiler
+    {
+        public string Name { get; set; }
+        public string ImagePath { get; set; }
+        public string MaxHeat { get; set; }
+        public string MaxElectricity { get; set; }
+        public string ProductionCosts { get; set; }
+        public string CO2Emissions { get; set; }
+        public string PrimaryEnergy { get; set; }
+        public SortDirection? SortDirection { get; set; }
+    }
+
+    void OpenDialog()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("Boilers", _boilers);
+
+        DialogService.Show<AddBoilerDialog>("Add Boiler", parameters, new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
+    }
 }
