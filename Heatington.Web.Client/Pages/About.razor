@@ -1,13 +1,54 @@
 ﻿@page "/about"
-@* @rendermode InteractiveServer *@
-
-@* <MudPopoverProvider/> *@
-@* <MudDialogProvider/> *@
-@* <MudSnackbarProvider/> *@
+@using MudBlazor
 
 <PageTitle>About Us</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">About Us</MudText>
+<MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">Project</MudText>
+
+<MudText Typo="Typo.body1" GutterBottom="true">
+   HeatItOn is a comprehensive system dedicated for efficient thermal energy management in the city of Heatington, securing heat delivery
+   to approximately 1600 buildings through a single district heating network. The heat is produced with a combination of traditional heat-only boilers and
+   units that combine the production of heat with the production / consumption of electricity. Our project aims to replace the current manual
+   procedure with an automated system to define heat schedules optimizing costs and maximizing profits in the electricity market.
+</MudText>
+
+<MudText Typo="Typo.h4" GutterBottom="true" Align="Align.Center">Team</MudText>
+
+<MudGrid>
+    @foreach (var member in TeamMembers)
+    {
+        <MudItem xs="12" sm="6" md="4" lg="3">
+            <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
+                <MudAvatar Image="@(member.Image)" SquareSize="100"/>
+                <MudText Typo="Typo.h6">@member.Name</MudText>
+                <MudItem Justify="Center">
+                    <MudIconButton Link="@member.Linkedin" Icon="@Icons.Material.Filled.Link"/>
+                    <MudIconButton Link="@member.Github" Icon="@Icons.Material.Filled.Link"/>
+                </MudItem>
+                <a href="mailto:@member.Email">
+                    <MudText>@member.Email</MudText>
+                </a>
+                @if(member.AdditionalLink is not null)
+                {
+                    <MudItem Justify="Center">
+                        <MudIconButton Link="@member.AdditionalLink" Icon="@Icons.Material.Filled.Link"/>
+                    </MudItem>
+                }
+            </MudCard>
+        </MudItem>
+    }
+</MudGrid>
 
 @code {
+    public record TeamMember(string Name, string Image, string Linkedin, string Github, string Email, string AdditionalLink);
+
+    List<TeamMember> TeamMembers = new()
+    {
+        new TeamMember("John Doe1", "placeholders/avatar.png", "https://www.linkedin.com/in/john_doe1", "https://github.com/john_doe1", "john_doe1@email.com", null),
+        new TeamMember("John Doe2", "placeholders/avatar.png", "https://www.linkedin.com/in/john_doe2", "https://github.com/john_doe2", "john_doe2@email.com", null),
+        new TeamMember("John Doe3", "placeholders/avatar.png", "https://www.linkedin.com/in/john_doe3", "https://github.com/john_doe3", "john_doe3@email.com", null),
+        new TeamMember("John Doe4", "placeholders/avatar.png", "https://www.linkedin.com/in/john_doe4", "https://github.com/john_doe4", "john_doe4@email.com", null),
+        new TeamMember("John Doe5", "placeholders/avatar.png", "https://www.linkedin.com/in/john_doe5", "https://github.com/john_doe5", "john_doe5@email.com", null),
+        new TeamMember("John Doe6", "placeholders/avatar.png", "https://www.linkedin.com/in/john_doe6", "https://github.com/john_doe6", "john_doe6@email.com", null),
+    };
 }
