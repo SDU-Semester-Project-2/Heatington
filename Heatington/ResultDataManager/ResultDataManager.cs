@@ -7,13 +7,13 @@ namespace Heatington.ResultDataManager;
 
 public class ResultDataManager
 {
-    private CsvController _fileController;
+    private CsvController _csvController;
     private List<ResultHolder> _optResults;
 
 
     public ResultDataManager(string filePath)
     {
-        _fileController = new CsvController(filePath);
+        _csvController = new CsvController(filePath);
     }
     public void FetchOptimizationData(Opt opt)
     {
@@ -22,6 +22,6 @@ public class ResultDataManager
 
     public void WriteDataToCsv()
     {
-        _fileController.SaveData(_optResults);
+        _csvController.SaveData(_optResults);
     }
 }
