@@ -1,4 +1,4 @@
-namespace Heatington.AssetManager;
+namespace Heatington.Models;
 
 public class HeatingGrid
 {
