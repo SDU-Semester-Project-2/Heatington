@@ -1,9 +1,7 @@
-using Heatington.AssetManager;
 using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
-using Heatington.Services.Interfaces;
 
 namespace Heatington.Optimizer;
 
@@ -166,9 +164,12 @@ public class Opt
 
     private void GetDataPoints()
     {
-        IDataSource dataSource = new CsvController();
+        string fileName = "winter_period.csv";
+        string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
 
-        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, "../../../../Assets/winter_period.csv");
+        IDataSource dataSource = new CsvController(filePath);
+
+        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource);
 
         Task fetchTimeSeriesDataAsync = sourceDataManager.FetchTimeSeriesDataAsync();
 
