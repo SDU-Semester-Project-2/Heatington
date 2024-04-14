@@ -1,6 +1,6 @@
 using Heatington.Models;
 
-namespace Heatington.Controllers.Interfaces
+namespace Heatington.Services.Interfaces
 {
     public interface IDataSource
     {
