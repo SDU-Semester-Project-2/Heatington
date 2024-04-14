@@ -1,0 +1,48 @@
+name: deploy-to-github-blazor-app
+# on:
+#   push:
+#     branches: [ "SP2-128-Web-App", "dev" ]
+    
+# permissions:
+#   actions: read
+#   pages: write
+#   id-token: write
+
+# # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# concurrency:
+#   group: "pages"
+#   cancel-in-progress: false
+  
+# jobs:
+#     deploy-to-github-pages:
+#       environment:
+#         name: github-pages-web
+#         url: ${{ steps.deployment.outputs.page_url }}web/
+#       runs-on: ubuntu-latest
+#       steps:
+#         - name: Checkout
+#           uses: actions/checkout@v3
+#         - name: Dotnet Setup
+#           uses: actions/setup-dotnet@v3
+#           with:
+#             dotnet-version: 8.x
+          
+#         - name: Publish .NET Core Project
+#           run: dotnet publish Heatington.Web/Heatington.Web.csproj -c Release -o release
+        
+#         # - name: Commit wwwroot to Github Pages
+#         #   uses: JamesIves/github-pages-deploy-action@v4.5.0
+#         #   with:
+#         #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         #     BRANCH: gh-pages-web
+#         #     FOLDER: release/wwwroot
+
+#         - name: Upload artifact
+#           uses: actions/upload-pages-artifact@v3
+#           with:
+#             # Upload entire repository
+#             path: '../Heatington/Heatington.Web/bin/Release/net8.0'
+#         - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v4
