@@ -5,6 +5,10 @@ using Heatington.Services.Serializers;
 
 namespace Heatington.Controllers
 {
+    /// <summary>
+    /// Class for controlling a csv file
+    /// </summary>
+    /// <param name="filePath">Path to a file to control</param>
     public class CsvController(string filePath) : IDataSource
     {
         private IReadWriteController _fileController = new FileController(filePath);
@@ -24,12 +28,11 @@ namespace Heatington.Controllers
             }
         }
 
-        // TODO: Check if this method is actually required
         public void SaveData(List<DataPoint> data)
         {
             try
             {
-                CsvData csv = CsvData.Create(data);
+                CsvData csv = CsvData.Create<DataPoint>(data);
                 string rawCsvData = CsvSerializer.Serialize(csv);
                 _fileController.WriteData<string>(rawCsvData);
             }
