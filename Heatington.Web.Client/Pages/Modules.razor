@@ -4,16 +4,16 @@
 
 <PageTitle>Modules</PageTitle>
 
-<div style="display: flex; justify-content: space-around; flex-wrap: wrap; flex-direction: row;">
+<div style="display: flex; flex-direction: column; align-items: center">
     @foreach (var module in ModuleList)
     {
-        <MudCard Style="width: 100%; max-width: 80%; margin: 1em; box-sizing: border-box;" class="module-card mx-2 my-3">
+        <MudCard Style="width: 100%; max-width: 80%; margin: 1em; box-sizing: border-box; display: flex; flex-direction: column;" class="module-card mx-2 my-3">
             <MudCardContent>
                 <MudText Typo="Typo.h5">@module.Name</MudText>
                 <MudText>@module.Description</MudText>
             </MudCardContent>
-            <MudCardActions Align="MudBlazor.Align.End">
-                <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Filled.ArrowRightAlt" OnClick="@(()=>NavManager.NavigateTo(module.Link))">Go to Module</MudButton>
+            <MudCardActions Style="margin-top: auto; align-self: end">
+                    <MudButton Color="Color.Primary" Variant="Variant.Filled" EndIcon="@Icons.Filled.NavigateNext" OnClick="@(()=>NavManager.NavigateTo(module.Link))">Go to Module</MudButton>
             </MudCardActions>
         </MudCard>
     }
