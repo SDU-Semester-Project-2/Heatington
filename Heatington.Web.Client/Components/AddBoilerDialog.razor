@@ -5,9 +5,9 @@
 
 <MudDialog>
     <DialogContent>
-        <InputFile OnChange="HandleImageUpload" accept=".jpg, .jpeg, .png" />
-        <MudTextField @bind-Value="@NewBoiler.Name" Label="Name" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="NewBoiler.MaxHeat" Label="Max Heat" Variant="Variant.Outlined"/>
+        <InputFile OnChange="HandleImageUpload" accept=".jpg, .jpeg, .png"/>
+        <MudTextField @bind-Value="@NewBoiler.Name" Label="Name" Variant="Variant.Outlined" Required/>
+        <MudTextField @bind-Value="NewBoiler.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" Required/>
         <MudTextField @bind-Value="NewBoiler.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
         <MudTextField @bind-Value="NewBoiler.ProductionCosts" Label="Production Costs" Variant="Variant.Outlined"/>
         <MudTextField @bind-Value="NewBoiler.CO2Emissions" Label="CO2 Emissions" Variant="Variant.Outlined"/>
@@ -32,13 +32,18 @@
         using var memoryStream = new MemoryStream();
         await e.File.OpenReadStream(maxAllowedSize: 1024 * 1024).CopyToAsync(memoryStream);
         var byteArray = memoryStream.ToArray();
-        imageBase64 = Convert.ToBase64String(byteArray);
+
+        string imagePath = $"../wwwroot/Assets/Images/{new Random().Next().ToString()}";
+        NewBoiler.ImagePath = imagePath;
+
+        await File.WriteAllBytesAsync(imagePath, byteArray);
     }
+
     void AddBoiler()
     {
-        NewBoiler.ImageBase64 = imageBase64;
         Boilers.Add(NewBoiler);
         NewBoiler = new ResourceManager.Boiler();
         MudDialog.Close(DialogResult.Ok(true));
     }
+
 }
