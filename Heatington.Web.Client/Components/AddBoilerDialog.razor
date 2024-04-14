@@ -29,14 +29,16 @@
     async Task HandleImageUpload(InputFileChangeEventArgs e)
     {
         var format = "image/png";
-        using var memoryStream = new MemoryStream();
-        await e.File.OpenReadStream(maxAllowedSize: 1024 * 1024).CopyToAsync(memoryStream);
-        var byteArray = memoryStream.ToArray();
 
-        string imagePath = $"../wwwroot/Assets/Images/{new Random().Next().ToString()}";
-        NewBoiler.ImagePath = imagePath;
+        var resizedImage = await e.File.RequestImageFileAsync(format, 220, 220);
+        var buffer = new byte[resizedImage.Size];
 
-        await File.WriteAllBytesAsync(imagePath, byteArray);
+        await resizedImage.OpenReadStream().ReadAsync(buffer);
+        var imagesrc = Convert.ToBase64String(buffer);
+
+        var imageData = $"data:{format};base64,{imagesrc}";
+
+        NewBoiler.ImageData = imageData;
     }
 
     void AddBoiler()
