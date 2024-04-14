@@ -1,11 +1,20 @@
-@using Heatington.Web.Client.Pages
-@using System.Resources
 @using ResourceManager = Heatington.Web.Client.Pages.ResourceManager
 @* AddBoilerDialog Component *@
 
 <MudDialog>
     <DialogContent>
-        <InputFile OnChange="HandleImageUpload" accept=".jpg, .jpeg, .png"/>
+        @* <InputFile OnChange="HandleImageUpload" accept=".jpg, .jpeg, .png"/> *@
+
+        <MudFileUpload T="IBrowserFile" FilesChanged="HandleImageUpload">
+            <ButtonTemplate>
+                <MudFab HtmlTag="label"
+                        DisableElevation
+                        Color="Color.Secondary"
+                        Icon="@Icons.Material.Filled.Image"
+                        Label="Load picture"
+                        for="@context.Id"/>
+            </ButtonTemplate>
+        </MudFileUpload>
         <MudTextField @bind-Value="@NewBoiler.Name" Label="Name" Variant="Variant.Outlined" Required/>
         <MudTextField @bind-Value="NewBoiler.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" Required/>
         <MudTextField @bind-Value="NewBoiler.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
@@ -31,6 +40,21 @@
         var format = "image/png";
 
         var resizedImage = await e.File.RequestImageFileAsync(format, 220, 220);
+        var buffer = new byte[resizedImage.Size];
+
+        await resizedImage.OpenReadStream().ReadAsync(buffer);
+        var imagesrc = Convert.ToBase64String(buffer);
+
+        var imageData = $"data:{format};base64,{imagesrc}";
+
+        NewBoiler.ImageData = imageData;
+    }
+
+    async Task HandleImageUpload(IBrowserFile file)
+    {
+        var format = "image/png";
+
+        var resizedImage = await file.RequestImageFileAsync(format, 220, 220);
         var buffer = new byte[resizedImage.Size];
 
         await resizedImage.OpenReadStream().ReadAsync(buffer);
