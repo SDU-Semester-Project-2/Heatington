@@ -2,13 +2,13 @@
 @using Heatington.Web.Client.Components
 @using System.Globalization
 @inject IDialogService DialogService
+@* @rendermode InteractiveServer *@
 
 <PageTitle>Resource Manager</PageTitle>
 
 
-
 <div style="display: flex;  align-items: center; justify-content: center;">
-   <MudText Typo="Typo.h4">Boilers</MudText>
+    <MudText Typo="Typo.h4">Boilers</MudText>
     <MudButton style="margin-left: 15px"
                OnClick="() => OpenDialog()" Color="Color.Primary" Size="Size.Medium" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Add">
         Add Boiler
@@ -18,21 +18,22 @@
 <MudGrid Spacing="4" Justify="Justify.Center" class="mt-5 mb-3">
     @foreach (var boiler in _boilers)
     {
-        <MudCard Style="min-width: 200px; max-width: 300px; margin: 4px; padding: 1px"> @* Using px because rem is too big *@
+        <MudCard Style="min-width: 200px; max-width: 300px; margin: 4px; padding: 1px">
+            @* Using px because rem is too big *@
             <MudCardHeader Style="flex-direction: row; justify-content: center">
-                    <MudText Typo="Typo.h6">@boiler.Name</MudText>
-                    <MudIconButton Icon="@Icons.Filled.Settings" Color="Color.Primary" OnClick="(() => OpenDialog(boiler))"/>
+                <MudText Typo="Typo.h6">@boiler.Name</MudText>
+                <MudIconButton Icon="@Icons.Filled.Settings" Color="Color.Primary" OnClick="(() => OpenDialog(boiler))"/>
             </MudCardHeader>
             <MudCardContent class="text-center">
                 <div style="display: flex; justify-content: center;">
                     <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@($"Assets/Images/{@boiler.ImagePath}.jpg")"></MudImage>
                 </div>
                 <div class="mt-3">
-                    <MudText Typo="Typo.body2">Max Heat: @boiler.MaxHeat</MudText>
+                    <MudText Typo="Typo.body2">Max Heat: @DisplayData(@boiler.MaxHeat)</MudText>
                     <MudText Typo="Typo.body2">Max Electricity: @boiler.MaxElectricity</MudText>
                     <MudText Typo="Typo.body2">Production Costs: @boiler.ProductionCosts</MudText>
                     <MudText Typo="Typo.body2">CO2 Emissions: @boiler.CO2Emissions</MudText>
-                    <MudText Typo="Typo.body2">Primary Energy Consumption: @boiler.PrimaryEnergy</MudText>
+                    <MudText Typo="Typo.body2">Primary Energy Consumption: @DisplayData(boiler.PrimaryEnergy)</MudText>
                 </div>
             </MudCardContent>
         </MudCard>
@@ -43,28 +44,28 @@
 
 <MudContainer class="d-flex flex-row justify-center align-center text-center space-y-4 ">
     <div style="flex-direction: column">
-    <MudText Typo="Typo.h4"> Heat Demand Data</MudText>
-    <InputFile id="fileUpload" OnChange="HandleCSVUpload"></InputFile>
+        <MudText Typo="Typo.h4"> Heat Demand Data</MudText>
+        <InputFile id="fileUpload" OnChange="HandleCSVUpload"></InputFile>
     </div>
 </MudContainer>
 
 
-
-
 @if (heatDemandDataList.Count > 0)
 {
-<MudContainer class="mt-8">
+    <MudContainer class="mt-8" @rendermode="RenderMode.InteractiveServer">
 
-    <MudDataGrid Items="@heatDemandDataList" Hover Dense Striped>
-        <Columns>
-            <PropertyColumn Property="data => data.StartDate" Title="Start Time"/>
-            <PropertyColumn Property="data => data.EndDate" Title="End Time"/>
-            <PropertyColumn Property="data => data.Value1" Title="Heat Demand MWh"/>
-            <PropertyColumn Property="data => data.Value2" Title="Electricity Price DKK/MWh"/>
-        </Columns>
-    </MudDataGrid>
+        <MudDataGrid Items="@heatDemandDataList" Hover Dense Striped>
+            <Columns>
+                <PropertyColumn Property="data => data.StartDate" Title="Start Time"/>
+                <PropertyColumn Property="data => data.EndDate" Title="End Time"/>
+                <PropertyColumn Property="data => data.Value1" Title="Heat Demand MWh"/>
+                <PropertyColumn Property="data => data.Value2" Title="Electricity Price DKK/MWh"/>
+            </Columns>
+        </MudDataGrid>
 
-</MudContainer>
+    </MudContainer>
+
+    @heatDemandDataList
 }
 
 
@@ -173,38 +174,68 @@
         public float Value2 { get; set; }
     }
 
+    private bool loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        StateHasChanged();
+        DirectoryInfo? pathToProjectRootDirectory =
+            Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
+        if (pathToProjectRootDirectory != null && loading == true)
+        {
+            loading = false;
+            StateHasChanged();
+            string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
+            await ReadCsvDataOnLoad(pathToFile);
+        }
+    }
+
+
+    private async Task ReadCsvDataOnLoad(string pathToFile)
+    {
+        Console.WriteLine(pathToFile);
+        string csvContent = await File.ReadAllTextAsync(pathToFile);
+        ParseCsvData(csvContent);
+    }
+
     private async Task HandleCSVUpload(InputFileChangeEventArgs e)
     {
         var file = e.File;
 
         if (file != null)
         {
+            loading = true;
             var reader = new StreamReader(file.OpenReadStream());
             var csvContent = await reader.ReadToEndAsync();
 
-            var rows = csvContent.Split('\n');
-
-            // Use CultureInfo to handle potential localization issues with decimal point/comma
-            var culture = CultureInfo.InvariantCulture;
-
-            foreach (var row in rows)
-            {
-                var values = row.Split(',');
-                if (values.Length == 4)
-                {
-                    heatDemandDataList.Add(new HeatDemandData
-                    {
-                        StartDate = DateTime.Parse(values[0], culture),
-                        EndDate = DateTime.Parse(values[1], culture),
-                        Value1 = float.Parse(values[2], culture),
-                        Value2 = float.Parse(values[3], culture),
-                    });
-                }
-            }
-
-            // Notify Blazor to re-render as the data has changed.
-            StateHasChanged();
+            // ParseCsvData(csvContent);
+            loading = false;
         }
+    }
+
+    private void ParseCsvData(string csvContent)
+    {
+        var rows = csvContent.Split('\n');
+
+        // Use CultureInfo to handle potential localization issues with decimal point/comma
+        var culture = CultureInfo.InvariantCulture;
+
+        foreach (var row in rows)
+        {
+            var values = row.Split(',');
+            if (values.Length == 4)
+            {
+                heatDemandDataList.Add(new HeatDemandData
+                {
+                    StartDate = DateTime.Parse(values[0], culture),
+                    EndDate = DateTime.Parse(values[1], culture),
+                    Value1 = float.Parse(values[2], culture),
+                    Value2 = float.Parse(values[3], culture),
+                });
+            }
+        }
+
+        StateHasChanged();
     }
 
 }
