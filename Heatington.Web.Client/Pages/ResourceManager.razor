@@ -178,6 +178,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        await base.OnInitializedAsync();
         StateHasChanged();
         DirectoryInfo? pathToProjectRootDirectory =
             Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
