@@ -1,5 +1,4 @@
 ﻿@page "/resource-manager"
-@using System.Diagnostics.CodeAnalysis
 @using Heatington.Web.Client.Components
 @using System.Globalization
 @inject IDialogService DialogService
@@ -59,10 +58,14 @@
 </MudContainer>
 
 
-@if (heatDemandDataList.Count > 0)
+@if (heatDemandDataList.Count == 0 && !loaded)
+{
+    <MudText>Loading..</MudText>
+}
+
+else
 {
     <MudContainer class="mt-8" @rendermode="RenderMode.InteractiveServer">
-
         <MudDataGrid Items="@heatDemandDataList" Hover Dense Striped>
             <Columns>
                 <PropertyColumn Property="data => data.StartDate" Title="Start Time"/>
@@ -71,12 +74,8 @@
                 <PropertyColumn Property="data => data.Value2" Title="Electricity Price DKK/MWh"/>
             </Columns>
         </MudDataGrid>
-
     </MudContainer>
-
-    @heatDemandDataList
 }
-
 
 @code {
 
@@ -184,18 +183,25 @@
     }
 
     private bool loading = true;
+    private bool loaded = false;
 
+
+    // TODO: fix csv data loading one and then disappering
+    //Maybe this can help
+    //https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-7.0#stateful-reconnection-after-prerendering
     protected override async Task OnInitializedAsync()
     {
         StateHasChanged();
         DirectoryInfo? pathToProjectRootDirectory =
             Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
+
         if (pathToProjectRootDirectory != null && loading == true)
         {
-            loading = false;
             StateHasChanged();
             string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
             await ReadCsvDataOnLoad(pathToFile);
+            loading = false;
+            loaded = true;
         }
     }
 
@@ -204,6 +210,7 @@
     {
         Console.WriteLine(pathToFile);
         string csvContent = await File.ReadAllTextAsync(pathToFile);
+
         ParseCsvData(csvContent);
     }
 
