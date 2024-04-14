@@ -10,7 +10,7 @@
 <div style="display: flex;  align-items: center; justify-content: center;">
     <h2 style="margin-left: 15px;">Boilers</h2>
     <MudButton style="margin-left: 15px"
-               OnClick="() => OpenDialog()" Color="Color.Primary" Size="Size.Medium" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add">
+               OnClick="() => OpenDialog()" Color="Color.Primary" Size="Size.Medium" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Add">
         Add Boiler
     </MudButton>
 </div>
@@ -21,7 +21,7 @@
         <MudCard Style="min-width: 200px; max-width: 300px; margin: 5px; padding: 3px">
             <MudCardContent class="text-center">
                 <div style="display: flex; justify-content: center;">
-                    <MudImage Style="min-width: 150px; max-width: 150px; max-height: 150px; min-height: 150px" Src="@($"Assets/Images/{@boiler.ImagePath}.jpg")"></MudImage>
+                    <MudImage Style="min-width: 200px; max-width: 200px; max-height: 200px; min-height: 200px" Src="@($"Assets/Images/{@boiler.ImagePath}.jpg")"></MudImage>
                 </div>
                 <MudText Typo="Typo.h6" class="text-center">@boiler.Name</MudText>
                 <MudText Typo="Typo.body2">Max Heat: @boiler.MaxHeat</MudText>
@@ -120,14 +120,22 @@
         public string CO2Emissions { get; set; }
         public string PrimaryEnergy { get; set; }
         public SortDirection? SortDirection { get; set; }
+        public string ImageBase64 { get; set; }
     }
 
-    void OpenDialog()
+    async void OpenDialog()
     {
         var parameters = new DialogParameters();
         parameters.Add("Boilers", _boilers);
 
-        DialogService.Show<AddBoilerDialog>("Add Boiler", parameters, new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
+        var dialog = DialogService.Show<AddBoilerDialog>("Add Boiler", parameters, new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
+
+        var result = await dialog.Result;
+
+        if (!result.Cancelled)
+        {
+            StateHasChanged();
+        }
     }
 
     private string DisplayData(string data) => data.Length != 0 ? data : "No Data";
