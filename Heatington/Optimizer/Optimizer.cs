@@ -1,7 +1,8 @@
+using Heatington.AssetManager;
 using Heatington.Controllers;
-using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
+using Heatington.Services.Interfaces;
 
 namespace Heatington.Optimizer;
 
@@ -30,6 +31,7 @@ public class Opt
 
         foreach (var unit in productionUnits)
         {
+
             // For some reason if I don't clone the object C# confuses to which object I am referring to
             // and messes up all the objects in the "results" list
             ProductionUnit unitClone = (ProductionUnit)unit.Clone();
@@ -131,25 +133,23 @@ public class Opt
     }
     public void CalculateNetProductionCost()
     {
+        // Should I make a copy of the list, set the Production Cost and update the public one OR
+        // keep manipulating it directly like I am now
         if (Results == null)
         {
             return;
         }
 
-        List<ResultHolder> workingResults = new List<ResultHolder>();
+        int i = 0;
 
-        foreach (ResultHolder result in Results)
+        foreach (var entry in Results)
         {
-            ResultHolder resultClone = (ResultHolder)result.Clone();
+            double hourlyProductionCost = Results[i].Boilers.Sum(o => o.ProductionCost);
 
-            double hourlyProductionCost = resultClone.Boilers.Sum(o => o.ProductionCost);
+            Results[i].NetProductionCost = hourlyProductionCost;
 
-            resultClone.NetProductionCost = hourlyProductionCost;
-
-            workingResults.Add(resultClone);
+            i++;
         }
-
-        Results = workingResults;
     }
 
     public void LogResults()
@@ -165,10 +165,7 @@ public class Opt
     {
         IDataSource dataSource = new CsvController();
 
-        string fileName = "winter_period.csv";
-        string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
-
-        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, filePath);
+        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource, "../../../../Assets/winter_period.csv");
 
         Task fetchTimeSeriesDataAsync = sourceDataManager.FetchTimeSeriesDataAsync();
 
