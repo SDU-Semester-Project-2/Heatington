@@ -1,17 +1,187 @@
 ﻿@page "/optimizer"
 
-<PageTitle>Counter</PageTitle>
+<PageTitle>Optimizer</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Optimizer</MudText>
-<MudText Class="mb-4">Current count: @currentCount</MudText>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
+<MudContainer>
+    <div>
+        <MudText Typo="Typo.h3" Align="Align.Center" class="mt-5" GutterBottom>
+            Scenario One
+        </MudText>
+        <MudText Typo="Typo.body1" Align="Align.Center" GutterBottom>
+            Single heating area, one gas boiler, one oil boiler
+        </MudText>
+
+        <MudDivider Class="my-5"></MudDivider>
+
+        <MudGrid>
+            <MudItem xs="6">
+                <MudText Typo="Typo.h4" class="text-center">
+                    Winter Period
+                </MudText>
+                <div>
+                    <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesBoilersScenario1Winter" XAxisLabels="@_xAxisLabelsWinter" Width="100%" Height="350px" CanHideSeries/>
+                    <MudGrid>
+                        @* <MudItem xs="12"> *@
+                        @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexBoilers < 0 ? "None" : _seriesBoilers[_indexBoilers].Name)</MudText> *@
+                        @* </MudItem> *@
+                    </MudGrid>
+                    <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_seriesBoilersScenario1Winter" XAxisLabels="_xAxisLabelsWinter" Width="100%" Height="350px"/>
+                </div>
+            </MudItem>
+            <MudItem xs="6">
+
+                <MudText Typo="Typo.h4" class="text-center">
+                    Summer Period
+                </MudText>
+
+                <div>
+                    <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesBoilersScenario1Summer" XAxisLabels="@_xAxisLabelsSummer" Width="100%" Height="350px" CanHideSeries/>
+                    <MudGrid>
+                        @* <MudItem xs="12"> *@
+                        @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexBoilers < 0 ? "None" : _seriesBoilers[_indexBoilers].Name)</MudText> *@
+                        @* </MudItem> *@
+                    </MudGrid>
+                    <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_seriesBoilersScenario1Summer" XAxisLabels="_xAxisLabelsSummer" Width="100%" Height="350px"/>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </div>
+
+    <div>
+        <MudText Typo="Typo.h3" Align="Align.Center" class="mt-5" GutterBottom>
+            Scenario Two
+        </MudText>
+        <MudText Typo="Typo.body1" Align="Align.Center" GutterBottom>
+            Single heating area, one gas boiler, one oil boiler, one gas motor, one electric boiler
+        </MudText>
+        <MudDivider Class="my-5"></MudDivider>
+        <MudGrid>
+            <MudItem xs="6">
+
+                <MudText Typo="Typo.h4" class="text-center">
+                    Winter Period
+                </MudText>
+
+                <div>
+                    <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesBoilersScenario2Winter" XAxisLabels="@_xAxisLabelsWinter" Width="100%" Height="350px" CanHideSeries/>
+                    <MudGrid>
+                        @* <MudItem xs="12"> *@
+                        @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexBoilers < 0 ? "None" : _seriesBoilers[_indexBoilers].Name)</MudText> *@
+                        @* </MudItem> *@
+                    </MudGrid>
+                    <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_seriesBoilersScenario2Winter" XAxisLabels="_xAxisLabelsWinter" Width="100%" Height="350px"/>
+                </div>
+            </MudItem>
+            <MudItem xs="6">
+                <MudText Typo="Typo.h4" class="text-center">
+                    Summer Period
+                </MudText>
+                <div>
+                    <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesBoilersScenario2Summer" XAxisLabels="@_xAxisLabelsSummer" Width="100%" Height="350px" CanHideSeries/>
+                    <MudGrid>
+                        @* <MudItem xs="12"> *@
+                        @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexBoilers < 0 ? "None" : _seriesBoilers[_indexBoilers].Name)</MudText> *@
+                        @* </MudItem> *@
+                    </MudGrid>
+                    <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_seriesBoilersScenario2Summer" XAxisLabels="_xAxisLabelsSummer" Width="100%" Height="350px"/>
+                </div>
+            </MudItem>
+        </MudGrid>
+    </div>
+</MudContainer>
 
 @code {
-    private int currentCount = 0;
+    private List<ChartSeries> _seriesBoilersScenario1Winter = new List<ChartSeries>();
+    private List<ChartSeries> _seriesBoilersScenario1Summer = new List<ChartSeries>();
+    private List<ChartSeries> _seriesBoilersScenario2Winter = new List<ChartSeries>();
+    private List<ChartSeries> _seriesBoilersScenario2Summer = new List<ChartSeries>();
 
-    private void IncrementCount()
+    private readonly string[] _xAxisLabelsWinter = { "01.01.2024", "02.01.2024", "03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024" };
+    private readonly string[] _xAxisLabelsSummer = { "01.07.2024", "02.07.2024", "03.07.2024", "04.07.2024", "05.07.2024", "06.07.2024", "07.07.2024" };
+
+    readonly Random random = new Random();
+
+    protected override void OnInitialized()
     {
-        currentCount++;
+        base.OnInitialized();
+        RandomizeData(out _seriesBoilersScenario1Winter, true);
+        RandomizeData(out _seriesBoilersScenario1Summer, true);
+        RandomizeData(out _seriesBoilersScenario2Winter);
+        RandomizeData(out _seriesBoilersScenario2Summer);
+        StateHasChanged();
+    }
+
+    private void RandomizeData(out List<ChartSeries> chartSeries, bool isScenario1 = false)
+    {
+        var newSeries = new List<ChartSeries>();
+        foreach (var boiler in _boilers)
+        {
+            if (isScenario1 && boiler.Name is "Gas Motor" or "Electric Boiler")
+            {
+                break;
+            }
+
+            var series = new ChartSeries() { Name = boiler.Name, Data = new double[7] };
+            for (int i = 0; i < 7; i++)
+                series.Data[i] = random.NextDouble() * 100;
+            newSeries.Add(series);
+        }
+
+        chartSeries = newSeries;
+    }
+
+    readonly List<Boiler> _boilers =
+    [
+        new Boiler
+        {
+            Name = "Gas Boiler",
+            MaxHeat = "5.0 MW",
+            MaxElectricity = "",
+            ProductionCosts = "500 DKK / MWh(th)",
+            CO2Emissions = "215 kg / MWh(th)",
+            PrimaryEnergy = "1,1 MWh(gas) / MWh(th)"
+        },
+
+        new Boiler
+        {
+            Name = "Oil Boiler",
+            MaxHeat = "4.0 MW",
+            MaxElectricity = "",
+            ProductionCosts = "700 DKK / MWh(th)",
+            CO2Emissions = "265 kg / MWh(th)",
+            PrimaryEnergy = "1,2 MWh(oil) / MWh(th)"
+        },
+
+        new Boiler
+        {
+            Name = "Gas Motor",
+            MaxHeat = "3.6 MW",
+            MaxElectricity = "2.7 MW",
+            ProductionCosts = "1,100 DKK / MWh(th)",
+            CO2Emissions = "640 kg / MWh(th)",
+            PrimaryEnergy = "1.9 MWh(gas) / MWh(th)"
+        },
+
+        new Boiler
+        {
+            Name = "Electric Boiler",
+            MaxHeat = "8.0 MW",
+            MaxElectricity = "-8.0 MW",
+            ProductionCosts = "50 DKK / MWh(th)",
+            CO2Emissions = "", // As no value provided
+            PrimaryEnergy = "" // As no value provided
+        }
+    ];
+
+    public class Boiler
+    {
+        public string Name { get; set; }
+        public string MaxHeat { get; set; }
+        public string MaxElectricity { get; set; }
+        public string ProductionCosts { get; set; }
+        public string CO2Emissions { get; set; }
+        public string PrimaryEnergy { get; set; }
+        public SortDirection? SortDirection { get; set; }
     }
 
 }
