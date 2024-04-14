@@ -5,9 +5,6 @@
 .text-center {
     text-align: center;
 }
-</style>
-
-<style>
 .space-y-4 > * + * {
     margin-top: 2rem;
 }
@@ -71,8 +68,10 @@
     <MudText Typo="Typo.h4" class="text-center">
         Heat
     </MudText>
+
+    @*Heat Line Chart*@
     <div>
-        <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesHeat" @bind-SelectedIndex="_indexHeat" XAxisLabels="@_xAxisLabels1" Width="100%" Height="350px" ChartOptions="@_options"/>
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@_seriesHeat" @bind-SelectedIndex="_indexHeat" XAxisLabels="@_xAxisLabels1" Width="100%" Height="350px" ChartOptions="@_options"/>
         <MudGrid>
             @* <MudItem xs="12"> *@
             @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexHeat < 0 ? "None" : _seriesHeat[_indexHeat].Name)</MudText> *@
@@ -84,7 +83,7 @@
         Electricity
     </MudText>
     <div>
-        <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesElectricity" @bind-SelectedIndex="_indexElectricity" XAxisLabels="@_xAxisLabels1" Width="100%" Height="350px" ChartOptions="@_options"/>
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@_seriesElectricity" @bind-SelectedIndex="_indexElectricity" XAxisLabels="@_xAxisLabels1" Width="100%" Height="350px" ChartOptions="@_options"/>
         <MudGrid>
             @* <MudItem xs="12"> *@
             @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexElectricity < 0 ? "None" : _seriesElectricity[_indexElectricity].Name)</MudText> *@
@@ -102,6 +101,7 @@
             @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexBoilers < 0 ? "None" : _seriesBoilers[_indexBoilers].Name)</MudText> *@
             @* </MudItem> *@
         </MudGrid>
+        <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_seriesBoilers" XAxisLabels="_xAxisLabels3" Width="100%" Height="350px"/>
     </div>
     <MudDivider FlexItem></MudDivider>
     <MudText Typo="Typo.h4" class="text-center">
@@ -125,7 +125,7 @@
                 <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.CO2Emissions)">CO2 Emissions</MudTableSortLabel>
             </MudTh>
             <MudTh>
-                <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.PrimaryEnergy)">Primary Energy</MudTableSortLabel>
+                <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.PrimaryEnergy)">Primary Energy Consumption</MudTableSortLabel>
             </MudTh>
             <MudTh></MudTh> <!-- Header for the 'View More' button -->
         </HeaderContent>
@@ -136,7 +136,7 @@
             <MudTd DataLabel="Max Electricity">@DisplayData(@boiler.MaxElectricity)</MudTd>
             <MudTd DataLabel="Production Costs">@DisplayData(@boiler.ProductionCosts)</MudTd>
             <MudTd DataLabel="CO2 Emissions">@DisplayData(@boiler.CO2Emissions)</MudTd>
-            <MudTd DataLabel="Primary Energy">@DisplayData(@boiler.PrimaryEnergy)</MudTd>
+            <MudTd DataLabel="Primary Energy Consumption">@DisplayData(@boiler.PrimaryEnergy)</MudTd>
             <MudTd>
                 <MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => ViewMore(boiler))">
                     View More
@@ -260,8 +260,8 @@
         var newSeries = new List<ChartSeries>();
         foreach (var boiler in _boilers)
         {
-            var series = new ChartSeries() { Name = boiler.Name, Data = new double[4] };
-            for (int i = 0; i < 4; i++)
+            var series = new ChartSeries() { Name = boiler.Name, Data = new double[7] };
+            for (int i = 0; i < 7; i++)
                 series.Data[i] = random.NextDouble() * 100;
             newSeries.Add(series);
         }
@@ -290,7 +290,7 @@
             case "CO2 Emissions":
                 sortBy = (boiler) => boiler.CO2Emissions;
                 break;
-            case "Primary Energy":
+            case "Primary Energy Consumption":
                 sortBy = (boiler) => boiler.PrimaryEnergy;
                 break;
             default:
