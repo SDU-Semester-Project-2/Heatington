@@ -2,7 +2,7 @@
 @using Heatington.Web.Client.Components
 @using System.Globalization
 @inject IDialogService DialogService
-@* @rendermode InteractiveServer *@
+@rendermode InteractiveWebAssembly
 
 <PageTitle>Resource Manager</PageTitle>
 
@@ -38,9 +38,9 @@
                 </div>
                 <div class="mt-3">
                     <MudText Typo="Typo.body2">Max Heat: @DisplayData(@boiler.MaxHeat)</MudText>
-                    <MudText Typo="Typo.body2">Max Electricity: @boiler.MaxElectricity</MudText>
-                    <MudText Typo="Typo.body2">Production Costs: @boiler.ProductionCosts</MudText>
-                    <MudText Typo="Typo.body2">CO2 Emissions: @boiler.CO2Emissions</MudText>
+                    <MudText Typo="Typo.body2">Max Electricity: @DisplayData(@boiler.MaxElectricity)</MudText>
+                    <MudText Typo="Typo.body2">Production Costs: @DisplayData(@boiler.ProductionCosts)</MudText>
+                    <MudText Typo="Typo.body2">CO2 Emissions: @DisplayData(@boiler.CO2Emissions)</MudText>
                     <MudText Typo="Typo.body2">Primary Energy Consumption: @DisplayData(boiler.PrimaryEnergy)</MudText>
                 </div>
             </MudCardContent>
@@ -58,14 +58,9 @@
 </MudContainer>
 
 
-@if (heatDemandDataList.Count == 0 && !loaded)
+@if (heatDemandDataList.Count != 0)
 {
-    <MudText>Loading..</MudText>
-}
-
-else
-{
-    <MudContainer class="mt-8" @rendermode="RenderMode.InteractiveServer">
+    <MudContainer class="mt-8">
         <MudDataGrid Items="@heatDemandDataList" Hover Dense Striped>
             <Columns>
                 <PropertyColumn Property="data => data.StartDate" Title="Start Time"/>
@@ -182,9 +177,6 @@ else
         public float Value2 { get; set; }
     }
 
-    private bool loading = true;
-    private bool loaded = false;
-
 
     // TODO: fix csv data loading one and then disappering
     //Maybe this can help
@@ -196,13 +188,11 @@ else
         DirectoryInfo? pathToProjectRootDirectory =
             Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
 
-        if (pathToProjectRootDirectory != null && loading == true)
+        if (pathToProjectRootDirectory != null)
         {
             StateHasChanged();
             string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
             await ReadCsvDataOnLoad(pathToFile);
-            loading = false;
-            loaded = true;
         }
     }
 
@@ -219,15 +209,10 @@ else
     {
         var file = e.File;
 
-        if (file != null)
-        {
-            loading = true;
-            var reader = new StreamReader(file.OpenReadStream());
-            var csvContent = await reader.ReadToEndAsync();
+        var reader = new StreamReader(file.OpenReadStream());
+        var csvContent = await reader.ReadToEndAsync();
 
-            // ParseCsvData(csvContent);
-            loading = false;
-        }
+        ParseCsvData(csvContent);
     }
 
     private void ParseCsvData(string csvContent)

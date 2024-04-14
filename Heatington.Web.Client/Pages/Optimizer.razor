@@ -2,6 +2,8 @@
 
 <PageTitle>Optimizer</PageTitle>
 
+@* TODO: move Chart to differnet component to reduce redundancy *@
+
 <MudContainer>
     <div>
         <MudText Typo="Typo.h3" Align="Align.Center" class="mt-5" GutterBottom>
@@ -91,6 +93,8 @@
 </MudContainer>
 
 @code {
+
+    //TODO: use real data
     private List<ChartSeries> _seriesBoilersScenario1Winter = new List<ChartSeries>();
     private List<ChartSeries> _seriesBoilersScenario1Summer = new List<ChartSeries>();
     private List<ChartSeries> _seriesBoilersScenario2Winter = new List<ChartSeries>();
