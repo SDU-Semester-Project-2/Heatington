@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
+// builder.Services.AddMemoryCache();
+
 builder.Services.AddMudServices();
 
 var app = builder.Build();
