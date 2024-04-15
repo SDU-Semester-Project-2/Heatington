@@ -25,8 +25,16 @@
                 <MudIconButton Icon="@Icons.Filled.Settings" Color="Color.Primary" OnClick="(() => OpenDialog(boiler))"/>
             </MudCardHeader>
             <MudCardContent class="text-center">
+
                 <div style="display: flex; justify-content: center;">
-                    <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@($"Assets/Images/{@boiler.ImagePath}.jpg")"></MudImage>
+                    @if (boiler.ImageData != null && boiler.ImageData?.Length != 0)
+                    {
+                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@boiler.ImageData"></MudImage>
+                    }
+                    else
+                    {
+                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@($"Assets/Images/{@boiler.ImagePath}.jpg")"></MudImage>
+                    }
                 </div>
                 <div class="mt-3">
                     <MudText Typo="Typo.body2">Max Heat: @DisplayData(@boiler.MaxHeat)</MudText>
@@ -50,10 +58,14 @@
 </MudContainer>
 
 
-@if (heatDemandDataList.Count > 0)
+@if (heatDemandDataList.Count == 0 && !loaded)
+{
+    <MudText>Loading..</MudText>
+}
+
+else
 {
     <MudContainer class="mt-8" @rendermode="RenderMode.InteractiveServer">
-
         <MudDataGrid Items="@heatDemandDataList" Hover Dense Striped>
             <Columns>
                 <PropertyColumn Property="data => data.StartDate" Title="Start Time"/>
@@ -62,12 +74,8 @@
                 <PropertyColumn Property="data => data.Value2" Title="Electricity Price DKK/MWh"/>
             </Columns>
         </MudDataGrid>
-
     </MudContainer>
-
-    @heatDemandDataList
 }
-
 
 @code {
 
@@ -128,7 +136,7 @@
         public string CO2Emissions { get; set; }
         public string PrimaryEnergy { get; set; }
         public SortDirection? SortDirection { get; set; }
-        public string ImageBase64 { get; set; }
+        public string? ImageData { get; set; }
     }
 
     async void OpenDialog()
@@ -175,19 +183,26 @@
     }
 
     private bool loading = true;
+    private bool loaded = false;
 
+
+    // TODO: fix csv data loading one and then disappering
+    //Maybe this can help
+    //https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-7.0#stateful-reconnection-after-prerendering
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
         StateHasChanged();
         DirectoryInfo? pathToProjectRootDirectory =
             Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
+
         if (pathToProjectRootDirectory != null && loading == true)
         {
-            loading = false;
             StateHasChanged();
             string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
             await ReadCsvDataOnLoad(pathToFile);
+            loading = false;
+            loaded = true;
         }
     }
 
@@ -196,6 +211,7 @@
     {
         Console.WriteLine(pathToFile);
         string csvContent = await File.ReadAllTextAsync(pathToFile);
+
         ParseCsvData(csvContent);
     }
 
