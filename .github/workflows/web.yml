@@ -17,8 +17,8 @@ concurrency:
 jobs:
     deploy-to-github-pages:
       environment:
-        name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}/web
+        name: github-pages-web
+        url: ${{ steps.deployment.outputs.page_url }}web/
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
