@@ -1,0 +1,24 @@
+name: deploy-to-gtihub-blazor-app
+on:
+  push:
+    branches: [ "SP2-128-Web-App" ]
+jobs:
+    deploy-to-github-pages:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: action/checkout@v4
+      
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+          
+      - name: Publish .NET Core Project
+        run: dotnet publish Heatington.Web/Heatington.Web.csproj -c Release -o release
+        
+      - name: Commit wwwroot to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages-web
+          FOLDER: release/wwwroot
