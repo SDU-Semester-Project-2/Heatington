@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SourceDataManager
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -55,7 +55,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: TimeSeriesData
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -84,7 +84,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -116,7 +116,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ConvertApiToCsv
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -149,7 +149,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FetchTimeSeriesDataAsync
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -177,7 +177,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogTimeSeriesData
     path: Heatington/SourceDataManager/SourceDataManager.cs

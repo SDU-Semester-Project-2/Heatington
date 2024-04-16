@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ResultHolder
     path: Heatington/Models/ResultHolder.cs
@@ -60,7 +60,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/ResultHolder.cs
@@ -102,7 +102,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartTime
     path: Heatington/Models/ResultHolder.cs
@@ -131,7 +131,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: EndTime
     path: Heatington/Models/ResultHolder.cs
@@ -160,7 +160,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemand
     path: Heatington/Models/ResultHolder.cs
@@ -189,7 +189,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityPrice
     path: Heatington/Models/ResultHolder.cs
@@ -218,7 +218,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: NetProductionCost
     path: Heatington/Models/ResultHolder.cs
@@ -247,7 +247,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Boilers
     path: Heatington/Models/ResultHolder.cs
@@ -276,7 +276,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Clone
     path: Heatington/Models/ResultHolder.cs
@@ -309,7 +309,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Models/ResultHolder.cs

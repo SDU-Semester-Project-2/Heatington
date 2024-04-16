@@ -1,4 +1,4 @@
-namespace Heatington
+namespace Heatington.Console
 {
     internal static class Program
     {

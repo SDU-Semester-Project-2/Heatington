@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: DataPoint
     path: Heatington/Models/DataPoint.cs
@@ -55,7 +55,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/DataPoint.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartTime
     path: Heatington/Models/DataPoint.cs
@@ -122,7 +122,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: EndTime
     path: Heatington/Models/DataPoint.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemand
     path: Heatington/Models/DataPoint.cs
@@ -180,7 +180,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityPrice
     path: Heatington/Models/DataPoint.cs
@@ -209,7 +209,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Models/DataPoint.cs
