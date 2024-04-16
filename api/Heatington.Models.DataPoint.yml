@@ -10,6 +10,7 @@ items:
   - Heatington.Models.DataPoint.EndTime
   - Heatington.Models.DataPoint.HeatDemand
   - Heatington.Models.DataPoint.StartTime
+  - Heatington.Models.DataPoint.ToString
   langs:
   - csharp
   - vb
@@ -20,7 +21,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: DataPoint
     path: Heatington/Models/DataPoint.cs
@@ -40,7 +41,6 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
 - uid: Heatington.Models.DataPoint.#ctor(System.String,System.String,System.String,System.String)
   commentId: M:Heatington.Models.DataPoint.#ctor(System.String,System.String,System.String,System.String)
   id: '#ctor(System.String,System.String,System.String,System.String)'
@@ -55,7 +55,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/DataPoint.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartTime
     path: Heatington/Models/DataPoint.cs
@@ -122,7 +122,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: EndTime
     path: Heatington/Models/DataPoint.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemand
     path: Heatington/Models/DataPoint.cs
@@ -180,7 +180,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityPrice
     path: Heatington/Models/DataPoint.cs
@@ -195,6 +195,38 @@ items:
       type: System.Double
     content.vb: Public ReadOnly Property ElectricityPrice As Double
   overload: Heatington.Models.DataPoint.ElectricityPrice*
+- uid: Heatington.Models.DataPoint.ToString
+  commentId: M:Heatington.Models.DataPoint.ToString
+  id: ToString
+  parent: Heatington.Models.DataPoint
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: DataPoint.ToString()
+  fullName: Heatington.Models.DataPoint.ToString()
+  type: Method
+  source:
+    remote:
+      path: Heatington/Models/DataPoint.cs
+      branch: SP2-95-Create-ResultDataManager-class
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ToString
+    path: Heatington/Models/DataPoint.cs
+    startLine: 27
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Heatington.Models.DataPoint.ToString*
 references:
 - uid: Heatington.Models
   commentId: N:Heatington.Models
@@ -424,30 +456,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -521,3 +529,33 @@ references:
   name: ElectricityPrice
   nameWithType: DataPoint.ElectricityPrice
   fullName: Heatington.Models.DataPoint.ElectricityPrice
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Heatington.Models.DataPoint.ToString*
+  commentId: Overload:Heatington.Models.DataPoint.ToString
+  href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_ToString
+  name: ToString
+  nameWithType: DataPoint.ToString
+  fullName: Heatington.Models.DataPoint.ToString

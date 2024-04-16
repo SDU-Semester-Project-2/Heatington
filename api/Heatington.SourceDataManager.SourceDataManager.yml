@@ -5,7 +5,7 @@ items:
   id: SourceDataManager
   parent: Heatington.SourceDataManager
   children:
-  - Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Data.IDataSource,System.String)
+  - Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Controllers.Interfaces.IDataSource)
   - Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
   - Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync
   - Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData
@@ -20,11 +20,11 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SourceDataManager
     path: Heatington/SourceDataManager/SourceDataManager.cs
-    startLine: 6
+    startLine: 7
   assemblies:
   - Heatington
   namespace: Heatington.SourceDataManager
@@ -55,11 +55,11 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: TimeSeriesData
     path: Heatington/SourceDataManager/SourceDataManager.cs
-    startLine: 11
+    startLine: 10
   assemblies:
   - Heatington
   namespace: Heatington.SourceDataManager
@@ -70,21 +70,21 @@ items:
       type: System.Collections.Generic.List{Heatington.Models.DataPoint}
     content.vb: Public Property TimeSeriesData As List(Of DataPoint)
   overload: Heatington.SourceDataManager.SourceDataManager.TimeSeriesData*
-- uid: Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Data.IDataSource,System.String)
-  commentId: M:Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Data.IDataSource,System.String)
-  id: '#ctor(Heatington.Data.IDataSource,System.String)'
+- uid: Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Controllers.Interfaces.IDataSource)
+  commentId: M:Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Controllers.Interfaces.IDataSource)
+  id: '#ctor(Heatington.Controllers.Interfaces.IDataSource)'
   parent: Heatington.SourceDataManager.SourceDataManager
   langs:
   - csharp
   - vb
-  name: SourceDataManager(IDataSource, string)
-  nameWithType: SourceDataManager.SourceDataManager(IDataSource, string)
-  fullName: Heatington.SourceDataManager.SourceDataManager.SourceDataManager(Heatington.Data.IDataSource, string)
+  name: SourceDataManager(IDataSource)
+  nameWithType: SourceDataManager.SourceDataManager(IDataSource)
+  fullName: Heatington.SourceDataManager.SourceDataManager.SourceDataManager(Heatington.Controllers.Interfaces.IDataSource)
   type: Constructor
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -93,17 +93,15 @@ items:
   - Heatington
   namespace: Heatington.SourceDataManager
   syntax:
-    content: public SourceDataManager(IDataSource dataSource, string filePath)
+    content: public SourceDataManager(IDataSource dataSource)
     parameters:
     - id: dataSource
-      type: Heatington.Data.IDataSource
-    - id: filePath
-      type: System.String
-    content.vb: Public Sub New(dataSource As IDataSource, filePath As String)
+      type: Heatington.Controllers.Interfaces.IDataSource
+    content.vb: Public Sub New(dataSource As IDataSource)
   overload: Heatington.SourceDataManager.SourceDataManager.#ctor*
-  nameWithType.vb: SourceDataManager.New(IDataSource, String)
-  fullName.vb: Heatington.SourceDataManager.SourceDataManager.New(Heatington.Data.IDataSource, String)
-  name.vb: New(IDataSource, String)
+  nameWithType.vb: SourceDataManager.New(IDataSource)
+  fullName.vb: Heatington.SourceDataManager.SourceDataManager.New(Heatington.Controllers.Interfaces.IDataSource)
+  name.vb: New(IDataSource)
 - uid: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
   commentId: M:Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
   id: ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
@@ -118,11 +116,11 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ConvertApiToCsv
     path: Heatington/SourceDataManager/SourceDataManager.cs
-    startLine: 19
+    startLine: 18
   assemblies:
   - Heatington
   namespace: Heatington.SourceDataManager
@@ -151,11 +149,11 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FetchTimeSeriesDataAsync
     path: Heatington/SourceDataManager/SourceDataManager.cs
-    startLine: 24
+    startLine: 23
   assemblies:
   - Heatington
   namespace: Heatington.SourceDataManager
@@ -179,11 +177,11 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogTimeSeriesData
     path: Heatington/SourceDataManager/SourceDataManager.cs
-    startLine: 39
+    startLine: 38
   assemblies:
   - Heatington
   namespace: Heatington.SourceDataManager
@@ -558,53 +556,50 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: Heatington.SourceDataManager.SourceDataManager.#ctor*
   commentId: Overload:Heatington.SourceDataManager.SourceDataManager.#ctor
-  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager__ctor_Heatington_Data_IDataSource_System_String_
+  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager__ctor_Heatington_Controllers_Interfaces_IDataSource_
   name: SourceDataManager
   nameWithType: SourceDataManager.SourceDataManager
   fullName: Heatington.SourceDataManager.SourceDataManager.SourceDataManager
   nameWithType.vb: SourceDataManager.New
   fullName.vb: Heatington.SourceDataManager.SourceDataManager.New
   name.vb: New
-- uid: Heatington.Data.IDataSource
-  commentId: T:Heatington.Data.IDataSource
-  parent: Heatington.Data
-  href: Heatington.Data.IDataSource.html
+- uid: Heatington.Controllers.Interfaces.IDataSource
+  commentId: T:Heatington.Controllers.Interfaces.IDataSource
+  parent: Heatington.Controllers.Interfaces
+  href: Heatington.Controllers.Interfaces.IDataSource.html
   name: IDataSource
   nameWithType: IDataSource
-  fullName: Heatington.Data.IDataSource
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: Heatington.Data
-  commentId: N:Heatington.Data
+  fullName: Heatington.Controllers.Interfaces.IDataSource
+- uid: Heatington.Controllers.Interfaces
+  commentId: N:Heatington.Controllers.Interfaces
   href: Heatington.html
-  name: Heatington.Data
-  nameWithType: Heatington.Data
-  fullName: Heatington.Data
+  name: Heatington.Controllers.Interfaces
+  nameWithType: Heatington.Controllers.Interfaces
+  fullName: Heatington.Controllers.Interfaces
   spec.csharp:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Data
-    name: Data
-    href: Heatington.Data.html
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
   spec.vb:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Data
-    name: Data
-    href: Heatington.Data.html
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
 - uid: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv*
   commentId: Overload:Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv
   href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager_ConvertApiToCsv_System_Collections_Generic_List_Heatington_Models_DataPoint__

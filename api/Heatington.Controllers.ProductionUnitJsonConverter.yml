@@ -6,7 +6,7 @@ items:
   parent: Heatington.Controllers
   children:
   - Heatington.Controllers.ProductionUnitJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
-  - Heatington.Controllers.ProductionUnitJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  - Heatington.Controllers.ProductionUnitJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
   langs:
   - csharp
   - vb
@@ -17,11 +17,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnitJsonConverter
     path: Heatington/Controllers/JsonController.cs
-    startLine: 83
+    startLine: 85
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -31,13 +31,13 @@ items:
   inheritance:
   - System.Object
   - System.Text.Json.Serialization.JsonConverter
-  - System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+  - System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   inheritedMembers:
-  - System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.CanConvert(System.Type)
-  - System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
-  - System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
-  - System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.HandleNull
-  - System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Type
+  - System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.CanConvert(System.Type)
+  - System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  - System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  - System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.HandleNull
+  - System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Type
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetHashCode
@@ -59,15 +59,15 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Read
     path: Heatington/Controllers/JsonController.cs
-    startLine: 85
+    startLine: 87
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
-  summary: Reads and converts the JSON to type <xref href="Heatington.AssetManager.ProductionUnit" data-throw-if-not-resolved="false"></xref>.
+  summary: Reads and converts the JSON to type <xref href="Heatington.Models.ProductionUnit" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public override ProductionUnit Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -82,33 +82,33 @@ items:
       type: System.Text.Json.JsonSerializerOptions
       description: An object that specifies serialization options to use.
     return:
-      type: Heatington.AssetManager.ProductionUnit
+      type: Heatington.Models.ProductionUnit
       description: The converted value.
     content.vb: Public Overrides Function Read(reader As Utf8JsonReader, typeToConvert As Type, options As JsonSerializerOptions) As ProductionUnit
-  overridden: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  overridden: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
   overload: Heatington.Controllers.ProductionUnitJsonConverter.Read*
   nameWithType.vb: ProductionUnitJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
   fullName.vb: Heatington.Controllers.ProductionUnitJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
   name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
-- uid: Heatington.Controllers.ProductionUnitJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
-  commentId: M:Heatington.Controllers.ProductionUnitJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
-  id: Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+- uid: Heatington.Controllers.ProductionUnitJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  commentId: M:Heatington.Controllers.ProductionUnitJsonConverter.Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  id: Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
   parent: Heatington.Controllers.ProductionUnitJsonConverter
   langs:
   - csharp
   - vb
   name: Write(Utf8JsonWriter, ProductionUnit, JsonSerializerOptions)
   nameWithType: ProductionUnitJsonConverter.Write(Utf8JsonWriter, ProductionUnit, JsonSerializerOptions)
-  fullName: Heatington.Controllers.ProductionUnitJsonConverter.Write(System.Text.Json.Utf8JsonWriter, Heatington.AssetManager.ProductionUnit, System.Text.Json.JsonSerializerOptions)
+  fullName: Heatington.Controllers.ProductionUnitJsonConverter.Write(System.Text.Json.Utf8JsonWriter, Heatington.Models.ProductionUnit, System.Text.Json.JsonSerializerOptions)
   type: Method
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Write
     path: Heatington/Controllers/JsonController.cs
-    startLine: 90
+    startLine: 92
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -121,12 +121,12 @@ items:
       type: System.Text.Json.Utf8JsonWriter
       description: The writer to write to.
     - id: productionUnit
-      type: Heatington.AssetManager.ProductionUnit
+      type: Heatington.Models.ProductionUnit
     - id: options
       type: System.Text.Json.JsonSerializerOptions
       description: An object that specifies serialization options to use.
     content.vb: Public Overrides Sub Write(writer As Utf8JsonWriter, productionUnit As ProductionUnit, options As JsonSerializerOptions)
-  overridden: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  overridden: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
   overload: Heatington.Controllers.ProductionUnitJsonConverter.Write*
 references:
 - uid: Heatington.Controllers
@@ -170,16 +170,16 @@ references:
   name: JsonConverter
   nameWithType: JsonConverter
   fullName: System.Text.Json.Serialization.JsonConverter
-- uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
-  commentId: T:System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+- uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
+  commentId: T:System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   parent: System.Text.Json.Serialization
   definition: System.Text.Json.Serialization.JsonConverter`1
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1
   name: JsonConverter<ProductionUnit>
   nameWithType: JsonConverter<ProductionUnit>
-  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.AssetManager.ProductionUnit>
+  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.Models.ProductionUnit>
   nameWithType.vb: JsonConverter(Of ProductionUnit)
-  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.AssetManager.ProductionUnit)
+  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.Models.ProductionUnit)
   name.vb: JsonConverter(Of ProductionUnit)
   spec.csharp:
   - uid: System.Text.Json.Serialization.JsonConverter`1
@@ -187,9 +187,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1
   - name: <
-  - uid: Heatington.AssetManager.ProductionUnit
+  - uid: Heatington.Models.ProductionUnit
     name: ProductionUnit
-    href: Heatington.AssetManager.ProductionUnit.html
+    href: Heatington.Models.ProductionUnit.html
   - name: '>'
   spec.vb:
   - uid: System.Text.Json.Serialization.JsonConverter`1
@@ -199,22 +199,22 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Heatington.AssetManager.ProductionUnit
+  - uid: Heatington.Models.ProductionUnit
     name: ProductionUnit
-    href: Heatington.AssetManager.ProductionUnit.html
+    href: Heatington.Models.ProductionUnit.html
   - name: )
-- uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.CanConvert(System.Type)
-  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.CanConvert(System.Type)
-  parent: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+- uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.CanConvert(System.Type)
+  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.CanConvert(System.Type)
+  parent: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   definition: System.Text.Json.Serialization.JsonConverter`1.CanConvert(System.Type)
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.canconvert
   name: CanConvert(Type)
   nameWithType: JsonConverter<ProductionUnit>.CanConvert(Type)
-  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.AssetManager.ProductionUnit>.CanConvert(System.Type)
+  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.Models.ProductionUnit>.CanConvert(System.Type)
   nameWithType.vb: JsonConverter(Of ProductionUnit).CanConvert(Type)
-  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.AssetManager.ProductionUnit).CanConvert(System.Type)
+  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.Models.ProductionUnit).CanConvert(System.Type)
   spec.csharp:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.CanConvert(System.Type)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.CanConvert(System.Type)
     name: CanConvert
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.canconvert
@@ -225,7 +225,7 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.type
   - name: )
   spec.vb:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.CanConvert(System.Type)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.CanConvert(System.Type)
     name: CanConvert
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.canconvert
@@ -235,19 +235,19 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.type
   - name: )
-- uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
-  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
-  parent: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+- uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  parent: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   definition: System.Text.Json.Serialization.JsonConverter`1.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.readaspropertyname
   name: ReadAsPropertyName(ref Utf8JsonReader, Type, JsonSerializerOptions)
   nameWithType: JsonConverter<ProductionUnit>.ReadAsPropertyName(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.AssetManager.ProductionUnit>.ReadAsPropertyName(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.Models.ProductionUnit>.ReadAsPropertyName(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
   nameWithType.vb: JsonConverter(Of ProductionUnit).ReadAsPropertyName(Utf8JsonReader, Type, JsonSerializerOptions)
-  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.AssetManager.ProductionUnit).ReadAsPropertyName(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.Models.ProductionUnit).ReadAsPropertyName(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
   name.vb: ReadAsPropertyName(Utf8JsonReader, Type, JsonSerializerOptions)
   spec.csharp:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
     name: ReadAsPropertyName
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.readaspropertyname
@@ -272,7 +272,7 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
   - name: )
   spec.vb:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.ReadAsPropertyName(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
     name: ReadAsPropertyName
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.readaspropertyname
@@ -294,18 +294,18 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
   - name: )
-- uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
-  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
-  parent: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+- uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  parent: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   definition: System.Text.Json.Serialization.JsonConverter`1.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.writeaspropertyname
   name: WriteAsPropertyName(Utf8JsonWriter, ProductionUnit, JsonSerializerOptions)
   nameWithType: JsonConverter<ProductionUnit>.WriteAsPropertyName(Utf8JsonWriter, ProductionUnit, JsonSerializerOptions)
-  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.AssetManager.ProductionUnit>.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter, Heatington.AssetManager.ProductionUnit, System.Text.Json.JsonSerializerOptions)
+  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.Models.ProductionUnit>.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter, Heatington.Models.ProductionUnit, System.Text.Json.JsonSerializerOptions)
   nameWithType.vb: JsonConverter(Of ProductionUnit).WriteAsPropertyName(Utf8JsonWriter, ProductionUnit, JsonSerializerOptions)
-  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.AssetManager.ProductionUnit).WriteAsPropertyName(System.Text.Json.Utf8JsonWriter, Heatington.AssetManager.ProductionUnit, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.Models.ProductionUnit).WriteAsPropertyName(System.Text.Json.Utf8JsonWriter, Heatington.Models.ProductionUnit, System.Text.Json.JsonSerializerOptions)
   spec.csharp:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
     name: WriteAsPropertyName
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.writeaspropertyname
@@ -316,9 +316,9 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonwriter
   - name: ','
   - name: " "
-  - uid: Heatington.AssetManager.ProductionUnit
+  - uid: Heatington.Models.ProductionUnit
     name: ProductionUnit
-    href: Heatington.AssetManager.ProductionUnit.html
+    href: Heatington.Models.ProductionUnit.html
   - name: ','
   - name: " "
   - uid: System.Text.Json.JsonSerializerOptions
@@ -327,7 +327,7 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
   - name: )
   spec.vb:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.WriteAsPropertyName(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
     name: WriteAsPropertyName
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.writeaspropertyname
@@ -338,9 +338,9 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonwriter
   - name: ','
   - name: " "
-  - uid: Heatington.AssetManager.ProductionUnit
+  - uid: Heatington.Models.ProductionUnit
     name: ProductionUnit
-    href: Heatington.AssetManager.ProductionUnit.html
+    href: Heatington.Models.ProductionUnit.html
   - name: ','
   - name: " "
   - uid: System.Text.Json.JsonSerializerOptions
@@ -348,26 +348,26 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
   - name: )
-- uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.HandleNull
-  commentId: P:System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.HandleNull
-  parent: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+- uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.HandleNull
+  commentId: P:System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.HandleNull
+  parent: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   definition: System.Text.Json.Serialization.JsonConverter`1.HandleNull
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.handlenull
   name: HandleNull
   nameWithType: JsonConverter<ProductionUnit>.HandleNull
-  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.AssetManager.ProductionUnit>.HandleNull
+  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.Models.ProductionUnit>.HandleNull
   nameWithType.vb: JsonConverter(Of ProductionUnit).HandleNull
-  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.AssetManager.ProductionUnit).HandleNull
-- uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Type
-  commentId: P:System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Type
-  parent: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.Models.ProductionUnit).HandleNull
+- uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Type
+  commentId: P:System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Type
+  parent: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   definition: System.Text.Json.Serialization.JsonConverter`1.Type
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.type
   name: Type
   nameWithType: JsonConverter<ProductionUnit>.Type
-  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.AssetManager.ProductionUnit>.Type
+  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.Models.ProductionUnit>.Type
   nameWithType.vb: JsonConverter(Of ProductionUnit).Type
-  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.AssetManager.ProductionUnit).Type
+  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.Models.ProductionUnit).Type
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -825,26 +825,26 @@ references:
   fullName: System.Text.Json.Serialization.JsonConverter<T>.Type
   nameWithType.vb: JsonConverter(Of T).Type
   fullName.vb: System.Text.Json.Serialization.JsonConverter(Of T).Type
-- uid: Heatington.AssetManager.ProductionUnit
-  commentId: T:Heatington.AssetManager.ProductionUnit
-  parent: Heatington.AssetManager
-  href: Heatington.AssetManager.ProductionUnit.html
+- uid: Heatington.Models.ProductionUnit
+  commentId: T:Heatington.Models.ProductionUnit
+  parent: Heatington.Models
+  href: Heatington.Models.ProductionUnit.html
   name: ProductionUnit
   nameWithType: ProductionUnit
-  fullName: Heatington.AssetManager.ProductionUnit
-- uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
-  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
-  parent: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+  fullName: Heatington.Models.ProductionUnit
+- uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  parent: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   definition: System.Text.Json.Serialization.JsonConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.read
   name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
   nameWithType: JsonConverter<ProductionUnit>.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.AssetManager.ProductionUnit>.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.Models.ProductionUnit>.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
   nameWithType.vb: JsonConverter(Of ProductionUnit).Read(Utf8JsonReader, Type, JsonSerializerOptions)
-  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.AssetManager.ProductionUnit).Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.Models.ProductionUnit).Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
   name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
   spec.csharp:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
     name: Read
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.read
@@ -869,7 +869,7 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
   - name: )
   spec.vb:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
     name: Read
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.read
@@ -921,28 +921,28 @@ references:
   name: JsonSerializerOptions
   nameWithType: JsonSerializerOptions
   fullName: System.Text.Json.JsonSerializerOptions
-- uid: Heatington.AssetManager
-  commentId: N:Heatington.AssetManager
+- uid: Heatington.Models
+  commentId: N:Heatington.Models
   href: Heatington.html
-  name: Heatington.AssetManager
-  nameWithType: Heatington.AssetManager
-  fullName: Heatington.AssetManager
+  name: Heatington.Models
+  nameWithType: Heatington.Models
+  fullName: Heatington.Models
   spec.csharp:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.AssetManager
-    name: AssetManager
-    href: Heatington.AssetManager.html
+  - uid: Heatington.Models
+    name: Models
+    href: Heatington.Models.html
   spec.vb:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.AssetManager
-    name: AssetManager
-    href: Heatington.AssetManager.html
+  - uid: Heatington.Models
+    name: Models
+    href: Heatington.Models.html
 - uid: System.Text.Json.Serialization.JsonConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
   commentId: M:System.Text.Json.Serialization.JsonConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
   isExternal: true
@@ -1038,18 +1038,18 @@ references:
     name: Json
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json
-- uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
-  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
-  parent: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}
+- uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  commentId: M:System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  parent: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}
   definition: System.Text.Json.Serialization.JsonConverter`1.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)
   href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.write
   name: Write(Utf8JsonWriter, ProductionUnit, JsonSerializerOptions)
   nameWithType: JsonConverter<ProductionUnit>.Write(Utf8JsonWriter, ProductionUnit, JsonSerializerOptions)
-  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.AssetManager.ProductionUnit>.Write(System.Text.Json.Utf8JsonWriter, Heatington.AssetManager.ProductionUnit, System.Text.Json.JsonSerializerOptions)
+  fullName: System.Text.Json.Serialization.JsonConverter<Heatington.Models.ProductionUnit>.Write(System.Text.Json.Utf8JsonWriter, Heatington.Models.ProductionUnit, System.Text.Json.JsonSerializerOptions)
   nameWithType.vb: JsonConverter(Of ProductionUnit).Write(Utf8JsonWriter, ProductionUnit, JsonSerializerOptions)
-  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.AssetManager.ProductionUnit).Write(System.Text.Json.Utf8JsonWriter, Heatington.AssetManager.ProductionUnit, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: System.Text.Json.Serialization.JsonConverter(Of Heatington.Models.ProductionUnit).Write(System.Text.Json.Utf8JsonWriter, Heatington.Models.ProductionUnit, System.Text.Json.JsonSerializerOptions)
   spec.csharp:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
     name: Write
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.write
@@ -1060,9 +1060,9 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonwriter
   - name: ','
   - name: " "
-  - uid: Heatington.AssetManager.ProductionUnit
+  - uid: Heatington.Models.ProductionUnit
     name: ProductionUnit
-    href: Heatington.AssetManager.ProductionUnit.html
+    href: Heatington.Models.ProductionUnit.html
   - name: ','
   - name: " "
   - uid: System.Text.Json.JsonSerializerOptions
@@ -1071,7 +1071,7 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions
   - name: )
   spec.vb:
-  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.AssetManager.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.AssetManager.ProductionUnit,System.Text.Json.JsonSerializerOptions)
+  - uid: System.Text.Json.Serialization.JsonConverter{Heatington.Models.ProductionUnit}.Write(System.Text.Json.Utf8JsonWriter,Heatington.Models.ProductionUnit,System.Text.Json.JsonSerializerOptions)
     name: Write
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonconverter-1.write
@@ -1082,9 +1082,9 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.text.json.utf8jsonwriter
   - name: ','
   - name: " "
-  - uid: Heatington.AssetManager.ProductionUnit
+  - uid: Heatington.Models.ProductionUnit
     name: ProductionUnit
-    href: Heatington.AssetManager.ProductionUnit.html
+    href: Heatington.Models.ProductionUnit.html
   - name: ','
   - name: " "
   - uid: System.Text.Json.JsonSerializerOptions
@@ -1094,7 +1094,7 @@ references:
   - name: )
 - uid: Heatington.Controllers.ProductionUnitJsonConverter.Write*
   commentId: Overload:Heatington.Controllers.ProductionUnitJsonConverter.Write
-  href: Heatington.Controllers.ProductionUnitJsonConverter.html#Heatington_Controllers_ProductionUnitJsonConverter_Write_System_Text_Json_Utf8JsonWriter_Heatington_AssetManager_ProductionUnit_System_Text_Json_JsonSerializerOptions_
+  href: Heatington.Controllers.ProductionUnitJsonConverter.html#Heatington_Controllers_ProductionUnitJsonConverter_Write_System_Text_Json_Utf8JsonWriter_Heatington_Models_ProductionUnit_System_Text_Json_JsonSerializerOptions_
   name: Write
   nameWithType: ProductionUnitJsonConverter.Write
   fullName: Heatington.Controllers.ProductionUnitJsonConverter.Write

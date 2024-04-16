@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.ResultDataManager
+  commentId: N:Heatington.ResultDataManager
+  id: Heatington.ResultDataManager
+  children:
+  - Heatington.ResultDataManager.ResultDataManager
+  langs:
+  - csharp
+  - vb
+  name: Heatington.ResultDataManager
+  nameWithType: Heatington.ResultDataManager
+  fullName: Heatington.ResultDataManager
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.ResultDataManager.ResultDataManager
+  commentId: T:Heatington.ResultDataManager.ResultDataManager
+  href: Heatington.ResultDataManager.ResultDataManager.html
+  name: ResultDataManager
+  nameWithType: ResultDataManager
+  fullName: Heatington.ResultDataManager.ResultDataManager

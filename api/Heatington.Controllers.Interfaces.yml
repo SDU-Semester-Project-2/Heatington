@@ -4,8 +4,8 @@ items:
   commentId: N:Heatington.Controllers.Interfaces
   id: Heatington.Controllers.Interfaces
   children:
+  - Heatington.Controllers.Interfaces.IDataSource
   - Heatington.Controllers.Interfaces.IReadWriteController
-  - Heatington.Controllers.Interfaces.ISerializeDeserialize
   langs:
   - csharp
   - vb
@@ -16,6 +16,13 @@ items:
   assemblies:
   - Heatington
 references:
+- uid: Heatington.Controllers.Interfaces.IDataSource
+  commentId: T:Heatington.Controllers.Interfaces.IDataSource
+  parent: Heatington.Controllers.Interfaces
+  href: Heatington.Controllers.Interfaces.IDataSource.html
+  name: IDataSource
+  nameWithType: IDataSource
+  fullName: Heatington.Controllers.Interfaces.IDataSource
 - uid: Heatington.Controllers.Interfaces.IReadWriteController
   commentId: T:Heatington.Controllers.Interfaces.IReadWriteController
   parent: Heatington.Controllers.Interfaces
@@ -23,13 +30,6 @@ references:
   name: IReadWriteController
   nameWithType: IReadWriteController
   fullName: Heatington.Controllers.Interfaces.IReadWriteController
-- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize
-  commentId: T:Heatington.Controllers.Interfaces.ISerializeDeserialize
-  parent: Heatington.Controllers.Interfaces
-  href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html
-  name: ISerializeDeserialize
-  nameWithType: ISerializeDeserialize
-  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize
 - uid: Heatington.Controllers.Interfaces
   commentId: N:Heatington.Controllers.Interfaces
   href: Heatington.html

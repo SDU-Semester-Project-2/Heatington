@@ -11,9 +11,9 @@ items:
   - Heatington.AssetManager.AssetManager.ProductionUnits
   - Heatington.AssetManager.AssetManager.ReadHeatingUnits
   - Heatington.AssetManager.AssetManager.ToString
-  - Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnit)
-  - Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.AssetManager.ProductionUnit)
-  - Heatington.AssetManager.AssetManager.WriteHeatingUnit(System.Guid,Heatington.AssetManager.ProductionUnit)
+  - Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit)
+  - Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.Models.ProductionUnit)
+  - Heatington.AssetManager.AssetManager.WriteHeatingUnit(System.Guid,Heatington.Models.ProductionUnit)
   langs:
   - csharp
   - vb
@@ -24,11 +24,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: AssetManager
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 12
+    startLine: 13
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -63,11 +63,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatingGridInformation
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -75,7 +75,7 @@ items:
     content: public HeatingGrid? HeatingGridInformation { get; }
     parameters: []
     return:
-      type: Heatington.AssetManager.HeatingGrid
+      type: Heatington.Models.HeatingGrid
     content.vb: Public Property HeatingGridInformation As HeatingGrid
   overload: Heatington.AssetManager.AssetManager.HeatingGridInformation*
 - uid: Heatington.AssetManager.AssetManager.ProductionUnits
@@ -92,11 +92,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnits
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -104,7 +104,7 @@ items:
     content: public Dictionary<ProductionUnitsEnum, ProductionUnit>? ProductionUnits { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.AssetManager.ProductionUnit}
+      type: System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit}
     content.vb: Public Property ProductionUnits As Dictionary(Of ProductionUnitsEnum, ProductionUnit)
   overload: Heatington.AssetManager.AssetManager.ProductionUnits*
 - uid: Heatington.AssetManager.AssetManager.#ctor
@@ -121,11 +121,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 26
+    startLine: 27
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -150,11 +150,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LoadAssets
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 36
+    startLine: 37
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -178,39 +178,39 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadHeatingUnits
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 61
+    startLine: 62
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
   syntax:
     content: public Dictionary<ProductionUnitsEnum, ProductionUnit> ReadHeatingUnits()
     return:
-      type: System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.AssetManager.ProductionUnit}
+      type: System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit}
     content.vb: Public Function ReadHeatingUnits() As Dictionary(Of ProductionUnitsEnum, ProductionUnit)
   overload: Heatington.AssetManager.AssetManager.ReadHeatingUnits*
-- uid: Heatington.AssetManager.AssetManager.WriteHeatingUnit(System.Guid,Heatington.AssetManager.ProductionUnit)
-  commentId: M:Heatington.AssetManager.AssetManager.WriteHeatingUnit(System.Guid,Heatington.AssetManager.ProductionUnit)
-  id: WriteHeatingUnit(System.Guid,Heatington.AssetManager.ProductionUnit)
+- uid: Heatington.AssetManager.AssetManager.WriteHeatingUnit(System.Guid,Heatington.Models.ProductionUnit)
+  commentId: M:Heatington.AssetManager.AssetManager.WriteHeatingUnit(System.Guid,Heatington.Models.ProductionUnit)
+  id: WriteHeatingUnit(System.Guid,Heatington.Models.ProductionUnit)
   parent: Heatington.AssetManager.AssetManager
   langs:
   - csharp
   - vb
   name: WriteHeatingUnit(Guid, ProductionUnit)
   nameWithType: AssetManager.WriteHeatingUnit(Guid, ProductionUnit)
-  fullName: Heatington.AssetManager.AssetManager.WriteHeatingUnit(System.Guid, Heatington.AssetManager.ProductionUnit)
+  fullName: Heatington.AssetManager.AssetManager.WriteHeatingUnit(System.Guid, Heatington.Models.ProductionUnit)
   type: Method
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 82
+    startLine: 83
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -220,28 +220,28 @@ items:
     - id: unitId
       type: System.Guid
     - id: heatingUnitNewbBody
-      type: Heatington.AssetManager.ProductionUnit
+      type: Heatington.Models.ProductionUnit
     content.vb: Public Sub WriteHeatingUnit(unitId As Guid, heatingUnitNewbBody As ProductionUnit)
   overload: Heatington.AssetManager.AssetManager.WriteHeatingUnit*
-- uid: Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.AssetManager.ProductionUnit)
-  commentId: M:Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.AssetManager.ProductionUnit)
-  id: WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.AssetManager.ProductionUnit)
+- uid: Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit)
+  commentId: M:Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit)
+  id: WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit)
   parent: Heatington.AssetManager.AssetManager
   langs:
   - csharp
   - vb
   name: WriteHeatingUnit(ProductionUnitsEnum, ProductionUnit)
   nameWithType: AssetManager.WriteHeatingUnit(ProductionUnitsEnum, ProductionUnit)
-  fullName: Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum, Heatington.AssetManager.ProductionUnit)
+  fullName: Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum, Heatington.Models.ProductionUnit)
   type: Method
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 96
+    startLine: 97
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -251,28 +251,28 @@ items:
     - id: productionUnitKey
       type: Heatington.AssetManager.ProductionUnitsEnum
     - id: heatingUnitNewbBody
-      type: Heatington.AssetManager.ProductionUnit
+      type: Heatington.Models.ProductionUnit
     content.vb: Public Sub WriteHeatingUnit(productionUnitKey As ProductionUnitsEnum, heatingUnitNewbBody As ProductionUnit)
   overload: Heatington.AssetManager.AssetManager.WriteHeatingUnit*
-- uid: Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnit)
-  commentId: M:Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnit)
-  id: WriteHeatingUnit(Heatington.AssetManager.ProductionUnit)
+- uid: Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.Models.ProductionUnit)
+  commentId: M:Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.Models.ProductionUnit)
+  id: WriteHeatingUnit(Heatington.Models.ProductionUnit)
   parent: Heatington.AssetManager.AssetManager
   langs:
   - csharp
   - vb
   name: WriteHeatingUnit(ProductionUnit)
   nameWithType: AssetManager.WriteHeatingUnit(ProductionUnit)
-  fullName: Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.AssetManager.ProductionUnit)
+  fullName: Heatington.AssetManager.AssetManager.WriteHeatingUnit(Heatington.Models.ProductionUnit)
   type: Method
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 107
+    startLine: 108
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -280,7 +280,7 @@ items:
     content: public void WriteHeatingUnit(ProductionUnit editedHeatingUnit)
     parameters:
     - id: editedHeatingUnit
-      type: Heatington.AssetManager.ProductionUnit
+      type: Heatington.Models.ProductionUnit
     content.vb: Public Sub WriteHeatingUnit(editedHeatingUnit As ProductionUnit)
   overload: Heatington.AssetManager.AssetManager.WriteHeatingUnit*
 - uid: Heatington.AssetManager.AssetManager.ToString
@@ -297,11 +297,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 120
+    startLine: 121
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -557,29 +557,51 @@ references:
   name: HeatingGridInformation
   nameWithType: AssetManager.HeatingGridInformation
   fullName: Heatington.AssetManager.AssetManager.HeatingGridInformation
-- uid: Heatington.AssetManager.HeatingGrid
-  commentId: T:Heatington.AssetManager.HeatingGrid
-  parent: Heatington.AssetManager
-  href: Heatington.AssetManager.HeatingGrid.html
+- uid: Heatington.Models.HeatingGrid
+  commentId: T:Heatington.Models.HeatingGrid
+  parent: Heatington.Models
+  href: Heatington.Models.HeatingGrid.html
   name: HeatingGrid
   nameWithType: HeatingGrid
-  fullName: Heatington.AssetManager.HeatingGrid
+  fullName: Heatington.Models.HeatingGrid
+- uid: Heatington.Models
+  commentId: N:Heatington.Models
+  href: Heatington.html
+  name: Heatington.Models
+  nameWithType: Heatington.Models
+  fullName: Heatington.Models
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Models
+    name: Models
+    href: Heatington.Models.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Models
+    name: Models
+    href: Heatington.Models.html
 - uid: Heatington.AssetManager.AssetManager.ProductionUnits*
   commentId: Overload:Heatington.AssetManager.AssetManager.ProductionUnits
   href: Heatington.AssetManager.AssetManager.html#Heatington_AssetManager_AssetManager_ProductionUnits
   name: ProductionUnits
   nameWithType: AssetManager.ProductionUnits
   fullName: Heatington.AssetManager.AssetManager.ProductionUnits
-- uid: System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.AssetManager.ProductionUnit}
-  commentId: T:System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.AssetManager.ProductionUnit}
+- uid: System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit}
+  commentId: T:System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.Dictionary`2
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
   name: Dictionary<ProductionUnitsEnum, ProductionUnit>
   nameWithType: Dictionary<ProductionUnitsEnum, ProductionUnit>
-  fullName: System.Collections.Generic.Dictionary<Heatington.AssetManager.ProductionUnitsEnum, Heatington.AssetManager.ProductionUnit>
+  fullName: System.Collections.Generic.Dictionary<Heatington.AssetManager.ProductionUnitsEnum, Heatington.Models.ProductionUnit>
   nameWithType.vb: Dictionary(Of ProductionUnitsEnum, ProductionUnit)
-  fullName.vb: System.Collections.Generic.Dictionary(Of Heatington.AssetManager.ProductionUnitsEnum, Heatington.AssetManager.ProductionUnit)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Heatington.AssetManager.ProductionUnitsEnum, Heatington.Models.ProductionUnit)
   name.vb: Dictionary(Of ProductionUnitsEnum, ProductionUnit)
   spec.csharp:
   - uid: System.Collections.Generic.Dictionary`2
@@ -592,9 +614,9 @@ references:
     href: Heatington.AssetManager.ProductionUnitsEnum.html
   - name: ','
   - name: " "
-  - uid: Heatington.AssetManager.ProductionUnit
+  - uid: Heatington.Models.ProductionUnit
     name: ProductionUnit
-    href: Heatington.AssetManager.ProductionUnit.html
+    href: Heatington.Models.ProductionUnit.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.Dictionary`2
@@ -609,9 +631,9 @@ references:
     href: Heatington.AssetManager.ProductionUnitsEnum.html
   - name: ','
   - name: " "
-  - uid: Heatington.AssetManager.ProductionUnit
+  - uid: Heatington.Models.ProductionUnit
     name: ProductionUnit
-    href: Heatington.AssetManager.ProductionUnit.html
+    href: Heatington.Models.ProductionUnit.html
   - name: )
 - uid: System.Collections.Generic.Dictionary`2
   commentId: T:System.Collections.Generic.Dictionary`2
@@ -752,7 +774,7 @@ references:
   fullName: Heatington.AssetManager.AssetManager.ReadHeatingUnits
 - uid: Heatington.AssetManager.AssetManager.WriteHeatingUnit*
   commentId: Overload:Heatington.AssetManager.AssetManager.WriteHeatingUnit
-  href: Heatington.AssetManager.AssetManager.html#Heatington_AssetManager_AssetManager_WriteHeatingUnit_System_Guid_Heatington_AssetManager_ProductionUnit_
+  href: Heatington.AssetManager.AssetManager.html#Heatington_AssetManager_AssetManager_WriteHeatingUnit_System_Guid_Heatington_Models_ProductionUnit_
   name: WriteHeatingUnit
   nameWithType: AssetManager.WriteHeatingUnit
   fullName: Heatington.AssetManager.AssetManager.WriteHeatingUnit
@@ -764,13 +786,13 @@ references:
   name: Guid
   nameWithType: Guid
   fullName: System.Guid
-- uid: Heatington.AssetManager.ProductionUnit
-  commentId: T:Heatington.AssetManager.ProductionUnit
-  parent: Heatington.AssetManager
-  href: Heatington.AssetManager.ProductionUnit.html
+- uid: Heatington.Models.ProductionUnit
+  commentId: T:Heatington.Models.ProductionUnit
+  parent: Heatington.Models
+  href: Heatington.Models.ProductionUnit.html
   name: ProductionUnit
   nameWithType: ProductionUnit
-  fullName: Heatington.AssetManager.ProductionUnit
+  fullName: Heatington.Models.ProductionUnit
 - uid: Heatington.AssetManager.ProductionUnitsEnum
   commentId: T:Heatington.AssetManager.ProductionUnitsEnum
   parent: Heatington.AssetManager

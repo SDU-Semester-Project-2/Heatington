@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/Enums/OperationStatus.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OperationStatus
     path: Heatington/Controllers/Enums/OperationStatus.cs
@@ -45,7 +45,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/Enums/OperationStatus.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SUCCESS
     path: Heatington/Controllers/Enums/OperationStatus.cs
@@ -71,7 +71,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/Enums/OperationStatus.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LOADING
     path: Heatington/Controllers/Enums/OperationStatus.cs
@@ -97,7 +97,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/Enums/OperationStatus.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FAILURE
     path: Heatington/Controllers/Enums/OperationStatus.cs

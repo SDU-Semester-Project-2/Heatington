@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Services.Interfaces
+  commentId: N:Heatington.Services.Interfaces
+  id: Heatington.Services.Interfaces
+  children:
+  - Heatington.Services.Interfaces.ISerializeDeserialize
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Services.Interfaces
+  nameWithType: Heatington.Services.Interfaces
+  fullName: Heatington.Services.Interfaces
+  type: Namespace
+  assemblies:
+  - Heatington
+references:
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize
+  commentId: T:Heatington.Services.Interfaces.ISerializeDeserialize
+  parent: Heatington.Services.Interfaces
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html
+  name: ISerializeDeserialize
+  nameWithType: ISerializeDeserialize
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize
+- uid: Heatington.Services.Interfaces
+  commentId: N:Heatington.Services.Interfaces
+  href: Heatington.html
+  name: Heatington.Services.Interfaces
+  nameWithType: Heatington.Services.Interfaces
+  fullName: Heatington.Services.Interfaces
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Interfaces
+    name: Interfaces
+    href: Heatington.Services.Interfaces.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Interfaces
+    name: Interfaces
+    href: Heatington.Services.Interfaces.html
