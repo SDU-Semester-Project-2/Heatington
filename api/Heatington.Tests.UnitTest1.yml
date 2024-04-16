@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/UnitTest1.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: UnitTest1
     path: Heatington.Tests/UnitTest1.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/UnitTest1.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Test1
     path: Heatington.Tests/UnitTest1.cs
