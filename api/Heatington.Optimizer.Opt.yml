@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Opt
     path: Heatington/Optimizer/Optimizer.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Results
     path: Heatington/Optimizer/Optimizer.cs
@@ -86,7 +86,7 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LoadData
     path: Heatington/Optimizer/Optimizer.cs
@@ -112,7 +112,7 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OptimizeScenario1
     path: Heatington/Optimizer/Optimizer.cs
@@ -138,11 +138,11 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CalculateNetProductionCost
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 132
+    startLine: 133
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
@@ -164,11 +164,11 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogResults
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 153
+    startLine: 154
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
@@ -190,11 +190,11 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogDataPoints
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 177
+    startLine: 182
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
@@ -216,11 +216,11 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogProductionUnits
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 202
+    startLine: 207
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer

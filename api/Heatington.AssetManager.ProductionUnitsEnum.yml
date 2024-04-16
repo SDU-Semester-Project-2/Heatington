@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnitsEnum
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -44,7 +44,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GasBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -70,7 +70,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OilBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -96,7 +96,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GasMotor
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -122,7 +122,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs

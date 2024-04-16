@@ -5,8 +5,6 @@ items:
   id: Heatington.AssetManager
   children:
   - Heatington.AssetManager.AssetManager
-  - Heatington.AssetManager.HeatingGrid
-  - Heatington.AssetManager.ProductionUnit
   - Heatington.AssetManager.ProductionUnitsEnum
   langs:
   - csharp
@@ -31,20 +29,6 @@ references:
   name: ProductionUnitsEnum
   nameWithType: ProductionUnitsEnum
   fullName: Heatington.AssetManager.ProductionUnitsEnum
-- uid: Heatington.AssetManager.HeatingGrid
-  commentId: T:Heatington.AssetManager.HeatingGrid
-  parent: Heatington.AssetManager
-  href: Heatington.AssetManager.HeatingGrid.html
-  name: HeatingGrid
-  nameWithType: HeatingGrid
-  fullName: Heatington.AssetManager.HeatingGrid
-- uid: Heatington.AssetManager.ProductionUnit
-  commentId: T:Heatington.AssetManager.ProductionUnit
-  parent: Heatington.AssetManager
-  href: Heatington.AssetManager.ProductionUnit.html
-  name: ProductionUnit
-  nameWithType: ProductionUnit
-  fullName: Heatington.AssetManager.ProductionUnit
 - uid: Heatington.AssetManager
   commentId: N:Heatington.AssetManager
   href: Heatington.html
