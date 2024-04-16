@@ -1,36 +1,35 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Heatington.Helpers.Utilities
-  commentId: T:Heatington.Helpers.Utilities
-  id: Utilities
-  parent: Heatington.Helpers
+- uid: Heatington.Models.HeatingGrid
+  commentId: T:Heatington.Models.HeatingGrid
+  id: HeatingGrid
+  parent: Heatington.Models
   children:
-  - Heatington.Helpers.Utilities.ConvertObject``1(System.Object)
-  - Heatington.Helpers.Utilities.DisplayException(System.String)
-  - Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory(System.String)
-  - Heatington.Helpers.Utilities.GetAbsolutePathToAssetsDirectory
-  - Heatington.Helpers.Utilities.ToString
+  - Heatington.Models.HeatingGrid.#ctor(System.String,System.String)
+  - Heatington.Models.HeatingGrid.Id
+  - Heatington.Models.HeatingGrid.Name
+  - Heatington.Models.HeatingGrid.PicturePath
   langs:
   - csharp
   - vb
-  name: Utilities
-  nameWithType: Utilities
-  fullName: Heatington.Helpers.Utilities
+  name: HeatingGrid
+  nameWithType: HeatingGrid
+  fullName: Heatington.Models.HeatingGrid
   type: Class
   source:
     remote:
-      path: Heatington/Helpers/Utilities.cs
+      path: Heatington/Models/HeatingGrid.cs
       branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: Utilities
-    path: Heatington/Helpers/Utilities.cs
-    startLine: 5
+    id: HeatingGrid
+    path: Heatington/Models/HeatingGrid.cs
+    startLine: 2
   assemblies:
   - Heatington
-  namespace: Heatington.Helpers
+  namespace: Heatington.Models
   syntax:
-    content: public static class Utilities
-    content.vb: Public Module Utilities
+    content: public class HeatingGrid
+    content.vb: Public Class HeatingGrid
   inheritance:
   - System.Object
   inheritedMembers:
@@ -40,187 +39,151 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Heatington.Helpers.Utilities.DisplayException(System.String)
-  commentId: M:Heatington.Helpers.Utilities.DisplayException(System.String)
-  id: DisplayException(System.String)
-  parent: Heatington.Helpers.Utilities
+  - System.Object.ToString
+- uid: Heatington.Models.HeatingGrid.Id
+  commentId: P:Heatington.Models.HeatingGrid.Id
+  id: Id
+  parent: Heatington.Models.HeatingGrid
   langs:
   - csharp
   - vb
-  name: DisplayException(string)
-  nameWithType: Utilities.DisplayException(string)
-  fullName: Heatington.Helpers.Utilities.DisplayException(string)
-  type: Method
+  name: Id
+  nameWithType: HeatingGrid.Id
+  fullName: Heatington.Models.HeatingGrid.Id
+  type: Property
   source:
     remote:
-      path: Heatington/Helpers/Utilities.cs
+      path: Heatington/Models/HeatingGrid.cs
       branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: DisplayException
-    path: Heatington/Helpers/Utilities.cs
-    startLine: 7
+    id: Id
+    path: Heatington/Models/HeatingGrid.cs
+    startLine: 4
   assemblies:
   - Heatington
-  namespace: Heatington.Helpers
+  namespace: Heatington.Models
   syntax:
-    content: public static void DisplayException(string message)
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: Heatington.Models.HeatingGrid.Id*
+- uid: Heatington.Models.HeatingGrid.PicturePath
+  commentId: P:Heatington.Models.HeatingGrid.PicturePath
+  id: PicturePath
+  parent: Heatington.Models.HeatingGrid
+  langs:
+  - csharp
+  - vb
+  name: PicturePath
+  nameWithType: HeatingGrid.PicturePath
+  fullName: Heatington.Models.HeatingGrid.PicturePath
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/HeatingGrid.cs
+      branch: SP2-95-Create-ResultDataManager-class
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: PicturePath
+    path: Heatington/Models/HeatingGrid.cs
+    startLine: 5
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: public string PicturePath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PicturePath As String
+  overload: Heatington.Models.HeatingGrid.PicturePath*
+- uid: Heatington.Models.HeatingGrid.Name
+  commentId: P:Heatington.Models.HeatingGrid.Name
+  id: Name
+  parent: Heatington.Models.HeatingGrid
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: HeatingGrid.Name
+  fullName: Heatington.Models.HeatingGrid.Name
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/HeatingGrid.cs
+      branch: SP2-95-Create-ResultDataManager-class
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Name
+    path: Heatington/Models/HeatingGrid.cs
+    startLine: 6
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Heatington.Models.HeatingGrid.Name*
+- uid: Heatington.Models.HeatingGrid.#ctor(System.String,System.String)
+  commentId: M:Heatington.Models.HeatingGrid.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: Heatington.Models.HeatingGrid
+  langs:
+  - csharp
+  - vb
+  name: HeatingGrid(string, string)
+  nameWithType: HeatingGrid.HeatingGrid(string, string)
+  fullName: Heatington.Models.HeatingGrid.HeatingGrid(string, string)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Models/HeatingGrid.cs
+      branch: SP2-95-Create-ResultDataManager-class
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Models/HeatingGrid.cs
+    startLine: 8
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: public HeatingGrid(string picturePath, string name)
     parameters:
-    - id: message
+    - id: picturePath
       type: System.String
-    content.vb: Public Shared Sub DisplayException(message As String)
-  overload: Heatington.Helpers.Utilities.DisplayException*
-  nameWithType.vb: Utilities.DisplayException(String)
-  fullName.vb: Heatington.Helpers.Utilities.DisplayException(String)
-  name.vb: DisplayException(String)
-- uid: Heatington.Helpers.Utilities.ConvertObject``1(System.Object)
-  commentId: M:Heatington.Helpers.Utilities.ConvertObject``1(System.Object)
-  id: ConvertObject``1(System.Object)
-  parent: Heatington.Helpers.Utilities
-  langs:
-  - csharp
-  - vb
-  name: ConvertObject<T>(object?)
-  nameWithType: Utilities.ConvertObject<T>(object?)
-  fullName: Heatington.Helpers.Utilities.ConvertObject<T>(object?)
-  type: Method
-  source:
-    remote:
-      path: Heatington/Helpers/Utilities.cs
-      branch: SP2-95-Create-ResultDataManager-class
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: ConvertObject
-    path: Heatington/Helpers/Utilities.cs
-    startLine: 13
-  assemblies:
-  - Heatington
-  namespace: Heatington.Helpers
-  syntax:
-    content: public static T ConvertObject<T>(object? obj)
-    parameters:
-    - id: obj
-      type: System.Object
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Shared Function ConvertObject(Of T)(obj As Object) As T
-  overload: Heatington.Helpers.Utilities.ConvertObject*
-  nameWithType.vb: Utilities.ConvertObject(Of T)(Object)
-  fullName.vb: Heatington.Helpers.Utilities.ConvertObject(Of T)(Object)
-  name.vb: ConvertObject(Of T)(Object)
-- uid: Heatington.Helpers.Utilities.GetAbsolutePathToAssetsDirectory
-  commentId: M:Heatington.Helpers.Utilities.GetAbsolutePathToAssetsDirectory
-  id: GetAbsolutePathToAssetsDirectory
-  parent: Heatington.Helpers.Utilities
-  langs:
-  - csharp
-  - vb
-  name: GetAbsolutePathToAssetsDirectory()
-  nameWithType: Utilities.GetAbsolutePathToAssetsDirectory()
-  fullName: Heatington.Helpers.Utilities.GetAbsolutePathToAssetsDirectory()
-  type: Method
-  source:
-    remote:
-      path: Heatington/Helpers/Utilities.cs
-      branch: SP2-95-Create-ResultDataManager-class
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: GetAbsolutePathToAssetsDirectory
-    path: Heatington/Helpers/Utilities.cs
-    startLine: 18
-  assemblies:
-  - Heatington
-  namespace: Heatington.Helpers
-  syntax:
-    content: public static string GetAbsolutePathToAssetsDirectory()
-    return:
+    - id: name
       type: System.String
-    content.vb: Public Shared Function GetAbsolutePathToAssetsDirectory() As String
-  overload: Heatington.Helpers.Utilities.GetAbsolutePathToAssetsDirectory*
-- uid: Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory(System.String)
-  commentId: M:Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory(System.String)
-  id: GeneratePathToFileInAssetsDirectory(System.String)
-  parent: Heatington.Helpers.Utilities
-  langs:
-  - csharp
-  - vb
-  name: GeneratePathToFileInAssetsDirectory(string)
-  nameWithType: Utilities.GeneratePathToFileInAssetsDirectory(string)
-  fullName: Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory(string)
-  type: Method
-  source:
-    remote:
-      path: Heatington/Helpers/Utilities.cs
-      branch: SP2-95-Create-ResultDataManager-class
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: GeneratePathToFileInAssetsDirectory
-    path: Heatington/Helpers/Utilities.cs
-    startLine: 36
-  assemblies:
-  - Heatington
-  namespace: Heatington.Helpers
-  syntax:
-    content: public static string GeneratePathToFileInAssetsDirectory(string fileName)
-    parameters:
-    - id: fileName
-      type: System.String
-    return:
-      type: System.String
-    content.vb: Public Shared Function GeneratePathToFileInAssetsDirectory(fileName As String) As String
-  overload: Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory*
-  nameWithType.vb: Utilities.GeneratePathToFileInAssetsDirectory(String)
-  fullName.vb: Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory(String)
-  name.vb: GeneratePathToFileInAssetsDirectory(String)
-- uid: Heatington.Helpers.Utilities.ToString
-  commentId: M:Heatington.Helpers.Utilities.ToString
-  id: ToString
-  parent: Heatington.Helpers.Utilities
-  langs:
-  - csharp
-  - vb
-  name: ToString()
-  nameWithType: Utilities.ToString()
-  fullName: Heatington.Helpers.Utilities.ToString()
-  type: Method
-  source:
-    remote:
-      path: Heatington/Helpers/Utilities.cs
-      branch: SP2-95-Create-ResultDataManager-class
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: ToString
-    path: Heatington/Helpers/Utilities.cs
-    startLine: 41
-  assemblies:
-  - Heatington
-  namespace: Heatington.Helpers
-  syntax:
-    content: public static string ToString()
-    return:
-      type: System.String
-    content.vb: Public Shared Function ToString() As String
-  overload: Heatington.Helpers.Utilities.ToString*
+    content.vb: Public Sub New(picturePath As String, name As String)
+  overload: Heatington.Models.HeatingGrid.#ctor*
+  nameWithType.vb: HeatingGrid.New(String, String)
+  fullName.vb: Heatington.Models.HeatingGrid.New(String, String)
+  name.vb: New(String, String)
 references:
-- uid: Heatington.Helpers
-  commentId: N:Heatington.Helpers
+- uid: Heatington.Models
+  commentId: N:Heatington.Models
   href: Heatington.html
-  name: Heatington.Helpers
-  nameWithType: Heatington.Helpers
-  fullName: Heatington.Helpers
+  name: Heatington.Models
+  nameWithType: Heatington.Models
+  fullName: Heatington.Models
   spec.csharp:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Helpers
-    name: Helpers
-    href: Heatington.Helpers.html
+  - uid: Heatington.Models
+    name: Models
+    href: Heatington.Models.html
   spec.vb:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Helpers
-    name: Helpers
-    href: Heatington.Helpers.html
+  - uid: Heatington.Models
+    name: Models
+    href: Heatington.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -427,6 +390,30 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -434,12 +421,26 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Heatington.Helpers.Utilities.DisplayException*
-  commentId: Overload:Heatington.Helpers.Utilities.DisplayException
-  href: Heatington.Helpers.Utilities.html#Heatington_Helpers_Utilities_DisplayException_System_String_
-  name: DisplayException
-  nameWithType: Utilities.DisplayException
-  fullName: Heatington.Helpers.Utilities.DisplayException
+- uid: Heatington.Models.HeatingGrid.Id*
+  commentId: Overload:Heatington.Models.HeatingGrid.Id
+  href: Heatington.Models.HeatingGrid.html#Heatington_Models_HeatingGrid_Id
+  name: Id
+  nameWithType: HeatingGrid.Id
+  fullName: Heatington.Models.HeatingGrid.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Heatington.Models.HeatingGrid.PicturePath*
+  commentId: Overload:Heatington.Models.HeatingGrid.PicturePath
+  href: Heatington.Models.HeatingGrid.html#Heatington_Models_HeatingGrid_PicturePath
+  name: PicturePath
+  nameWithType: HeatingGrid.PicturePath
+  fullName: Heatington.Models.HeatingGrid.PicturePath
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -451,37 +452,18 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Heatington.Helpers.Utilities.ConvertObject*
-  commentId: Overload:Heatington.Helpers.Utilities.ConvertObject
-  href: Heatington.Helpers.Utilities.html#Heatington_Helpers_Utilities_ConvertObject__1_System_Object_
-  name: ConvertObject
-  nameWithType: Utilities.ConvertObject
-  fullName: Heatington.Helpers.Utilities.ConvertObject
-- uid: '{T}'
-  commentId: '!:T'
-  definition: T
-  name: T
-  nameWithType: T
-  fullName: T
-- uid: T
-  name: T
-  nameWithType: T
-  fullName: T
-- uid: Heatington.Helpers.Utilities.GetAbsolutePathToAssetsDirectory*
-  commentId: Overload:Heatington.Helpers.Utilities.GetAbsolutePathToAssetsDirectory
-  href: Heatington.Helpers.Utilities.html#Heatington_Helpers_Utilities_GetAbsolutePathToAssetsDirectory
-  name: GetAbsolutePathToAssetsDirectory
-  nameWithType: Utilities.GetAbsolutePathToAssetsDirectory
-  fullName: Heatington.Helpers.Utilities.GetAbsolutePathToAssetsDirectory
-- uid: Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory*
-  commentId: Overload:Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory
-  href: Heatington.Helpers.Utilities.html#Heatington_Helpers_Utilities_GeneratePathToFileInAssetsDirectory_System_String_
-  name: GeneratePathToFileInAssetsDirectory
-  nameWithType: Utilities.GeneratePathToFileInAssetsDirectory
-  fullName: Heatington.Helpers.Utilities.GeneratePathToFileInAssetsDirectory
-- uid: Heatington.Helpers.Utilities.ToString*
-  commentId: Overload:Heatington.Helpers.Utilities.ToString
-  href: Heatington.Helpers.Utilities.html#Heatington_Helpers_Utilities_ToString
-  name: ToString
-  nameWithType: Utilities.ToString
-  fullName: Heatington.Helpers.Utilities.ToString
+- uid: Heatington.Models.HeatingGrid.Name*
+  commentId: Overload:Heatington.Models.HeatingGrid.Name
+  href: Heatington.Models.HeatingGrid.html#Heatington_Models_HeatingGrid_Name
+  name: Name
+  nameWithType: HeatingGrid.Name
+  fullName: Heatington.Models.HeatingGrid.Name
+- uid: Heatington.Models.HeatingGrid.#ctor*
+  commentId: Overload:Heatington.Models.HeatingGrid.#ctor
+  href: Heatington.Models.HeatingGrid.html#Heatington_Models_HeatingGrid__ctor_System_String_System_String_
+  name: HeatingGrid
+  nameWithType: HeatingGrid.HeatingGrid
+  fullName: Heatington.Models.HeatingGrid.HeatingGrid
+  nameWithType.vb: HeatingGrid.New
+  fullName.vb: Heatington.Models.HeatingGrid.New
+  name.vb: New

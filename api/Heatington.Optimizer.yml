@@ -17,7 +17,30 @@ items:
 references:
 - uid: Heatington.Optimizer.Opt
   commentId: T:Heatington.Optimizer.Opt
+  parent: Heatington.Optimizer
   href: Heatington.Optimizer.Opt.html
   name: Opt
   nameWithType: Opt
   fullName: Heatington.Optimizer.Opt
+- uid: Heatington.Optimizer
+  commentId: N:Heatington.Optimizer
+  href: Heatington.html
+  name: Heatington.Optimizer
+  nameWithType: Heatington.Optimizer
+  fullName: Heatington.Optimizer
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Optimizer
+    name: Optimizer
+    href: Heatington.Optimizer.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Optimizer
+    name: Optimizer
+    href: Heatington.Optimizer.html

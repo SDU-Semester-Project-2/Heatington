@@ -21,11 +21,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: JsonController
     path: Heatington/Controllers/JsonController.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -35,7 +35,7 @@ items:
   inheritance:
   - System.Object
   implements:
-  - Heatington.Controllers.Interfaces.ISerializeDeserialize
+  - Heatington.Services.Interfaces.ISerializeDeserialize
   - Heatington.Controllers.Interfaces.IReadWriteController
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -58,11 +58,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Controllers/JsonController.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -90,11 +90,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadData
     path: Heatington/Controllers/JsonController.cs
-    startLine: 14
+    startLine: 15
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -126,11 +126,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteData
     path: Heatington/Controllers/JsonController.cs
-    startLine: 22
+    startLine: 23
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -165,11 +165,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Controllers/JsonController.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -199,11 +199,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Serialize
     path: Heatington/Controllers/JsonController.cs
-    startLine: 32
+    startLine: 34
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -220,7 +220,7 @@ items:
     content.vb: Public Shared Function Serialize(Of T)(obj As T) As String
   overload: Heatington.Controllers.JsonController.Serialize*
   implements:
-  - Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1({T})
+  - Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1({T})
   nameWithType.vb: JsonController.Serialize(Of T)(T)
   fullName.vb: Heatington.Controllers.JsonController.Serialize(Of T)(T)
   name.vb: Serialize(Of T)(T)
@@ -238,11 +238,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize
     path: Heatington/Controllers/JsonController.cs
-    startLine: 53
+    startLine: 55
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -259,7 +259,7 @@ items:
     content.vb: Public Shared Function Deserialize(Of T)(file As String) As T
   overload: Heatington.Controllers.JsonController.Deserialize*
   implements:
-  - Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  - Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
   nameWithType.vb: JsonController.Deserialize(Of T)(String)
   fullName.vb: Heatington.Controllers.JsonController.Deserialize(Of T)(String)
   name.vb: Deserialize(Of T)(String)
@@ -297,13 +297,13 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize
-  commentId: T:Heatington.Controllers.Interfaces.ISerializeDeserialize
-  parent: Heatington.Controllers.Interfaces
-  href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize
+  commentId: T:Heatington.Services.Interfaces.ISerializeDeserialize
+  parent: Heatington.Services.Interfaces
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html
   name: ISerializeDeserialize
   nameWithType: ISerializeDeserialize
-  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize
 - uid: Heatington.Controllers.Interfaces.IReadWriteController
   commentId: T:Heatington.Controllers.Interfaces.IReadWriteController
   parent: Heatington.Controllers.Interfaces
@@ -513,6 +513,36 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Heatington.Services.Interfaces
+  commentId: N:Heatington.Services.Interfaces
+  href: Heatington.html
+  name: Heatington.Services.Interfaces
+  nameWithType: Heatington.Services.Interfaces
+  fullName: Heatington.Services.Interfaces
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Interfaces
+    name: Interfaces
+    href: Heatington.Services.Interfaces.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Interfaces
+    name: Interfaces
+    href: Heatington.Services.Interfaces.html
 - uid: Heatington.Controllers.Interfaces
   commentId: N:Heatington.Controllers.Interfaces
   href: Heatington.html
@@ -861,21 +891,21 @@ references:
   name: Serialize
   nameWithType: JsonController.Serialize
   fullName: Heatington.Controllers.JsonController.Serialize
-- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1({T})
-  commentId: M:Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-  parent: Heatington.Controllers.Interfaces.ISerializeDeserialize
-  definition: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-  href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Serialize__1___0_
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1({T})
+  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  parent: Heatington.Services.Interfaces.ISerializeDeserialize
+  definition: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
   name: Serialize<T>(T)
   nameWithType: ISerializeDeserialize.Serialize<T>(T)
-  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize<T>(T)
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize<T>(T)
   nameWithType.vb: ISerializeDeserialize.Serialize(Of T)(T)
-  fullName.vb: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
+  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
   name.vb: Serialize(Of T)(T)
   spec.csharp:
-  - uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
     name: Serialize
-    href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Serialize__1___0_
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
   - name: <
   - name: T
   - name: '>'
@@ -883,9 +913,9 @@ references:
   - name: T
   - name: )
   spec.vb:
-  - uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
     name: Serialize
-    href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Serialize__1___0_
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
   - name: (
   - name: Of
   - name: " "
@@ -894,19 +924,19 @@ references:
   - name: (
   - name: T
   - name: )
-- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-  commentId: M:Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-  href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Serialize__1___0_
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
   name: Serialize<T>(T)
   nameWithType: ISerializeDeserialize.Serialize<T>(T)
-  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize<T>(T)
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize<T>(T)
   nameWithType.vb: ISerializeDeserialize.Serialize(Of T)(T)
-  fullName.vb: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
+  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
   name.vb: Serialize(Of T)(T)
   spec.csharp:
-  - uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
     name: Serialize
-    href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Serialize__1___0_
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
   - name: <
   - name: T
   - name: '>'
@@ -914,9 +944,9 @@ references:
   - name: T
   - name: )
   spec.vb:
-  - uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
     name: Serialize
-    href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Serialize__1___0_
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
   - name: (
   - name: Of
   - name: " "
@@ -931,21 +961,21 @@ references:
   name: Deserialize
   nameWithType: JsonController.Deserialize
   fullName: Heatington.Controllers.JsonController.Deserialize
-- uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
-  commentId: M:Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
-  parent: Heatington.Controllers.Interfaces.ISerializeDeserialize
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  parent: Heatington.Services.Interfaces.ISerializeDeserialize
   isExternal: true
-  href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
   name: Deserialize<T>(string)
   nameWithType: ISerializeDeserialize.Deserialize<T>(string)
-  fullName: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize<T>(string)
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize<T>(string)
   nameWithType.vb: ISerializeDeserialize.Deserialize(Of T)(String)
-  fullName.vb: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize(Of T)(String)
+  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize(Of T)(String)
   name.vb: Deserialize(Of T)(String)
   spec.csharp:
-  - uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
     name: Deserialize
-    href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
   - name: <
   - name: T
   - name: '>'
@@ -956,9 +986,9 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
   spec.vb:
-  - uid: Heatington.Controllers.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
     name: Deserialize
-    href: Heatington.Controllers.Interfaces.ISerializeDeserialize.html#Heatington_Controllers_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
   - name: (
   - name: Of
   - name: " "

@@ -5,10 +5,6 @@ items:
   items:
   - uid: Heatington.AssetManager.AssetManager
     name: AssetManager
-  - uid: Heatington.AssetManager.HeatingGrid
-    name: HeatingGrid
-  - uid: Heatington.AssetManager.ProductionUnit
-    name: ProductionUnit
   - uid: Heatington.AssetManager.ProductionUnitsEnum
     name: ProductionUnitsEnum
 - uid: Heatington.Controllers
@@ -30,20 +26,10 @@ items:
 - uid: Heatington.Controllers.Interfaces
   name: Heatington.Controllers.Interfaces
   items:
+  - uid: Heatington.Controllers.Interfaces.IDataSource
+    name: IDataSource
   - uid: Heatington.Controllers.Interfaces.IReadWriteController
     name: IReadWriteController
-  - uid: Heatington.Controllers.Interfaces.ISerializeDeserialize
-    name: ISerializeDeserialize
-- uid: Heatington.Controllers.Serializers
-  name: Heatington.Controllers.Serializers
-  items:
-  - uid: Heatington.Controllers.Serializers.CsvConstructorAttribute
-    name: CsvConstructorAttribute
-- uid: Heatington.Data
-  name: Heatington.Data
-  items:
-  - uid: Heatington.Data.IDataSource
-    name: IDataSource
 - uid: Heatington.Helpers
   name: Heatington.Helpers
   items:
@@ -54,6 +40,10 @@ items:
   items:
   - uid: Heatington.Models.DataPoint
     name: DataPoint
+  - uid: Heatington.Models.HeatingGrid
+    name: HeatingGrid
+  - uid: Heatington.Models.ProductionUnit
+    name: ProductionUnit
   - uid: Heatington.Models.ResultHolder
     name: ResultHolder
 - uid: Heatington.Optimizer
@@ -61,6 +51,21 @@ items:
   items:
   - uid: Heatington.Optimizer.Opt
     name: Opt
+- uid: Heatington.ResultDataManager
+  name: Heatington.ResultDataManager
+  items:
+  - uid: Heatington.ResultDataManager.ResultDataManager
+    name: ResultDataManager
+- uid: Heatington.Services.Interfaces
+  name: Heatington.Services.Interfaces
+  items:
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize
+    name: ISerializeDeserialize
+- uid: Heatington.Services.Serializers
+  name: Heatington.Services.Serializers
+  items:
+  - uid: Heatington.Services.Serializers.CsvConstructorAttribute
+    name: CsvConstructorAttribute
 - uid: Heatington.SourceDataManager
   name: Heatington.SourceDataManager
   items:

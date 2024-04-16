@@ -5,8 +5,10 @@ items:
   id: CsvController
   parent: Heatington.Controllers
   children:
-  - Heatington.Controllers.CsvController.GetDataAsync(System.String)
-  - Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
+  - Heatington.Controllers.CsvController.#ctor(System.String)
+  - Heatington.Controllers.CsvController.GetDataAsync
+  - Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  - Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
   langs:
   - csharp
   - vb
@@ -17,21 +19,23 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CsvController
     path: Heatington/Controllers/CsvController.cs
-    startLine: 7
+    startLine: 11
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
+  summary: Class for controlling a csv file
+  example: []
   syntax:
     content: 'public class CsvController : IDataSource'
     content.vb: Public Class CsvController Implements IDataSource
   inheritance:
   - System.Object
   implements:
-  - Heatington.Data.IDataSource
+  - Heatington.Controllers.Interfaces.IDataSource
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -40,80 +44,139 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Heatington.Controllers.CsvController.GetDataAsync(System.String)
-  commentId: M:Heatington.Controllers.CsvController.GetDataAsync(System.String)
-  id: GetDataAsync(System.String)
+- uid: Heatington.Controllers.CsvController.#ctor(System.String)
+  commentId: M:Heatington.Controllers.CsvController.#ctor(System.String)
+  id: '#ctor(System.String)'
   parent: Heatington.Controllers.CsvController
   langs:
   - csharp
   - vb
-  name: GetDataAsync(string)
-  nameWithType: CsvController.GetDataAsync(string)
-  fullName: Heatington.Controllers.CsvController.GetDataAsync(string)
+  name: CsvController(string)
+  nameWithType: CsvController.CsvController(string)
+  fullName: Heatington.Controllers.CsvController.CsvController(string)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Controllers/CsvController.cs
+      branch: SP2-95-Create-ResultDataManager-class
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Controllers/CsvController.cs
+    startLine: 11
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  summary: Class for controlling a csv file
+  example: []
+  syntax:
+    content: public CsvController(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+      description: Path to a file to control
+    content.vb: Public Sub New(filePath As String)
+  overload: Heatington.Controllers.CsvController.#ctor*
+  nameWithType.vb: CsvController.New(String)
+  fullName.vb: Heatington.Controllers.CsvController.New(String)
+  name.vb: New(String)
+- uid: Heatington.Controllers.CsvController.GetDataAsync
+  commentId: M:Heatington.Controllers.CsvController.GetDataAsync
+  id: GetDataAsync
+  parent: Heatington.Controllers.CsvController
+  langs:
+  - csharp
+  - vb
+  name: GetDataAsync()
+  nameWithType: CsvController.GetDataAsync()
+  fullName: Heatington.Controllers.CsvController.GetDataAsync()
   type: Method
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GetDataAsync
     path: Heatington/Controllers/CsvController.cs
-    startLine: 9
+    startLine: 15
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
   example: []
   syntax:
-    content: public Task<List<DataPoint>?> GetDataAsync(string filePath)
-    parameters:
-    - id: filePath
-      type: System.String
+    content: public Task<List<DataPoint>?> GetDataAsync()
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
-    content.vb: Public Function GetDataAsync(filePath As String) As Task(Of List(Of DataPoint))
+    content.vb: Public Function GetDataAsync() As Task(Of List(Of DataPoint))
   overload: Heatington.Controllers.CsvController.GetDataAsync*
   implements:
-  - Heatington.Data.IDataSource.GetDataAsync(System.String)
-  nameWithType.vb: CsvController.GetDataAsync(String)
-  fullName.vb: Heatington.Controllers.CsvController.GetDataAsync(String)
-  name.vb: GetDataAsync(String)
-- uid: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
-  commentId: M:Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
-  id: SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
+  - Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
+- uid: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  commentId: M:Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  id: SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
   parent: Heatington.Controllers.CsvController
   langs:
   - csharp
   - vb
-  name: SaveData(List<DataPoint>, string)
-  nameWithType: CsvController.SaveData(List<DataPoint>, string)
-  fullName: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>, string)
+  name: SaveData(List<DataPoint>)
+  nameWithType: CsvController.SaveData(List<DataPoint>)
+  fullName: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>)
   type: Method
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SaveData
     path: Heatington/Controllers/CsvController.cs
-    startLine: 25
+    startLine: 30
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
   example: []
   syntax:
-    content: public void SaveData(List<DataPoint> data, string filePath)
+    content: public void SaveData(List<DataPoint> data)
     parameters:
     - id: data
       type: System.Collections.Generic.List{Heatington.Models.DataPoint}
-    - id: filePath
-      type: System.String
-    content.vb: Public Sub SaveData(data As List(Of DataPoint), filePath As String)
+    content.vb: Public Sub SaveData(data As List(Of DataPoint))
   overload: Heatington.Controllers.CsvController.SaveData*
   implements:
-  - Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
-  nameWithType.vb: CsvController.SaveData(List(Of DataPoint), String)
-  fullName.vb: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint), String)
-  name.vb: SaveData(List(Of DataPoint), String)
+  - Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  nameWithType.vb: CsvController.SaveData(List(Of DataPoint))
+  fullName.vb: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: SaveData(List(Of DataPoint))
+- uid: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  commentId: M:Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  id: SaveData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  parent: Heatington.Controllers.CsvController
+  langs:
+  - csharp
+  - vb
+  name: SaveData(List<ResultHolder>)
+  nameWithType: CsvController.SaveData(List<ResultHolder>)
+  fullName: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List<Heatington.Models.ResultHolder>)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/CsvController.cs
+      branch: SP2-95-Create-ResultDataManager-class
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SaveData
+    path: Heatington/Controllers/CsvController.cs
+    startLine: 46
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: public void SaveData(List<ResultHolder> data)
+    parameters:
+    - id: data
+      type: System.Collections.Generic.List{Heatington.Models.ResultHolder}
+    content.vb: Public Sub SaveData(data As List(Of ResultHolder))
+  overload: Heatington.Controllers.CsvController.SaveData*
+  nameWithType.vb: CsvController.SaveData(List(Of ResultHolder))
+  fullName.vb: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List(Of Heatington.Models.ResultHolder))
+  name.vb: SaveData(List(Of ResultHolder))
 references:
 - uid: Heatington.Controllers
   commentId: N:Heatington.Controllers
@@ -148,13 +211,13 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: Heatington.Data.IDataSource
-  commentId: T:Heatington.Data.IDataSource
-  parent: Heatington.Data
-  href: Heatington.Data.IDataSource.html
+- uid: Heatington.Controllers.Interfaces.IDataSource
+  commentId: T:Heatington.Controllers.Interfaces.IDataSource
+  parent: Heatington.Controllers.Interfaces
+  href: Heatington.Controllers.Interfaces.IDataSource.html
   name: IDataSource
   nameWithType: IDataSource
-  fullName: Heatington.Data.IDataSource
+  fullName: Heatington.Controllers.Interfaces.IDataSource
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -381,65 +444,45 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Heatington.Data
-  commentId: N:Heatington.Data
+- uid: Heatington.Controllers.Interfaces
+  commentId: N:Heatington.Controllers.Interfaces
   href: Heatington.html
-  name: Heatington.Data
-  nameWithType: Heatington.Data
-  fullName: Heatington.Data
+  name: Heatington.Controllers.Interfaces
+  nameWithType: Heatington.Controllers.Interfaces
+  fullName: Heatington.Controllers.Interfaces
   spec.csharp:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Data
-    name: Data
-    href: Heatington.Data.html
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
   spec.vb:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Data
-    name: Data
-    href: Heatington.Data.html
-- uid: Heatington.Controllers.CsvController.GetDataAsync*
-  commentId: Overload:Heatington.Controllers.CsvController.GetDataAsync
-  href: Heatington.Controllers.CsvController.html#Heatington_Controllers_CsvController_GetDataAsync_System_String_
-  name: GetDataAsync
-  nameWithType: CsvController.GetDataAsync
-  fullName: Heatington.Controllers.CsvController.GetDataAsync
-- uid: Heatington.Data.IDataSource.GetDataAsync(System.String)
-  commentId: M:Heatington.Data.IDataSource.GetDataAsync(System.String)
-  parent: Heatington.Data.IDataSource
-  isExternal: true
-  href: Heatington.Data.IDataSource.html#Heatington_Data_IDataSource_GetDataAsync_System_String_
-  name: GetDataAsync(string)
-  nameWithType: IDataSource.GetDataAsync(string)
-  fullName: Heatington.Data.IDataSource.GetDataAsync(string)
-  nameWithType.vb: IDataSource.GetDataAsync(String)
-  fullName.vb: Heatington.Data.IDataSource.GetDataAsync(String)
-  name.vb: GetDataAsync(String)
-  spec.csharp:
-  - uid: Heatington.Data.IDataSource.GetDataAsync(System.String)
-    name: GetDataAsync
-    href: Heatington.Data.IDataSource.html#Heatington_Data_IDataSource_GetDataAsync_System_String_
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: Heatington.Data.IDataSource.GetDataAsync(System.String)
-    name: GetDataAsync
-    href: Heatington.Data.IDataSource.html#Heatington_Data_IDataSource_GetDataAsync_System_String_
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
+- uid: Heatington.Controllers.CsvController.#ctor*
+  commentId: Overload:Heatington.Controllers.CsvController.#ctor
+  href: Heatington.Controllers.CsvController.html#Heatington_Controllers_CsvController__ctor_System_String_
+  name: CsvController
+  nameWithType: CsvController.CsvController
+  fullName: Heatington.Controllers.CsvController.CsvController
+  nameWithType.vb: CsvController.New
+  fullName.vb: Heatington.Controllers.CsvController.New
+  name.vb: New
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -451,6 +494,31 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: Heatington.Controllers.CsvController.GetDataAsync*
+  commentId: Overload:Heatington.Controllers.CsvController.GetDataAsync
+  href: Heatington.Controllers.CsvController.html#Heatington_Controllers_CsvController_GetDataAsync
+  name: GetDataAsync
+  nameWithType: CsvController.GetDataAsync
+  fullName: Heatington.Controllers.CsvController.GetDataAsync
+- uid: Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
+  commentId: M:Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
+  parent: Heatington.Controllers.Interfaces.IDataSource
+  href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_GetDataAsync
+  name: GetDataAsync()
+  nameWithType: IDataSource.GetDataAsync()
+  fullName: Heatington.Controllers.Interfaces.IDataSource.GetDataAsync()
+  spec.csharp:
+  - uid: Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
+    name: GetDataAsync
+    href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_GetDataAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
+    name: GetDataAsync
+    href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_GetDataAsync
+  - name: (
+  - name: )
 - uid: System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
   commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
   parent: System.Threading.Tasks
@@ -565,25 +633,25 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
 - uid: Heatington.Controllers.CsvController.SaveData*
   commentId: Overload:Heatington.Controllers.CsvController.SaveData
-  href: Heatington.Controllers.CsvController.html#Heatington_Controllers_CsvController_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__System_String_
+  href: Heatington.Controllers.CsvController.html#Heatington_Controllers_CsvController_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
   name: SaveData
   nameWithType: CsvController.SaveData
   fullName: Heatington.Controllers.CsvController.SaveData
-- uid: Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
-  commentId: M:Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
-  parent: Heatington.Data.IDataSource
+- uid: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  commentId: M:Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  parent: Heatington.Controllers.Interfaces.IDataSource
   isExternal: true
-  href: Heatington.Data.IDataSource.html#Heatington_Data_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__System_String_
-  name: SaveData(List<DataPoint>, string)
-  nameWithType: IDataSource.SaveData(List<DataPoint>, string)
-  fullName: Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>, string)
-  nameWithType.vb: IDataSource.SaveData(List(Of DataPoint), String)
-  fullName.vb: Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint), String)
-  name.vb: SaveData(List(Of DataPoint), String)
+  href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  name: SaveData(List<DataPoint>)
+  nameWithType: IDataSource.SaveData(List<DataPoint>)
+  fullName: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>)
+  nameWithType.vb: IDataSource.SaveData(List(Of DataPoint))
+  fullName.vb: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: SaveData(List(Of DataPoint))
   spec.csharp:
-  - uid: Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
+  - uid: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
     name: SaveData
-    href: Heatington.Data.IDataSource.html#Heatington_Data_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__System_String_
+    href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
   - name: (
   - uid: System.Collections.Generic.List`1
     name: List
@@ -594,17 +662,11 @@ references:
     name: DataPoint
     href: Heatington.Models.DataPoint.html
   - name: '>'
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
   spec.vb:
-  - uid: Heatington.Data.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint},System.String)
+  - uid: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
     name: SaveData
-    href: Heatington.Data.IDataSource.html#Heatington_Data_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__System_String_
+    href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
   - name: (
   - uid: System.Collections.Generic.List`1
     name: List
@@ -617,12 +679,6 @@ references:
     name: DataPoint
     href: Heatington.Models.DataPoint.html
   - name: )
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
 - uid: System.Collections.Generic.List{Heatington.Models.DataPoint}
   commentId: T:System.Collections.Generic.List{Heatington.Models.DataPoint}
@@ -722,3 +778,36 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{Heatington.Models.ResultHolder}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.ResultHolder}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ResultHolder>
+  nameWithType: List<ResultHolder>
+  fullName: System.Collections.Generic.List<Heatington.Models.ResultHolder>
+  nameWithType.vb: List(Of ResultHolder)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.ResultHolder)
+  name.vb: List(Of ResultHolder)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.ResultHolder
+    name: ResultHolder
+    href: Heatington.Models.ResultHolder.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.ResultHolder
+    name: ResultHolder
+    href: Heatington.Models.ResultHolder.html
+  - name: )

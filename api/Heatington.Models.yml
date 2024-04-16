@@ -5,6 +5,8 @@ items:
   id: Heatington.Models
   children:
   - Heatington.Models.DataPoint
+  - Heatington.Models.HeatingGrid
+  - Heatington.Models.ProductionUnit
   - Heatington.Models.ResultHolder
   langs:
   - csharp
@@ -22,9 +24,45 @@ references:
   name: DataPoint
   nameWithType: DataPoint
   fullName: Heatington.Models.DataPoint
+- uid: Heatington.Models.HeatingGrid
+  commentId: T:Heatington.Models.HeatingGrid
+  parent: Heatington.Models
+  href: Heatington.Models.HeatingGrid.html
+  name: HeatingGrid
+  nameWithType: HeatingGrid
+  fullName: Heatington.Models.HeatingGrid
+- uid: Heatington.Models.ProductionUnit
+  commentId: T:Heatington.Models.ProductionUnit
+  parent: Heatington.Models
+  href: Heatington.Models.ProductionUnit.html
+  name: ProductionUnit
+  nameWithType: ProductionUnit
+  fullName: Heatington.Models.ProductionUnit
 - uid: Heatington.Models.ResultHolder
   commentId: T:Heatington.Models.ResultHolder
   href: Heatington.Models.ResultHolder.html
   name: ResultHolder
   nameWithType: ResultHolder
   fullName: Heatington.Models.ResultHolder
+- uid: Heatington.Models
+  commentId: N:Heatington.Models
+  href: Heatington.html
+  name: Heatington.Models
+  nameWithType: Heatington.Models
+  fullName: Heatington.Models
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Models
+    name: Models
+    href: Heatington.Models.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Models
+    name: Models
+    href: Heatington.Models.html

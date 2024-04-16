@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/UnitTest1.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: UnitTest1
     path: Heatington.Tests/UnitTest1.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/UnitTest1.cs
-      branch: SP2-112-Add-DocFx-documentation-support-to-the-project
+      branch: SP2-95-Create-ResultDataManager-class
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Test1
     path: Heatington.Tests/UnitTest1.cs
