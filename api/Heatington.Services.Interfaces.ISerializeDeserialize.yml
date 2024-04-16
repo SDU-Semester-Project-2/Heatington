@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: Heatington/Services/Interfaces/ISerializeDeserialize.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ISerializeDeserialize
     path: Heatington/Services/Interfaces/ISerializeDeserialize.cs
@@ -42,7 +42,7 @@ items:
   source:
     remote:
       path: Heatington/Services/Interfaces/ISerializeDeserialize.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Serialize
     path: Heatington/Services/Interfaces/ISerializeDeserialize.cs
@@ -78,7 +78,7 @@ items:
   source:
     remote:
       path: Heatington/Services/Interfaces/ISerializeDeserialize.cs
-      branch: SP2-95-Create-ResultDataManager-class
+      branch: SP2-146-Create-a-Component-Dotnet-Library
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize
     path: Heatington/Services/Interfaces/ISerializeDeserialize.cs
