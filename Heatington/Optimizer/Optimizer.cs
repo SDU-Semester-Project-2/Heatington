@@ -23,7 +23,7 @@ public class Opt
     public void Optimize()
     {
         //checks if there are no boilers that use electricity
-        bool onlyFossil = _productionUnits.Sum(x => x.MaxElectricity) == 0;
+        bool onlyFossil = _productionUnits.TrueForAll(x => x.MaxElectricity == 0);
         foreach (DataPoint dataPoint in _dataPoints)
         {
             if (!onlyFossil)
