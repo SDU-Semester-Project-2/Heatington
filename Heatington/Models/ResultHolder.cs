@@ -5,15 +5,14 @@ public class ResultHolder(
     DateTime endTime,
     double heatDemand,
     double electricityPrice,
-    double netProductionCost,
     List<ProductionUnit> boilers) : ICloneable
 {
     public DateTime StartTime { get; } = startTime;
     public DateTime EndTime { get; } = endTime;
     public double HeatDemand { get; } = heatDemand;
     public double ElectricityPrice { get; } = electricityPrice;
-    public double NetProductionCost { get; set; } = netProductionCost;
     public List<ProductionUnit> Boilers { get; set; } = boilers;
+    public double NetProductionCost { get; set; } = Math.Round(boilers.Sum(x => x.ProductionCost - x.MaxElectricity * electricityPrice),4);
 
     public object Clone()
     {
@@ -33,13 +32,13 @@ public class ResultHolder(
 
         foreach (ProductionUnit productionUnit in Boilers)
         {
-            boilers = string.Concat(boilers, "\n", $"Name: {productionUnit.Name} ",
-                $"Production cost: {productionUnit.ProductionCost} ",
+            boilers = string.Concat(boilers, "\n", $"Name: {productionUnit.Name}; ",
+                $"Net Production cost: {Math.Round(productionUnit.ProductionCost - productionUnit.MaxElectricity * electricityPrice,4)}; ",
                 $"Operation point: {productionUnit.OperationPoint}");
         }
 
-        string s = string.Concat($"\n\nStart Time: {formattedStart} ", $"End Time: {formattedEnd}; ",
-            $"Heat Demand: {HeatDemand} MWh; ", $"Electricity Price: {ElectricityPrice} DKK/MWh ",
+        string s = string.Concat($"\n\nStart Time: {formattedStart}; ", $"End Time: {formattedEnd}; ",
+            $"Heat Demand: {HeatDemand} MWh; ", $"Electricity Price: {ElectricityPrice} DKK/MWh; ",
             $"Net Production Cost {NetProductionCost} ", boilers);
 
         return s;
