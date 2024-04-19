@@ -9,7 +9,7 @@ public class Opt
 {
     private List<DataPoint>? _dataPoints = new List<DataPoint>();
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
-    public List<ResultHolder>? Results { get; private set; }
+    public List<ResultHolder>? Results { get; private set; } = new List<ResultHolder>();
 
     public void LoadData()
     {
@@ -19,16 +19,30 @@ public class Opt
         _productionUnits = _productionUnits.OrderBy(o => o.ProductionCost).ToList();
     }
 
-    public void OptimizeScenario1()
+    // TODO: expand optimize with capability to optimize for co2
+    public void Optimize()
     {
-        CalculateHeatUnitsRequired();
+        //checks if there are no boilers that use electricity
+        bool onlyFossil = _productionUnits.Sum(x => x.MaxElectricity) == 0;
+        foreach (DataPoint dataPoint in _dataPoints)
+        {
+            if (!onlyFossil)
+            {
+                //orders production units by net production cost
+                _productionUnits = _productionUnits.OrderBy(x =>
+                    x.ProductionCost - x.MaxElectricity * dataPoint.ElectricityPrice).ToList();
+            }
+
+            ResultHolder result = CalculateHeatUnitsRequired(dataPoint, _productionUnits);
+            Results?.Add(result);
+        }
     }
 
     private List<ProductionUnit> SetOperationPoint(List<ProductionUnit> productionUnits, double heatDemand)
     {
         List<ProductionUnit> workingUnits = new();
 
-        foreach (var unit in productionUnits)
+        foreach (ProductionUnit unit in productionUnits)
         {
             // For some reason if I don't clone the object C# confuses to which object I am referring to
             // and messes up all the objects in the "results" list
@@ -37,7 +51,6 @@ public class Opt
             if (unitClone.MaxHeat > heatDemand)
             {
                 double operationPoint = CalculateOperationPoint(heatDemand, unit.MaxHeat);
-
 
                 unitClone.OperationPoint = operationPoint;
 
@@ -58,45 +71,29 @@ public class Opt
         }
     }
 
-    private void CalculateHeatUnitsRequired()
+    //this method now only calculates the heating units for a specified datapoint (before it was the whole datapoints set)
+    private ResultHolder CalculateHeatUnitsRequired(DataPoint dataPoint, List<ProductionUnit> productionUnits)
     {
-        if (_dataPoints == null)
-        {
-            return;
-        }
+        // Calculates how many boilers are needed to satisfy heat demand
+        int nOfBoilers = SatisfyHeatDemand(dataPoint);
 
-        List<ResultHolder> results = new List<ResultHolder>();
+        //Console.WriteLine("Number of boilers: {0}", nOfBoilers);
 
-        foreach (DataPoint dataPoint in _dataPoints)
-        {
-            // Calculates how many boilers are needed to satisfy heat demand
-            // Implies that they are ordered by efficiency
-            int nOfBoilers = SatisfyHeatDemand(dataPoint);
+        // Selects the correct boilers based on how many need to be activated
+        List<ProductionUnit> selectedBoilers = SelectBoiler(nOfBoilers);
 
-            //Console.WriteLine("Number of boilers: {0}", nOfBoilers);
+        //Console.WriteLine("Boilers selected:");
+        //selectedBoilers.ForEach(Console.WriteLine);
 
-            // Selects the correct boilers based on how many need to be activated
-            // Again implies that they are ordered by efficiency
-            List<ProductionUnit> selectedBoilers = SelectBoiler(nOfBoilers);
+        // Sets the operation point of the selected boilers
+        selectedBoilers = SetOperationPoint(selectedBoilers, dataPoint.HeatDemand);
 
-            //Console.WriteLine("Boilers selected:");
-            //selectedBoilers.ForEach(Console.WriteLine);
+        // Creates an object which holds the result
+        ResultHolder result = new ResultHolder(dataPoint.StartTime, dataPoint.EndTime, dataPoint.HeatDemand,
+            dataPoint.ElectricityPrice, selectedBoilers);
+        Console.WriteLine(result);
 
-            // Sets the operation point of the selected boilers
-            selectedBoilers = SetOperationPoint(selectedBoilers, dataPoint.HeatDemand);
-
-            // Creates an object which holds the result
-            ResultHolder result = new ResultHolder(dataPoint.StartTime, dataPoint.EndTime, dataPoint.HeatDemand,
-                dataPoint.ElectricityPrice, 0, selectedBoilers);
-            // Adds the object to the list
-            results.Add(result);
-            //Console.WriteLine(results[^1]);
-            //Console.WriteLine(result);
-        }
-
-        Results = results;
-        //results.ForEach(Console.WriteLine);
-
+        return result;
 
         int SatisfyHeatDemand(DataPoint dataPoint)
         {
@@ -105,10 +102,10 @@ public class Opt
 
             while (dataPoint.HeatDemand > currentProductionCapacity)
             {
-                currentProductionCapacity = currentProductionCapacity + _productionUnits[i].MaxHeat;
+                currentProductionCapacity = currentProductionCapacity + productionUnits[i].MaxHeat;
                 i++;
 
-                if (i > _productionUnits.Count)
+                if (i > productionUnits.Count)
                 {
                     Console.WriteLine("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
                     throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
@@ -124,7 +121,7 @@ public class Opt
 
             for (int i = 0; i < j; i++)
             {
-                selectedBoilers.Add(_productionUnits[i]);
+                selectedBoilers.Add(productionUnits[i]);
             }
 
             return selectedBoilers;
@@ -196,13 +193,23 @@ public class Opt
     // Will call Asset Manager eventually.
     private void GetProductionUnits()
     {
-        ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5, 800, 0, 1.5, 310);
-        ProductionUnit gasBoiler = new ProductionUnit("Gas Boiler", "", 5, 500, 0, 1.1, 215);
-        ProductionUnit oilBoiler = new ProductionUnit("Oil Boiler", "", 4, 700, 0, 1.2, 265);
+        // ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5, 800, 0, 1.5, 310);
+        // ProductionUnit gasBoiler = new ProductionUnit("Gas Boiler", "", 5, 500, 0, 1.1, 215);
+        // ProductionUnit oilBoiler = new ProductionUnit("Oil Boiler", "", 4, 700, 0, 1.2, 265);
+        //
+        // _productionUnits.Add(controlBoiler);
+        // _productionUnits.Add(oilBoiler);
+        // _productionUnits.Add(gasBoiler);
 
-        _productionUnits.Add(controlBoiler);
-        _productionUnits.Add(oilBoiler);
-        _productionUnits.Add(gasBoiler);
+        ProductionUnit gb = new ProductionUnit("Gas Boiler", "AssetManager/gas-boiler.jpg", 5, 500, 0, 1.1, 0);
+        ProductionUnit ob = new ProductionUnit("Oil Boiler", "AssetManager/oil-boiler.jpg", 4, 700, 0, 1.2, 265);
+        ProductionUnit gm = new ProductionUnit("Gas Motor", "AssetManager/gas-motor.jpg", 3.6, 1100, 2.7, 1.9, 640);
+        ProductionUnit ek = new ProductionUnit("Electric Boiler", "AssetManager/electric-boiler.jpg", 8, 50, -8, 0, 0);
+
+        _productionUnits.Add(gb);
+        _productionUnits.Add(ob);
+        _productionUnits.Add(gm);
+        _productionUnits.Add(ek);
     }
 
     public void LogProductionUnits()
