@@ -1,6 +1,7 @@
 using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
+using Heatington.Services.Interfaces;
 using Heatington.Services.Serializers;
 
 namespace Heatington.Controllers
