@@ -2,14 +2,14 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Heatington.Controllers.Enums;
 using Heatington.Controllers.Interfaces;
+using Heatington.Services.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
-using Heatington.Services.Interfaces;
 using Heatington.Services.Interfaces;
 
 namespace Heatington.Controllers;
 
-public class JsonController(string filePath) : ISerializeDeserialize, IReadWriteController
+public class JsonController(string filePath) : IReadWriteController
 {
     //TODO: for now both JsonController and JsonDataSource implement IReadWriteController. Remove one, after talking with team.
     private readonly IReadWriteController _fileController = new FileController(filePath);
@@ -17,69 +17,20 @@ public class JsonController(string filePath) : ISerializeDeserialize, IReadWrite
     public async Task<T> ReadData<T>()
     {
         string data = await _fileController.ReadData<string>();
-        T result = JsonController.Deserialize<T>(data);
+        T result = JsonSerializerCustom.Deserialize<T>(data);
 
         return result;
     }
 
     public async Task<OperationStatus> WriteData<T>(T content)
     {
-        string serializedData = JsonController.Serialize(content);
+        string serializedData = JsonSerializerCustom.Serialize(content);
         return await _fileController.WriteData(serializedData);
     }
 
     public override string ToString()
     {
         return $"Path to file {filePath}";
-    }
-
-    public static string Serialize<T>(T obj)
-    {
-        var serializeOptions = new JsonSerializerOptions { WriteIndented = true };
-
-        // TODO: use async serialzier?
-        // Then you have to pass the StreamWriter to the jsonSerializer
-        // serialzeOptions.Converters.Add(new ProductionJsonConverter());
-
-        try
-        {
-            // byte[] jsonUtf8Bytes =JsonSerializer.SerializeToUtf8Bytes(obj); // --> it's 10% faster
-            // string sdd = JsonSerializer.SerializeAsync(obj, serializeOptions);
-            return JsonSerializer.Serialize(obj, serializeOptions);
-        }
-        catch (Exception e)
-        {
-            Utilities.DisplayException($"Unknown exception occured: {e.Message}");
-            throw;
-        }
-    }
-
-    public static T Deserialize<T>(string file)
-    {
-        var deserializeOptions = new JsonSerializerOptions();
-
-        // TODO: use async deserialzier?
-        // deserializeOptions.Converters.Add(new ProductionUnitJsonConverter());
-
-        try
-        {
-            // JsonSerializer.DeserializeAsync<T>(file, deserializeOptions);
-            T? result = JsonSerializer.Deserialize<T>(file, deserializeOptions);
-
-            if (result != null)
-            {
-                return result;
-            }
-            else
-            {
-                throw new JsonException("Couldn't deserialize the object");
-            }
-        }
-        catch (Exception e)
-        {
-            Utilities.DisplayException($"Unknown exception occured: {e.Message}");
-            throw;
-        }
     }
 }
 
