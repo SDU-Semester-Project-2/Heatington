@@ -1,5 +1,5 @@
 using Heatington.Controllers;
-using Heatington.Controllers.Interfaces;
+using Heatington.Services.Interfaces;
 using Heatington.Helpers;
 using Heatington.Optimizer;
 
@@ -20,7 +20,7 @@ namespace Heatington.Console
             IDataSource dataSource = new CsvController(filePath);
             SourceDataManager.SourceDataManager srm = new(dataSource);
 
-            Opt opt = new Opt();
+            Opt opt = new Opt(am, srm);
 
             ConsoleUI consoleUi = new ConsoleUI(am, srm, opt);
 

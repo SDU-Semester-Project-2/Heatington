@@ -94,7 +94,6 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
 
         opt.LoadData();
         opt.OptimizeScenario1();
-        opt.CalculateNetProductionCost();
 
         _results = opt.Results!;
     }
