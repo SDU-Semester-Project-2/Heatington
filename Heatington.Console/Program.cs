@@ -11,7 +11,7 @@ namespace Heatington.Console
         static async Task Main(string[] args) //DONT REMOVE asnyc Task
         {
             //DONT REMOVE IT'S IMPORTANT FOR THE DOCUMENTATION SERVER
-            //await RunDocFx();
+            await RunDocFx();
 
             AssetManager.AssetManager am = new AssetManager.AssetManager();
 
