@@ -5,7 +5,7 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.Optimizer;
 
-public class Opt
+public class Opt(AssetManager.AssetManager assetManager)
 {
     private List<DataPoint>? _dataPoints = new List<DataPoint>();
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
@@ -172,23 +172,9 @@ public class Opt
     // Will call Asset Manager eventually.
     private void GetProductionUnits()
     {
-        // ProductionUnit controlBoiler = new ProductionUnit("Control Boiler", "", 5, 800, 0, 1.5, 310);
-        // ProductionUnit gasBoiler = new ProductionUnit("Gas Boiler", "", 5, 500, 0, 1.1, 215);
-        // ProductionUnit oilBoiler = new ProductionUnit("Oil Boiler", "", 4, 700, 0, 1.2, 265);
-        //
-        // _productionUnits.Add(controlBoiler);
-        // _productionUnits.Add(oilBoiler);
-        // _productionUnits.Add(gasBoiler);
-
-        ProductionUnit gb = new ProductionUnit("Gas Boiler", "AssetManager/gas-boiler.jpg", 5, 500, 0, 1.1, 0);
-        ProductionUnit ob = new ProductionUnit("Oil Boiler", "AssetManager/oil-boiler.jpg", 4, 700, 0, 1.2, 265);
-        ProductionUnit gm = new ProductionUnit("Gas Motor", "AssetManager/gas-motor.jpg", 3.6, 1100, 2.7, 1.9, 640);
-        ProductionUnit ek = new ProductionUnit("Electric Boiler", "AssetManager/electric-boiler.jpg", 8, 50, -8, 0, 0);
-
-        _productionUnits.Add(gb);
-        _productionUnits.Add(ob);
-        _productionUnits.Add(gm);
-        _productionUnits.Add(ek);
+        Task loadAssets = assetManager.LoadAssets();
+        loadAssets.Wait();
+        _productionUnits = assetManager.ProductionUnits!.Values.ToList();
     }
 
     public void LogProductionUnits()
