@@ -152,10 +152,7 @@ public class Opt(AssetManager.AssetManager assetManager, SourceDataManager.Sourc
             return;
         }
 
-        foreach (DataPoint dataPoint in _dataPoints)
-        {
-            Console.WriteLine(dataPoint);
-        }
+        _dataPoints.ForEach(Console.WriteLine);
     }
 
     private void GetProductionUnits()
