@@ -6,29 +6,14 @@ namespace Heatington.Tests.Controllers;
 /// <summary>
 /// Documentation in Documents/Heatington.Tests/Controllers/FileController.Tests.md
 /// </summary>
-public class FileControllerTests : IDisposable
+public class FileControllerTests : UseTestDirectory
 {
-    private const string TestsDirectory = "tests";
-    private readonly string _testsDirPath = Path.Combine(Path.GetTempPath(), TestsDirectory);
-
-    public FileControllerTests() // NOT A TEST
-    {
-        // create temporary test folder
-        if (!Directory.Exists(_testsDirPath))
-        {
-            Directory.CreateDirectory(_testsDirPath);
-        }
-        else
-        {
-            ClearTestsDirectory();
-        }
-    }
 
     [Fact]
     public async void ReadFileFromPath_ReadFile_ReadsCorrectContent()
     {
         //Arrange
-        string TestFilePath = Path.Combine(_testsDirPath, Path.GetRandomFileName());
+        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
         string expectedContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod";
         IReadWriteController mockFileController = new FileController(TestFilePath);
 
@@ -44,7 +29,7 @@ public class FileControllerTests : IDisposable
     public void WriteFileFromPath_WriteFile_WritesCorrectContent()
     {
         //Arrange
-        string TestFilePath = Path.Combine(_testsDirPath, Path.GetRandomFileName());
+        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
         string expectedContent =
             "Lorem ipsum dolor\t sit amet\n, consectetur\r adipiscing elit\t. Quisque euismod";
         IReadWriteController fileController = new FileController(TestFilePath);
@@ -61,7 +46,7 @@ public class FileControllerTests : IDisposable
     public void WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
     {
         //Arrange
-        string TestFilePath = Path.Combine(_testsDirPath, Path.GetRandomFileName());
+        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
         string emptyContent = "";
         IReadWriteController fileController = new FileController(TestFilePath);
 
@@ -76,7 +61,7 @@ public class FileControllerTests : IDisposable
     public void WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
     {
         //Arrange
-        string TestFilePath = Path.Combine(_testsDirPath, "file1.txt");
+        string TestFilePath = Path.Combine(TestsDirPath, "file1.txt");
         string fakeContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod";
         IReadWriteController fileController1;
         IReadWriteController fileController2;
@@ -116,25 +101,4 @@ public class FileControllerTests : IDisposable
         Assert.ThrowsAsync<FileNotFoundException>(async () => await readNotExistingData());
     }
 
-    private void ClearTestsDirectory() // NOT A TEST
-    {
-        // clear and remove temporary test folder
-        DirectoryInfo di = new DirectoryInfo(_testsDirPath);
-
-        foreach (FileInfo file in di.GetFiles())
-        {
-            file.Delete();
-        }
-
-        foreach (DirectoryInfo dir in di.GetDirectories())
-        {
-            dir.Delete(true);
-        }
-    }
-
-    public void Dispose()
-    {
-        //Clear Tests Directory
-        ClearTestsDirectory();
-    }
 }
