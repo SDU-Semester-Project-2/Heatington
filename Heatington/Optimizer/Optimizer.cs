@@ -20,7 +20,7 @@ public class Opt(AssetManager.AssetManager assetManager, SourceDataManager.Sourc
     }
 
     // TODO: expand optimize with capability to optimize for co2
-    public void Optimize()
+    public void OptimizeScenario1()
     {
         //checks if there are no boilers that use electricity
         bool onlyFossil = _productionUnits.TrueForAll(x => x.MaxElectricity == 0);
