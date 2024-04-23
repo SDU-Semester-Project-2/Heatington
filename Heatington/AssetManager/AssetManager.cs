@@ -1,4 +1,3 @@
-using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
@@ -11,39 +10,23 @@ namespace Heatington.AssetManager;
 /// await AM.LoadAssets();
 /// </code>
 /// </example>
-public class AssetManager
+public class AssetManager(
+    IReadWriteController heatingGridJsonController,
+    IReadWriteController productionUnitsJsonController
+)
 {
     public HeatingGrid? HeatingGridInformation { get; private set; }
     public Dictionary<ProductionUnitsEnum, ProductionUnit>? ProductionUnits { get; private set; }
-
-    private readonly string _pathToHeatingGrid =
-        Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/HeatingGrid.json");
-
-    private readonly string _pathToProductionUnits =
-        Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/ProductionUnits.json");
-
-    private readonly IReadWriteController _heatingGridJsonController;
-    private readonly IReadWriteController _productionUnitsJsonController;
-
-    public AssetManager()
-    {
-        _heatingGridJsonController = new JsonController(_pathToHeatingGrid);
-        _productionUnitsJsonController = new JsonController(_pathToProductionUnits);
-
-        // Only if there is no other way then we can load assets in constructor
-        // it's a bad idea tho bcs there is no option to wait for a method inside of a constructor
-        // LoadAssets();
-    }
 
     public async Task LoadAssets()
     {
         Console.WriteLine("Loading assets...");
 
-        HeatingGridInformation = await _heatingGridJsonController.ReadData<HeatingGrid>();
+        HeatingGridInformation = await heatingGridJsonController.ReadData<HeatingGrid>();
 
         //TODO: Discuss if ProductionUnits should be stored separately in different files or all in one
         Dictionary<string, ProductionUnit> prodUnits =
-            await _productionUnitsJsonController.ReadData<Dictionary<string, ProductionUnit>>();
+            await productionUnitsJsonController.ReadData<Dictionary<string, ProductionUnit>>();
 
         ProductionUnits = new();
 
