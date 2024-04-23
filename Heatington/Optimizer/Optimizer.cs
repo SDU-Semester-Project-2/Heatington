@@ -128,27 +128,6 @@ public class Opt
         }
     }
 
-    public void CalculateNetProductionCost()
-    {
-        // Should I make a copy of the list, set the Production Cost and update the public one OR
-        // keep manipulating it directly like I am now
-        if (Results == null)
-        {
-            return;
-        }
-
-        int i = 0;
-
-        foreach (var entry in Results)
-        {
-            double hourlyProductionCost = Results[i].Boilers.Sum(o => o.ProductionCost);
-
-            Results[i].NetProductionCost = hourlyProductionCost;
-
-            i++;
-        }
-    }
-
     public void LogResults()
     {
         if (Results == null)
