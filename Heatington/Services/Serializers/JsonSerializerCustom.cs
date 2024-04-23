@@ -4,7 +4,7 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.Services.Serializers;
 
-public class JsonSerializerCustom : ISerializeDeserialize
+public abstract class JsonSerializerCustom : ISerializeDeserialize
 {
     public static string Serialize<T>(T obj)
     {
@@ -27,7 +27,7 @@ public class JsonSerializerCustom : ISerializeDeserialize
         }
     }
 
-    public static T Deserialize<T>(string file)
+    public static T Deserialize<T>(string content)
     {
         var deserializeOptions = new JsonSerializerOptions();
 
@@ -37,7 +37,7 @@ public class JsonSerializerCustom : ISerializeDeserialize
         try
         {
             // JsonSerializer.DeserializeAsync<T>(file, deserializeOptions);
-            T? result = JsonSerializer.Deserialize<T>(file, deserializeOptions);
+            T? result = JsonSerializer.Deserialize<T>(content, deserializeOptions);
 
             if (result != null)
             {
