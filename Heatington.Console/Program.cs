@@ -1,4 +1,5 @@
 using Heatington.Controllers;
+using Heatington.Controllers.Interfaces;
 using Heatington.Services.Interfaces;
 using Heatington.Helpers;
 using Heatington.Optimizer;
@@ -8,22 +9,36 @@ namespace Heatington.Console
     internal static class Program
     {
         // TODO: Rewrite this method and implement the actual application logic
-        static async Task Main(string[] args) //DONT REMOVE asnyc Task
+        static async Task Main(string[] args)
         {
-            //DONT REMOVE IT'S IMPORTANT FOR THE DOCUMENTATION SERVER
+            // update the documentation
             await RunDocFx();
 
-            AssetManager.AssetManager am = new AssetManager.AssetManager();
+            // Asset Manager with controllers and paths to assets
+            string pathToHeatingGrid =
+                Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/HeatingGrid.json");
+            string pathToProductionUnits =
+                Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/ProductionUnits.json");
 
+            IReadWriteController[] jsonControllers =
+                Utilities.GenerateJsonControllers(pathToHeatingGrid, pathToProductionUnits);
+            AssetManager.AssetManager assetManager =
+                new AssetManager.AssetManager(
+                    jsonControllers[0],
+                    jsonControllers[1]
+                );
+
+            // Source Data Manager with csv data and controller
             string fileName = "winter_period.csv";
             string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
             IDataSource dataSource = new CsvController(filePath);
-            SourceDataManager.SourceDataManager srm = new(dataSource);
+            SourceDataManager.SourceDataManager sourceDataManager = new(dataSource);
 
-            Opt opt = new Opt(am, srm);
+            // Optimizer
+            Opt optimizer = new Opt(assetManager, sourceDataManager);
 
-            ConsoleUI consoleUi = new ConsoleUI(am, srm, opt);
-
+            // Console UI
+            ConsoleUI consoleUi = new ConsoleUI(assetManager, sourceDataManager, optimizer);
             consoleUi.StartUi();
         }
 

@@ -5,16 +5,10 @@ using Heatington.Optimizer;
 
 namespace Heatington.ResultDataManager;
 
-public class ResultDataManager
+public class ResultDataManager(CsvController _csvController)
 {
-    private CsvController _csvController;
     private List<ResultHolder> _optResults;
 
-
-    public ResultDataManager(string filePath)
-    {
-        _csvController = new CsvController(filePath);
-    }
     public void FetchOptimizationData(Opt opt)
     {
         _optResults = opt.Results;
