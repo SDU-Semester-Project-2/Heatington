@@ -5,7 +5,7 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.Optimizer;
 
-public class Opt(AssetManager.AssetManager assetManager)
+public class Opt(AssetManager.AssetManager assetManager, SourceDataManager.SourceDataManager sourceDataManager)
 {
     private List<DataPoint>? _dataPoints = new List<DataPoint>();
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
@@ -140,19 +140,8 @@ public class Opt(AssetManager.AssetManager assetManager)
 
     private void GetDataPoints()
     {
-        string fileName = "winter_period.csv";
-        string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
-
-        IDataSource dataSource = new CsvController(filePath);
-
-        SourceDataManager.SourceDataManager sourceDataManager = new(dataSource);
-
-        Task fetchTimeSeriesDataAsync = sourceDataManager.FetchTimeSeriesDataAsync();
-
-        fetchTimeSeriesDataAsync.Wait();
-
-        //sourceDataManager.LogTimeSeriesData();
-
+        Task fetchTimeSeries = sourceDataManager.FetchTimeSeriesDataAsync();
+        fetchTimeSeries.Wait();
         _dataPoints = sourceDataManager.TimeSeriesData;
     }
 
@@ -169,7 +158,6 @@ public class Opt(AssetManager.AssetManager assetManager)
         }
     }
 
-    // Will call Asset Manager eventually.
     private void GetProductionUnits()
     {
         Task loadAssets = assetManager.LoadAssets();
