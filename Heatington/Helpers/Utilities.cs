@@ -20,17 +20,17 @@ public static class Utilities
         return (T)Convert.ChangeType(obj, typeof(T))!;
     }
 
-    public static IReadWriteController[] GenerateJsonControllers(params string[] paths)
-    {
-        IReadWriteController[] jsonControllers = [];
-
-        foreach (string path in paths)
-        {
-            jsonControllers.Append(new JsonController(path));
-        }
-
-        return jsonControllers;
-    }
+    // public static IReadWriteController[] GenerateJsonControllers(params string[] paths)
+    // {
+    //     IReadWriteController[] jsonControllers = [];
+    //
+    //     foreach (string path in paths)
+    //     {
+    //         jsonControllers.Append(new JsonController(path));
+    //     }
+    //
+    //     return jsonControllers;
+    // }
 
     public static string GetAbsolutePathToAssetsDirectory()
     {

@@ -20,12 +20,12 @@ namespace Heatington.Console
             string pathToProductionUnits =
                 Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/ProductionUnits.json");
 
-            IReadWriteController[] jsonControllers =
-                Utilities.GenerateJsonControllers(pathToHeatingGrid, pathToProductionUnits);
+            IReadWriteController heatingGridJsonController = new JsonController(pathToHeatingGrid);
+            IReadWriteController productionUnitsJsonController = new JsonController(pathToProductionUnits);
             AssetManager.AssetManager assetManager =
                 new AssetManager.AssetManager(
-                    jsonControllers[0],
-                    jsonControllers[1]
+                    heatingGridJsonController,
+                    productionUnitsJsonController
                 );
 
             // Source Data Manager with csv data and controller
