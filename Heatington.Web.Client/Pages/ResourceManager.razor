@@ -62,7 +62,7 @@
 <MudContainer class="d-flex flex-row justify-center align-center text-center space-y-4 ">
     <div style="flex-direction: column">
         <MudText Typo="Typo.h4"> Heat Demand Data</MudText>
-        <InputFile id="fileUpload" OnChange="HandleCSVUpload"></InputFile>
+        <InputFile id="fileUpload" OnChange="HandleCsvUpload"></InputFile>
     </div>
 </MudContainer>
 
@@ -82,22 +82,99 @@
 }
 
 @code {
+
+    // THIS IS THE CODE SECTION FOR ASSET MANAGER
     static readonly string PathToHeatingGrid =
         Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/HeatingGrid.json");
+
     static readonly string PathToProductionUnits =
         Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/ProductionUnits.json");
+
     static readonly IReadWriteController HeatingGridJsonController = new JsonController(PathToHeatingGrid);
     static readonly IReadWriteController ProductionUnitsJsonController = new JsonController(PathToProductionUnits);
-    static readonly AssetManager AssetManager = new (HeatingGridJsonController, ProductionUnitsJsonController);
+    static readonly AssetManager AssetManager = new(HeatingGridJsonController, ProductionUnitsJsonController);
     HeatingGrid? _heatingGridInformation = AssetManager.HeatingGridInformation;
     Dictionary<ProductionUnitsEnum, ProductionUnit>? _productionUnits = AssetManager.ProductionUnits;
 
+    // SIMILAR TO USESTATE HOOK IN REACT?
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
         await AssetManager.LoadAssets();
+        StateHasChanged();
+        DirectoryInfo? pathToProjectRootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
+        if (pathToProjectRootDirectory != null)
+        {
+            StateHasChanged();
+            string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
+            await ReadCsvDataOnLoad(pathToFile);
+        }
     }
+
     private List<DataPoint> _heatDemandDataList = [];
+
+    // METHOD OVERLOADING
+    async void OpenDialog()
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("ProductionsUnits", _productionUnits);
+        var dialog = await DialogService.ShowAsync<AddBoilerDialog>("Add Boiler", parameters, new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
+        var result = await dialog.Result;
+        if (!result.Cancelled)
+        {
+            StateHasChanged();
+        }
+    }
+    async void OpenDialog(KeyValuePair<ProductionUnitsEnum, ProductionUnit> productionUnit)
+    {
+        var parameters = new DialogParameters();
+        parameters.Add("ProductionUnit", productionUnit);
+        var dialog = await DialogService.ShowAsync<EditBoilerDialog>($"Edit {productionUnit.Value.Name}", parameters, new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
+        var result = await dialog.Result;
+        if (!result.Cancelled)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private async Task ReadCsvDataOnLoad(string pathToFile)
+    {
+        Console.WriteLine(pathToFile);
+        string csvContent = await File.ReadAllTextAsync(pathToFile);
+        ParseCsvData(csvContent);
+    }
+
+    private async Task HandleCsvUpload(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        var reader = new StreamReader(file.OpenReadStream());
+        var csvContent = await reader.ReadToEndAsync();
+        ParseCsvData(csvContent);
+    }
+
+    private void ParseCsvData(string csvContent)
+    {
+        var rows = csvContent.Split('\n');
+        var culture = CultureInfo.InvariantCulture;
+        foreach (var row in rows)
+        {
+            var values = row.Split(',');
+            if (values.Length == 4)
+            {
+                _heatDemandDataList.Add(new DataPoint
+                {
+                    StartTime = DateTime.Parse(values[0], culture),
+                    EndTime = DateTime.Parse(values[1], culture),
+                    HeatDemand = float.Parse(values[2], culture),
+                    ElectricityPrice = float.Parse(values[3], culture)
+                });
+            }
+        }
+        StateHasChanged();
+    }
+
+    private string? DisplayData(double data) => Convert.ToString(data.ToString(CultureInfo.InvariantCulture).Length != 0 ? data : "No Data");
+
 }
 
 

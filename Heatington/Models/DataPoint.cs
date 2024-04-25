@@ -15,15 +15,20 @@ namespace Heatington.Models
             ElectricityPrice = electricityPrice;
         }
 
+        public DataPoint()
+        {
+        }
+
+
         // TODO: Maybe implement factory method to increase the abstraction
 
-        public DateTime StartTime { get; }
+        public DateTime StartTime { get; init; }
 
-        public DateTime EndTime { get; }
+        public DateTime EndTime { get; init; }
 
-        public double HeatDemand { get; }
+        public double HeatDemand { get; init; }
 
-        public double ElectricityPrice { get; }
+        public double ElectricityPrice { get; init; }
 
         public override string ToString()
         {
