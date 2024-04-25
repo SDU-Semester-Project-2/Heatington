@@ -4,13 +4,13 @@ public class ProductionUnit : ICloneable
 {
     public Guid Id { get; }
     public string Name { get; set; }
-    public string PicturePath { get; }
+    public string PicturePath { get; set; }
     private double _operationPoint;
-    public double MaxHeat { get; } // MW
-    public double ProductionCost { get; } // DKK/MWh
-    public double MaxElectricity { get; } // MW
-    public double GasConsumption { get; } // MWh(gas/oil)/MWh
-    public double Co2Emission { get; } // kg/MWh
+    public double MaxHeat { get; set; } // MW
+    public double ProductionCost { get; set; } // DKK/MWh
+    public double MaxElectricity { get; set; } // MW
+    public double GasConsumption { get; set; } // MWh(gas/oil)/MWh
+    public double Co2Emission { get; set; } // kg/MWh
 
     public double OperationPoint
     {
@@ -25,6 +25,9 @@ public class ProductionUnit : ICloneable
             _operationPoint = value;
         }
     }
+
+    public ProductionUnit()
+    {}
 
     public ProductionUnit(string name, string picturePath, double maxHeat, double productionCost, double maxElectricity,
         double gasConsumption, double co2Emission)

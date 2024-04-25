@@ -1,4 +1,5 @@
 @using ResourceManager = Heatington.Web.Client.Pages.ResourceManager
+@using Heatington.Models
 @* AddBoilerDialog Component *@
 
 <MudDialog>
@@ -16,11 +17,11 @@
             </ButtonTemplate>
         </MudFileUpload>
         <MudTextField @bind-Value="@NewBoiler.Name" Label="Name" Variant="Variant.Outlined" Required/>
-        <MudTextField @bind-Value="NewBoiler.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" Required/>
-        <MudTextField @bind-Value="NewBoiler.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="NewBoiler.ProductionCosts" Label="Production Costs" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="NewBoiler.CO2Emissions" Label="CO2 Emissions" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="NewBoiler.PrimaryEnergy" Label="Gas Consumption" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@NewBoiler.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" Required/>
+        <MudTextField @bind-Value="@NewBoiler.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@NewBoiler.ProductionCost" Label="Production Costs" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@NewBoiler.Co2Emission" Label="CO2 Emissions" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@NewBoiler.GasConsumption" Label="Gas Consumption" Variant="Variant.Outlined"/>
     </DialogContent>
     <DialogActions>
         <MudButton Color="Color.Primary" Size="Size.Large" Variant="Variant.Filled" OnClick="AddBoiler">Add</MudButton>
@@ -31,9 +32,9 @@
     string imageBase64;
 
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    [Parameter] public List<ResourceManager.Boiler> Boilers { get; set; }
+    [Parameter] public List<ProductionUnit> Boilers { get; set; }
 
-    ResourceManager.Boiler NewBoiler = new ResourceManager.Boiler();
+    ProductionUnit NewBoiler = new ProductionUnit();
 
     async Task HandleImageUpload(InputFileChangeEventArgs e)
     {
@@ -47,7 +48,7 @@
 
         var imageData = $"data:{format};base64,{imagesrc}";
 
-        NewBoiler.ImageData = imageData;
+        NewBoiler.PicturePath = imageData;
     }
 
     async Task HandleImageUpload(IBrowserFile file)
@@ -62,13 +63,13 @@
 
         var imageData = $"data:{format};base64,{imagesrc}";
 
-        NewBoiler.ImageData = imageData;
+        NewBoiler.PicturePath = imageData;
     }
 
     void AddBoiler()
     {
         Boilers.Add(NewBoiler);
-        NewBoiler = new ResourceManager.Boiler();
+        NewBoiler = new ProductionUnit();
         MudDialog.Close(DialogResult.Ok(true));
     }
 
