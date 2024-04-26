@@ -1,5 +1,6 @@
 @using ResourceManager = Heatington.Web.Client.Pages.ResourceManager
 @using Heatington.Models
+@using Heatington.AssetManager
 @* AddBoilerDialog Component *@
 
 <MudDialog>
@@ -32,8 +33,7 @@
     string imageBase64;
 
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    [Parameter] public List<ProductionUnit> Boilers { get; set; }
-
+    [Parameter] public Dictionary<ProductionUnitsEnum, ProductionUnit> ProductionUnits { get; set; }
     ProductionUnit NewBoiler = new ProductionUnit();
 
     async Task HandleImageUpload(InputFileChangeEventArgs e)
@@ -68,7 +68,7 @@
 
     void AddBoiler()
     {
-        Boilers.Add(NewBoiler);
+        ProductionUnits.Add(ProductionUnitsEnum.CustomBoiler,NewBoiler);
         NewBoiler = new ProductionUnit();
         MudDialog.Close(DialogResult.Ok(true));
     }
