@@ -4,6 +4,7 @@ public class ProductionUnit : ICloneable
 {
     public Guid Id { get; }
     public string Name { get; set; }
+    public string FullName { get; set; }
     public string PicturePath { get; set; }
     private double _operationPoint;
     public double MaxHeat { get; set; } // MW
@@ -29,11 +30,12 @@ public class ProductionUnit : ICloneable
     public ProductionUnit()
     {}
 
-    public ProductionUnit(string name, string picturePath, double maxHeat, double productionCost, double maxElectricity,
+    public ProductionUnit(string name, string fullName, string picturePath, double maxHeat, double productionCost, double maxElectricity,
         double gasConsumption, double co2Emission)
     {
         Id = Guid.NewGuid();
         Name = name;
+        FullName = fullName;
         PicturePath = picturePath;
         OperationPoint = 0; // operation point set to 0 on default, meaning when created it is turned off
         MaxHeat = maxHeat;
@@ -53,19 +55,19 @@ public class ProductionUnit : ICloneable
         if (MaxElectricity != 0 && GasConsumption == 0)
         {
             return
-                $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                $"ID:{Id}, Name:{Name}, FullName: {FullName} Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
                 $"Max Electricity:{MaxElectricity}";
         }
         else if (MaxElectricity == 0 && GasConsumption != 0)
         {
             return
-                $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                $"ID:{Id}, Name:{Name}, FullName: {FullName}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
                 $"Gas Consumption:{GasConsumption}, CO2 Emission:{Co2Emission}";
         }
         else
         {
             return
-                $"ID:{Id}, Name:{Name}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
+                $"ID:{Id}, Name:{Name}, FullName: {FullName}, Operation Point:{OperationPoint}, Max Heat:{MaxHeat}, Production Cost:{ProductionCost}\n" +
                 $"Max Electricity:{MaxElectricity}, Gas Consumption:{GasConsumption}, CO2 Emission:{Co2Emission}";
         }
     }
