@@ -1,16 +1,14 @@
-@using Heatington.Web.Client.Pages
-@using System.Resources
-@using ResourceManager = Heatington.Web.Client.Pages.ResourceManager
 @using Heatington.Models
 
 <MudDialog>
     <DialogContent>
-        <MudTextField @bind-Value="ProductionUnit.Name" Label="Name" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="ProductionUnit.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="ProductionUnit.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="ProductionUnit.ProductionCost" Label="Production Costs" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="ProductionUnit.Co2Emission" Label="CO2 Emissions" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="ProductionUnit.GasConsumption" Label="Gas Consumption" Variant="Variant.Outlined" />
+        <MudTextField @bind-Value="ProductionUnit.FullName" Label="FullName" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="ProductionUnit.Name" Label="Name" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="ProductionUnit.MaxHeat" Label="Max Heat" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="ProductionUnit.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="ProductionUnit.ProductionCost" Label="Production Costs" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="ProductionUnit.Co2Emission" Label="CO2 Emissions" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="ProductionUnit.GasConsumption" Label="Gas Consumption" Variant="Variant.Outlined"/>
     </DialogContent>
     <DialogActions>
         <MudButton Color="Color.Primary" Size="Size.Large" Variant="Variant.Filled" OnClick="EditBoiler">Save</MudButton>

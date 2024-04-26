@@ -128,8 +128,8 @@
     async void OpenDialog(KeyValuePair<ProductionUnitsEnum, ProductionUnit> productionUnit)
     {
         var parameters = new DialogParameters();
-        parameters.Add("ProductionUnit", productionUnit);
-        var dialog = await DialogService.ShowAsync<EditBoilerDialog>($"Edit {productionUnit.Value.Name}", parameters, new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
+        parameters.Add("ProductionUnit", productionUnit.Value);
+        var dialog = await DialogService.ShowAsync<EditBoilerDialog>($"Edit {productionUnit.Value.FullName}", parameters, new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
         var result = await dialog.Result;
         if (!result.Cancelled)
         {
@@ -174,6 +174,7 @@
     }
 
     private string? DisplayData(double data) => Convert.ToString(data.ToString(CultureInfo.InvariantCulture).Length != 0 ? data : "No Data");
+
 
 }
 
