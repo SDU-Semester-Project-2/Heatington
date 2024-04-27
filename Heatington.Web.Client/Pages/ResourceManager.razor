@@ -8,7 +8,6 @@
 @using Heatington.Models
 @using Heatington.Services.LocalStorage
 @inject Blazored.LocalStorage.ILocalStorageService LocalStorage
-@inject LocalStorageService LocalStorageService
 @inject HttpClient HttpClient
 @inject IDialogService DialogService
 @rendermode InteractiveWebAssembly
@@ -88,6 +87,7 @@
     // THIS IS THE CODE SECTION FOR ASSET MANAGER
     static readonly string PathToHeatingGrid = "Assets/Data/HeatingGrid.json";
     static readonly string PathToProductionUnits = "Heatington.Web.Client/wwwroot/Assets/Data/ProductionUnits.json";
+    static readonly string PathToInitialCsvData= "Assets/Data/winter-data.csv";
     static readonly IReadWriteController HeatingGridJsonController = new JsonController(PathToHeatingGrid);
     static readonly IReadWriteController ProductionUnitsJsonController = new JsonController(PathToProductionUnits);
     static readonly AssetManager AssetManager = new(HeatingGridJsonController, ProductionUnitsJsonController);
@@ -116,13 +116,12 @@
             productionUnits = _productionUnits;
         }
 
-        DirectoryInfo? pathToProjectRootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
         StateHasChanged();
-        if (pathToProjectRootDirectory != null)
+        if (PathToInitialCsvData != null)
         {
             StateHasChanged();
-            string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "/Assets/Data/winter-data.csv");
-            await ReadCsvDataOnLoad(pathToFile);
+            // string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "/Assets/Data/winter-data.csv");
+            await ReadCsvDataOnLoad(PathToInitialCsvData);
         }
     }
 
@@ -160,10 +159,9 @@
         }
     }
 
-    private async Task ReadCsvDataOnLoad(string pathToFile)
+    private async Task ReadCsvDataOnLoad(string url)
     {
-        Console.WriteLine(pathToFile);
-        string csvContent = await File.ReadAllTextAsync(pathToFile);
+        string csvContent = await HttpClient.GetStringAsync(url);
         ParseCsvData(csvContent);
     }
 

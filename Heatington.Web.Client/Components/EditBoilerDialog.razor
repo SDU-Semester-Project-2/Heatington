@@ -27,7 +27,7 @@
 
        if (localStorageDataString != null)
        {
-           Dictionary<ProductionUnitsEnum, ProductionUnit>  productionUnits = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(localStorageDataString);
+           Dictionary<ProductionUnitsEnum, ProductionUnit>?  productionUnits = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(localStorageDataString);
            productionUnits[ProductionUnitKey] = ProductionUnit;
            await LocalStorage.SetItemAsync("ProductionUnits", JsonSerializer.Serialize(productionUnits));
        }
