@@ -1,5 +1,7 @@
 @using Heatington.Models
-
+@using Heatington.AssetManager
+@using System.Text.Json
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 <MudDialog>
     <DialogContent>
         <MudTextField @bind-Value="ProductionUnit.FullName" Label="FullName" Variant="Variant.Outlined"/>
@@ -17,10 +19,18 @@
 
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    [Parameter] public ProductionUnit ProductionUnit{ get; set; }
+    [Parameter] public ProductionUnitsEnum ProductionUnitKey { get; set; }
+    [Parameter] public ProductionUnit? ProductionUnit { get; set; }
+    async Task EditBoiler()
+   {
+       string? localStorageDataString = await LocalStorage.GetItemAsync<string>("ProductionUnits");
 
-    void EditBoiler()
-    {
-        MudDialog.Close(DialogResult.Ok(true));
-    }
+       if (localStorageDataString != null)
+       {
+           Dictionary<ProductionUnitsEnum, ProductionUnit>  productionUnits = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(localStorageDataString);
+           productionUnits[ProductionUnitKey] = ProductionUnit;
+           await LocalStorage.SetItemAsync("ProductionUnits", JsonSerializer.Serialize(productionUnits));
+       }
+       MudDialog.Close(DialogResult.Ok(true));
+   }
 }

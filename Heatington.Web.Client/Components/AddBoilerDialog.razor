@@ -4,7 +4,7 @@
 @using Heatington.Services.LocalStorage
 @using System.Text.Json
 @inject Blazored.LocalStorage.ILocalStorageService LocalStorage
-@* AddBoilerDialog Component *@
+@* AddProductionUnitDialog Component *@
 
 <MudDialog>
     <DialogContent>
@@ -20,15 +20,16 @@
                         for="@context.Id"/>
             </ButtonTemplate>
         </MudFileUpload>
-        <MudTextField @bind-Value="@NewBoiler.Name" Label="Name" Variant="Variant.Outlined" Required/>
-        <MudTextField @bind-Value="@NewBoiler.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" Required/>
-        <MudTextField @bind-Value="@NewBoiler.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="@NewBoiler.ProductionCost" Label="Production Costs" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="@NewBoiler.Co2Emission" Label="CO2 Emissions" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="@NewBoiler.GasConsumption" Label="Gas Consumption" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@NewProductionUnit.Name" Label="Name" Variant="Variant.Outlined" Required/>
+        <MudTextField @bind-Value="@NewProductionUnit.FullName" Label="Full Name" Variant="Variant.Outlined" Required/>
+        <MudTextField @bind-Value="@NewProductionUnit.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" Required/>
+        <MudTextField @bind-Value="@NewProductionUnit.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@NewProductionUnit.ProductionCost" Label="Production Costs" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@NewProductionUnit.Co2Emission" Label="CO2 Emissions" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@NewProductionUnit.GasConsumption" Label="Gas Consumption" Variant="Variant.Outlined"/>
     </DialogContent>
     <DialogActions>
-        <MudButton Color="Color.Primary" Size="Size.Large" Variant="Variant.Filled" OnClick="AddBoiler">Add</MudButton>
+        <MudButton Color="Color.Primary" Size="Size.Large" Variant="Variant.Filled" OnClick="AddProductionUnit">Add</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -37,7 +38,7 @@
 
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
     [Parameter] public Dictionary<ProductionUnitsEnum, ProductionUnit> ProductionUnits { get; set; }
-    ProductionUnit NewBoiler = new ProductionUnit();
+    ProductionUnit NewProductionUnit = new ProductionUnit();
 
     async Task HandleImageUpload(InputFileChangeEventArgs e)
     {
@@ -51,7 +52,7 @@
 
         var imageData = $"data:{format};base64,{imagesrc}";
 
-        NewBoiler.PicturePath = imageData;
+        NewProductionUnit.PicturePath = imageData;
     }
 
     async Task HandleImageUpload(IBrowserFile file)
@@ -66,13 +67,13 @@
 
         var imageData = $"data:{format};base64,{imagesrc}";
 
-        NewBoiler.PicturePath = imageData;
+        NewProductionUnit.PicturePath = imageData;
     }
 
-    async Task AddBoiler()
+    async Task AddProductionUnit()
     {
-        ProductionUnits.Add(ProductionUnitsEnum.CustomBoiler,NewBoiler);
-        NewBoiler = new ProductionUnit();
+        ProductionUnits.Add(ProductionUnitsEnum.CustomBoiler,NewProductionUnit);
+        NewProductionUnit = new ProductionUnit();
         await LocalStorage.SetItemAsync("ProductionUnits", JsonSerializer.Serialize(ProductionUnits));
         MudDialog.Close(DialogResult.Ok(true));
         // Save ProductionUnits to LocalStorage

@@ -145,10 +145,17 @@
     {
         var parameters = new DialogParameters();
         parameters.Add("ProductionUnit", productionUnit.Value);
+        parameters.Add("ProductionUnitKey", productionUnit.Key);  // this line is added
         var dialog = await DialogService.ShowAsync<EditBoilerDialog>($"Edit {productionUnit.Value.FullName}", parameters, new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
         var result = await dialog.Result;
         if (!result.Cancelled)
         {
+            // reload the list from the storage in case it was changed
+            string? localStorageDataString = await LocalStorage.GetItemAsync<string>("ProductionUnits");
+            if (localStorageDataString != null)
+            {
+                productionUnits = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(localStorageDataString);
+            }
             StateHasChanged();
         }
     }
