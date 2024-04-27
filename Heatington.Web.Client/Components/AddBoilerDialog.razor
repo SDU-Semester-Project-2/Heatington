@@ -1,6 +1,9 @@
 @using ResourceManager = Heatington.Web.Client.Pages.ResourceManager
 @using Heatington.Models
 @using Heatington.AssetManager
+@using Heatington.Services.LocalStorage
+@using System.Text.Json
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 @* AddBoilerDialog Component *@
 
 <MudDialog>
@@ -66,11 +69,13 @@
         NewBoiler.PicturePath = imageData;
     }
 
-    void AddBoiler()
+    async Task AddBoiler()
     {
         ProductionUnits.Add(ProductionUnitsEnum.CustomBoiler,NewBoiler);
         NewBoiler = new ProductionUnit();
+        await LocalStorage.SetItemAsync("ProductionUnits", JsonSerializer.Serialize(ProductionUnits));
         MudDialog.Close(DialogResult.Ok(true));
+        // Save ProductionUnits to LocalStorage
     }
 
 }

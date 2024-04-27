@@ -6,7 +6,9 @@
 @using Heatington.Controllers
 @using Heatington.Controllers.Interfaces
 @using Heatington.Models
-
+@using Heatington.Services.LocalStorage
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject LocalStorageService LocalStorageService
 @inject HttpClient HttpClient
 @inject IDialogService DialogService
 @rendermode InteractiveWebAssembly
@@ -95,12 +97,26 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        // await AssetManager.LoadAssets();
-        string productionUnitsJson = await HttpClient.GetStringAsync("Assets/Data/ProductionUnits.json");
-        // Console.WriteLine(productionUnitsJson.Substring(0, 100)); // Just to see if the data is loaded
-        Dictionary<ProductionUnitsEnum, ProductionUnit>? _productionUnits = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(productionUnitsJson);
-        productionUnits = _productionUnits;
-    DirectoryInfo? pathToProjectRootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
+
+        // Fetch initial data from JSON
+        string initialDataJson = await HttpClient.GetStringAsync("Assets/Data/ProductionUnits.json");
+        Dictionary<ProductionUnitsEnum, ProductionUnit>? _productionUnits = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(initialDataJson);
+
+        // Check if there is data in local storage
+        string? localStorageDataString = await LocalStorage.GetItemAsync<string>("ProductionUnits");
+        if (localStorageDataString != null)
+        {
+            // If data exists in local storage use that instead of initial data
+            Dictionary<ProductionUnitsEnum, ProductionUnit> localStorageData = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(localStorageDataString);
+            productionUnits = localStorageData;
+        }
+        else
+        {
+            // If no data in local storage use initial data
+            productionUnits = _productionUnits;
+        }
+
+        DirectoryInfo? pathToProjectRootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
         StateHasChanged();
         if (pathToProjectRootDirectory != null)
         {
