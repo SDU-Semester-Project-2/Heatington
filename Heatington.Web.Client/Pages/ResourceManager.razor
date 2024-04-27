@@ -116,13 +116,18 @@
             productionUnits = _productionUnits;
         }
 
-        StateHasChanged();
         if (PathToInitialCsvData != null)
         {
             StateHasChanged();
             // string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "/Assets/Data/winter-data.csv");
             await ReadCsvDataOnLoad(PathToInitialCsvData);
         }
+        if (await LocalStorage.ContainKeyAsync("sourceData"))
+        {
+            string csvContent = await LocalStorage.GetItemAsync<string>("sourceData");
+            ParseCsvData(csvContent);
+        }
+        StateHasChanged();
     }
 
     private List<DataPoint> _heatDemandDataList = [];
@@ -170,6 +175,7 @@
         var file = e.File;
         var reader = new StreamReader(file.OpenReadStream());
         var csvContent = await reader.ReadToEndAsync();
+        await LocalStorage.SetItemAsync("sourceData", csvContent);
         ParseCsvData(csvContent);
     }
 
