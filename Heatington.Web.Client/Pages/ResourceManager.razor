@@ -103,7 +103,7 @@
         Dictionary<ProductionUnitsEnum, ProductionUnit> _productionUnits =
             JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(initialDataJson);
 
-        string? localStorageDataString = await LocalStorage.GetItemAsync<string>("ProductionUnits");
+        string? localStorageDataString = await LocalStorage.GetItemAsync<string>("production-units");
         if (localStorageDataString != null)
         {
             Dictionary<ProductionUnitsEnum, ProductionUnit> localStorageData =
@@ -113,13 +113,15 @@
         else
         {
             productionUnits = _productionUnits;
-            await LocalStorage.SetItemAsync<string>("ProductionUnits", initialDataJson);
+            await LocalStorage.SetItemAsync<string>("production-units", initialDataJson);
         }
 
+        // Prepare filename for CSV Data
+        string csvFilename = Path.GetFileNameWithoutExtension(PathToInitialCsvData);
         // Loading, parsing and storing CSV Data
-        if (await LocalStorage.ContainKeyAsync("sourceData"))
+        if (await LocalStorage.ContainKeyAsync(csvFilename))
         {
-            string csvContent = await LocalStorage.GetItemAsync<string>("sourceData");
+            string csvContent = await LocalStorage.GetItemAsync<string>(csvFilename);
             ParseCsvData(csvContent);
         }
         else
@@ -127,11 +129,10 @@
             if (PathToInitialCsvData != null)
             {
                 string initialCsvData = await HttpClient.GetStringAsync(PathToInitialCsvData);
-                await LocalStorage.SetItemAsync<string>("sourceData", initialCsvData);
+                await LocalStorage.SetItemAsync<string>(csvFilename, initialCsvData);
                 ParseCsvData(initialCsvData);
             }
         }
-
         StateHasChanged();
     }
 
