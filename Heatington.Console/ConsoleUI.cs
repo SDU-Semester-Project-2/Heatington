@@ -3,6 +3,7 @@ using Heatington.AssetManager;
 using Heatington.Models;
 using Spectre.Console;
 using static System.Console;
+
 namespace Heatington;
 
 public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDataManager sdm, Optimizer.Opt opt)
@@ -10,6 +11,7 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
     private List<DataPoint> _dataPoints = new List<DataPoint>();
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
     private List<ResultHolder> _results = new List<ResultHolder>();
+
     public void StartUi()
     {
         UiLoop();
@@ -26,7 +28,7 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
                 .Centered()
                 .Color(Color.Red));
 
-            string[] options = new[] { "Load Data", "Production Units", "Time Series Data", "Results", "quit"};
+            string[] options = new[] { "Load Data", "Production Units", "Time Series Data", "Results", "quit" };
 
             var selection = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
@@ -48,6 +50,7 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
                         return i + 1;
                     }
                 }
+
                 return 0;
             }
         }
@@ -77,6 +80,7 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
                 Clear();
                 return false;
         }
+
         return true;
     }
 
@@ -93,6 +97,8 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
         _dataPoints = sdm.TimeSeriesData!;
 
         opt.LoadData();
+        // opt.Optimize();
+        //it stays for now bcs there was an error when merging (fix is incoming in optimizer api)
         opt.OptimizeScenario1();
 
         _results = opt.Results!;
@@ -111,8 +117,10 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
 
         foreach (var unit in _productionUnits)
         {
-            table.AddRow(unit.Name, $"{unit.MaxHeat}", $"{unit.ProductionCost}", $"{unit.MaxElectricity}", $"{unit.GasConsumption}", $"{unit.Co2Emission}");
+            table.AddRow(unit.Name, $"{unit.MaxHeat}", $"{unit.ProductionCost}", $"{unit.MaxElectricity}",
+                $"{unit.GasConsumption}", $"{unit.Co2Emission}");
         }
+
         AnsiConsole.Write(table);
     }
 
@@ -127,7 +135,8 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
 
         foreach (var data in _dataPoints)
         {
-            table.AddRow($"{data.StartTime.ToString(CultureInfo.InvariantCulture)}", $"{data.EndTime.ToString(CultureInfo.InvariantCulture)}",
+            table.AddRow($"{data.StartTime.ToString(CultureInfo.InvariantCulture)}",
+                $"{data.EndTime.ToString(CultureInfo.InvariantCulture)}",
                 $"{data.HeatDemand}", $"{data.ElectricityPrice}");
         }
 
@@ -192,5 +201,4 @@ public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDat
             return boilerString;
         }
     }
-
 }
