@@ -29,7 +29,7 @@
        {
            Dictionary<ProductionUnitsEnum, ProductionUnit>?  productionUnits = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(localStorageDataString);
            productionUnits[ProductionUnitKey] = ProductionUnit;
-           await LocalStorage.SetItemAsync("ProductionUnits", JsonSerializer.Serialize(productionUnits));
+           await LocalStorage.SetItemAsync("production-units", JsonSerializer.Serialize(productionUnits));
        }
        MudDialog.Close(DialogResult.Ok(true));
    }

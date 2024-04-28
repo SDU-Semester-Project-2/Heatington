@@ -74,7 +74,7 @@
     {
         ProductionUnits.Add(ProductionUnitsEnum.CustomBoiler,NewProductionUnit);
         NewProductionUnit = new ProductionUnit();
-        await LocalStorage.SetItemAsync("ProductionUnits", JsonSerializer.Serialize(ProductionUnits));
+        await LocalStorage.SetItemAsync("production-units", JsonSerializer.Serialize(ProductionUnits));
         MudDialog.Close(DialogResult.Ok(true));
         // Save ProductionUnits to LocalStorage
     }
