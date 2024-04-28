@@ -1,3 +1,4 @@
+using System.Buffers;
 using Heatington;
 using Heatington.Controllers;
 using Heatington.Models;
@@ -19,6 +20,26 @@ public class ResultDataManager(CsvController _csvController)
         _optResults = opt.Results;
     }
 
+    public void WriteDataToCsv()
+    {
+        _csvController.SaveData(_optResults);
+    }
+
+    public void FormatResults()
+    {
+        List<ResultModel> formatedResults = new();
+
+        foreach (var result in _optResults)
+        {
+            foreach (var unit in result.Boilers)
+            {
+                formatedResults.Add(new ResultModel(unit, result.StartTime, result.EndTime, unit.OperationPoint));
+            }
+        }
+
+        formatedResults.ForEach(Console.WriteLine);
+    }
+
     private List<ProductionUnit> GetProductionUnits()
     {
         AssetManager.AssetManager assetManager = new();
@@ -29,9 +50,18 @@ public class ResultDataManager(CsvController _csvController)
 
         return pUnits;
     }
+}
 
-    public void WriteDataToCsv()
+public class ResultModel(ProductionUnit boiler, DateTime startTime, DateTime endTime, double operationPoint)
+{
+    public ProductionUnit Boiler { get; set; } = boiler;
+    public DateTime StartTime { get; set; } = startTime;
+    public DateTime EndTime { get; set; } = endTime;
+    public double OperationPoint { get; set; } = operationPoint;
+
+    public override string ToString()
     {
-        _csvController.SaveData(_optResults);
+        string s = string.Concat($"{Boiler.Name} ", StartTime, EndTime, $" {OperationPoint}");
+        return s;
     }
 }
