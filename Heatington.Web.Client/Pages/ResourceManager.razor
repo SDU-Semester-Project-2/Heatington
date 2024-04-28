@@ -98,35 +98,40 @@
     {
         await base.OnInitializedAsync();
 
-        // Fetch initial data from JSON
+        // Fetching and storing ProductionUnits
         string initialDataJson = await HttpClient.GetStringAsync("Assets/Data/ProductionUnits.json");
-        Dictionary<ProductionUnitsEnum, ProductionUnit>? _productionUnits = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(initialDataJson);
+        Dictionary<ProductionUnitsEnum, ProductionUnit> _productionUnits =
+            JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(initialDataJson);
 
-        // Check if there is data in local storage
         string? localStorageDataString = await LocalStorage.GetItemAsync<string>("ProductionUnits");
         if (localStorageDataString != null)
         {
-            // If data exists in local storage use that instead of initial data
-            Dictionary<ProductionUnitsEnum, ProductionUnit> localStorageData = JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(localStorageDataString);
+            Dictionary<ProductionUnitsEnum, ProductionUnit> localStorageData =
+                JsonSerializer.Deserialize<Dictionary<ProductionUnitsEnum, ProductionUnit>>(localStorageDataString);
             productionUnits = localStorageData;
         }
         else
         {
-            // If no data in local storage use initial data
             productionUnits = _productionUnits;
+            await LocalStorage.SetItemAsync<string>("ProductionUnits", initialDataJson);
         }
 
-        if (PathToInitialCsvData != null)
-        {
-            StateHasChanged();
-            // string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "/Assets/Data/winter-data.csv");
-            await ReadCsvDataOnLoad(PathToInitialCsvData);
-        }
+        // Loading, parsing and storing CSV Data
         if (await LocalStorage.ContainKeyAsync("sourceData"))
         {
             string csvContent = await LocalStorage.GetItemAsync<string>("sourceData");
             ParseCsvData(csvContent);
         }
+        else
+        {
+            if (PathToInitialCsvData != null)
+            {
+                string initialCsvData = await HttpClient.GetStringAsync(PathToInitialCsvData);
+                await LocalStorage.SetItemAsync<string>("sourceData", initialCsvData);
+                ParseCsvData(initialCsvData);
+            }
+        }
+
         StateHasChanged();
     }
 
