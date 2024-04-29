@@ -1,4 +1,4 @@
-using Heatington.Controllers.Serializers;
+using Heatington.Services.Serializers;
 
 namespace Heatington.Tests.Serializers;
 
