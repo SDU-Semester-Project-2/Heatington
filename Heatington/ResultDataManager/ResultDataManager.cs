@@ -50,15 +50,4 @@ public class ResultDataManager(CsvController _csvController)
 
         _csvController.SaveData(resultsToWrite);
     }
-
-    private List<ProductionUnit> GetProductionUnits()
-    {
-        AssetManager.AssetManager assetManager = new();
-
-        Task loadAssets = assetManager.LoadAssets();
-        loadAssets.Wait();
-        List<ProductionUnit> pUnits = assetManager.ProductionUnits!.Values.ToList();
-
-        return pUnits;
-    }
 }
