@@ -1,4 +1,5 @@
 using Heatington.Controllers;
+using Heatington.Controllers.Enums;
 using Heatington.Controllers.Interfaces;
 
 namespace Heatington.Tests.Controllers;
@@ -8,9 +9,8 @@ namespace Heatington.Tests.Controllers;
 /// </summary>
 public class FileControllerTests : UseTestDirectory
 {
-
     [Fact]
-    public async void ReadFileFromPath_ReadFile_ReadsCorrectContent()
+    public async Task ReadFileFromPath_ReadFile_ReadsCorrectContent()
     {
         //Arrange
         string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
@@ -26,39 +26,41 @@ public class FileControllerTests : UseTestDirectory
     }
 
     [Fact]
-    public void WriteFileFromPath_WriteFile_WritesCorrectContent()
+    public async Task WriteFileFromPath_WriteFile_WritesCorrectContent()
     {
         //Arrange
-        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
+        string TestFilePath = Path.Combine(TestsDirPath, "testFile.txt");
         string expectedContent =
             "Lorem ipsum dolor\t sit amet\n, consectetur\r adipiscing elit\t. Quisque euismod";
-        IReadWriteController fileController = new FileController(TestFilePath);
+        FileController fileController = new FileController(TestFilePath);
 
         //Act
-        fileController.WriteData(expectedContent);
+        OperationStatus status = await fileController.WriteData(expectedContent);
 
         //Assert
-        string actualContent = File.ReadAllText(TestFilePath);
+        string actualContent = File.ReadAllText(fileController.FilePath);
         Assert.Equal(expectedContent, actualContent);
+        Assert.Equal(OperationStatus.SUCCESS, status);
     }
 
     [Fact]
-    public void WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
+    public async Task WriteFileFromPath_WriteEmptyStringToFile_CreatesFile()
     {
         //Arrange
-        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
+        string TestFilePath = Path.Combine(TestsDirPath, "testFile");
         string emptyContent = "";
         IReadWriteController fileController = new FileController(TestFilePath);
 
         //Act
-        fileController.WriteData(emptyContent);
+        OperationStatus status = await fileController.WriteData(emptyContent);
 
         //Assert
         Assert.True(File.Exists(TestFilePath));
+        Assert.Equal(OperationStatus.SUCCESS, status);
     }
 
     [Fact]
-    public void WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
+    public async Task WriteToFileFromPath_WriteToTheSameFileTwice_CreatesTwo()
     {
         //Arrange
         string TestFilePath = Path.Combine(TestsDirPath, "file1.txt");
@@ -68,15 +70,18 @@ public class FileControllerTests : UseTestDirectory
 
         //Act
         fileController1 = new FileController(TestFilePath);
-        fileController1.WriteData(fakeContent);
+        OperationStatus status1 = await fileController1.WriteData(fakeContent);
 
         fileController2 = new FileController(TestFilePath);
-        fileController2.WriteData(fakeContent);
+        OperationStatus status2 = await fileController2.WriteData(fakeContent);
 
         //Assert
         int expectedNumOfFiles = 2;
         int actualNumOfFiles = Directory.GetParent(TestFilePath)!.GetFiles().Length;
         Assert.Equal(expectedNumOfFiles, actualNumOfFiles);
+
+        Assert.Equal(OperationStatus.SUCCESS, status1);
+        Assert.Equal(OperationStatus.SUCCESS, status2);
     }
 
     [Theory]
@@ -100,5 +105,4 @@ public class FileControllerTests : UseTestDirectory
         //Assert
         Assert.ThrowsAsync<FileNotFoundException>(async () => await readNotExistingData());
     }
-
 }
