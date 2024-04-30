@@ -2,17 +2,15 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Heatington.Controllers.Enums;
 using Heatington.Controllers.Interfaces;
-using Heatington.Services.Interfaces;
-using Heatington.Helpers;
 using Heatington.Models;
-using Heatington.Services.Interfaces;
+using Heatington.Services.Serializers;
 
 namespace Heatington.Controllers;
 
 public class JsonController(string filePath) : IReadWriteController
 {
-    //TODO: for now both JsonController and JsonDataSource implement IReadWriteController. Remove one, after talking with team.
-    private readonly IReadWriteController _fileController = new FileController(filePath);
+    private readonly FileController _fileController = new FileController(filePath);
+    public string JsonPath => _fileController.FilePath;
 
     public async Task<T> ReadData<T>()
     {
