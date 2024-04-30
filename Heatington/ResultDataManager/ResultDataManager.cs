@@ -9,6 +9,7 @@ namespace Heatington.ResultDataManager;
 public class ResultDataManager(CsvController _csvController)
 {
     private List<ResultHolder> _optResults;
+    private List<FormatedResultHolder> _formatedResult;
 
     public ResultDataManager(string filePath)
     {
@@ -20,24 +21,34 @@ public class ResultDataManager(CsvController _csvController)
         _optResults = opt.Results;
     }
 
-    public void WriteDataToCsv()
+    private List<FormatedResultHolder> FormatResults(List<ResultHolder> rawResults)
     {
-        _csvController.SaveData(_optResults);
-    }
+        List<FormatedResultHolder> formatedResults = new();
 
-    public void FormatResults()
-    {
-        List<ResultModel> formatedResults = new();
-
-        foreach (var result in _optResults)
+        // I am very sorry for the O(n^2)
+        foreach (var entry in _optResults)
         {
-            foreach (var unit in result.Boilers)
+            foreach (var unit in entry.Boilers)
             {
-                formatedResults.Add(new ResultModel(unit, result.StartTime, result.EndTime, unit.OperationPoint));
+                formatedResults.Add(new FormatedResultHolder(
+                    entry.StartTime, entry.EndTime, entry.HeatDemand, entry.ElectricityPrice, unit,
+                    entry.NetProductionCost));
             }
         }
 
-        formatedResults.ForEach(Console.WriteLine);
+        return formatedResults;
+    }
+
+    public void WriteDataToCsv()
+    {
+        if (_optResults == null)
+        {
+            return;
+        }
+
+        List<FormatedResultHolder> resultsToWrite = FormatResults(_optResults);
+
+        _csvController.SaveData(resultsToWrite);
     }
 
     private List<ProductionUnit> GetProductionUnits()
@@ -49,19 +60,5 @@ public class ResultDataManager(CsvController _csvController)
         List<ProductionUnit> pUnits = assetManager.ProductionUnits!.Values.ToList();
 
         return pUnits;
-    }
-}
-
-public class ResultModel(ProductionUnit boiler, DateTime startTime, DateTime endTime, double operationPoint)
-{
-    public ProductionUnit Boiler { get; set; } = boiler;
-    public DateTime StartTime { get; set; } = startTime;
-    public DateTime EndTime { get; set; } = endTime;
-    public double OperationPoint { get; set; } = operationPoint;
-
-    public override string ToString()
-    {
-        string s = string.Concat($"{Boiler.Name} ", StartTime, EndTime, $" {OperationPoint}");
-        return s;
     }
 }

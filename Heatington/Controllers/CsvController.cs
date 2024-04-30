@@ -60,7 +60,7 @@ namespace Heatington.Controllers
             }
         }
 
-
+        //TODO rewrite with generics
         // Another overload function, it should be done with generics
         public void SaveData(List<FormatedResultHolder> data)
         {
