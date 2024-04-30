@@ -59,5 +59,22 @@ namespace Heatington.Controllers
                 throw;
             }
         }
+
+
+        // Another overload function, it should be done with generics
+        public void SaveData(List<FormatedResultHolder> data)
+        {
+            try
+            {
+                CsvData csv = CsvData.Create(data);
+                string rawCsvData = CsvSerializer.Serialize(csv);
+                _fileController.WriteData<string>(rawCsvData);
+            }
+            catch (Exception e)
+            {
+                Utilities.DisplayException(e.Message);
+                throw;
+            }
+        }
     }
 }
