@@ -35,5 +35,26 @@ namespace AssetManagerAPI.Controllers
         {
             return AM.ProductionUnits!.Values.ToList();
         }
+
+        [HttpGet("{imageName}")]
+        public IActionResult GetImage(string imageName)
+        {
+            try
+            {
+                string _imageFolderPath = "../Assets/AssetManager";
+                string imagePath = Path.Combine(_imageFolderPath, imageName);
+
+                if (!System.IO.File.Exists(imagePath))
+                    return NotFound();
+
+                byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+                string base64String = Convert.ToBase64String(imageBytes);
+                return Ok(base64String);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }
