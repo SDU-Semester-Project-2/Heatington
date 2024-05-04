@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.Models
+  commentId: N:Heatington.Tests.Models
+  id: Heatington.Tests.Models
+  children:
+  - Heatington.Tests.Models.HeatingGridTests
+  - Heatington.Tests.Models.ProductionUnitTest
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Tests.Models
+  nameWithType: Heatington.Tests.Models
+  fullName: Heatington.Tests.Models
+  type: Namespace
+  assemblies:
+  - Heatington.Tests
+references:
+- uid: Heatington.Tests.Models.HeatingGridTests
+  commentId: T:Heatington.Tests.Models.HeatingGridTests
+  href: Heatington.Tests.Models.HeatingGridTests.html
+  name: HeatingGridTests
+  nameWithType: HeatingGridTests
+  fullName: Heatington.Tests.Models.HeatingGridTests
+- uid: Heatington.Tests.Models.ProductionUnitTest
+  commentId: T:Heatington.Tests.Models.ProductionUnitTest
+  href: Heatington.Tests.Models.ProductionUnitTest.html
+  name: ProductionUnitTest
+  nameWithType: ProductionUnitTest
+  fullName: Heatington.Tests.Models.ProductionUnitTest

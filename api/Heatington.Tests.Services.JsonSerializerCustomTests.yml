@@ -1,0 +1,732 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests
+  commentId: T:Heatington.Tests.Services.JsonSerializerCustomTests
+  id: JsonSerializerCustomTests
+  parent: Heatington.Tests.Services
+  children:
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(System.String)
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit(System.String)
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success
+  - Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success
+  langs:
+  - csharp
+  - vb
+  name: JsonSerializerCustomTests
+  nameWithType: JsonSerializerCustomTests
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests
+  type: Class
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: JsonSerializerCustomTests
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 7
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: public class JsonSerializerCustomTests
+    content.vb: Public Class JsonSerializerCustomTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson
+  id: Deserialize_DeserializeEmptyString_GetsEmptyJson
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Deserialize_DeserializeEmptyString_GetsEmptyJson()
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson()
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize_DeserializeEmptyString_GetsEmptyJson
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 14
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Deserialize_DeserializeEmptyString_GetsEmptyJson()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Deserialize_DeserializeEmptyString_GetsEmptyJson()
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+  id: Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Deserialize_DeserializeEmptyString_ConvertsToTheRightType()
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType()
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 29
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Deserialize_DeserializeEmptyString_ConvertsToTheRightType()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Deserialize_DeserializeEmptyString_ConvertsToTheRightType()
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit(System.String)
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit(System.String)
+  id: Deserialize_DeserializeProductionUnitString_GetsProductionUnit(System.String)
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Deserialize_DeserializeProductionUnitString_GetsProductionUnit(string)
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit(string)
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit(string)
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize_DeserializeProductionUnitString_GetsProductionUnit
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 43
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [InlineData(new object[] { "    {\n        \"Name\": \"TU\",\n        \"FullName\": \"Test Unit\",\n        \"PicturePath\": \"\",\n        \"MaxHeat\": 10,\n        \"ProductionCost\": 250,\n        \"MaxElectricity\": 7,\n        \"GasConsumption\": 1.1,\n        \"Co2Emission\":8.0\n    }" })]
+
+      [InlineData(new object[] { "    {\n        \"Name\": \"TU\",\n        \"PicturePath\": \"\",\n        \"MaxHeat\": 10,\n        \"ProductionCost\": 250,\n        \"MaxElectricity\": 7,\n        \"GasConsumption\": 1.1,\n        \"Co2Emission\":8.0\n    }" })]
+
+      [Theory]
+
+      public void Deserialize_DeserializeProductionUnitString_GetsProductionUnit(string testUnitString)
+    parameters:
+    - id: testUnitString
+      type: System.String
+    content.vb: >-
+      <InlineData(New Object() { "    {" & vbLf & "        ""Name"": ""TU""," & vbLf & "        ""FullName"": ""Test Unit""," & vbLf & "        ""PicturePath"": """"," & vbLf & "        ""MaxHeat"": 10," & vbLf & "        ""ProductionCost"": 250," & vbLf & "        ""MaxElectricity"": 7," & vbLf & "        ""GasConsumption"": 1.1," & vbLf & "        ""Co2Emission"":8.0" & vbLf & "    }" })>
+
+      <InlineData(New Object() { "    {" & vbLf & "        ""Name"": ""TU""," & vbLf & "        ""PicturePath"": """"," & vbLf & "        ""MaxHeat"": 10," & vbLf & "        ""ProductionCost"": 250," & vbLf & "        ""MaxElectricity"": 7," & vbLf & "        ""GasConsumption"": 1.1," & vbLf & "        ""Co2Emission"":8.0" & vbLf & "    }" })>
+
+      <Theory>
+
+      Public Sub Deserialize_DeserializeProductionUnitString_GetsProductionUnit(testUnitString As String)
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit(String)
+  fullName.vb: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit(String)
+  name.vb: Deserialize_DeserializeProductionUnitString_GetsProductionUnit(String)
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(System.String)
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(System.String)
+  id: Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(System.String)
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(string)
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(string)
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(string)
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize_DeserializeHeatingGridString_GetsHeatingGrid
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 80
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [InlineData(new object[] { "{\n    \"PicturePath\": \"\",\n    \"Name\": \"Heating Grid Test\",\n    \"Architecture\":\t\"Test description, testing architecture\",\n    \"Size\":\t\"0 homes, 2 pipes\",\n    \"City\":\t\"Funfoss\"\n}" })]
+
+      [InlineData(new object[] { "{\n    \"PicturePath\": \"\",\n    \"Name\": \"Heating Grid Test\"\n}" })]
+
+      [Theory]
+
+      public void Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(string testString)
+    parameters:
+    - id: testString
+      type: System.String
+    content.vb: >-
+      <InlineData(New Object() { "{" & vbLf & "    ""PicturePath"": """"," & vbLf & "    ""Name"": ""Heating Grid Test""," & vbLf & "    ""Architecture"":" & vbTab & """Test description, testing architecture""," & vbLf & "    ""Size"":" & vbTab & """0 homes, 2 pipes""," & vbLf & "    ""City"":" & vbTab & """Funfoss""" & vbLf & "}" })>
+
+      <InlineData(New Object() { "{" & vbLf & "    ""PicturePath"": """"," & vbLf & "    ""Name"": ""Heating Grid Test""" & vbLf & "}" })>
+
+      <Theory>
+
+      Public Sub Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(testString As String)
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(String)
+  fullName.vb: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(String)
+  name.vb: Deserialize_DeserializeHeatingGridString_GetsHeatingGrid(String)
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt
+  id: Deserialize_DeserializeInt_GetsInt
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Deserialize_DeserializeInt_GetsInt()
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt()
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize_DeserializeInt_GetsInt
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 110
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Deserialize_DeserializeInt_GetsInt()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Deserialize_DeserializeInt_GetsInt()
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error
+  id: Deserialize_DeserializeTextIntoInt_Error
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Deserialize_DeserializeTextIntoInt_Error()
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error()
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize_DeserializeTextIntoInt_Error
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 125
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Deserialize_DeserializeTextIntoInt_Error()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Deserialize_DeserializeTextIntoInt_Error()
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error
+  id: Deserialize_DeserializeAnonFunc_Error
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Deserialize_DeserializeAnonFunc_Error()
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error()
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize_DeserializeAnonFunc_Error
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 141
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Deserialize_DeserializeAnonFunc_Error()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Deserialize_DeserializeAnonFunc_Error()
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success
+  id: Serialize_SerializeProductionUnit_Success
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Serialize_SerializeProductionUnit_Success()
+  nameWithType: JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success()
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Serialize_SerializeProductionUnit_Success
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 171
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Serialize_SerializeProductionUnit_Success()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Serialize_SerializeProductionUnit_Success()
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success
+  commentId: M:Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success
+  id: Serialize_SerializeHeatingGrid_Success
+  parent: Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Serialize_SerializeHeatingGrid_Success()
+  nameWithType: JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success()
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Serialize_SerializeHeatingGrid_Success
+    path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
+    startLine: 200
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Services
+  syntax:
+    content: >-
+      [Fact]
+
+      public void Serialize_SerializeHeatingGrid_Success()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Serialize_SerializeHeatingGrid_Success()
+  overload: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: Heatington.Tests.Services
+  commentId: N:Heatington.Tests.Services
+  href: Heatington.html
+  name: Heatington.Tests.Services
+  nameWithType: Heatington.Tests.Services
+  fullName: Heatington.Tests.Services
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Services
+    name: Services
+    href: Heatington.Tests.Services.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Services
+    name: Services
+    href: Heatington.Tests.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Deserialize_DeserializeEmptyString_GetsEmptyJson
+  name: Deserialize_DeserializeEmptyString_GetsEmptyJson
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_GetsEmptyJson
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+  name: Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeEmptyString_ConvertsToTheRightType
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Deserialize_DeserializeProductionUnitString_GetsProductionUnit_System_String_
+  name: Deserialize_DeserializeProductionUnitString_GetsProductionUnit
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeProductionUnitString_GetsProductionUnit
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Deserialize_DeserializeHeatingGridString_GetsHeatingGrid_System_String_
+  name: Deserialize_DeserializeHeatingGridString_GetsHeatingGrid
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeHeatingGridString_GetsHeatingGrid
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Deserialize_DeserializeInt_GetsInt
+  name: Deserialize_DeserializeInt_GetsInt
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeInt_GetsInt
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Deserialize_DeserializeTextIntoInt_Error
+  name: Deserialize_DeserializeTextIntoInt_Error
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeTextIntoInt_Error
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Deserialize_DeserializeAnonFunc_Error
+  name: Deserialize_DeserializeAnonFunc_Error
+  nameWithType: JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Deserialize_DeserializeAnonFunc_Error
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Serialize_SerializeProductionUnit_Success
+  name: Serialize_SerializeProductionUnit_Success
+  nameWithType: JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeProductionUnit_Success
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success*
+  commentId: Overload:Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html#Heatington_Tests_Services_JsonSerializerCustomTests_Serialize_SerializeHeatingGrid_Success
+  name: Serialize_SerializeHeatingGrid_Success
+  nameWithType: JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests.Serialize_SerializeHeatingGrid_Success

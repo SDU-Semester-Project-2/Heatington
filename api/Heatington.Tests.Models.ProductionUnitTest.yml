@@ -1,34 +1,34 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Heatington.ResultDataManager.ResultDataManager
-  commentId: T:Heatington.ResultDataManager.ResultDataManager
-  id: ResultDataManager
-  parent: Heatington.ResultDataManager
+- uid: Heatington.Tests.Models.ProductionUnitTest
+  commentId: T:Heatington.Tests.Models.ProductionUnitTest
+  id: ProductionUnitTest
+  parent: Heatington.Tests.Models
   children:
-  - Heatington.ResultDataManager.ResultDataManager.#ctor(Heatington.Controllers.CsvController)
-  - Heatington.ResultDataManager.ResultDataManager.FetchOptimizationData(Heatington.Optimizer.Opt)
-  - Heatington.ResultDataManager.ResultDataManager.WriteDataToCsv
+  - Heatington.Tests.Models.ProductionUnitTest.Constructor_Works_Properly
+  - Heatington.Tests.Models.ProductionUnitTest.OperationPoint_OutOfRange
+  - Heatington.Tests.Models.ProductionUnitTest.OperationPoint_ValidRange
   langs:
   - csharp
   - vb
-  name: ResultDataManager
-  nameWithType: ResultDataManager
-  fullName: Heatington.ResultDataManager.ResultDataManager
+  name: ProductionUnitTest
+  nameWithType: ProductionUnitTest
+  fullName: Heatington.Tests.Models.ProductionUnitTest
   type: Class
   source:
     remote:
-      path: Heatington/ResultDataManager/ResultDataManager.cs
+      path: Heatington.Tests/Models/ProductionUnitTests.cs
       branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: ResultDataManager
-    path: Heatington/ResultDataManager/ResultDataManager.cs
-    startLine: 7
+    id: ProductionUnitTest
+    path: Heatington.Tests/Models/ProductionUnitTests.cs
+    startLine: 4
   assemblies:
-  - Heatington
-  namespace: Heatington.ResultDataManager
+  - Heatington.Tests
+  namespace: Heatington.Tests.Models
   syntax:
-    content: public class ResultDataManager
-    content.vb: Public Class ResultDataManager
+    content: public class ProductionUnitTest
+    content.vb: Public Class ProductionUnitTest
   inheritance:
   - System.Object
   inheritedMembers:
@@ -39,116 +39,145 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Heatington.ResultDataManager.ResultDataManager.#ctor(Heatington.Controllers.CsvController)
-  commentId: M:Heatington.ResultDataManager.ResultDataManager.#ctor(Heatington.Controllers.CsvController)
-  id: '#ctor(Heatington.Controllers.CsvController)'
-  parent: Heatington.ResultDataManager.ResultDataManager
+- uid: Heatington.Tests.Models.ProductionUnitTest.Constructor_Works_Properly
+  commentId: M:Heatington.Tests.Models.ProductionUnitTest.Constructor_Works_Properly
+  id: Constructor_Works_Properly
+  parent: Heatington.Tests.Models.ProductionUnitTest
   langs:
   - csharp
   - vb
-  name: ResultDataManager(CsvController)
-  nameWithType: ResultDataManager.ResultDataManager(CsvController)
-  fullName: Heatington.ResultDataManager.ResultDataManager.ResultDataManager(Heatington.Controllers.CsvController)
-  type: Constructor
-  source:
-    remote:
-      path: Heatington/ResultDataManager/ResultDataManager.cs
-      branch: SP2-110-Create-Tests-for-JsonController
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: .ctor
-    path: Heatington/ResultDataManager/ResultDataManager.cs
-    startLine: 7
-  assemblies:
-  - Heatington
-  namespace: Heatington.ResultDataManager
-  syntax:
-    content: public ResultDataManager(CsvController _csvController)
-    parameters:
-    - id: _csvController
-      type: Heatington.Controllers.CsvController
-    content.vb: Public Sub New(_csvController As CsvController)
-  overload: Heatington.ResultDataManager.ResultDataManager.#ctor*
-  nameWithType.vb: ResultDataManager.New(CsvController)
-  fullName.vb: Heatington.ResultDataManager.ResultDataManager.New(Heatington.Controllers.CsvController)
-  name.vb: New(CsvController)
-- uid: Heatington.ResultDataManager.ResultDataManager.FetchOptimizationData(Heatington.Optimizer.Opt)
-  commentId: M:Heatington.ResultDataManager.ResultDataManager.FetchOptimizationData(Heatington.Optimizer.Opt)
-  id: FetchOptimizationData(Heatington.Optimizer.Opt)
-  parent: Heatington.ResultDataManager.ResultDataManager
-  langs:
-  - csharp
-  - vb
-  name: FetchOptimizationData(Opt)
-  nameWithType: ResultDataManager.FetchOptimizationData(Opt)
-  fullName: Heatington.ResultDataManager.ResultDataManager.FetchOptimizationData(Heatington.Optimizer.Opt)
+  name: Constructor_Works_Properly()
+  nameWithType: ProductionUnitTest.Constructor_Works_Properly()
+  fullName: Heatington.Tests.Models.ProductionUnitTest.Constructor_Works_Properly()
   type: Method
   source:
     remote:
-      path: Heatington/ResultDataManager/ResultDataManager.cs
+      path: Heatington.Tests/Models/ProductionUnitTests.cs
       branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: FetchOptimizationData
-    path: Heatington/ResultDataManager/ResultDataManager.cs
-    startLine: 11
+    id: Constructor_Works_Properly
+    path: Heatington.Tests/Models/ProductionUnitTests.cs
+    startLine: 6
   assemblies:
-  - Heatington
-  namespace: Heatington.ResultDataManager
+  - Heatington.Tests
+  namespace: Heatington.Tests.Models
   syntax:
-    content: public void FetchOptimizationData(Opt opt)
-    parameters:
-    - id: opt
-      type: Heatington.Optimizer.Opt
-    content.vb: Public Sub FetchOptimizationData(opt As Opt)
-  overload: Heatington.ResultDataManager.ResultDataManager.FetchOptimizationData*
-- uid: Heatington.ResultDataManager.ResultDataManager.WriteDataToCsv
-  commentId: M:Heatington.ResultDataManager.ResultDataManager.WriteDataToCsv
-  id: WriteDataToCsv
-  parent: Heatington.ResultDataManager.ResultDataManager
+    content: >-
+      [Fact]
+
+      public void Constructor_Works_Properly()
+    content.vb: >-
+      <Fact>
+
+      Public Sub Constructor_Works_Properly()
+  overload: Heatington.Tests.Models.ProductionUnitTest.Constructor_Works_Properly*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_ValidRange
+  commentId: M:Heatington.Tests.Models.ProductionUnitTest.OperationPoint_ValidRange
+  id: OperationPoint_ValidRange
+  parent: Heatington.Tests.Models.ProductionUnitTest
   langs:
   - csharp
   - vb
-  name: WriteDataToCsv()
-  nameWithType: ResultDataManager.WriteDataToCsv()
-  fullName: Heatington.ResultDataManager.ResultDataManager.WriteDataToCsv()
+  name: OperationPoint_ValidRange()
+  nameWithType: ProductionUnitTest.OperationPoint_ValidRange()
+  fullName: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_ValidRange()
   type: Method
   source:
     remote:
-      path: Heatington/ResultDataManager/ResultDataManager.cs
+      path: Heatington.Tests/Models/ProductionUnitTests.cs
       branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: WriteDataToCsv
-    path: Heatington/ResultDataManager/ResultDataManager.cs
-    startLine: 16
+    id: OperationPoint_ValidRange
+    path: Heatington.Tests/Models/ProductionUnitTests.cs
+    startLine: 21
   assemblies:
-  - Heatington
-  namespace: Heatington.ResultDataManager
+  - Heatington.Tests
+  namespace: Heatington.Tests.Models
   syntax:
-    content: public void WriteDataToCsv()
-    content.vb: Public Sub WriteDataToCsv()
-  overload: Heatington.ResultDataManager.ResultDataManager.WriteDataToCsv*
+    content: >-
+      [Fact]
+
+      public void OperationPoint_ValidRange()
+    content.vb: >-
+      <Fact>
+
+      Public Sub OperationPoint_ValidRange()
+  overload: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_ValidRange*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_OutOfRange
+  commentId: M:Heatington.Tests.Models.ProductionUnitTest.OperationPoint_OutOfRange
+  id: OperationPoint_OutOfRange
+  parent: Heatington.Tests.Models.ProductionUnitTest
+  langs:
+  - csharp
+  - vb
+  name: OperationPoint_OutOfRange()
+  nameWithType: ProductionUnitTest.OperationPoint_OutOfRange()
+  fullName: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_OutOfRange()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Models/ProductionUnitTests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: OperationPoint_OutOfRange
+    path: Heatington.Tests/Models/ProductionUnitTests.cs
+    startLine: 30
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Models
+  syntax:
+    content: >-
+      [Fact]
+
+      public void OperationPoint_OutOfRange()
+    content.vb: >-
+      <Fact>
+
+      Public Sub OperationPoint_OutOfRange()
+  overload: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_OutOfRange*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
 references:
-- uid: Heatington.ResultDataManager
-  commentId: N:Heatington.ResultDataManager
+- uid: Heatington.Tests.Models
+  commentId: N:Heatington.Tests.Models
   href: Heatington.html
-  name: Heatington.ResultDataManager
-  nameWithType: Heatington.ResultDataManager
-  fullName: Heatington.ResultDataManager
+  name: Heatington.Tests.Models
+  nameWithType: Heatington.Tests.Models
+  fullName: Heatington.Tests.Models
   spec.csharp:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.ResultDataManager
-    name: ResultDataManager
-    href: Heatington.ResultDataManager.html
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Models
+    name: Models
+    href: Heatington.Tests.Models.html
   spec.vb:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.ResultDataManager
-    name: ResultDataManager
-    href: Heatington.ResultDataManager.html
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Models
+    name: Models
+    href: Heatington.Tests.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -386,82 +415,21 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Heatington.ResultDataManager.ResultDataManager.#ctor*
-  commentId: Overload:Heatington.ResultDataManager.ResultDataManager.#ctor
-  href: Heatington.ResultDataManager.ResultDataManager.html#Heatington_ResultDataManager_ResultDataManager__ctor_Heatington_Controllers_CsvController_
-  name: ResultDataManager
-  nameWithType: ResultDataManager.ResultDataManager
-  fullName: Heatington.ResultDataManager.ResultDataManager.ResultDataManager
-  nameWithType.vb: ResultDataManager.New
-  fullName.vb: Heatington.ResultDataManager.ResultDataManager.New
-  name.vb: New
-- uid: Heatington.Controllers.CsvController
-  commentId: T:Heatington.Controllers.CsvController
-  parent: Heatington.Controllers
-  href: Heatington.Controllers.CsvController.html
-  name: CsvController
-  nameWithType: CsvController
-  fullName: Heatington.Controllers.CsvController
-- uid: Heatington.Controllers
-  commentId: N:Heatington.Controllers
-  href: Heatington.html
-  name: Heatington.Controllers
-  nameWithType: Heatington.Controllers
-  fullName: Heatington.Controllers
-  spec.csharp:
-  - uid: Heatington
-    name: Heatington
-    href: Heatington.html
-  - name: .
-  - uid: Heatington.Controllers
-    name: Controllers
-    href: Heatington.Controllers.html
-  spec.vb:
-  - uid: Heatington
-    name: Heatington
-    href: Heatington.html
-  - name: .
-  - uid: Heatington.Controllers
-    name: Controllers
-    href: Heatington.Controllers.html
-- uid: Heatington.ResultDataManager.ResultDataManager.FetchOptimizationData*
-  commentId: Overload:Heatington.ResultDataManager.ResultDataManager.FetchOptimizationData
-  href: Heatington.ResultDataManager.ResultDataManager.html#Heatington_ResultDataManager_ResultDataManager_FetchOptimizationData_Heatington_Optimizer_Opt_
-  name: FetchOptimizationData
-  nameWithType: ResultDataManager.FetchOptimizationData
-  fullName: Heatington.ResultDataManager.ResultDataManager.FetchOptimizationData
-- uid: Heatington.Optimizer.Opt
-  commentId: T:Heatington.Optimizer.Opt
-  parent: Heatington.Optimizer
-  href: Heatington.Optimizer.Opt.html
-  name: Opt
-  nameWithType: Opt
-  fullName: Heatington.Optimizer.Opt
-- uid: Heatington.Optimizer
-  commentId: N:Heatington.Optimizer
-  href: Heatington.html
-  name: Heatington.Optimizer
-  nameWithType: Heatington.Optimizer
-  fullName: Heatington.Optimizer
-  spec.csharp:
-  - uid: Heatington
-    name: Heatington
-    href: Heatington.html
-  - name: .
-  - uid: Heatington.Optimizer
-    name: Optimizer
-    href: Heatington.Optimizer.html
-  spec.vb:
-  - uid: Heatington
-    name: Heatington
-    href: Heatington.html
-  - name: .
-  - uid: Heatington.Optimizer
-    name: Optimizer
-    href: Heatington.Optimizer.html
-- uid: Heatington.ResultDataManager.ResultDataManager.WriteDataToCsv*
-  commentId: Overload:Heatington.ResultDataManager.ResultDataManager.WriteDataToCsv
-  href: Heatington.ResultDataManager.ResultDataManager.html#Heatington_ResultDataManager_ResultDataManager_WriteDataToCsv
-  name: WriteDataToCsv
-  nameWithType: ResultDataManager.WriteDataToCsv
-  fullName: Heatington.ResultDataManager.ResultDataManager.WriteDataToCsv
+- uid: Heatington.Tests.Models.ProductionUnitTest.Constructor_Works_Properly*
+  commentId: Overload:Heatington.Tests.Models.ProductionUnitTest.Constructor_Works_Properly
+  href: Heatington.Tests.Models.ProductionUnitTest.html#Heatington_Tests_Models_ProductionUnitTest_Constructor_Works_Properly
+  name: Constructor_Works_Properly
+  nameWithType: ProductionUnitTest.Constructor_Works_Properly
+  fullName: Heatington.Tests.Models.ProductionUnitTest.Constructor_Works_Properly
+- uid: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_ValidRange*
+  commentId: Overload:Heatington.Tests.Models.ProductionUnitTest.OperationPoint_ValidRange
+  href: Heatington.Tests.Models.ProductionUnitTest.html#Heatington_Tests_Models_ProductionUnitTest_OperationPoint_ValidRange
+  name: OperationPoint_ValidRange
+  nameWithType: ProductionUnitTest.OperationPoint_ValidRange
+  fullName: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_ValidRange
+- uid: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_OutOfRange*
+  commentId: Overload:Heatington.Tests.Models.ProductionUnitTest.OperationPoint_OutOfRange
+  href: Heatington.Tests.Models.ProductionUnitTest.html#Heatington_Tests_Models_ProductionUnitTest_OperationPoint_OutOfRange
+  name: OperationPoint_OutOfRange
+  nameWithType: ProductionUnitTest.OperationPoint_OutOfRange
+  fullName: Heatington.Tests.Models.ProductionUnitTest.OperationPoint_OutOfRange
