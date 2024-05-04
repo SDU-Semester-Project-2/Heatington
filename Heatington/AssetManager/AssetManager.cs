@@ -102,6 +102,21 @@ public class AssetManager(
         ProductionUnits[productionUnitToWrite.Key] = editedHeatingUnit;
     }
 
+    public void AddHeatingUnit(ProductionUnitsEnum type, ProductionUnit newHeatingUnit)
+    {
+        if (ProductionUnits == null)
+        {
+            throw ThrowExceptionProductionUnitsEmpty();
+        }
+
+        if(ProductionUnits.Any(pair => pair.Value.Id == newHeatingUnit.Id))
+        {
+            throw new Exception("Productionunit already exists.");
+        }
+
+        ProductionUnits.Add(type, newHeatingUnit);
+    }
+
     public override string ToString()
     {
         string strRepresentation = $"HeatingGridInformation:\n{HeatingGridInformation}";
