@@ -5,7 +5,7 @@ items:
   id: SourceDataManager
   parent: Heatington.SourceDataManager
   children:
-  - Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Controllers.Interfaces.IDataSource)
+  - Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Services.Interfaces.IDataSource)
   - Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
   - Heatington.SourceDataManager.SourceDataManager.FetchTimeSeriesDataAsync
   - Heatington.SourceDataManager.SourceDataManager.LogTimeSeriesData
@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SourceDataManager
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -55,7 +55,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: TimeSeriesData
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -70,21 +70,21 @@ items:
       type: System.Collections.Generic.List{Heatington.Models.DataPoint}
     content.vb: Public Property TimeSeriesData As List(Of DataPoint)
   overload: Heatington.SourceDataManager.SourceDataManager.TimeSeriesData*
-- uid: Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Controllers.Interfaces.IDataSource)
-  commentId: M:Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Controllers.Interfaces.IDataSource)
-  id: '#ctor(Heatington.Controllers.Interfaces.IDataSource)'
+- uid: Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Services.Interfaces.IDataSource)
+  commentId: M:Heatington.SourceDataManager.SourceDataManager.#ctor(Heatington.Services.Interfaces.IDataSource)
+  id: '#ctor(Heatington.Services.Interfaces.IDataSource)'
   parent: Heatington.SourceDataManager.SourceDataManager
   langs:
   - csharp
   - vb
   name: SourceDataManager(IDataSource)
   nameWithType: SourceDataManager.SourceDataManager(IDataSource)
-  fullName: Heatington.SourceDataManager.SourceDataManager.SourceDataManager(Heatington.Controllers.Interfaces.IDataSource)
+  fullName: Heatington.SourceDataManager.SourceDataManager.SourceDataManager(Heatington.Services.Interfaces.IDataSource)
   type: Constructor
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -96,11 +96,11 @@ items:
     content: public SourceDataManager(IDataSource dataSource)
     parameters:
     - id: dataSource
-      type: Heatington.Controllers.Interfaces.IDataSource
+      type: Heatington.Services.Interfaces.IDataSource
     content.vb: Public Sub New(dataSource As IDataSource)
   overload: Heatington.SourceDataManager.SourceDataManager.#ctor*
   nameWithType.vb: SourceDataManager.New(IDataSource)
-  fullName.vb: Heatington.SourceDataManager.SourceDataManager.New(Heatington.Controllers.Interfaces.IDataSource)
+  fullName.vb: Heatington.SourceDataManager.SourceDataManager.New(Heatington.Services.Interfaces.IDataSource)
   name.vb: New(IDataSource)
 - uid: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
   commentId: M:Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv(System.Collections.Generic.List{Heatington.Models.DataPoint})
@@ -116,7 +116,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ConvertApiToCsv
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -149,7 +149,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FetchTimeSeriesDataAsync
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -177,7 +177,7 @@ items:
   source:
     remote:
       path: Heatington/SourceDataManager/SourceDataManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogTimeSeriesData
     path: Heatington/SourceDataManager/SourceDataManager.cs
@@ -556,50 +556,50 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: Heatington.SourceDataManager.SourceDataManager.#ctor*
   commentId: Overload:Heatington.SourceDataManager.SourceDataManager.#ctor
-  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager__ctor_Heatington_Controllers_Interfaces_IDataSource_
+  href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager__ctor_Heatington_Services_Interfaces_IDataSource_
   name: SourceDataManager
   nameWithType: SourceDataManager.SourceDataManager
   fullName: Heatington.SourceDataManager.SourceDataManager.SourceDataManager
   nameWithType.vb: SourceDataManager.New
   fullName.vb: Heatington.SourceDataManager.SourceDataManager.New
   name.vb: New
-- uid: Heatington.Controllers.Interfaces.IDataSource
-  commentId: T:Heatington.Controllers.Interfaces.IDataSource
-  parent: Heatington.Controllers.Interfaces
-  href: Heatington.Controllers.Interfaces.IDataSource.html
+- uid: Heatington.Services.Interfaces.IDataSource
+  commentId: T:Heatington.Services.Interfaces.IDataSource
+  parent: Heatington.Services.Interfaces
+  href: Heatington.Services.Interfaces.IDataSource.html
   name: IDataSource
   nameWithType: IDataSource
-  fullName: Heatington.Controllers.Interfaces.IDataSource
-- uid: Heatington.Controllers.Interfaces
-  commentId: N:Heatington.Controllers.Interfaces
+  fullName: Heatington.Services.Interfaces.IDataSource
+- uid: Heatington.Services.Interfaces
+  commentId: N:Heatington.Services.Interfaces
   href: Heatington.html
-  name: Heatington.Controllers.Interfaces
-  nameWithType: Heatington.Controllers.Interfaces
-  fullName: Heatington.Controllers.Interfaces
+  name: Heatington.Services.Interfaces
+  nameWithType: Heatington.Services.Interfaces
+  fullName: Heatington.Services.Interfaces
   spec.csharp:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Controllers
-    name: Controllers
-    href: Heatington.Controllers.html
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
   - name: .
-  - uid: Heatington.Controllers.Interfaces
+  - uid: Heatington.Services.Interfaces
     name: Interfaces
-    href: Heatington.Controllers.Interfaces.html
+    href: Heatington.Services.Interfaces.html
   spec.vb:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Controllers
-    name: Controllers
-    href: Heatington.Controllers.html
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
   - name: .
-  - uid: Heatington.Controllers.Interfaces
+  - uid: Heatington.Services.Interfaces
     name: Interfaces
-    href: Heatington.Controllers.Interfaces.html
+    href: Heatington.Services.Interfaces.html
 - uid: Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv*
   commentId: Overload:Heatington.SourceDataManager.SourceDataManager.ConvertApiToCsv
   href: Heatington.SourceDataManager.SourceDataManager.html#Heatington_SourceDataManager_SourceDataManager_ConvertApiToCsv_System_Collections_Generic_List_Heatington_Models_DataPoint__

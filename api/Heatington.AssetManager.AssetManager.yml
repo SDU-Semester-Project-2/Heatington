@@ -5,7 +5,7 @@ items:
   id: AssetManager
   parent: Heatington.AssetManager
   children:
-  - Heatington.AssetManager.AssetManager.#ctor
+  - Heatington.AssetManager.AssetManager.#ctor(Heatington.Controllers.Interfaces.IReadWriteController,Heatington.Controllers.Interfaces.IReadWriteController)
   - Heatington.AssetManager.AssetManager.HeatingGridInformation
   - Heatington.AssetManager.AssetManager.LoadAssets
   - Heatington.AssetManager.AssetManager.ProductionUnits
@@ -24,11 +24,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: AssetManager
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 13
+    startLine: 12
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -49,6 +49,45 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Heatington.AssetManager.AssetManager.#ctor(Heatington.Controllers.Interfaces.IReadWriteController,Heatington.Controllers.Interfaces.IReadWriteController)
+  commentId: M:Heatington.AssetManager.AssetManager.#ctor(Heatington.Controllers.Interfaces.IReadWriteController,Heatington.Controllers.Interfaces.IReadWriteController)
+  id: '#ctor(Heatington.Controllers.Interfaces.IReadWriteController,Heatington.Controllers.Interfaces.IReadWriteController)'
+  parent: Heatington.AssetManager.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: AssetManager(IReadWriteController, IReadWriteController)
+  nameWithType: AssetManager.AssetManager(IReadWriteController, IReadWriteController)
+  fullName: Heatington.AssetManager.AssetManager.AssetManager(Heatington.Controllers.Interfaces.IReadWriteController, Heatington.Controllers.Interfaces.IReadWriteController)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/AssetManager/AssetManager.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/AssetManager/AssetManager.cs
+    startLine: 12
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  example:
+  - >-
+    <pre><code class="lang-csharp">AssetManager AM = new AssetManager();
+
+    await AM.LoadAssets();</code></pre>
+  syntax:
+    content: public AssetManager(IReadWriteController heatingGridJsonController, IReadWriteController productionUnitsJsonController)
+    parameters:
+    - id: heatingGridJsonController
+      type: Heatington.Controllers.Interfaces.IReadWriteController
+    - id: productionUnitsJsonController
+      type: Heatington.Controllers.Interfaces.IReadWriteController
+    content.vb: Public Sub New(heatingGridJsonController As IReadWriteController, productionUnitsJsonController As IReadWriteController)
+  overload: Heatington.AssetManager.AssetManager.#ctor*
+  nameWithType.vb: AssetManager.New(IReadWriteController, IReadWriteController)
+  fullName.vb: Heatington.AssetManager.AssetManager.New(Heatington.Controllers.Interfaces.IReadWriteController, Heatington.Controllers.Interfaces.IReadWriteController)
+  name.vb: New(IReadWriteController, IReadWriteController)
 - uid: Heatington.AssetManager.AssetManager.HeatingGridInformation
   commentId: P:Heatington.AssetManager.AssetManager.HeatingGridInformation
   id: HeatingGridInformation
@@ -63,11 +102,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatingGridInformation
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 15
+    startLine: 17
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -92,11 +131,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnits
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 16
+    startLine: 18
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -107,35 +146,6 @@ items:
       type: System.Collections.Generic.Dictionary{Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit}
     content.vb: Public Property ProductionUnits As Dictionary(Of ProductionUnitsEnum, ProductionUnit)
   overload: Heatington.AssetManager.AssetManager.ProductionUnits*
-- uid: Heatington.AssetManager.AssetManager.#ctor
-  commentId: M:Heatington.AssetManager.AssetManager.#ctor
-  id: '#ctor'
-  parent: Heatington.AssetManager.AssetManager
-  langs:
-  - csharp
-  - vb
-  name: AssetManager()
-  nameWithType: AssetManager.AssetManager()
-  fullName: Heatington.AssetManager.AssetManager.AssetManager()
-  type: Constructor
-  source:
-    remote:
-      path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: .ctor
-    path: Heatington/AssetManager/AssetManager.cs
-    startLine: 27
-  assemblies:
-  - Heatington
-  namespace: Heatington.AssetManager
-  syntax:
-    content: public AssetManager()
-    content.vb: Public Sub New()
-  overload: Heatington.AssetManager.AssetManager.#ctor*
-  nameWithType.vb: AssetManager.New()
-  fullName.vb: Heatington.AssetManager.AssetManager.New()
-  name.vb: New()
 - uid: Heatington.AssetManager.AssetManager.LoadAssets
   commentId: M:Heatington.AssetManager.AssetManager.LoadAssets
   id: LoadAssets
@@ -150,11 +160,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LoadAssets
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 37
+    startLine: 20
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -178,11 +188,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadHeatingUnits
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 62
+    startLine: 45
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -206,11 +216,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 83
+    startLine: 66
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -237,11 +247,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 97
+    startLine: 80
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -268,11 +278,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 108
+    startLine: 91
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -297,11 +307,11 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AssetManager.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/AssetManager/AssetManager.cs
-    startLine: 121
+    startLine: 104
   assemblies:
   - Heatington
   namespace: Heatington.AssetManager
@@ -551,6 +561,52 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Heatington.AssetManager.AssetManager.#ctor*
+  commentId: Overload:Heatington.AssetManager.AssetManager.#ctor
+  href: Heatington.AssetManager.AssetManager.html#Heatington_AssetManager_AssetManager__ctor_Heatington_Controllers_Interfaces_IReadWriteController_Heatington_Controllers_Interfaces_IReadWriteController_
+  name: AssetManager
+  nameWithType: AssetManager.AssetManager
+  fullName: Heatington.AssetManager.AssetManager.AssetManager
+  nameWithType.vb: AssetManager.New
+  fullName.vb: Heatington.AssetManager.AssetManager.New
+  name.vb: New
+- uid: Heatington.Controllers.Interfaces.IReadWriteController
+  commentId: T:Heatington.Controllers.Interfaces.IReadWriteController
+  parent: Heatington.Controllers.Interfaces
+  href: Heatington.Controllers.Interfaces.IReadWriteController.html
+  name: IReadWriteController
+  nameWithType: IReadWriteController
+  fullName: Heatington.Controllers.Interfaces.IReadWriteController
+- uid: Heatington.Controllers.Interfaces
+  commentId: N:Heatington.Controllers.Interfaces
+  href: Heatington.html
+  name: Heatington.Controllers.Interfaces
+  nameWithType: Heatington.Controllers.Interfaces
+  fullName: Heatington.Controllers.Interfaces
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  - name: .
+  - uid: Heatington.Controllers.Interfaces
+    name: Interfaces
+    href: Heatington.Controllers.Interfaces.html
 - uid: Heatington.AssetManager.AssetManager.HeatingGridInformation*
   commentId: Overload:Heatington.AssetManager.AssetManager.HeatingGridInformation
   href: Heatington.AssetManager.AssetManager.html#Heatington_AssetManager_AssetManager_HeatingGridInformation
@@ -706,15 +762,6 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Heatington.AssetManager.AssetManager.#ctor*
-  commentId: Overload:Heatington.AssetManager.AssetManager.#ctor
-  href: Heatington.AssetManager.AssetManager.html#Heatington_AssetManager_AssetManager__ctor
-  name: AssetManager
-  nameWithType: AssetManager.AssetManager
-  fullName: Heatington.AssetManager.AssetManager.AssetManager
-  nameWithType.vb: AssetManager.New
-  fullName.vb: Heatington.AssetManager.AssetManager.New
-  name.vb: New
 - uid: Heatington.AssetManager.AssetManager.LoadAssets*
   commentId: Overload:Heatington.AssetManager.AssetManager.LoadAssets
   href: Heatington.AssetManager.AssetManager.html#Heatington_AssetManager_AssetManager_LoadAssets

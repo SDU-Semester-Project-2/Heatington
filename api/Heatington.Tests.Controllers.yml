@@ -5,6 +5,7 @@ items:
   id: Heatington.Tests.Controllers
   children:
   - Heatington.Tests.Controllers.FileControllerTests
+  - Heatington.Tests.Controllers.JsonControllerTests
   langs:
   - csharp
   - vb
@@ -21,3 +22,9 @@ references:
   name: FileControllerTests
   nameWithType: FileControllerTests
   fullName: Heatington.Tests.Controllers.FileControllerTests
+- uid: Heatington.Tests.Controllers.JsonControllerTests
+  commentId: T:Heatington.Tests.Controllers.JsonControllerTests
+  href: Heatington.Tests.Controllers.JsonControllerTests.html
+  name: JsonControllerTests
+  nameWithType: JsonControllerTests
+  fullName: Heatington.Tests.Controllers.JsonControllerTests
