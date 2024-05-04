@@ -1,0 +1,455 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  commentId: T:Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  id: SourceDataManagerTest
+  parent: Heatington.Tests.SourceDataManager
+  children:
+  - Heatington.Tests.SourceDataManager.SourceDataManagerTest.#ctor
+  - Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  langs:
+  - csharp
+  - vb
+  name: SourceDataManagerTest
+  nameWithType: SourceDataManagerTest
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  type: Class
+  source:
+    remote:
+      path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SourceDataManagerTest
+    path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
+    startLine: 9
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.SourceDataManager
+  syntax:
+    content: public class SourceDataManagerTest
+    content.vb: Public Class SourceDataManagerTest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.#ctor
+  commentId: M:Heatington.Tests.SourceDataManager.SourceDataManagerTest.#ctor
+  id: '#ctor'
+  parent: Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  langs:
+  - csharp
+  - vb
+  name: SourceDataManagerTest()
+  nameWithType: SourceDataManagerTest.SourceDataManagerTest()
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.SourceDataManagerTest()
+  type: Constructor
+  source:
+    remote:
+      path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
+    startLine: 14
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.SourceDataManager
+  syntax:
+    content: public SourceDataManagerTest()
+    content.vb: Public Sub New()
+  overload: Heatington.Tests.SourceDataManager.SourceDataManagerTest.#ctor*
+  nameWithType.vb: SourceDataManagerTest.New()
+  fullName.vb: Heatington.Tests.SourceDataManager.SourceDataManagerTest.New()
+  name.vb: New()
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  commentId: M:Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  id: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  parent: Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  langs:
+  - csharp
+  - vb
+  name: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully()
+  nameWithType: SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully()
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+    path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
+    startLine: 20
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.SourceDataManager
+  syntax:
+    content: >-
+      [Theory]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94" })]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97" })]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01" })]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05" })]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05", "2/8/23 7:00", "2/8/23 8:00", "6.79", "1191.07", "2/8/23 8:00", "2/8/23 9:00", "6.81", "1191.09" })]
+
+      public Task FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Theory>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94" })>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97" })>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01" })>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05" })>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05", "2/8/23 7:00", "2/8/23 8:00", "6.79", "1191.07", "2/8/23 8:00", "2/8/23 9:00", "6.81", "1191.09" })>
+
+      Public Function FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully() As Task
+  overload: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+references:
+- uid: Heatington.Tests.SourceDataManager
+  commentId: N:Heatington.Tests.SourceDataManager
+  href: Heatington.html
+  name: Heatington.Tests.SourceDataManager
+  nameWithType: Heatington.Tests.SourceDataManager
+  fullName: Heatington.Tests.SourceDataManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.Tests.SourceDataManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.Tests.SourceDataManager.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.#ctor*
+  commentId: Overload:Heatington.Tests.SourceDataManager.SourceDataManagerTest.#ctor
+  href: Heatington.Tests.SourceDataManager.SourceDataManagerTest.html#Heatington_Tests_SourceDataManager_SourceDataManagerTest__ctor
+  name: SourceDataManagerTest
+  nameWithType: SourceDataManagerTest.SourceDataManagerTest
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.SourceDataManagerTest
+  nameWithType.vb: SourceDataManagerTest.New
+  fullName.vb: Heatington.Tests.SourceDataManager.SourceDataManagerTest.New
+  name.vb: New
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully*
+  commentId: Overload:Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  href: Heatington.Tests.SourceDataManager.SourceDataManagerTest.html#Heatington_Tests_SourceDataManager_SourceDataManagerTest_FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  name: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  nameWithType: SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

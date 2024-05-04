@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: Heatington/Services/Serializers/CsvSerializer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CsvConstructorAttribute
     path: Heatington/Services/Serializers/CsvSerializer.cs

@@ -5,7 +5,7 @@ items:
   id: ResultHolder
   parent: Heatington.Models
   children:
-  - Heatington.Models.ResultHolder.#ctor(System.DateTime,System.DateTime,System.Double,System.Double,System.Double,System.Collections.Generic.List{Heatington.Models.ProductionUnit})
+  - Heatington.Models.ResultHolder.#ctor(System.DateTime,System.DateTime,System.Double,System.Double,System.Collections.Generic.List{Heatington.Models.ProductionUnit})
   - Heatington.Models.ResultHolder.Boilers
   - Heatington.Models.ResultHolder.Clone
   - Heatington.Models.ResultHolder.ElectricityPrice
@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ResultHolder
     path: Heatington/Models/ResultHolder.cs
@@ -46,21 +46,21 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Heatington.Models.ResultHolder.#ctor(System.DateTime,System.DateTime,System.Double,System.Double,System.Double,System.Collections.Generic.List{Heatington.Models.ProductionUnit})
-  commentId: M:Heatington.Models.ResultHolder.#ctor(System.DateTime,System.DateTime,System.Double,System.Double,System.Double,System.Collections.Generic.List{Heatington.Models.ProductionUnit})
-  id: '#ctor(System.DateTime,System.DateTime,System.Double,System.Double,System.Double,System.Collections.Generic.List{Heatington.Models.ProductionUnit})'
+- uid: Heatington.Models.ResultHolder.#ctor(System.DateTime,System.DateTime,System.Double,System.Double,System.Collections.Generic.List{Heatington.Models.ProductionUnit})
+  commentId: M:Heatington.Models.ResultHolder.#ctor(System.DateTime,System.DateTime,System.Double,System.Double,System.Collections.Generic.List{Heatington.Models.ProductionUnit})
+  id: '#ctor(System.DateTime,System.DateTime,System.Double,System.Double,System.Collections.Generic.List{Heatington.Models.ProductionUnit})'
   parent: Heatington.Models.ResultHolder
   langs:
   - csharp
   - vb
-  name: ResultHolder(DateTime, DateTime, double, double, double, List<ProductionUnit>)
-  nameWithType: ResultHolder.ResultHolder(DateTime, DateTime, double, double, double, List<ProductionUnit>)
-  fullName: Heatington.Models.ResultHolder.ResultHolder(System.DateTime, System.DateTime, double, double, double, System.Collections.Generic.List<Heatington.Models.ProductionUnit>)
+  name: ResultHolder(DateTime, DateTime, double, double, List<ProductionUnit>)
+  nameWithType: ResultHolder.ResultHolder(DateTime, DateTime, double, double, List<ProductionUnit>)
+  fullName: Heatington.Models.ResultHolder.ResultHolder(System.DateTime, System.DateTime, double, double, System.Collections.Generic.List<Heatington.Models.ProductionUnit>)
   type: Constructor
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/ResultHolder.cs
@@ -69,7 +69,7 @@ items:
   - Heatington
   namespace: Heatington.Models
   syntax:
-    content: public ResultHolder(DateTime startTime, DateTime endTime, double heatDemand, double electricityPrice, double netProductionCost, List<ProductionUnit> boilers)
+    content: public ResultHolder(DateTime startTime, DateTime endTime, double heatDemand, double electricityPrice, List<ProductionUnit> boilers)
     parameters:
     - id: startTime
       type: System.DateTime
@@ -79,15 +79,13 @@ items:
       type: System.Double
     - id: electricityPrice
       type: System.Double
-    - id: netProductionCost
-      type: System.Double
     - id: boilers
       type: System.Collections.Generic.List{Heatington.Models.ProductionUnit}
-    content.vb: Public Sub New(startTime As Date, endTime As Date, heatDemand As Double, electricityPrice As Double, netProductionCost As Double, boilers As List(Of ProductionUnit))
+    content.vb: Public Sub New(startTime As Date, endTime As Date, heatDemand As Double, electricityPrice As Double, boilers As List(Of ProductionUnit))
   overload: Heatington.Models.ResultHolder.#ctor*
-  nameWithType.vb: ResultHolder.New(Date, Date, Double, Double, Double, List(Of ProductionUnit))
-  fullName.vb: Heatington.Models.ResultHolder.New(Date, Date, Double, Double, Double, System.Collections.Generic.List(Of Heatington.Models.ProductionUnit))
-  name.vb: New(Date, Date, Double, Double, Double, List(Of ProductionUnit))
+  nameWithType.vb: ResultHolder.New(Date, Date, Double, Double, List(Of ProductionUnit))
+  fullName.vb: Heatington.Models.ResultHolder.New(Date, Date, Double, Double, System.Collections.Generic.List(Of Heatington.Models.ProductionUnit))
+  name.vb: New(Date, Date, Double, Double, List(Of ProductionUnit))
 - uid: Heatington.Models.ResultHolder.StartTime
   commentId: P:Heatington.Models.ResultHolder.StartTime
   id: StartTime
@@ -102,11 +100,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartTime
     path: Heatington/Models/ResultHolder.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -131,11 +129,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: EndTime
     path: Heatington/Models/ResultHolder.cs
-    startLine: 11
+    startLine: 10
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -160,11 +158,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemand
     path: Heatington/Models/ResultHolder.cs
-    startLine: 12
+    startLine: 11
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -189,11 +187,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityPrice
     path: Heatington/Models/ResultHolder.cs
-    startLine: 13
+    startLine: 12
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -204,35 +202,6 @@ items:
       type: System.Double
     content.vb: Public ReadOnly Property ElectricityPrice As Double
   overload: Heatington.Models.ResultHolder.ElectricityPrice*
-- uid: Heatington.Models.ResultHolder.NetProductionCost
-  commentId: P:Heatington.Models.ResultHolder.NetProductionCost
-  id: NetProductionCost
-  parent: Heatington.Models.ResultHolder
-  langs:
-  - csharp
-  - vb
-  name: NetProductionCost
-  nameWithType: ResultHolder.NetProductionCost
-  fullName: Heatington.Models.ResultHolder.NetProductionCost
-  type: Property
-  source:
-    remote:
-      path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: NetProductionCost
-    path: Heatington/Models/ResultHolder.cs
-    startLine: 14
-  assemblies:
-  - Heatington
-  namespace: Heatington.Models
-  syntax:
-    content: public double NetProductionCost { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property NetProductionCost As Double
-  overload: Heatington.Models.ResultHolder.NetProductionCost*
 - uid: Heatington.Models.ResultHolder.Boilers
   commentId: P:Heatington.Models.ResultHolder.Boilers
   id: Boilers
@@ -247,11 +216,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Boilers
     path: Heatington/Models/ResultHolder.cs
-    startLine: 15
+    startLine: 13
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -262,6 +231,35 @@ items:
       type: System.Collections.Generic.List{Heatington.Models.ProductionUnit}
     content.vb: Public Property Boilers As List(Of ProductionUnit)
   overload: Heatington.Models.ResultHolder.Boilers*
+- uid: Heatington.Models.ResultHolder.NetProductionCost
+  commentId: P:Heatington.Models.ResultHolder.NetProductionCost
+  id: NetProductionCost
+  parent: Heatington.Models.ResultHolder
+  langs:
+  - csharp
+  - vb
+  name: NetProductionCost
+  nameWithType: ResultHolder.NetProductionCost
+  fullName: Heatington.Models.ResultHolder.NetProductionCost
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ResultHolder.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: NetProductionCost
+    path: Heatington/Models/ResultHolder.cs
+    startLine: 14
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: public double NetProductionCost { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property NetProductionCost As Double
+  overload: Heatington.Models.ResultHolder.NetProductionCost*
 - uid: Heatington.Models.ResultHolder.Clone
   commentId: M:Heatington.Models.ResultHolder.Clone
   id: Clone
@@ -276,11 +274,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Clone
     path: Heatington/Models/ResultHolder.cs
-    startLine: 17
+    startLine: 16
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -309,11 +307,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ResultHolder.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Models/ResultHolder.cs
-    startLine: 22
+    startLine: 21
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -573,7 +571,7 @@ references:
   fullName: System
 - uid: Heatington.Models.ResultHolder.#ctor*
   commentId: Overload:Heatington.Models.ResultHolder.#ctor
-  href: Heatington.Models.ResultHolder.html#Heatington_Models_ResultHolder__ctor_System_DateTime_System_DateTime_System_Double_System_Double_System_Double_System_Collections_Generic_List_Heatington_Models_ProductionUnit__
+  href: Heatington.Models.ResultHolder.html#Heatington_Models_ResultHolder__ctor_System_DateTime_System_DateTime_System_Double_System_Double_System_Collections_Generic_List_Heatington_Models_ProductionUnit__
   name: ResultHolder
   nameWithType: ResultHolder.ResultHolder
   fullName: Heatington.Models.ResultHolder.ResultHolder
@@ -724,18 +722,18 @@ references:
   name: ElectricityPrice
   nameWithType: ResultHolder.ElectricityPrice
   fullName: Heatington.Models.ResultHolder.ElectricityPrice
-- uid: Heatington.Models.ResultHolder.NetProductionCost*
-  commentId: Overload:Heatington.Models.ResultHolder.NetProductionCost
-  href: Heatington.Models.ResultHolder.html#Heatington_Models_ResultHolder_NetProductionCost
-  name: NetProductionCost
-  nameWithType: ResultHolder.NetProductionCost
-  fullName: Heatington.Models.ResultHolder.NetProductionCost
 - uid: Heatington.Models.ResultHolder.Boilers*
   commentId: Overload:Heatington.Models.ResultHolder.Boilers
   href: Heatington.Models.ResultHolder.html#Heatington_Models_ResultHolder_Boilers
   name: Boilers
   nameWithType: ResultHolder.Boilers
   fullName: Heatington.Models.ResultHolder.Boilers
+- uid: Heatington.Models.ResultHolder.NetProductionCost*
+  commentId: Overload:Heatington.Models.ResultHolder.NetProductionCost
+  href: Heatington.Models.ResultHolder.html#Heatington_Models_ResultHolder_NetProductionCost
+  name: NetProductionCost
+  nameWithType: ResultHolder.NetProductionCost
+  fullName: Heatington.Models.ResultHolder.NetProductionCost
 - uid: Heatington.Models.ResultHolder.Clone*
   commentId: Overload:Heatington.Models.ResultHolder.Clone
   href: Heatington.Models.ResultHolder.html#Heatington_Models_ResultHolder_Clone

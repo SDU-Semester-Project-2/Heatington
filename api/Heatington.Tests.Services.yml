@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.Services
+  commentId: N:Heatington.Tests.Services
+  id: Heatington.Tests.Services
+  children:
+  - Heatington.Tests.Services.JsonSerializerCustomTests
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Tests.Services
+  nameWithType: Heatington.Tests.Services
+  fullName: Heatington.Tests.Services
+  type: Namespace
+  assemblies:
+  - Heatington.Tests
+references:
+- uid: Heatington.Tests.Services.JsonSerializerCustomTests
+  commentId: T:Heatington.Tests.Services.JsonSerializerCustomTests
+  href: Heatington.Tests.Services.JsonSerializerCustomTests.html
+  name: JsonSerializerCustomTests
+  nameWithType: JsonSerializerCustomTests
+  fullName: Heatington.Tests.Services.JsonSerializerCustomTests

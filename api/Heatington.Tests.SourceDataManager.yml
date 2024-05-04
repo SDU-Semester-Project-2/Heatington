@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.SourceDataManager
+  commentId: N:Heatington.Tests.SourceDataManager
+  id: Heatington.Tests.SourceDataManager
+  children:
+  - Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Tests.SourceDataManager
+  nameWithType: Heatington.Tests.SourceDataManager
+  fullName: Heatington.Tests.SourceDataManager
+  type: Namespace
+  assemblies:
+  - Heatington.Tests
+references:
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  commentId: T:Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  href: Heatington.Tests.SourceDataManager.SourceDataManagerTest.html
+  name: SourceDataManagerTest
+  nameWithType: SourceDataManagerTest
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest

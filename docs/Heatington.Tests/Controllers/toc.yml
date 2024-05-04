@@ -4,6 +4,8 @@
   href: Interfaces/toc.yml
 - name: FileController Tests
   href: FileController.Tests.md
+- name: JsonController Tests
+  href: JsonController.Tests.md
 
 # for more directories
 #- name: AssetManager

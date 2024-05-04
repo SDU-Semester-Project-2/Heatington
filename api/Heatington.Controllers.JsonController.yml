@@ -6,9 +6,8 @@ items:
   parent: Heatington.Controllers
   children:
   - Heatington.Controllers.JsonController.#ctor(System.String)
-  - Heatington.Controllers.JsonController.Deserialize``1(System.String)
+  - Heatington.Controllers.JsonController.JsonPath
   - Heatington.Controllers.JsonController.ReadData``1
-  - Heatington.Controllers.JsonController.Serialize``1(``0)
   - Heatington.Controllers.JsonController.ToString
   - Heatington.Controllers.JsonController.WriteData``1(``0)
   langs:
@@ -21,21 +20,20 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: JsonController
     path: Heatington/Controllers/JsonController.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
   syntax:
-    content: 'public class JsonController : ISerializeDeserialize, IReadWriteController'
-    content.vb: Public Class JsonController Implements ISerializeDeserialize, IReadWriteController
+    content: 'public class JsonController : IReadWriteController'
+    content.vb: Public Class JsonController Implements IReadWriteController
   inheritance:
   - System.Object
   implements:
-  - Heatington.Services.Interfaces.ISerializeDeserialize
   - Heatington.Controllers.Interfaces.IReadWriteController
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -58,11 +56,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Controllers/JsonController.cs
-    startLine: 10
+    startLine: 9
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -76,6 +74,35 @@ items:
   nameWithType.vb: JsonController.New(String)
   fullName.vb: Heatington.Controllers.JsonController.New(String)
   name.vb: New(String)
+- uid: Heatington.Controllers.JsonController.JsonPath
+  commentId: P:Heatington.Controllers.JsonController.JsonPath
+  id: JsonPath
+  parent: Heatington.Controllers.JsonController
+  langs:
+  - csharp
+  - vb
+  name: JsonPath
+  nameWithType: JsonController.JsonPath
+  fullName: Heatington.Controllers.JsonController.JsonPath
+  type: Property
+  source:
+    remote:
+      path: Heatington/Controllers/JsonController.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: JsonPath
+    path: Heatington/Controllers/JsonController.cs
+    startLine: 12
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: public string JsonPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property JsonPath As String
+  overload: Heatington.Controllers.JsonController.JsonPath*
 - uid: Heatington.Controllers.JsonController.ReadData``1
   commentId: M:Heatington.Controllers.JsonController.ReadData``1
   id: ReadData``1
@@ -90,11 +117,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadData
     path: Heatington/Controllers/JsonController.cs
-    startLine: 15
+    startLine: 14
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -126,11 +153,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteData
     path: Heatington/Controllers/JsonController.cs
-    startLine: 23
+    startLine: 22
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -165,11 +192,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/JsonController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Controllers/JsonController.cs
-    startLine: 29
+    startLine: 28
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -185,84 +212,6 @@ items:
   overload: Heatington.Controllers.JsonController.ToString*
   implements:
   - Heatington.Controllers.Interfaces.IReadWriteController.ToString
-- uid: Heatington.Controllers.JsonController.Serialize``1(``0)
-  commentId: M:Heatington.Controllers.JsonController.Serialize``1(``0)
-  id: Serialize``1(``0)
-  parent: Heatington.Controllers.JsonController
-  langs:
-  - csharp
-  - vb
-  name: Serialize<T>(T)
-  nameWithType: JsonController.Serialize<T>(T)
-  fullName: Heatington.Controllers.JsonController.Serialize<T>(T)
-  type: Method
-  source:
-    remote:
-      path: Heatington/Controllers/JsonController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: Serialize
-    path: Heatington/Controllers/JsonController.cs
-    startLine: 34
-  assemblies:
-  - Heatington
-  namespace: Heatington.Controllers
-  example: []
-  syntax:
-    content: public static string Serialize<T>(T obj)
-    parameters:
-    - id: obj
-      type: '{T}'
-    typeParameters:
-    - id: T
-    return:
-      type: System.String
-    content.vb: Public Shared Function Serialize(Of T)(obj As T) As String
-  overload: Heatington.Controllers.JsonController.Serialize*
-  implements:
-  - Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1({T})
-  nameWithType.vb: JsonController.Serialize(Of T)(T)
-  fullName.vb: Heatington.Controllers.JsonController.Serialize(Of T)(T)
-  name.vb: Serialize(Of T)(T)
-- uid: Heatington.Controllers.JsonController.Deserialize``1(System.String)
-  commentId: M:Heatington.Controllers.JsonController.Deserialize``1(System.String)
-  id: Deserialize``1(System.String)
-  parent: Heatington.Controllers.JsonController
-  langs:
-  - csharp
-  - vb
-  name: Deserialize<T>(string)
-  nameWithType: JsonController.Deserialize<T>(string)
-  fullName: Heatington.Controllers.JsonController.Deserialize<T>(string)
-  type: Method
-  source:
-    remote:
-      path: Heatington/Controllers/JsonController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: Deserialize
-    path: Heatington/Controllers/JsonController.cs
-    startLine: 55
-  assemblies:
-  - Heatington
-  namespace: Heatington.Controllers
-  example: []
-  syntax:
-    content: public static T Deserialize<T>(string file)
-    parameters:
-    - id: file
-      type: System.String
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Shared Function Deserialize(Of T)(file As String) As T
-  overload: Heatington.Controllers.JsonController.Deserialize*
-  implements:
-  - Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
-  nameWithType.vb: JsonController.Deserialize(Of T)(String)
-  fullName.vb: Heatington.Controllers.JsonController.Deserialize(Of T)(String)
-  name.vb: Deserialize(Of T)(String)
 references:
 - uid: Heatington.Controllers
   commentId: N:Heatington.Controllers
@@ -297,13 +246,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: Heatington.Services.Interfaces.ISerializeDeserialize
-  commentId: T:Heatington.Services.Interfaces.ISerializeDeserialize
-  parent: Heatington.Services.Interfaces
-  href: Heatington.Services.Interfaces.ISerializeDeserialize.html
-  name: ISerializeDeserialize
-  nameWithType: ISerializeDeserialize
-  fullName: Heatington.Services.Interfaces.ISerializeDeserialize
 - uid: Heatington.Controllers.Interfaces.IReadWriteController
   commentId: T:Heatington.Controllers.Interfaces.IReadWriteController
   parent: Heatington.Controllers.Interfaces
@@ -513,36 +455,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Heatington.Services.Interfaces
-  commentId: N:Heatington.Services.Interfaces
-  href: Heatington.html
-  name: Heatington.Services.Interfaces
-  nameWithType: Heatington.Services.Interfaces
-  fullName: Heatington.Services.Interfaces
-  spec.csharp:
-  - uid: Heatington
-    name: Heatington
-    href: Heatington.html
-  - name: .
-  - uid: Heatington.Services
-    name: Services
-    href: Heatington.Services.html
-  - name: .
-  - uid: Heatington.Services.Interfaces
-    name: Interfaces
-    href: Heatington.Services.Interfaces.html
-  spec.vb:
-  - uid: Heatington
-    name: Heatington
-    href: Heatington.html
-  - name: .
-  - uid: Heatington.Services
-    name: Services
-    href: Heatington.Services.html
-  - name: .
-  - uid: Heatington.Services.Interfaces
-    name: Interfaces
-    href: Heatington.Services.Interfaces.html
 - uid: Heatington.Controllers.Interfaces
   commentId: N:Heatington.Controllers.Interfaces
   href: Heatington.html
@@ -593,6 +505,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: Heatington.Controllers.JsonController.JsonPath*
+  commentId: Overload:Heatington.Controllers.JsonController.JsonPath
+  href: Heatington.Controllers.JsonController.html#Heatington_Controllers_JsonController_JsonPath
+  name: JsonPath
+  nameWithType: JsonController.JsonPath
+  fullName: Heatington.Controllers.JsonController.JsonPath
 - uid: Heatington.Controllers.JsonController.ReadData*
   commentId: Overload:Heatington.Controllers.JsonController.ReadData
   href: Heatington.Controllers.JsonController.html#Heatington_Controllers_JsonController_ReadData__1
@@ -884,119 +802,4 @@ references:
     name: ToString
     href: Heatington.Controllers.Interfaces.IReadWriteController.html#Heatington_Controllers_Interfaces_IReadWriteController_ToString
   - name: (
-  - name: )
-- uid: Heatington.Controllers.JsonController.Serialize*
-  commentId: Overload:Heatington.Controllers.JsonController.Serialize
-  href: Heatington.Controllers.JsonController.html#Heatington_Controllers_JsonController_Serialize__1___0_
-  name: Serialize
-  nameWithType: JsonController.Serialize
-  fullName: Heatington.Controllers.JsonController.Serialize
-- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1({T})
-  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-  parent: Heatington.Services.Interfaces.ISerializeDeserialize
-  definition: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
-  name: Serialize<T>(T)
-  nameWithType: ISerializeDeserialize.Serialize<T>(T)
-  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize<T>(T)
-  nameWithType.vb: ISerializeDeserialize.Serialize(Of T)(T)
-  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
-  name.vb: Serialize(Of T)(T)
-  spec.csharp:
-  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-    name: Serialize
-    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: )
-  spec.vb:
-  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-    name: Serialize
-    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: )
-- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
-  name: Serialize<T>(T)
-  nameWithType: ISerializeDeserialize.Serialize<T>(T)
-  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize<T>(T)
-  nameWithType.vb: ISerializeDeserialize.Serialize(Of T)(T)
-  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
-  name.vb: Serialize(Of T)(T)
-  spec.csharp:
-  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-    name: Serialize
-    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: )
-  spec.vb:
-  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
-    name: Serialize
-    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: )
-- uid: Heatington.Controllers.JsonController.Deserialize*
-  commentId: Overload:Heatington.Controllers.JsonController.Deserialize
-  href: Heatington.Controllers.JsonController.html#Heatington_Controllers_JsonController_Deserialize__1_System_String_
-  name: Deserialize
-  nameWithType: JsonController.Deserialize
-  fullName: Heatington.Controllers.JsonController.Deserialize
-- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
-  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
-  parent: Heatington.Services.Interfaces.ISerializeDeserialize
-  isExternal: true
-  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
-  name: Deserialize<T>(string)
-  nameWithType: ISerializeDeserialize.Deserialize<T>(string)
-  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize<T>(string)
-  nameWithType.vb: ISerializeDeserialize.Deserialize(Of T)(String)
-  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize(Of T)(String)
-  name.vb: Deserialize(Of T)(String)
-  spec.csharp:
-  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
-    name: Deserialize
-    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
-    name: Deserialize
-    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
