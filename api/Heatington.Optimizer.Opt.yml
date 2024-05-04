@@ -5,7 +5,7 @@ items:
   id: Opt
   parent: Heatington.Optimizer
   children:
-  - Heatington.Optimizer.Opt.CalculateNetProductionCost
+  - Heatington.Optimizer.Opt.#ctor(Heatington.AssetManager.AssetManager,Heatington.SourceDataManager.SourceDataManager)
   - Heatington.Optimizer.Opt.LoadData
   - Heatington.Optimizer.Opt.LogDataPoints
   - Heatington.Optimizer.Opt.LogProductionUnits
@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Opt
     path: Heatington/Optimizer/Optimizer.cs
@@ -43,6 +43,40 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: Heatington.Optimizer.Opt.#ctor(Heatington.AssetManager.AssetManager,Heatington.SourceDataManager.SourceDataManager)
+  commentId: M:Heatington.Optimizer.Opt.#ctor(Heatington.AssetManager.AssetManager,Heatington.SourceDataManager.SourceDataManager)
+  id: '#ctor(Heatington.AssetManager.AssetManager,Heatington.SourceDataManager.SourceDataManager)'
+  parent: Heatington.Optimizer.Opt
+  langs:
+  - csharp
+  - vb
+  name: Opt(AssetManager, SourceDataManager)
+  nameWithType: Opt.Opt(AssetManager, SourceDataManager)
+  fullName: Heatington.Optimizer.Opt.Opt(Heatington.AssetManager.AssetManager, Heatington.SourceDataManager.SourceDataManager)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Optimizer/Optimizer.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Optimizer/Optimizer.cs
+    startLine: 7
+  assemblies:
+  - Heatington
+  namespace: Heatington.Optimizer
+  syntax:
+    content: public Opt(AssetManager assetManager, SourceDataManager sourceDataManager)
+    parameters:
+    - id: assetManager
+      type: Heatington.AssetManager.AssetManager
+    - id: sourceDataManager
+      type: Heatington.SourceDataManager.SourceDataManager
+    content.vb: Public Sub New(assetManager As AssetManager, sourceDataManager As SourceDataManager)
+  overload: Heatington.Optimizer.Opt.#ctor*
+  nameWithType.vb: Opt.New(AssetManager, SourceDataManager)
+  fullName.vb: Heatington.Optimizer.Opt.New(Heatington.AssetManager.AssetManager, Heatington.SourceDataManager.SourceDataManager)
+  name.vb: New(AssetManager, SourceDataManager)
 - uid: Heatington.Optimizer.Opt.Results
   commentId: P:Heatington.Optimizer.Opt.Results
   id: Results
@@ -57,7 +91,7 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Results
     path: Heatington/Optimizer/Optimizer.cs
@@ -86,7 +120,7 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LoadData
     path: Heatington/Optimizer/Optimizer.cs
@@ -112,11 +146,11 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OptimizeScenario1
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 21
+    startLine: 22
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
@@ -124,32 +158,6 @@ items:
     content: public void OptimizeScenario1()
     content.vb: Public Sub OptimizeScenario1()
   overload: Heatington.Optimizer.Opt.OptimizeScenario1*
-- uid: Heatington.Optimizer.Opt.CalculateNetProductionCost
-  commentId: M:Heatington.Optimizer.Opt.CalculateNetProductionCost
-  id: CalculateNetProductionCost
-  parent: Heatington.Optimizer.Opt
-  langs:
-  - csharp
-  - vb
-  name: CalculateNetProductionCost()
-  nameWithType: Opt.CalculateNetProductionCost()
-  fullName: Heatington.Optimizer.Opt.CalculateNetProductionCost()
-  type: Method
-  source:
-    remote:
-      path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: CalculateNetProductionCost
-    path: Heatington/Optimizer/Optimizer.cs
-    startLine: 133
-  assemblies:
-  - Heatington
-  namespace: Heatington.Optimizer
-  syntax:
-    content: public void CalculateNetProductionCost()
-    content.vb: Public Sub CalculateNetProductionCost()
-  overload: Heatington.Optimizer.Opt.CalculateNetProductionCost*
 - uid: Heatington.Optimizer.Opt.LogResults
   commentId: M:Heatington.Optimizer.Opt.LogResults
   id: LogResults
@@ -164,11 +172,11 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogResults
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 154
+    startLine: 130
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
@@ -190,11 +198,11 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogDataPoints
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 182
+    startLine: 147
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
@@ -216,11 +224,11 @@ items:
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogProductionUnits
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 207
+    startLine: 164
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
@@ -488,6 +496,73 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Heatington.Optimizer.Opt.#ctor*
+  commentId: Overload:Heatington.Optimizer.Opt.#ctor
+  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt__ctor_Heatington_AssetManager_AssetManager_Heatington_SourceDataManager_SourceDataManager_
+  name: Opt
+  nameWithType: Opt.Opt
+  fullName: Heatington.Optimizer.Opt.Opt
+  nameWithType.vb: Opt.New
+  fullName.vb: Heatington.Optimizer.Opt.New
+  name.vb: New
+- uid: Heatington.AssetManager.AssetManager
+  commentId: T:Heatington.AssetManager.AssetManager
+  parent: Heatington.AssetManager
+  href: Heatington.AssetManager.AssetManager.html
+  name: AssetManager
+  nameWithType: AssetManager
+  fullName: Heatington.AssetManager.AssetManager
+- uid: Heatington.SourceDataManager.SourceDataManager
+  commentId: T:Heatington.SourceDataManager.SourceDataManager
+  parent: Heatington.SourceDataManager
+  href: Heatington.SourceDataManager.SourceDataManager.html
+  name: SourceDataManager
+  nameWithType: SourceDataManager
+  fullName: Heatington.SourceDataManager.SourceDataManager
+- uid: Heatington.AssetManager
+  commentId: N:Heatington.AssetManager
+  href: Heatington.html
+  name: Heatington.AssetManager
+  nameWithType: Heatington.AssetManager
+  fullName: Heatington.AssetManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.AssetManager
+    name: AssetManager
+    href: Heatington.AssetManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.AssetManager
+    name: AssetManager
+    href: Heatington.AssetManager.html
+- uid: Heatington.SourceDataManager
+  commentId: N:Heatington.SourceDataManager
+  href: Heatington.html
+  name: Heatington.SourceDataManager
+  nameWithType: Heatington.SourceDataManager
+  fullName: Heatington.SourceDataManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.SourceDataManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.SourceDataManager.html
 - uid: Heatington.Optimizer.Opt.Results*
   commentId: Overload:Heatington.Optimizer.Opt.Results
   href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_Results
@@ -604,12 +679,6 @@ references:
   name: OptimizeScenario1
   nameWithType: Opt.OptimizeScenario1
   fullName: Heatington.Optimizer.Opt.OptimizeScenario1
-- uid: Heatington.Optimizer.Opt.CalculateNetProductionCost*
-  commentId: Overload:Heatington.Optimizer.Opt.CalculateNetProductionCost
-  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_CalculateNetProductionCost
-  name: CalculateNetProductionCost
-  nameWithType: Opt.CalculateNetProductionCost
-  fullName: Heatington.Optimizer.Opt.CalculateNetProductionCost
 - uid: Heatington.Optimizer.Opt.LogResults*
   commentId: Overload:Heatington.Optimizer.Opt.LogResults
   href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_LogResults

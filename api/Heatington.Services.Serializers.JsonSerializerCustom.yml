@@ -1,0 +1,561 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Services.Serializers.JsonSerializerCustom
+  commentId: T:Heatington.Services.Serializers.JsonSerializerCustom
+  id: JsonSerializerCustom
+  parent: Heatington.Services.Serializers
+  children:
+  - Heatington.Services.Serializers.JsonSerializerCustom.Deserialize``1(System.String)
+  - Heatington.Services.Serializers.JsonSerializerCustom.Serialize``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: JsonSerializerCustom
+  nameWithType: JsonSerializerCustom
+  fullName: Heatington.Services.Serializers.JsonSerializerCustom
+  type: Class
+  source:
+    remote:
+      path: Heatington/Services/Serializers/JsonSerializerCustom.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: JsonSerializerCustom
+    path: Heatington/Services/Serializers/JsonSerializerCustom.cs
+    startLine: 6
+  assemblies:
+  - Heatington
+  namespace: Heatington.Services.Serializers
+  syntax:
+    content: 'public abstract class JsonSerializerCustom : ISerializeDeserialize'
+    content.vb: Public MustInherit Class JsonSerializerCustom Implements ISerializeDeserialize
+  inheritance:
+  - System.Object
+  implements:
+  - Heatington.Services.Interfaces.ISerializeDeserialize
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Services.Serializers.JsonSerializerCustom.Serialize``1(``0)
+  commentId: M:Heatington.Services.Serializers.JsonSerializerCustom.Serialize``1(``0)
+  id: Serialize``1(``0)
+  parent: Heatington.Services.Serializers.JsonSerializerCustom
+  langs:
+  - csharp
+  - vb
+  name: Serialize<T>(T)
+  nameWithType: JsonSerializerCustom.Serialize<T>(T)
+  fullName: Heatington.Services.Serializers.JsonSerializerCustom.Serialize<T>(T)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Services/Serializers/JsonSerializerCustom.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Serialize
+    path: Heatington/Services/Serializers/JsonSerializerCustom.cs
+    startLine: 8
+  assemblies:
+  - Heatington
+  namespace: Heatington.Services.Serializers
+  example: []
+  syntax:
+    content: public static string Serialize<T>(T obj)
+    parameters:
+    - id: obj
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.String
+    content.vb: Public Shared Function Serialize(Of T)(obj As T) As String
+  overload: Heatington.Services.Serializers.JsonSerializerCustom.Serialize*
+  implements:
+  - Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1({T})
+  nameWithType.vb: JsonSerializerCustom.Serialize(Of T)(T)
+  fullName.vb: Heatington.Services.Serializers.JsonSerializerCustom.Serialize(Of T)(T)
+  name.vb: Serialize(Of T)(T)
+- uid: Heatington.Services.Serializers.JsonSerializerCustom.Deserialize``1(System.String)
+  commentId: M:Heatington.Services.Serializers.JsonSerializerCustom.Deserialize``1(System.String)
+  id: Deserialize``1(System.String)
+  parent: Heatington.Services.Serializers.JsonSerializerCustom
+  langs:
+  - csharp
+  - vb
+  name: Deserialize<T>(string)
+  nameWithType: JsonSerializerCustom.Deserialize<T>(string)
+  fullName: Heatington.Services.Serializers.JsonSerializerCustom.Deserialize<T>(string)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Services/Serializers/JsonSerializerCustom.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Deserialize
+    path: Heatington/Services/Serializers/JsonSerializerCustom.cs
+    startLine: 29
+  assemblies:
+  - Heatington
+  namespace: Heatington.Services.Serializers
+  example: []
+  syntax:
+    content: public static T Deserialize<T>(string content)
+    parameters:
+    - id: content
+      type: System.String
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function Deserialize(Of T)(content As String) As T
+  overload: Heatington.Services.Serializers.JsonSerializerCustom.Deserialize*
+  implements:
+  - Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  nameWithType.vb: JsonSerializerCustom.Deserialize(Of T)(String)
+  fullName.vb: Heatington.Services.Serializers.JsonSerializerCustom.Deserialize(Of T)(String)
+  name.vb: Deserialize(Of T)(String)
+references:
+- uid: Heatington.Services.Serializers
+  commentId: N:Heatington.Services.Serializers
+  href: Heatington.html
+  name: Heatington.Services.Serializers
+  nameWithType: Heatington.Services.Serializers
+  fullName: Heatington.Services.Serializers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Serializers
+    name: Serializers
+    href: Heatington.Services.Serializers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Serializers
+    name: Serializers
+    href: Heatington.Services.Serializers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize
+  commentId: T:Heatington.Services.Interfaces.ISerializeDeserialize
+  parent: Heatington.Services.Interfaces
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html
+  name: ISerializeDeserialize
+  nameWithType: ISerializeDeserialize
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Services.Interfaces
+  commentId: N:Heatington.Services.Interfaces
+  href: Heatington.html
+  name: Heatington.Services.Interfaces
+  nameWithType: Heatington.Services.Interfaces
+  fullName: Heatington.Services.Interfaces
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Interfaces
+    name: Interfaces
+    href: Heatington.Services.Interfaces.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Interfaces
+    name: Interfaces
+    href: Heatington.Services.Interfaces.html
+- uid: Heatington.Services.Serializers.JsonSerializerCustom.Serialize*
+  commentId: Overload:Heatington.Services.Serializers.JsonSerializerCustom.Serialize
+  href: Heatington.Services.Serializers.JsonSerializerCustom.html#Heatington_Services_Serializers_JsonSerializerCustom_Serialize__1___0_
+  name: Serialize
+  nameWithType: JsonSerializerCustom.Serialize
+  fullName: Heatington.Services.Serializers.JsonSerializerCustom.Serialize
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1({T})
+  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  parent: Heatington.Services.Interfaces.ISerializeDeserialize
+  definition: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
+  name: Serialize<T>(T)
+  nameWithType: ISerializeDeserialize.Serialize<T>(T)
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize<T>(T)
+  nameWithType.vb: ISerializeDeserialize.Serialize(Of T)(T)
+  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
+  name.vb: Serialize(Of T)(T)
+  spec.csharp:
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+    name: Serialize
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+    name: Serialize
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
+  name: Serialize<T>(T)
+  nameWithType: ISerializeDeserialize.Serialize<T>(T)
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize<T>(T)
+  nameWithType.vb: ISerializeDeserialize.Serialize(Of T)(T)
+  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize(Of T)(T)
+  name.vb: Serialize(Of T)(T)
+  spec.csharp:
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+    name: Serialize
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Serialize``1(``0)
+    name: Serialize
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Serialize__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Heatington.Services.Serializers.JsonSerializerCustom.Deserialize*
+  commentId: Overload:Heatington.Services.Serializers.JsonSerializerCustom.Deserialize
+  href: Heatington.Services.Serializers.JsonSerializerCustom.html#Heatington_Services_Serializers_JsonSerializerCustom_Deserialize__1_System_String_
+  name: Deserialize
+  nameWithType: JsonSerializerCustom.Deserialize
+  fullName: Heatington.Services.Serializers.JsonSerializerCustom.Deserialize
+- uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  commentId: M:Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+  parent: Heatington.Services.Interfaces.ISerializeDeserialize
+  isExternal: true
+  href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
+  name: Deserialize<T>(string)
+  nameWithType: ISerializeDeserialize.Deserialize<T>(string)
+  fullName: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize<T>(string)
+  nameWithType.vb: ISerializeDeserialize.Deserialize(Of T)(String)
+  fullName.vb: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize(Of T)(String)
+  name.vb: Deserialize(Of T)(String)
+  spec.csharp:
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+    name: Deserialize
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Heatington.Services.Interfaces.ISerializeDeserialize.Deserialize``1(System.String)
+    name: Deserialize
+    href: Heatington.Services.Interfaces.ISerializeDeserialize.html#Heatington_Services_Interfaces_ISerializeDeserialize_Deserialize__1_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

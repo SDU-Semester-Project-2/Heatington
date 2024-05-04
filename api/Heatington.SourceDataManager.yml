@@ -17,7 +17,30 @@ items:
 references:
 - uid: Heatington.SourceDataManager.SourceDataManager
   commentId: T:Heatington.SourceDataManager.SourceDataManager
+  parent: Heatington.SourceDataManager
   href: Heatington.SourceDataManager.SourceDataManager.html
   name: SourceDataManager
   nameWithType: SourceDataManager
   fullName: Heatington.SourceDataManager.SourceDataManager
+- uid: Heatington.SourceDataManager
+  commentId: N:Heatington.SourceDataManager
+  href: Heatington.html
+  name: Heatington.SourceDataManager
+  nameWithType: Heatington.SourceDataManager
+  fullName: Heatington.SourceDataManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.SourceDataManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.SourceDataManager.html

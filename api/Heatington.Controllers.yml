@@ -20,6 +20,7 @@ items:
 references:
 - uid: Heatington.Controllers.CsvController
   commentId: T:Heatington.Controllers.CsvController
+  parent: Heatington.Controllers
   href: Heatington.Controllers.CsvController.html
   name: CsvController
   nameWithType: CsvController
@@ -42,3 +43,25 @@ references:
   name: ProductionUnitJsonConverter
   nameWithType: ProductionUnitJsonConverter
   fullName: Heatington.Controllers.ProductionUnitJsonConverter
+- uid: Heatington.Controllers
+  commentId: N:Heatington.Controllers
+  href: Heatington.html
+  name: Heatington.Controllers
+  nameWithType: Heatington.Controllers
+  fullName: Heatington.Controllers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html

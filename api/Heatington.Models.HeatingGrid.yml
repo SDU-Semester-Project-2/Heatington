@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: Heatington/Models/HeatingGrid.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatingGrid
     path: Heatington/Models/HeatingGrid.cs
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: Heatington/Models/HeatingGrid.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Id
     path: Heatington/Models/HeatingGrid.cs
@@ -83,7 +83,7 @@ items:
   source:
     remote:
       path: Heatington/Models/HeatingGrid.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: PicturePath
     path: Heatington/Models/HeatingGrid.cs
@@ -112,7 +112,7 @@ items:
   source:
     remote:
       path: Heatington/Models/HeatingGrid.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Name
     path: Heatington/Models/HeatingGrid.cs
@@ -141,7 +141,7 @@ items:
   source:
     remote:
       path: Heatington/Models/HeatingGrid.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/HeatingGrid.cs

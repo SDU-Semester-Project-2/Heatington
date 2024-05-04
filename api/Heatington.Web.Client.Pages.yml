@@ -1,0 +1,235 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Web.Client.Pages
+  commentId: N:Heatington.Web.Client.Pages
+  id: Heatington.Web.Client.Pages
+  children:
+  - Heatington.Web.Client.Pages.About
+  - Heatington.Web.Client.Pages.About.TeamMember
+  - Heatington.Web.Client.Pages.DataVisualizer
+  - Heatington.Web.Client.Pages.Home
+  - Heatington.Web.Client.Pages.Home.Boiler
+  - Heatington.Web.Client.Pages.Modules
+  - Heatington.Web.Client.Pages.Modules.ModuleInfo
+  - Heatington.Web.Client.Pages.Optimizer
+  - Heatington.Web.Client.Pages.Optimizer.Boiler
+  - Heatington.Web.Client.Pages.ResourceManager
+  - Heatington.Web.Client.Pages.ResourceManager.Boiler
+  - Heatington.Web.Client.Pages.ResourceManager.HeatDemandData
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Web.Client.Pages
+  nameWithType: Heatington.Web.Client.Pages
+  fullName: Heatington.Web.Client.Pages
+  type: Namespace
+  assemblies:
+  - Heatington.Web.Client
+references:
+- uid: Heatington.Web.Client.Pages.ResourceManager
+  commentId: T:Heatington.Web.Client.Pages.ResourceManager
+  href: Heatington.Web.Client.Pages.ResourceManager.html
+  name: ResourceManager
+  nameWithType: ResourceManager
+  fullName: Heatington.Web.Client.Pages.ResourceManager
+- uid: Heatington.Web.Client.Pages.ResourceManager.Boiler
+  commentId: T:Heatington.Web.Client.Pages.ResourceManager.Boiler
+  parent: Heatington.Web.Client.Pages
+  href: Heatington.Web.Client.Pages.ResourceManager.html
+  name: ResourceManager.Boiler
+  nameWithType: ResourceManager.Boiler
+  fullName: Heatington.Web.Client.Pages.ResourceManager.Boiler
+  spec.csharp:
+  - uid: Heatington.Web.Client.Pages.ResourceManager
+    name: ResourceManager
+    href: Heatington.Web.Client.Pages.ResourceManager.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.ResourceManager.Boiler
+    name: Boiler
+    href: Heatington.Web.Client.Pages.ResourceManager.Boiler.html
+  spec.vb:
+  - uid: Heatington.Web.Client.Pages.ResourceManager
+    name: ResourceManager
+    href: Heatington.Web.Client.Pages.ResourceManager.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.ResourceManager.Boiler
+    name: Boiler
+    href: Heatington.Web.Client.Pages.ResourceManager.Boiler.html
+- uid: Heatington.Web.Client.Pages.ResourceManager.HeatDemandData
+  commentId: T:Heatington.Web.Client.Pages.ResourceManager.HeatDemandData
+  href: Heatington.Web.Client.Pages.ResourceManager.html
+  name: ResourceManager.HeatDemandData
+  nameWithType: ResourceManager.HeatDemandData
+  fullName: Heatington.Web.Client.Pages.ResourceManager.HeatDemandData
+  spec.csharp:
+  - uid: Heatington.Web.Client.Pages.ResourceManager
+    name: ResourceManager
+    href: Heatington.Web.Client.Pages.ResourceManager.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.ResourceManager.HeatDemandData
+    name: HeatDemandData
+    href: Heatington.Web.Client.Pages.ResourceManager.HeatDemandData.html
+  spec.vb:
+  - uid: Heatington.Web.Client.Pages.ResourceManager
+    name: ResourceManager
+    href: Heatington.Web.Client.Pages.ResourceManager.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.ResourceManager.HeatDemandData
+    name: HeatDemandData
+    href: Heatington.Web.Client.Pages.ResourceManager.HeatDemandData.html
+- uid: Heatington.Web.Client.Pages.Modules
+  commentId: T:Heatington.Web.Client.Pages.Modules
+  href: Heatington.Web.Client.Pages.Modules.html
+  name: Modules
+  nameWithType: Modules
+  fullName: Heatington.Web.Client.Pages.Modules
+- uid: Heatington.Web.Client.Pages.Modules.ModuleInfo
+  commentId: T:Heatington.Web.Client.Pages.Modules.ModuleInfo
+  href: Heatington.Web.Client.Pages.Modules.html
+  name: Modules.ModuleInfo
+  nameWithType: Modules.ModuleInfo
+  fullName: Heatington.Web.Client.Pages.Modules.ModuleInfo
+  spec.csharp:
+  - uid: Heatington.Web.Client.Pages.Modules
+    name: Modules
+    href: Heatington.Web.Client.Pages.Modules.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.Modules.ModuleInfo
+    name: ModuleInfo
+    href: Heatington.Web.Client.Pages.Modules.ModuleInfo.html
+  spec.vb:
+  - uid: Heatington.Web.Client.Pages.Modules
+    name: Modules
+    href: Heatington.Web.Client.Pages.Modules.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.Modules.ModuleInfo
+    name: ModuleInfo
+    href: Heatington.Web.Client.Pages.Modules.ModuleInfo.html
+- uid: Heatington.Web.Client.Pages.DataVisualizer
+  commentId: T:Heatington.Web.Client.Pages.DataVisualizer
+  href: Heatington.Web.Client.Pages.DataVisualizer.html
+  name: DataVisualizer
+  nameWithType: DataVisualizer
+  fullName: Heatington.Web.Client.Pages.DataVisualizer
+- uid: Heatington.Web.Client.Pages.Optimizer
+  commentId: T:Heatington.Web.Client.Pages.Optimizer
+  href: Heatington.Web.Client.Pages.Optimizer.html
+  name: Optimizer
+  nameWithType: Optimizer
+  fullName: Heatington.Web.Client.Pages.Optimizer
+- uid: Heatington.Web.Client.Pages.Optimizer.Boiler
+  commentId: T:Heatington.Web.Client.Pages.Optimizer.Boiler
+  href: Heatington.Web.Client.Pages.Optimizer.html
+  name: Optimizer.Boiler
+  nameWithType: Optimizer.Boiler
+  fullName: Heatington.Web.Client.Pages.Optimizer.Boiler
+  spec.csharp:
+  - uid: Heatington.Web.Client.Pages.Optimizer
+    name: Optimizer
+    href: Heatington.Web.Client.Pages.Optimizer.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.Optimizer.Boiler
+    name: Boiler
+    href: Heatington.Web.Client.Pages.Optimizer.Boiler.html
+  spec.vb:
+  - uid: Heatington.Web.Client.Pages.Optimizer
+    name: Optimizer
+    href: Heatington.Web.Client.Pages.Optimizer.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.Optimizer.Boiler
+    name: Boiler
+    href: Heatington.Web.Client.Pages.Optimizer.Boiler.html
+- uid: Heatington.Web.Client.Pages.Home
+  commentId: T:Heatington.Web.Client.Pages.Home
+  href: Heatington.Web.Client.Pages.Home.html
+  name: Home
+  nameWithType: Home
+  fullName: Heatington.Web.Client.Pages.Home
+- uid: Heatington.Web.Client.Pages.Home.Boiler
+  commentId: T:Heatington.Web.Client.Pages.Home.Boiler
+  href: Heatington.Web.Client.Pages.Home.html
+  name: Home.Boiler
+  nameWithType: Home.Boiler
+  fullName: Heatington.Web.Client.Pages.Home.Boiler
+  spec.csharp:
+  - uid: Heatington.Web.Client.Pages.Home
+    name: Home
+    href: Heatington.Web.Client.Pages.Home.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.Home.Boiler
+    name: Boiler
+    href: Heatington.Web.Client.Pages.Home.Boiler.html
+  spec.vb:
+  - uid: Heatington.Web.Client.Pages.Home
+    name: Home
+    href: Heatington.Web.Client.Pages.Home.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.Home.Boiler
+    name: Boiler
+    href: Heatington.Web.Client.Pages.Home.Boiler.html
+- uid: Heatington.Web.Client.Pages.About
+  commentId: T:Heatington.Web.Client.Pages.About
+  href: Heatington.Web.Client.Pages.About.html
+  name: About
+  nameWithType: About
+  fullName: Heatington.Web.Client.Pages.About
+- uid: Heatington.Web.Client.Pages.About.TeamMember
+  commentId: T:Heatington.Web.Client.Pages.About.TeamMember
+  href: Heatington.Web.Client.Pages.About.html
+  name: About.TeamMember
+  nameWithType: About.TeamMember
+  fullName: Heatington.Web.Client.Pages.About.TeamMember
+  spec.csharp:
+  - uid: Heatington.Web.Client.Pages.About
+    name: About
+    href: Heatington.Web.Client.Pages.About.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.About.TeamMember
+    name: TeamMember
+    href: Heatington.Web.Client.Pages.About.TeamMember.html
+  spec.vb:
+  - uid: Heatington.Web.Client.Pages.About
+    name: About
+    href: Heatington.Web.Client.Pages.About.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages.About.TeamMember
+    name: TeamMember
+    href: Heatington.Web.Client.Pages.About.TeamMember.html
+- uid: Heatington.Web.Client.Pages
+  commentId: N:Heatington.Web.Client.Pages
+  href: Heatington.html
+  name: Heatington.Web.Client.Pages
+  nameWithType: Heatington.Web.Client.Pages
+  fullName: Heatington.Web.Client.Pages
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Web
+    name: Web
+    href: Heatington.Web.html
+  - name: .
+  - uid: Heatington.Web.Client
+    name: Client
+    href: Heatington.Web.Client.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages
+    name: Pages
+    href: Heatington.Web.Client.Pages.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Web
+    name: Web
+    href: Heatington.Web.html
+  - name: .
+  - uid: Heatington.Web.Client
+    name: Client
+    href: Heatington.Web.Client.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages
+    name: Pages
+    href: Heatington.Web.Client.Pages.html

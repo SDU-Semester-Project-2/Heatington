@@ -1,2 +1,4 @@
 - name: FileSerializer
   href: FileSerializer.md
+- name: JsonSerializer Tests
+  href: JsonSerializerCustomTests.md

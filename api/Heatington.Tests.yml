@@ -5,6 +5,7 @@ items:
   id: Heatington.Tests
   children:
   - Heatington.Tests.UnitTest1
+  - Heatington.Tests.UseTestDirectory
   langs:
   - csharp
   - vb
@@ -21,3 +22,32 @@ references:
   name: UnitTest1
   nameWithType: UnitTest1
   fullName: Heatington.Tests.UnitTest1
+- uid: Heatington.Tests.UseTestDirectory
+  commentId: T:Heatington.Tests.UseTestDirectory
+  parent: Heatington.Tests
+  href: Heatington.Tests.UseTestDirectory.html
+  name: UseTestDirectory
+  nameWithType: UseTestDirectory
+  fullName: Heatington.Tests.UseTestDirectory
+- uid: Heatington.Tests
+  commentId: N:Heatington.Tests
+  href: Heatington.html
+  name: Heatington.Tests
+  nameWithType: Heatington.Tests
+  fullName: Heatington.Tests
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
