@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Heatington.AssetManager;
 using Heatington.Controllers;
 using Heatington.Helpers;
 using Heatington.Models;
@@ -19,7 +20,7 @@ namespace AssetManagerAPI.Controllers
         }
 
         [HttpGet("{imageName}")]
-        public IActionResult GetImage(string imageName)
+        public ActionResult<string> GetImage(string imageName)
         {
             try
             {
@@ -56,6 +57,20 @@ namespace AssetManagerAPI.Controllers
             //to throw an Exception we can catch if the Production unit with that id is not
             //present in the list.
             AssetManagerModel.AM.WriteHeatingUnit(id, updated);
+
+            return NoContent();
+        }
+
+        [HttpPost]
+        public ActionResult PostProductionUnit(ProductionUnit newHeatingUnit)
+        {
+            try{
+                AssetManagerModel.AM.AddHeatingUnit(ProductionUnitsEnum.CustomBoiler, newHeatingUnit);
+            }
+            catch(Exception e)
+            {
+                return BadRequest();
+            }
 
             return NoContent();
         }
