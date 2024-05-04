@@ -5,5 +5,6 @@ public enum ProductionUnitsEnum
     GasBoiler,
     OilBoiler,
     GasMotor,
-    ElectricBoiler
+    ElectricBoiler,
+    CustomBoiler
 }
