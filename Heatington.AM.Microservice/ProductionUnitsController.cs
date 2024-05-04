@@ -40,7 +40,7 @@ namespace AssetManagerAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(Guid id, ProductionUnit updated)
+        public ActionResult PutProductionUnit(Guid id, ProductionUnit updated)
         {
             //The request gets a JSON that is deserialized into a ProductionUnit, but
             //since the constructor for ProductionUnit creates a new GUID they won't match.
