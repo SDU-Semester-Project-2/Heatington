@@ -38,5 +38,26 @@ namespace AssetManagerAPI.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutTodoItem(Guid id, ProductionUnit updated)
+        {
+            //The request gets a JSON that is deserialized into a ProductionUnit, but
+            //since the constructor for ProductionUnit creates a new GUID they won't match.
+            //Maybe overload the function with a JSONSerializer attribute?
+            /*
+            if (id != updated.Id)
+            {
+                return BadRequest();
+            }
+            */
+
+            //If id is not in the list it will update the first one. I think it would be nicer
+            //to throw an Exception we can catch if the Production unit with that id is not
+            //present in the list.
+            AssetManagerModel.AM.WriteHeatingUnit(id, updated);
+
+            return NoContent();
+        }
     }
 }
