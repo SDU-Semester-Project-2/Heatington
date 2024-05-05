@@ -1,5 +1,5 @@
 namespace Heatington.AssetManager;
-
+// TODO: Now obsolete?
 public enum ProductionUnitsEnum
 {
     GasBoiler,

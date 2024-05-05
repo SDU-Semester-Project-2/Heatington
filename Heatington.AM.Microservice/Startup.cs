@@ -17,6 +17,17 @@ namespace AssetManagerAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            // Add CORS policy
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:5150")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
         }
 
 
@@ -28,7 +39,8 @@ namespace AssetManagerAPI
             }
 
             app.UseRouting();
-
+            // Use Cors must be called after UseRouting and before UseEndpoints
+            app.UseCors();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

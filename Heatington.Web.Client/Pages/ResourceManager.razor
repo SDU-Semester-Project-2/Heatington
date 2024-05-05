@@ -1,6 +1,8 @@
 ﻿@page "/resource-manager"
 @using Heatington.Web.Client.Components
 @using System.Globalization
+@using Heatington.AssetManager
+@using Heatington.Models
 @rendermode InteractiveWebAssembly
 
 <PageTitle>Resource Manager</PageTitle>
@@ -15,32 +17,32 @@
 </div>
 
 <MudGrid Spacing="4" Justify="Justify.Center" class="mt-5 mb-3">
-    @foreach (var boiler in _boilers)
+    @foreach (var productionUnit in _productionUnits)
     {
         <MudCard Style="min-width: 200px; max-width: 300px; margin: 4px; padding: 1px">
             @* Using px because rem is too big *@
             <MudCardHeader Style="flex-direction: row; justify-content: center">
-                <MudText Typo="Typo.h6">@boiler.Name</MudText>
-                <MudIconButton Icon="@Icons.Filled.Settings" Color="Color.Primary" OnClick="(() => OpenDialog(boiler))"/>
+                <MudText Typo="Typo.h6">@productionUnit.FullName</MudText>
+                <MudIconButton Icon="@Icons.Filled.Settings" Color="Color.Primary" OnClick="(() => OpenDialog(productionUnit))"/>
             </MudCardHeader>
             <MudCardContent class="text-center">
 
                 <div style="display: flex; justify-content: center;">
-                    @if (boiler.ImageData != null && boiler.ImageData?.Length != 0)
+                    if (productionUnit.Value.PicturePath != null && productionUnit.PicturePath.Length != 0)
                     {
-                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@boiler.ImageData"></MudImage>
+                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@productionUnit.PicturePath"></MudImage>
                     }
                     else
                     {
-                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@($"Assets/Images/{@boiler.ImagePath}.jpg")"></MudImage>
+                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@($"Assets/Images/{@productionUnit.Name}.jpg")"></MudImage>
                     }
                 </div>
                 <div class="mt-3">
-                    <MudText Typo="Typo.body2">Max Heat: @DisplayData(@boiler.MaxHeat)</MudText>
-                    <MudText Typo="Typo.body2">Max Electricity: @DisplayData(@boiler.MaxElectricity)</MudText>
-                    <MudText Typo="Typo.body2">Production Costs: @DisplayData(@boiler.ProductionCosts)</MudText>
-                    <MudText Typo="Typo.body2">CO2 Emissions: @DisplayData(@boiler.CO2Emissions)</MudText>
-                    <MudText Typo="Typo.body2">Primary Energy Consumption: @DisplayData(boiler.PrimaryEnergy)</MudText>
+                    <MudText Typo="Typo.body2">Max Heat: @DisplayData(@productionUnit.MaxHeat)</MudText>
+                    <MudText Typo="Typo.body2">Max Electricity: @DisplayData(@productionUnit.MaxElectricity)</MudText>
+                    <MudText Typo="Typo.body2">Production Costs: @DisplayData(@productionUnit.ProductionCost)</MudText>
+                    <MudText Typo="Typo.body2">CO2 Emissions: @DisplayData(@productionUnit.Co2Emission)</MudText>
+                    <MudText Typo="Typo.body2">Primary Energy Consumption: @DisplayData(@productionUnit.GasConsumption)</MudText>
                 </div>
             </MudCardContent>
         </MudCard>
