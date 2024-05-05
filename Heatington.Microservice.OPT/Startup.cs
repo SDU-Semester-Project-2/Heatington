@@ -12,6 +12,10 @@ namespace Heatington.Microservice.OPT
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // Swagger
+            services.AddSwaggerGen();
+
             // Add CORS policy
             services.AddCors(options =>
             {
@@ -31,6 +35,10 @@ namespace Heatington.Microservice.OPT
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Use Swagger
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseRouting();
