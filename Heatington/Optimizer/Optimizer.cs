@@ -17,7 +17,7 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
     }
 
     // TODO: expand optimize with capability to optimize for co2
-    public void Optimize()
+    public void Optimize(string[]? orderBy = null)
     {
         //checks if there are no boilers that use electricity
         bool onlyFossil = _productionUnits.TrueForAll(x => x.MaxElectricity == 0);
@@ -115,10 +115,7 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
             return i;
         }
 
-        List<ProductionUnit> SelectBoilers(int j)
-        {
-            return productionUnits[..j];
-        }
+        List<ProductionUnit> SelectBoilers(int j) => productionUnits[..j];
     }
 
     public void LogResults()
