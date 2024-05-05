@@ -4,9 +4,9 @@ namespace Heatington.Optimizer;
 
 public enum OptimizationMode
 {
-    Scenario1 = 1,
-    Scenario2 = 2,
-    Co2 = 3
+    Scenario1,
+    Scenario2,
+    Co2
 }
 
 public class OPT()
@@ -30,20 +30,6 @@ public class OPT()
         _dataPoints = dataPoints;
     }
 
-    public OPT(Func<Task<List<ProductionUnit>>> getProductionUnits, Func<Task<List<DataPoint>>> getDataPoints) : this()
-    {
-        LoadData(getProductionUnits, getDataPoints).Wait();
-        return;
-
-        async Task LoadData(Func<Task<List<ProductionUnit>>> getProdUnits,
-            Func<Task<List<DataPoint>>> getDatPoints)
-        {
-            _productionUnits = await getProdUnits();
-            _dataPoints = await getDatPoints();
-        }
-    }
-
-
     private void RankHeatingUnits(Func<ProductionUnit, double> evaluate)
     {
         _productionUnits = _productionUnits.OrderBy(o => evaluate(o)).ToList();
@@ -57,7 +43,6 @@ public class OPT()
     }
 
     // TODO: expand optimize with capability to optimize for co2
-
     public void Optimize()
     {
         Console.WriteLine(_productionUnits.Count);
