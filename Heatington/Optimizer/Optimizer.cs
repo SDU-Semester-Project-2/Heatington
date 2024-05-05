@@ -43,7 +43,11 @@ public class OPT()
     }
 
     // TODO: expand optimize with capability to optimize for co2
+<<<<<<< HEAD
     public void Optimize(string[]? orderBy = null)
+=======
+    public void Optimize()
+>>>>>>> ea3fab2 (SP2-160-initialized OPT microservice and fixed OPT merge errors)
     {
         Console.WriteLine(_productionUnits.Count);
         Console.WriteLine(_dataPoints.Count);
