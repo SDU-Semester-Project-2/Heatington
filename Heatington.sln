@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heatington.Web", "Heatingto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heatington.Web.Client", "Heatington.Web.Client\Heatington.Web.Client.csproj", "{00000000-0000-0000-0000-000000000000}"
 EndProject
+Project("{6865debf-71a2-4840-8d31-c1b4b60150f3}") = "Heatington.Microservice.OPT", "Heatington.Microservice.OPT/Heatington.Microservice.OPT.csproj", "{6865debf-71a2-4840-8d31-c1b4b60150f3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,5 +53,12 @@ Global
 		{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.Build.0 = Release|Any CPU
 
 		{00000000-0000-0000-0000-000000000000}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+
+		{6865debf-71a2-4840-8d31-c1b4b60150f3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6865debf-71a2-4840-8d31-c1b4b60150f3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6865debf-71a2-4840-8d31-c1b4b60150f3}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{6865debf-71a2-4840-8d31-c1b4b60150f3}.Debug|Any CPU.Build.0 = Release|Any CPU
+
+		{6865debf-71a2-4840-8d31-c1b4b60150f3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
