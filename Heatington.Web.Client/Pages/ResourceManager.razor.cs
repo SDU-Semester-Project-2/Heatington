@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Threading.Tasks;
 using Heatington.Web.Client.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -24,10 +28,10 @@ namespace Heatington.Web.Client.Pages
         //TODO: Take a look at this, should it be like this or just list because of GUID
         // public Dictionary<ProductionUnitsEnum, ProductionUnit> _productionUnits;
 
-
         async void OpenDialog()
         {
             var parameters = new DialogParameters();
+            parameters.Add("Boilers", _boilers);
             parameters.Add("ProductionUnits", _productionUnits);
 
             var dialog = DialogService.Show<AddBoilerDialog>("Add Production Unit", parameters,
@@ -58,6 +62,14 @@ namespace Heatington.Web.Client.Pages
             }
         }
 
+
+        private string DisplayData(string data) => data.Length != 0 ? data : "No Data";
+
+
+
+        // TODO: fix csv data loading one and then disappering
+        //Maybe this can help
+        //https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-7.0#stateful-reconnection-after-prerendering
 
         private string DisplayData(double data) =>
             Convert.ToString(data.ToString().Length != 0 ? data.ToString().Length : "No Data");
