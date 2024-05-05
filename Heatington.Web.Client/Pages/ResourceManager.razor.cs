@@ -1,86 +1,34 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Threading.Tasks;
 using Heatington.Web.Client.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor;
+using System.Net.Http.Json;
+using Heatington.AssetManager;
+using Heatington.Models;
 
 namespace Heatington.Web.Client.Pages
 {
     public partial class ResourceManager : ComponentBase
     {
         [Inject] public required IDialogService DialogService { get; set; }
+        [Inject] public HttpClient Http { get; set; }
+        [Inject] public ILogger<ResourceManager> Logger { get; set; }
 
-        //TODO: fix it in future te
-        readonly List<Boiler> _boilers =
-        [
-            new Boiler
-            {
-                Name = "Gas Boiler",
-                ImagePath = "gas-boiler",
-                MaxHeat = "5.0 MW",
-                MaxElectricity = "",
-                ProductionCosts = "500 DKK / MWh(th)",
-                CO2Emissions = "215 kg / MWh(th)",
-                PrimaryEnergy = "1,1 MWh(gas) / MWh(th)"
-            },
+        List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
+        private bool _isLoading = false;
+        //TODO: Take a look at this, should it be like this or just list because of GUID
+        // public Dictionary<ProductionUnitsEnum, ProductionUnit> _productionUnits;
 
-            new Boiler
-            {
-                Name = "Oil Boiler",
-                ImagePath = "oil-boiler",
-                MaxHeat = "4.0 MW",
-                MaxElectricity = "",
-                ProductionCosts = "700 DKK / MWh(th)",
-                CO2Emissions = "265 kg / MWh(th)",
-                PrimaryEnergy = "1,2 MWh(oil) / MWh(th)"
-            },
 
-            new Boiler
-            {
-                Name = "Gas Motor",
-                ImagePath = "gas-motor",
-                MaxHeat = "3.6 MW",
-                MaxElectricity = "2.7 MW",
-                ProductionCosts = "1,100 DKK / MWh(th)",
-                CO2Emissions = "640 kg / MWh(th)",
-                PrimaryEnergy = "1.9 MWh(gas) / MWh(th)"
-            },
 
-            new Boiler
-            {
-                Name = "Electric Boiler",
-                ImagePath = "electric-boiler",
-                MaxHeat = "8.0 MW",
-                MaxElectricity = "-8.0 MW",
-                ProductionCosts = "50 DKK / MWh(th)",
-                CO2Emissions = "", // As no value provided
-                PrimaryEnergy = "" // As no value provided
-            }
-        ];
-
-        public class Boiler
-        {
-            public string Name { get; set; }
-            public string ImagePath { get; set; }
-            public string MaxHeat { get; set; }
-            public string MaxElectricity { get; set; }
-            public string ProductionCosts { get; set; }
-            public string CO2Emissions { get; set; }
-            public string PrimaryEnergy { get; set; }
-            public SortDirection? SortDirection { get; set; }
-            public string? ImageData { get; set; }
-        }
 
         async void OpenDialog()
         {
             var parameters = new DialogParameters();
-            parameters.Add("Boilers", _boilers);
+            parameters.Add("ProductionUnits", _productionUnits);
 
-            var dialog = DialogService.Show<AddBoilerDialog>("Add Boiler", parameters,
+            var dialog = DialogService.Show<AddBoilerDialog>("Add Production Unit", parameters,
                 new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
 
             var result = await dialog.Result;
@@ -92,12 +40,12 @@ namespace Heatington.Web.Client.Pages
         }
 
         // Method overload to open dialog with selected boiler
-        async void OpenDialog(Boiler boiler)
+        async void OpenDialog(ProductionUnit productionUnit)
         {
             var parameters = new DialogParameters();
-            parameters.Add("Boiler", boiler); // Pass selected boiler
+            parameters.Add("ProductionUnit", productionUnit);  // Pass selected unit
 
-            var dialog = DialogService.Show<EditBoilerDialog>(($"Edit {boiler.Name}"), parameters,
+            var dialog = DialogService.Show<EditBoilerDialog>(($"Edit {productionUnit.Name}"), parameters,
                 new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
 
             var result = await dialog.Result;
@@ -109,7 +57,7 @@ namespace Heatington.Web.Client.Pages
         }
 
 
-        private string DisplayData(string data) => data.Length != 0 ? data : "No Data";
+        private string DisplayData(double data) => Convert.ToString(data.ToString().Length != 0 ? data.ToString().Length : "No Data");
         private List<HeatDemandData> heatDemandDataList = new List<HeatDemandData>();
 
         public class HeatDemandData
@@ -120,27 +68,6 @@ namespace Heatington.Web.Client.Pages
             public float Value2 { get; set; }
         }
 
-
-        // TODO: fix csv data loading one and then disappering
-        //Maybe this can help
-        //https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-7.0#stateful-reconnection-after-prerendering
-        protected override async Task OnInitializedAsync()
-        {
-            await base.OnInitializedAsync();
-            StateHasChanged();
-            DirectoryInfo? pathToProjectRootDirectory =
-                Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
-
-            if (pathToProjectRootDirectory != null)
-            {
-                StateHasChanged();
-                string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName,
-                    "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
-                await ReadCsvDataOnLoad(pathToFile);
-            }
-        }
-
-
         private async Task ReadCsvDataOnLoad(string pathToFile)
         {
             Console.WriteLine(pathToFile);
@@ -148,7 +75,6 @@ namespace Heatington.Web.Client.Pages
 
             ParseCsvData(csvContent);
         }
-
         private async Task HandleCSVUpload(InputFileChangeEventArgs e)
         {
             var file = e.File;
@@ -158,7 +84,6 @@ namespace Heatington.Web.Client.Pages
 
             ParseCsvData(csvContent);
         }
-
         private void ParseCsvData(string csvContent)
         {
             var rows = csvContent.Split('\n');
@@ -182,6 +107,41 @@ namespace Heatington.Web.Client.Pages
             }
 
             StateHasChanged();
+        }
+        protected override async Task OnInitializedAsync()
+        {
+            try
+            {
+                Logger.LogInformation("OnInitializedAsync started.");
+
+                await base.OnInitializedAsync();
+
+                var productionUnitsArray = await Http.GetFromJsonAsync<ProductionUnit[]>("http://localhost:5271/api/productionunits");
+
+                if (productionUnitsArray != null)
+                {
+                    _productionUnits = productionUnitsArray.ToList();
+                    Logger.LogInformation($"Fetched {_productionUnits.Count} units.");
+                    foreach (var unit in _productionUnits)
+                    {
+                        Logger.LogInformation($"Unit: {unit.Name}, MaxHeat: {unit.MaxHeat}, MaxElectricity: {unit.MaxElectricity}");
+                    }
+                }
+
+                var pathToProjectRootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
+
+                if (pathToProjectRootDirectory != null)
+                {
+                    string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
+                    await ReadCsvDataOnLoad(pathToFile);
+                }
+
+                StateHasChanged();
+            }
+            catch(Exception ex)
+            {
+                Logger.LogError(ex, "Error occurred in OnInitializedAsync.");
+            }
         }
 
     }
