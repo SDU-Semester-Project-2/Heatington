@@ -1,7 +1,6 @@
 using System.Globalization;
 using System.Text.Json;
 using Heatington.Helpers;
-using Heatington.Models;
 using Heatington.Services.Interfaces;
 
 namespace Heatington.Controllers
