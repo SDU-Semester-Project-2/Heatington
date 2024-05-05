@@ -43,8 +43,7 @@ public class OPT()
     }
 
     // TODO: expand optimize with capability to optimize for co2
-
-    public void OptimizeScenario1()
+    public void Optimize()
     {
         Console.WriteLine(_productionUnits.Count);
         Console.WriteLine(_dataPoints.Count);
@@ -168,16 +167,16 @@ public class OPT()
         // Creates an object which holds the result
         ResultHolder result = new ResultHolder(dataPoint.StartTime, dataPoint.EndTime, dataPoint.HeatDemand,
             dataPoint.ElectricityPrice, selectedBoilers);
-        Console.WriteLine(result);
+        // Console.WriteLine(result);
 
         return result;
 
-        int SatisfyHeatDemand(DataPoint dataPoint)
+        int SatisfyHeatDemand(DataPoint dataPointToSatisfy)
         {
             double currentProductionCapacity = 0;
             int i = 0;
 
-            while (dataPoint.HeatDemand > currentProductionCapacity)
+            while (dataPointToSatisfy.HeatDemand > currentProductionCapacity)
             {
                 currentProductionCapacity = currentProductionCapacity + productionUnits[i].MaxHeat;
                 i++;
