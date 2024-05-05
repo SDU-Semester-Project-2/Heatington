@@ -1,7 +1,4 @@
-using Heatington.Controllers;
-using Heatington.Helpers;
 using Heatington.Models;
-using Heatington.Services.Interfaces;
 
 namespace Heatington.Optimizer;
 
@@ -20,21 +17,24 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
     }
 
     // TODO: expand optimize with capability to optimize for co2
-    public void OptimizeScenario1()
+    public void Optimize()
     {
         //checks if there are no boilers that use electricity
         bool onlyFossil = _productionUnits.TrueForAll(x => x.MaxElectricity == 0);
-        foreach (DataPoint dataPoint in _dataPoints)
+        if (_dataPoints != null)
         {
-            if (!onlyFossil)
+            foreach (DataPoint dataPoint in _dataPoints)
             {
-                //orders production units by net production cost
-                _productionUnits = _productionUnits.OrderBy(x =>
-                    x.ProductionCost - x.MaxElectricity * dataPoint.ElectricityPrice).ToList();
-            }
+                if (!onlyFossil)
+                {
+                    //orders production units by net production cost
+                    _productionUnits = _productionUnits.OrderBy(x =>
+                        x.ProductionCost - x.MaxElectricity * dataPoint.ElectricityPrice).ToList();
+                }
 
-            ResultHolder result = CalculateHeatUnitsRequired(dataPoint, _productionUnits);
-            Results?.Add(result);
+                ResultHolder result = CalculateHeatUnitsRequired(dataPoint, _productionUnits);
+                Results?.Add(result);
+            }
         }
     }
 
@@ -80,7 +80,7 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
         //Console.WriteLine("Number of boilers: {0}", nOfBoilers);
 
         // Selects the correct boilers based on how many need to be activated
-        List<ProductionUnit> selectedBoilers = SelectBoiler(nOfBoilers);
+        List<ProductionUnit> selectedBoilers = SelectBoilers(nOfBoilers);
 
         //Console.WriteLine("Boilers selected:");
         //selectedBoilers.ForEach(Console.WriteLine);
@@ -91,16 +91,16 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
         // Creates an object which holds the result
         ResultHolder result = new ResultHolder(dataPoint.StartTime, dataPoint.EndTime, dataPoint.HeatDemand,
             dataPoint.ElectricityPrice, selectedBoilers);
-        Console.WriteLine(result);
+        // Console.WriteLine(result);
 
         return result;
 
-        int SatisfyHeatDemand(DataPoint dataPoint)
+        int SatisfyHeatDemand(DataPoint dataPointToSatisfy)
         {
             double currentProductionCapacity = 0;
             int i = 0;
 
-            while (dataPoint.HeatDemand > currentProductionCapacity)
+            while (dataPointToSatisfy.HeatDemand > currentProductionCapacity)
             {
                 currentProductionCapacity = currentProductionCapacity + productionUnits[i].MaxHeat;
                 i++;
@@ -115,16 +115,9 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
             return i;
         }
 
-        List<ProductionUnit> SelectBoiler(int j)
+        List<ProductionUnit> SelectBoilers(int j)
         {
-            List<ProductionUnit> selectedBoilers = new List<ProductionUnit>();
-
-            for (int i = 0; i < j; i++)
-            {
-                selectedBoilers.Add(productionUnits[i]);
-            }
-
-            return selectedBoilers;
+            return productionUnits[..j];
         }
     }
 
