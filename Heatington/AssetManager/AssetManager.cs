@@ -64,7 +64,7 @@ public class AssetManager(
 
 
     // Pass unitId and body to update unit.
-    public void WriteHeatingUnit(Guid unitId, ProductionUnit heatingUnitNewbBody)
+    public void WriteHeatingUnit(Guid unitId, ProductionUnit heatingUnitNewBody)
     {
         if (ProductionUnits == null)
         {
@@ -74,18 +74,18 @@ public class AssetManager(
         KeyValuePair<ProductionUnitsEnum, ProductionUnit> productionUnitToWrite =
             ProductionUnits.FirstOrDefault(value => value.Value.Id == unitId);
 
-        ProductionUnits[productionUnitToWrite.Key] = heatingUnitNewbBody;
+        ProductionUnits[productionUnitToWrite.Key] = heatingUnitNewBody;
     }
 
     // Pass key to the unit(the key that you would use to access the Dictonary) and body to update unit.
-    public void WriteHeatingUnit(ProductionUnitsEnum productionUnitKey, ProductionUnit heatingUnitNewbBody)
+    public void WriteHeatingUnit(ProductionUnitsEnum productionUnitKey, ProductionUnit heatingUnitNewBody)
     {
         if (ProductionUnits == null)
         {
             throw ThrowExceptionProductionUnitsEmpty();
         }
 
-        ProductionUnits[productionUnitKey] = heatingUnitNewbBody;
+        ProductionUnits[productionUnitKey] = heatingUnitNewBody;
     }
 
     // Pass only edited HeatingUnit and it should update automatically
