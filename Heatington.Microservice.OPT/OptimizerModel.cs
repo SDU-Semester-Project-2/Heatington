@@ -6,6 +6,8 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.Microservice.OPT;
 
+// TODO: For calling api inside of api
+// https://stackoverflow.com/questions/69124747/how-to-call-an-api-inside-another-api-on-asp-net-core-2-1
 public class OptimizerModel
 {
     public static Opt? OPT;
