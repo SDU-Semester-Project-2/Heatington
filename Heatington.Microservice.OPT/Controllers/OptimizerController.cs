@@ -7,19 +7,21 @@ namespace Heatington.Microservice.OPT.Controllers
     [ApiController]
     public class OptimizerController : ControllerBase
     {
-        // pass string[] orderby = ["a", "b", "c"]
         // http://localhost:5019/api/optimizer?orderBy=a&orderBy=b&orderBy=c
+        // passes: string[] orderby = ["a", "b", "c"]
 
         [HttpGet]
-        public ActionResult<List<ResultHolder>?> Get([FromQuery] string[] orderBy)
+        public async Task<ActionResult<List<ResultHolder>?>> Get([FromQuery] string[] orderBy)
         {
             // foreach (string se in orderBy)
             // {
             //     Console.WriteLine(se);
             // }
 
-            OptimizerModel.OPT.Optimize();
-            return Ok(OptimizerModel.OPT.Results);
+            await OptimizerModel.LoadOptimizer();
+            OptimizerModel.OPT?.Optimize(orderBy);
+
+            return Ok(OptimizerModel.OPT?.Results);
         }
     }
 }

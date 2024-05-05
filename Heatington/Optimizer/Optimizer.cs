@@ -36,6 +36,7 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
     }
 
     // TODO: expand optimize with capability to optimize for co2
+
     public void OptimizeScenario1()
     {
         //checks if there are no boilers that use electricity
