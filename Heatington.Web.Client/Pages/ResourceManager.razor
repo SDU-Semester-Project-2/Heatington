@@ -1,8 +1,6 @@
 ﻿@page "/resource-manager"
 @using Heatington.Web.Client.Components
 @using System.Globalization
-@using Heatington.AssetManager
-@using Heatington.Models
 @rendermode InteractiveWebAssembly
 
 <PageTitle>Resource Manager</PageTitle>
@@ -28,27 +26,21 @@
             <MudCardContent class="text-center">
 
                 <div style="display: flex; justify-content: center;">
-                    @if (!string.IsNullOrEmpty(@productionUnit.PicturePath))
+                    if (productionUnit.Value.PicturePath != null && productionUnit.PicturePath.Length != 0)
                     {
-                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px"
-                                  Src="@productionUnit.PictureBase64Url">
-                        </MudImage>
+                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@productionUnit.PicturePath"></MudImage>
                     }
-                    @* This is not working right now because the API doesn't actuall store the images. TODO: Try this again
-                    @if (!string.IsNullOrEmpty(@productionUnit.PicturePath)) *@
-                    @* { *@
-                    @*     var imageUrl = $"http://localhost:5271/api/productionunits/{@productionUnit.PicturePath}"; *@
-                    @*     <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@imageUrl"></MudImage> *@
-                    @* } *@
+                    else
+                    {
+                        <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@($"Assets/Images/{@productionUnit.Name}.jpg")"></MudImage>
+                    }
                 </div>
                 <div class="mt-3">
-                    <MudText Typo="Typo.body2">Max Heat: @productionUnit.MaxHeat MW</MudText>
-                    <MudText Typo="Typo.body2">Max Electricity: @productionUnit.MaxElectricity MW</MudText>
-                    <MudText Typo="Typo.body2">Production Costs: @productionUnit.ProductionCost DKK/Mwh(th)</MudText>
-                    <MudText Typo="Typo.body2">CO2 Emissions: @productionUnit.Co2Emission kg/Mwh(th)</MudText>
-                    <MudText Typo="Typo.body2">
-                        Primary Energy Consumption: @productionUnit.GasConsumption MWh/MWh(th)
-                    </MudText>
+                    <MudText Typo="Typo.body2">Max Heat: @DisplayData(@productionUnit.MaxHeat)</MudText>
+                    <MudText Typo="Typo.body2">Max Electricity: @DisplayData(@productionUnit.MaxElectricity)</MudText>
+                    <MudText Typo="Typo.body2">Production Costs: @DisplayData(@productionUnit.ProductionCost)</MudText>
+                    <MudText Typo="Typo.body2">CO2 Emissions: @DisplayData(@productionUnit.Co2Emission)</MudText>
+                    <MudText Typo="Typo.body2">Primary Energy Consumption: @DisplayData(@productionUnit.GasConsumption)</MudText>
                 </div>
             </MudCardContent>
         </MudCard>
