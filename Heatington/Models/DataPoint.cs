@@ -7,12 +7,12 @@ namespace Heatington.Models
     public class DataPoint
     {
         [CsvConstructor]
-        public DataPoint(DateTime startTime, DateTime endTime, double heatDemand, double electricityPrice)
+        public DataPoint(string startTime, string endTime, string heatDemand, string electricityPrice)
         {
-            StartTime = startTime;
-            EndTime = endTime;
-            HeatDemand = heatDemand;
-            ElectricityPrice = electricityPrice;
+            StartTime = DateTime.ParseExact(startTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
+            EndTime = DateTime.ParseExact(endTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
+            HeatDemand = double.Parse(heatDemand, CultureInfo.InvariantCulture);
+            ElectricityPrice = double.Parse(electricityPrice, CultureInfo.InvariantCulture);
         }
 
         // TODO: Maybe implement factory method to increase the abstraction
