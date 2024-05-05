@@ -1,9 +1,7 @@
 using System.Globalization;
 using Heatington.Models;
 using System.Text.Json;
-using Heatington.Controllers;
 using Heatington.Helpers;
-using Heatington.Models;
 using Heatington.Services.Interfaces;
 
 namespace Heatington.Controllers
