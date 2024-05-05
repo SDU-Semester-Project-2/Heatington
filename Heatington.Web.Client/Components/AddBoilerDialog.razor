@@ -1,3 +1,4 @@
+@using Heatington.Models
 @using ResourceManager = Heatington.Web.Client.Pages.ResourceManager
 @* AddBoilerDialog Component *@
 
@@ -15,12 +16,12 @@
                         for="@context.Id"/>
             </ButtonTemplate>
         </MudFileUpload>
-        <MudTextField @bind-Value="@NewBoiler.Name" Label="Name" Variant="Variant.Outlined" Required/>
-        <MudTextField @bind-Value="NewBoiler.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" Required/>
-        <MudTextField @bind-Value="NewBoiler.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="NewBoiler.ProductionCosts" Label="Production Costs" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="NewBoiler.CO2Emissions" Label="CO2 Emissions" Variant="Variant.Outlined"/>
-        <MudTextField @bind-Value="NewBoiler.PrimaryEnergy" Label="Gas Consumption" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@_newProductionUnit.Name" Label="Name" Variant="Variant.Outlined" Required/>
+        <MudTextField @bind-Value="@_newProductionUnit.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" Required/>
+        <MudTextField @bind-Value="@_newProductionUnit.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@_newProductionUnit.ProductionCost" Label="Production Costs" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@_newProductionUnit.Co2Emission" Label="CO2 Emissions" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="@_newProductionUnit.GasConsumption" Label="Gas Consumption" Variant="Variant.Outlined"/>
     </DialogContent>
     <DialogActions>
         <MudButton Color="Color.Primary" Size="Size.Large" Variant="Variant.Filled" OnClick="AddBoiler">Add</MudButton>
@@ -31,29 +32,12 @@
     string imageBase64;
 
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    [Parameter] public List<ResourceManager.Boiler> Boilers { get; set; }
-
-    ResourceManager.Boiler NewBoiler = new ResourceManager.Boiler();
-
-    async Task HandleImageUpload(InputFileChangeEventArgs e)
-    {
-        var format = "image/png";
-
-        var resizedImage = await e.File.RequestImageFileAsync(format, 220, 220);
-        var buffer = new byte[resizedImage.Size];
-
-        await resizedImage.OpenReadStream().ReadAsync(buffer);
-        var imagesrc = Convert.ToBase64String(buffer);
-
-        var imageData = $"data:{format};base64,{imagesrc}";
-
-        NewBoiler.ImageData = imageData;
-    }
+    [Parameter] public EventCallback<ProductionUnit> OnBoilerAdded { get; set; }
+    ProductionUnit _newProductionUnit = new ProductionUnit();
 
     async Task HandleImageUpload(IBrowserFile file)
     {
         var format = "image/png";
-
         var resizedImage = await file.RequestImageFileAsync(format, 220, 220);
         var buffer = new byte[resizedImage.Size];
 
@@ -62,14 +46,12 @@
 
         var imageData = $"data:{format};base64,{imagesrc}";
 
-        NewBoiler.ImageData = imageData;
+        _newProductionUnit.PicturePath = imageData; // Bind PicturePath not ImageData
     }
 
-    void AddBoiler()
+    Task AddBoiler()
     {
-        Boilers.Add(NewBoiler);
-        NewBoiler = new ResourceManager.Boiler();
-        MudDialog.Close(DialogResult.Ok(true));
+        return OnBoilerAdded.InvokeAsync(_newProductionUnit);
     }
 
 }

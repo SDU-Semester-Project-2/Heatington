@@ -4,13 +4,14 @@ public class ProductionUnit : ICloneable
 {
     public Guid Id { get; }
     public string Name { get; set; }
-    public string PicturePath { get; }
+    public string FullName { get; set; }
+    public string PicturePath { get; set; }
     private double _operationPoint;
-    public double MaxHeat { get; } // MW
-    public double ProductionCost { get; } // DKK/MWh
-    public double MaxElectricity { get; } // MW
-    public double GasConsumption { get; } // MWh(gas/oil)/MWh
-    public double Co2Emission { get; } // kg/MWh
+    public double MaxHeat { get; set; } // MW
+    public double ProductionCost { get; set; } // DKK/MWh
+    public double MaxElectricity { get; set; } // MW
+    public double GasConsumption { get; set; } // MWh(gas/oil)/MWh
+    public double Co2Emission { get; set; } // kg/MWh
 
     public double OperationPoint
     {
@@ -26,11 +27,12 @@ public class ProductionUnit : ICloneable
         }
     }
 
-    public ProductionUnit(string name, string picturePath, double maxHeat, double productionCost, double maxElectricity,
+    public ProductionUnit(string name, string fullName, string picturePath, double maxHeat, double productionCost, double maxElectricity,
         double gasConsumption, double co2Emission)
     {
         Id = Guid.NewGuid();
         Name = name;
+        FullName = fullName;
         PicturePath = picturePath;
         OperationPoint = 0; // operation point set to 0 on default, meaning when created it is turned off
         MaxHeat = maxHeat;
@@ -39,6 +41,13 @@ public class ProductionUnit : ICloneable
         GasConsumption = gasConsumption; // not every unit has gas, in that case set the value to 0
         Co2Emission = co2Emission; // not every unit has co2 emission, in that case set the value to 0
     }
+
+    // TODO: Take a look at this later, need this now for AddBoilerDialog Component
+    public ProductionUnit()
+        : this("", "","", 0.0, 0.0, 0.0, 0.0, 0.0)
+    {
+    }
+
 
     public object Clone()
     {
