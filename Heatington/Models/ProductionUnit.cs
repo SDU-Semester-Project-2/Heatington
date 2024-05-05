@@ -2,7 +2,16 @@ namespace Heatington.Models;
 
 public class ProductionUnit : ICloneable
 {
+    public Guid Id { get; }
+    public string Name { get; set; }
+    public string FullName { get; set; }
+    public string PicturePath { get; set; }
     private double _operationPoint;
+    public double MaxHeat { get; set; } // MW
+    public double ProductionCost { get; set; } // DKK/MWh
+    public double MaxElectricity { get; set; } // MW
+    public double GasConsumption { get; set; } // MWh(gas/oil)/MWh
+    public double Co2Emission { get; set; } // kg/MWh
 
 
     public ProductionUnit(string name, string fullName, string picturePath, double maxHeat, double productionCost,
@@ -23,34 +32,8 @@ public class ProductionUnit : ICloneable
 
     // TODO: Take a look at this later, need this now for AddBoilerDialog Component
     public ProductionUnit()
-        : this("", "", "", 0.0, 0.0, 0.0, 0.0, 0.0)
+        : this("", "","", 0.0, 0.0, 0.0, 0.0, 0.0)
     {
-    }
-
-    public Guid Id { get; }
-    public string Name { get; set; }
-    public string FullName { get; set; }
-    public string PicturePath { get; set; }
-    public double MaxHeat { get; set; } // MW
-    public double ProductionCost { get; set; } // DKK/MWh
-    public double MaxElectricity { get; set; } // MW
-    public double GasConsumption { get; set; } // MWh(gas/oil)/MWh
-    public double Co2Emission { get; set; } // kg/MWh
-
-    public string PictureBase64Url { get; set; } // TODO: Check and Update UML
-
-    public double OperationPoint
-    {
-        get { return _operationPoint; }
-        set
-        {
-            if (value < 0 || value > 1)
-            {
-                throw new ArgumentOutOfRangeException("OperationPoint must be between 0 and 1");
-            }
-
-            _operationPoint = value;
-        }
     }
 
 

@@ -15,23 +15,21 @@ namespace Heatington.Web.Client.Pages
 {
     public partial class ResourceManager : ComponentBase
     {
-        private bool _isLoading = false;
-
-
-        List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
-        private List<HeatDemandData> heatDemandDataList = new List<HeatDemandData>();
         [Inject] public required IDialogService DialogService { get; set; }
         [Inject] public HttpClient Http { get; set; }
-
         [Inject] public ILogger<ResourceManager> Logger { get; set; }
 
+        List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
+        private bool _isLoading = false;
         //TODO: Take a look at this, should it be like this or just list because of GUID
         // public Dictionary<ProductionUnitsEnum, ProductionUnit> _productionUnits;
+
+
+
 
         async void OpenDialog()
         {
             var parameters = new DialogParameters();
-            parameters.Add("Boilers", _boilers);
             parameters.Add("ProductionUnits", _productionUnits);
 
             var dialog = DialogService.Show<AddBoilerDialog>("Add Production Unit", parameters,
@@ -49,9 +47,9 @@ namespace Heatington.Web.Client.Pages
         async void OpenDialog(ProductionUnit productionUnit)
         {
             var parameters = new DialogParameters();
-            parameters.Add("ProductionUnit", productionUnit); // Pass selected unit
+            parameters.Add("ProductionUnit", productionUnit);  // Pass selected unit
 
-            var dialog = DialogService.Show<EditBoilerDialog>(($"Edit {productionUnit.FullName}"), parameters,
+            var dialog = DialogService.Show<EditBoilerDialog>(($"Edit {productionUnit.Name}"), parameters,
                 new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
 
             var result = await dialog.Result;
@@ -63,16 +61,16 @@ namespace Heatington.Web.Client.Pages
         }
 
 
-        private string DisplayData(string data) => data.Length != 0 ? data : "No Data";
+        private string DisplayData(double data) => Convert.ToString(data.ToString().Length != 0 ? data.ToString().Length : "No Data");
+        private List<HeatDemandData> heatDemandDataList = new List<HeatDemandData>();
 
-
-
-        // TODO: fix csv data loading one and then disappering
-        //Maybe this can help
-        //https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-7.0#stateful-reconnection-after-prerendering
-
-        private string DisplayData(double data) =>
-            Convert.ToString(data.ToString().Length != 0 ? data.ToString().Length : "No Data");
+        public class HeatDemandData
+        {
+            public DateTime StartDate { get; set; }
+            public DateTime EndDate { get; set; }
+            public float Value1 { get; set; }
+            public float Value2 { get; set; }
+        }
 
         private async Task ReadCsvDataOnLoad(string pathToFile)
         {
@@ -81,7 +79,6 @@ namespace Heatington.Web.Client.Pages
 
             ParseCsvData(csvContent);
         }
-
         private async Task HandleCSVUpload(InputFileChangeEventArgs e)
         {
             var file = e.File;
@@ -91,7 +88,6 @@ namespace Heatington.Web.Client.Pages
 
             ParseCsvData(csvContent);
         }
-
         private void ParseCsvData(string csvContent)
         {
             var rows = csvContent.Split('\n');
@@ -116,7 +112,6 @@ namespace Heatington.Web.Client.Pages
 
             StateHasChanged();
         }
-
         protected override async Task OnInitializedAsync()
         {
             try
@@ -125,68 +120,33 @@ namespace Heatington.Web.Client.Pages
 
                 await base.OnInitializedAsync();
 
-                ProductionUnit[]? productionUnitsArray =
-                    await Http.GetFromJsonAsync<ProductionUnit[]>("http://localhost:5271/api/productionunits");
+                var productionUnitsArray = await Http.GetFromJsonAsync<ProductionUnit[]>("http://localhost:5271/api/productionunits");
 
                 if (productionUnitsArray != null)
                 {
                     _productionUnits = productionUnitsArray.ToList();
-
-                    foreach (ProductionUnit unit in _productionUnits)
-                    {
-                        try
-                        {
-                            string url =
-                                $"http://localhost:5271/api/Images/{unit.PicturePath.Replace("AssetManager/", "")}";
-                            string base64ImageData = await Http.GetStringAsync(url);
-                            unit.PictureBase64Url = $"data:image/jpg;base64, {base64ImageData}";
-                        }
-                        catch
-                        {
-                            Logger.LogError($"Error occurered while fetching image {unit.PicturePath}");
-                            throw new Exception();
-                        }
-                    }
-
-                    // Checking Logs
-                    // TODO: Delete this later?
                     Logger.LogInformation($"Fetched {_productionUnits.Count} units.");
                     foreach (var unit in _productionUnits)
                     {
-                        Logger.LogInformation($"Unit: {unit.Name}");
-                        Logger.LogInformation($"PicturePath: {unit.PicturePath}");
-                        if (!string.IsNullOrEmpty(unit.PictureBase64Url))
-                        {
-                            Logger.LogInformation($"PictureBase64Url: " +
-                                                  $"{unit.PictureBase64Url.Substring(0, 50)}...");
-                        }
+                        Logger.LogInformation($"Unit: {unit.Name}, MaxHeat: {unit.MaxHeat}, MaxElectricity: {unit.MaxElectricity}");
                     }
                 }
 
-                var pathToProjectRootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent
-                    ?.Parent?.Parent?.Parent;
+                var pathToProjectRootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.Parent?.Parent;
 
                 if (pathToProjectRootDirectory != null)
                 {
-                    string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName,
-                        "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
+                    string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName, "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
                     await ReadCsvDataOnLoad(pathToFile);
                 }
 
                 StateHasChanged();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 Logger.LogError(ex, "Error occurred in OnInitializedAsync.");
             }
         }
 
-        public class HeatDemandData
-        {
-            public DateTime StartDate { get; set; }
-            public DateTime EndDate { get; set; }
-            public float Value1 { get; set; }
-            public float Value2 { get; set; }
-        }
     }
 }
