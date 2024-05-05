@@ -167,21 +167,21 @@ public class OPT()
         // Creates an object which holds the result
         ResultHolder result = new ResultHolder(dataPoint.StartTime, dataPoint.EndTime, dataPoint.HeatDemand,
             dataPoint.ElectricityPrice, selectedBoilers);
-        // Console.WriteLine(result);
+        Console.WriteLine(result);
 
         return result;
 
-        int SatisfyHeatDemand(DataPoint dataPointToSatisfy)
+        int SatisfyHeatDemand(DataPoint dataPoint)
         {
             double currentProductionCapacity = 0;
             int i = 0;
 
-            while (dataPointToSatisfy.HeatDemand > currentProductionCapacity)
+            while (dataPoint.HeatDemand > currentProductionCapacity)
             {
                 currentProductionCapacity = currentProductionCapacity + productionUnits[i].MaxHeat;
                 i++;
 
-                if (i >= productionUnits.Count)
+                if (i > productionUnits.Count)
                 {
                     Console.WriteLine("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
                     throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
@@ -202,6 +202,13 @@ public class OPT()
         Results.ForEach(Console.WriteLine);
     }
 
+    private void GetDataPoints()
+    {
+        Task fetchTimeSeries = sdm.FetchTimeSeriesDataAsync();
+        fetchTimeSeries.Wait();
+        _dataPoints = sdm.TimeSeriesData;
+    }
+
     public void LogDataPoints()
     {
         if (_dataPoints == null)
@@ -210,6 +217,13 @@ public class OPT()
         }
 
         _dataPoints.ForEach(Console.WriteLine);
+    }
+
+    private void GetProductionUnits()
+    {
+        Task loadAssets = am.LoadAssets();
+        loadAssets.Wait();
+        _productionUnits = am.ProductionUnits!.Values.ToList();
     }
 
     public void LogProductionUnits()
