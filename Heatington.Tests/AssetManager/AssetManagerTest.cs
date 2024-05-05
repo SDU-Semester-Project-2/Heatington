@@ -1,3 +1,4 @@
+using Heatington.AssetManager;
 using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
@@ -65,5 +66,18 @@ public class AssetManagerTest
         Assert.Equivalent(expectedProductionUnits, loadedProductionUnits);
     }
 
+    [Fact]
+    public async void AssetManager_ModifyingHeatUnitWorksCorrectly()
+    {
+        //Arrange
+        ProductionUnit newProductionUnit = new ProductionUnit("TT", "", 77, 690, 0, 4.20, 0);
 
+        //Act
+        Task loadAssets = _assetManager.LoadAssets();
+        await loadAssets;
+        _assetManager.WriteHeatingUnit(_assetManager.ProductionUnits![(ProductionUnitsEnum)1].Id, newProductionUnit);
+
+        //Assert
+        Assert.Equivalent(newProductionUnit, _assetManager.ProductionUnits[(ProductionUnitsEnum)1]);
+    }
 }
