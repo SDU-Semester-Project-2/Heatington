@@ -43,7 +43,7 @@ public class OPT()
     }
 
     // TODO: expand optimize with capability to optimize for co2
-    public void Optimize()
+    public void Optimize(string[]? orderBy = null)
     {
         Console.WriteLine(_productionUnits.Count);
         Console.WriteLine(_dataPoints.Count);
