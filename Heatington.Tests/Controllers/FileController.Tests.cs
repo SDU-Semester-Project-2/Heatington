@@ -100,5 +100,4 @@ public class FileControllerTests : UseTestDirectory
         //Assert
         Assert.ThrowsAsync<FileNotFoundException>(async () => await readNotExistingData());
     }
-
 }
