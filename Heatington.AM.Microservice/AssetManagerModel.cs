@@ -1,6 +1,6 @@
-using Heatington.Controllers.Interfaces;
 using Heatington.AssetManager;
 using Heatington.Controllers;
+using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 
 namespace AssetManagerAPI
@@ -8,7 +8,8 @@ namespace AssetManagerAPI
     public class AssetManagerModel
     {
         public static AssetManager AM;
-        static AssetManagerModel(){
+        static AssetManagerModel()
+        {
             string pathToHeatingGrid =
                 Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/HeatingGrid.json");
             string pathToProductionUnits =
