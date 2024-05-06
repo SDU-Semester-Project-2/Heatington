@@ -15,6 +15,6 @@ public class FormatedResultHolder(
     public DateTime EndTime { get; } = endTime;
     public double HeatDemand { get; } = heatDemand;
     public double ElectricityPrice { get; } = electricityPrice;
-    public ProductionUnit Boilers { get; set; } = boiler;
+    public ProductionUnit Boiler { get; set; } = boiler;
     public double NetProductionCost { get; set; } = netProductionCost;
 }
