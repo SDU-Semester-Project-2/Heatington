@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
 using Heatington.AssetManager;
 using Heatington.Controllers;
 using Heatington.Helpers;
 using Heatington.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AssetManagerAPI.Controllers
 {
@@ -10,7 +10,8 @@ namespace AssetManagerAPI.Controllers
     [ApiController]
     public class ProductionUnitsController : ControllerBase
     {
-        public ProductionUnitsController(){
+        public ProductionUnitsController()
+        {
         }
 
         [HttpGet]
@@ -24,7 +25,7 @@ namespace AssetManagerAPI.Controllers
         {
             try
             {
-                string imagePath = Utilities.GeneratePathToFileInAssetsDirectory($"Assets/AssetManager/{imageName}");
+                string imagePath = Utilities.GeneratePathToFileInAssetsDirectory($"AssetManager/{imageName}");
 
                 if (!System.IO.File.Exists(imagePath))
                     return NotFound();
@@ -63,10 +64,11 @@ namespace AssetManagerAPI.Controllers
         [HttpPost]
         public ActionResult PostProductionUnit(ProductionUnit newHeatingUnit)
         {
-            try{
+            try
+            {
                 AssetManagerModel.AM.AddHeatingUnit(ProductionUnitsEnum.CustomBoiler, newHeatingUnit);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest();
             }
