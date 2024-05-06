@@ -24,8 +24,7 @@ namespace AssetManagerAPI.Controllers
         {
             try
             {
-                string imagePath =
-                Utilities.GeneratePathToFileInAssetsDirectory($"AssetManager/{imageName}");
+                string imagePath = Utilities.GeneratePathToFileInAssetsDirectory($"Assets/AssetManager/{imageName}");
 
                 if (!System.IO.File.Exists(imagePath))
                     return NotFound();
