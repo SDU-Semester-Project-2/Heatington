@@ -5,6 +5,7 @@ items:
   id: Heatington.Services.Serializers
   children:
   - Heatington.Services.Serializers.CsvConstructorAttribute
+  - Heatington.Services.Serializers.JsonSerializerCustom
   langs:
   - csharp
   - vb
@@ -21,3 +22,9 @@ references:
   name: CsvConstructorAttribute
   nameWithType: CsvConstructorAttribute
   fullName: Heatington.Services.Serializers.CsvConstructorAttribute
+- uid: Heatington.Services.Serializers.JsonSerializerCustom
+  commentId: T:Heatington.Services.Serializers.JsonSerializerCustom
+  href: Heatington.Services.Serializers.JsonSerializerCustom.html
+  name: JsonSerializerCustom
+  nameWithType: JsonSerializerCustom
+  fullName: Heatington.Services.Serializers.JsonSerializerCustom

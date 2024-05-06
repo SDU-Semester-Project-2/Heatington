@@ -6,6 +6,7 @@ items:
   parent: Heatington.Controllers
   children:
   - Heatington.Controllers.FileController.#ctor(System.String)
+  - Heatington.Controllers.FileController.FilePath
   - Heatington.Controllers.FileController.ReadData``1
   - Heatington.Controllers.FileController.ToString
   - Heatington.Controllers.FileController.WriteData``1(``0)
@@ -19,7 +20,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FileController
     path: Heatington/Controllers/FileController.cs
@@ -57,7 +58,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Controllers/FileController.cs
@@ -77,6 +78,35 @@ items:
   nameWithType.vb: FileController.New(String)
   fullName.vb: Heatington.Controllers.FileController.New(String)
   name.vb: New(String)
+- uid: Heatington.Controllers.FileController.FilePath
+  commentId: P:Heatington.Controllers.FileController.FilePath
+  id: FilePath
+  parent: Heatington.Controllers.FileController
+  langs:
+  - csharp
+  - vb
+  name: FilePath
+  nameWithType: FileController.FilePath
+  fullName: Heatington.Controllers.FileController.FilePath
+  type: Property
+  source:
+    remote:
+      path: Heatington/Controllers/FileController.cs
+      branch: SP2-110-Create-Tests-for-JsonController
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FilePath
+    path: Heatington/Controllers/FileController.cs
+    startLine: 12
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: public string FilePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property FilePath As String
+  overload: Heatington.Controllers.FileController.FilePath*
 - uid: Heatington.Controllers.FileController.ReadData``1
   commentId: M:Heatington.Controllers.FileController.ReadData``1
   id: ReadData``1
@@ -91,11 +121,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadData
     path: Heatington/Controllers/FileController.cs
-    startLine: 82
+    startLine: 84
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -127,11 +157,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteData
     path: Heatington/Controllers/FileController.cs
-    startLine: 89
+    startLine: 91
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -166,11 +196,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Controllers/FileController.cs
-    startLine: 98
+    startLine: 100
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -479,6 +509,12 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: Heatington.Controllers.FileController.FilePath*
+  commentId: Overload:Heatington.Controllers.FileController.FilePath
+  href: Heatington.Controllers.FileController.html#Heatington_Controllers_FileController_FilePath
+  name: FilePath
+  nameWithType: FileController.FilePath
+  fullName: Heatington.Controllers.FileController.FilePath
 - uid: Heatington.Controllers.FileController.ReadData*
   commentId: Overload:Heatington.Controllers.FileController.ReadData
   href: Heatington.Controllers.FileController.html#Heatington_Controllers_FileController_ReadData__1

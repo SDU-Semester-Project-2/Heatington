@@ -5,7 +5,7 @@ items:
   id: DataPoint
   parent: Heatington.Models
   children:
-  - Heatington.Models.DataPoint.#ctor(System.String,System.String,System.String,System.String)
+  - Heatington.Models.DataPoint.#ctor(System.DateTime,System.DateTime,System.Double,System.Double)
   - Heatington.Models.DataPoint.ElectricityPrice
   - Heatington.Models.DataPoint.EndTime
   - Heatington.Models.DataPoint.HeatDemand
@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: DataPoint
     path: Heatington/Models/DataPoint.cs
@@ -41,21 +41,21 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Heatington.Models.DataPoint.#ctor(System.String,System.String,System.String,System.String)
-  commentId: M:Heatington.Models.DataPoint.#ctor(System.String,System.String,System.String,System.String)
-  id: '#ctor(System.String,System.String,System.String,System.String)'
+- uid: Heatington.Models.DataPoint.#ctor(System.DateTime,System.DateTime,System.Double,System.Double)
+  commentId: M:Heatington.Models.DataPoint.#ctor(System.DateTime,System.DateTime,System.Double,System.Double)
+  id: '#ctor(System.DateTime,System.DateTime,System.Double,System.Double)'
   parent: Heatington.Models.DataPoint
   langs:
   - csharp
   - vb
-  name: DataPoint(string, string, string, string)
-  nameWithType: DataPoint.DataPoint(string, string, string, string)
-  fullName: Heatington.Models.DataPoint.DataPoint(string, string, string, string)
+  name: DataPoint(DateTime, DateTime, double, double)
+  nameWithType: DataPoint.DataPoint(DateTime, DateTime, double, double)
+  fullName: Heatington.Models.DataPoint.DataPoint(System.DateTime, System.DateTime, double, double)
   type: Constructor
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/DataPoint.cs
@@ -64,21 +64,21 @@ items:
   - Heatington
   namespace: Heatington.Models
   syntax:
-    content: public DataPoint(string startTime, string endTime, string heatDemand, string electricityPrice)
+    content: public DataPoint(DateTime startTime, DateTime endTime, double heatDemand, double electricityPrice)
     parameters:
     - id: startTime
-      type: System.String
+      type: System.DateTime
     - id: endTime
-      type: System.String
+      type: System.DateTime
     - id: heatDemand
-      type: System.String
+      type: System.Double
     - id: electricityPrice
-      type: System.String
-    content.vb: Public Sub New(startTime As String, endTime As String, heatDemand As String, electricityPrice As String)
+      type: System.Double
+    content.vb: Public Sub New(startTime As Date, endTime As Date, heatDemand As Double, electricityPrice As Double)
   overload: Heatington.Models.DataPoint.#ctor*
-  nameWithType.vb: DataPoint.New(String, String, String, String)
-  fullName.vb: Heatington.Models.DataPoint.New(String, String, String, String)
-  name.vb: New(String, String, String, String)
+  nameWithType.vb: DataPoint.New(Date, Date, Double, Double)
+  fullName.vb: Heatington.Models.DataPoint.New(Date, Date, Double, Double)
+  name.vb: New(Date, Date, Double, Double)
 - uid: Heatington.Models.DataPoint.StartTime
   commentId: P:Heatington.Models.DataPoint.StartTime
   id: StartTime
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartTime
     path: Heatington/Models/DataPoint.cs
@@ -122,7 +122,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: EndTime
     path: Heatington/Models/DataPoint.cs
@@ -151,7 +151,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemand
     path: Heatington/Models/DataPoint.cs
@@ -180,7 +180,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityPrice
     path: Heatington/Models/DataPoint.cs
@@ -209,7 +209,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Models/DataPoint.cs
@@ -465,30 +465,13 @@ references:
   fullName: System
 - uid: Heatington.Models.DataPoint.#ctor*
   commentId: Overload:Heatington.Models.DataPoint.#ctor
-  href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint__ctor_System_String_System_String_System_String_System_String_
+  href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint__ctor_System_DateTime_System_DateTime_System_Double_System_Double_
   name: DataPoint
   nameWithType: DataPoint.DataPoint
   fullName: Heatington.Models.DataPoint.DataPoint
   nameWithType.vb: DataPoint.New
   fullName.vb: Heatington.Models.DataPoint.New
   name.vb: New
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: Heatington.Models.DataPoint.StartTime*
-  commentId: Overload:Heatington.Models.DataPoint.StartTime
-  href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_StartTime
-  name: StartTime
-  nameWithType: DataPoint.StartTime
-  fullName: Heatington.Models.DataPoint.StartTime
 - uid: System.DateTime
   commentId: T:System.DateTime
   parent: System
@@ -500,6 +483,23 @@ references:
   nameWithType.vb: Date
   fullName.vb: Date
   name.vb: Date
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Heatington.Models.DataPoint.StartTime*
+  commentId: Overload:Heatington.Models.DataPoint.StartTime
+  href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_StartTime
+  name: StartTime
+  nameWithType: DataPoint.StartTime
+  fullName: Heatington.Models.DataPoint.StartTime
 - uid: Heatington.Models.DataPoint.EndTime*
   commentId: Overload:Heatington.Models.DataPoint.EndTime
   href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_EndTime
@@ -512,17 +512,6 @@ references:
   name: HeatDemand
   nameWithType: DataPoint.HeatDemand
   fullName: Heatington.Models.DataPoint.HeatDemand
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
 - uid: Heatington.Models.DataPoint.ElectricityPrice*
   commentId: Overload:Heatington.Models.DataPoint.ElectricityPrice
   href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_ElectricityPrice
@@ -559,3 +548,14 @@ references:
   name: ToString
   nameWithType: DataPoint.ToString
   fullName: Heatington.Models.DataPoint.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

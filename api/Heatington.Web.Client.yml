@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Web.Client
+  commentId: N:Heatington.Web.Client
+  id: Heatington.Web.Client
+  children:
+  - Heatington.Web.Client.Routes
+  - Heatington.Web.Client._Imports
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Web.Client
+  nameWithType: Heatington.Web.Client
+  fullName: Heatington.Web.Client
+  type: Namespace
+  assemblies:
+  - Heatington.Web.Client
+references:
+- uid: Heatington.Web.Client._Imports
+  commentId: T:Heatington.Web.Client._Imports
+  href: Heatington.Web.Client._Imports.html
+  name: _Imports
+  nameWithType: _Imports
+  fullName: Heatington.Web.Client._Imports
+- uid: Heatington.Web.Client.Routes
+  commentId: T:Heatington.Web.Client.Routes
+  href: Heatington.Web.Client.Routes.html
+  name: Routes
+  nameWithType: Routes
+  fullName: Heatington.Web.Client.Routes

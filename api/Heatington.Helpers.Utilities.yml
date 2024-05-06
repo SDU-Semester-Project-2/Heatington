@@ -20,11 +20,11 @@ items:
   source:
     remote:
       path: Heatington/Helpers/Utilities.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Utilities
     path: Heatington/Helpers/Utilities.cs
-    startLine: 5
+    startLine: 8
   assemblies:
   - Heatington
   namespace: Heatington.Helpers
@@ -54,11 +54,11 @@ items:
   source:
     remote:
       path: Heatington/Helpers/Utilities.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: DisplayException
     path: Heatington/Helpers/Utilities.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - Heatington
   namespace: Heatington.Helpers
@@ -86,11 +86,11 @@ items:
   source:
     remote:
       path: Heatington/Helpers/Utilities.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ConvertObject
     path: Heatington/Helpers/Utilities.cs
-    startLine: 13
+    startLine: 17
   assemblies:
   - Heatington
   namespace: Heatington.Helpers
@@ -122,11 +122,11 @@ items:
   source:
     remote:
       path: Heatington/Helpers/Utilities.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GetAbsolutePathToAssetsDirectory
     path: Heatington/Helpers/Utilities.cs
-    startLine: 18
+    startLine: 34
   assemblies:
   - Heatington
   namespace: Heatington.Helpers
@@ -150,11 +150,11 @@ items:
   source:
     remote:
       path: Heatington/Helpers/Utilities.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GeneratePathToFileInAssetsDirectory
     path: Heatington/Helpers/Utilities.cs
-    startLine: 36
+    startLine: 52
   assemblies:
   - Heatington
   namespace: Heatington.Helpers
@@ -184,11 +184,11 @@ items:
   source:
     remote:
       path: Heatington/Helpers/Utilities.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Helpers/Utilities.cs
-    startLine: 41
+    startLine: 57
   assemblies:
   - Heatington
   namespace: Heatington.Helpers

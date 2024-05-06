@@ -27,7 +27,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnit
     path: Heatington/Models/ProductionUnit.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Id
     path: Heatington/Models/ProductionUnit.cs
@@ -92,7 +92,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Name
     path: Heatington/Models/ProductionUnit.cs
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: PicturePath
     path: Heatington/Models/ProductionUnit.cs
@@ -150,7 +150,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: MaxHeat
     path: Heatington/Models/ProductionUnit.cs
@@ -179,7 +179,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionCost
     path: Heatington/Models/ProductionUnit.cs
@@ -208,7 +208,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: MaxElectricity
     path: Heatington/Models/ProductionUnit.cs
@@ -237,7 +237,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GasConsumption
     path: Heatington/Models/ProductionUnit.cs
@@ -266,7 +266,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Co2Emission
     path: Heatington/Models/ProductionUnit.cs
@@ -295,7 +295,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OperationPoint
     path: Heatington/Models/ProductionUnit.cs
@@ -324,7 +324,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/ProductionUnit.cs
@@ -368,7 +368,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Clone
     path: Heatington/Models/ProductionUnit.cs
@@ -401,7 +401,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-110-Create-Tests-for-JsonController
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Models/ProductionUnit.cs

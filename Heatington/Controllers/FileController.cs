@@ -10,6 +10,8 @@ namespace Heatington.Controllers;
 /// </summary>
 public class FileController(string pathToFile) : IReadWriteController
 {
+    public string FilePath => pathToFile;
+
     private static string FormatFileName(string filePath)
     {
         return Path.Combine(
