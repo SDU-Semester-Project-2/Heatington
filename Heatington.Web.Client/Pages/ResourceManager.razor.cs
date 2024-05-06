@@ -19,6 +19,8 @@ namespace Heatington.Web.Client.Pages
         [Inject] public HttpClient Http { get; set; }
         [Inject] public ILogger<ResourceManager> Logger { get; set; }
 
+
+
         List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
         private bool _isLoading = false;
         //TODO: Take a look at this, should it be like this or just list because of GUID
