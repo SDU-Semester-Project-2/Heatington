@@ -11,11 +11,6 @@ public class ResultDataManager(CsvController _csvController)
     private List<ResultHolder> _optResults;
     private List<FormatedResultHolder> _formatedResult;
 
-    public ResultDataManager(string filePath)
-    {
-        _csvController = new CsvController(filePath);
-    }
-
     public void FetchOptimizationData(Opt opt)
     {
         _optResults = opt.Results;
