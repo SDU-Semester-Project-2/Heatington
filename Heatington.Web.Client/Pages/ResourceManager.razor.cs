@@ -45,7 +45,7 @@ namespace Heatington.Web.Client.Pages
             var parameters = new DialogParameters();
             parameters.Add("ProductionUnit", productionUnit);  // Pass selected unit
 
-            var dialog = DialogService.Show<EditBoilerDialog>(($"Edit {productionUnit.Name}"), parameters,
+            var dialog = DialogService.Show<EditBoilerDialog>(($"Edit {productionUnit.FullName}"), parameters,
                 new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true });
 
             var result = await dialog.Result;
@@ -121,10 +121,12 @@ namespace Heatington.Web.Client.Pages
                 if (productionUnitsArray != null)
                 {
                     _productionUnits = productionUnitsArray.ToList();
+
+                    // Checking Logs
                     Logger.LogInformation($"Fetched {_productionUnits.Count} units.");
                     foreach (var unit in _productionUnits)
                     {
-                        Logger.LogInformation($"Unit: {unit.Name}, MaxHeat: {unit.MaxHeat}, MaxElectricity: {unit.MaxElectricity}");
+                        Logger.LogInformation($"Unit: {unit.Name}");
                     }
                 }
 
