@@ -10,14 +10,11 @@ namespace AssetManagerAPI.Controllers
     [ApiController]
     public class HeatingGridController : ControllerBase
     {
-        public HeatingGridController()
-        {
-        }
-
         [HttpGet]
         public ActionResult<HeatingGrid> Get()
         {
-            return AssetManagerModel.AM.HeatingGridInformation;
+            return AssetManagerModel.AM.HeatingGridInformation == null ?
+                NoContent() : AssetManagerModel.AM.HeatingGridInformation;
         }
     }
 }

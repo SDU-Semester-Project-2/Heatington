@@ -10,10 +10,6 @@ namespace AssetManagerAPI.Controllers
     [ApiController]
     public class ProductionUnitsController : ControllerBase
     {
-        public ProductionUnitsController()
-        {
-        }
-
         [HttpGet]
         public ActionResult<List<ProductionUnit>> Get()
         {
@@ -50,6 +46,7 @@ namespace AssetManagerAPI.Controllers
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return BadRequest();
             }
 
