@@ -20,26 +20,6 @@ namespace AssetManagerAPI.Controllers
             return AssetManagerModel.AM.ProductionUnits!.Values.ToList();
         }
 
-        [HttpGet("{imageName}")]
-        public ActionResult<string> GetImage(string imageName)
-        {
-            try
-            {
-                string imagePath = Utilities.GeneratePathToFileInAssetsDirectory($"AssetManager/{imageName}");
-
-                if (!System.IO.File.Exists(imagePath))
-                    return NotFound();
-
-                byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
-                string base64String = Convert.ToBase64String(imageBytes);
-                return Ok(base64String);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
         [HttpPut("{id}")]
         public ActionResult PutProductionUnit(Guid id, ProductionUnit updated)
         {
