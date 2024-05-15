@@ -4,6 +4,20 @@
 
 > [How to install Docfx](./docs/introduction.md)
 
+## _HOW TO RUN THE APP_
+### Running the Console App
+```shell
+make console
+```
+
+### Running the Web App
+```shell
+make run
+```
+or for development (hot reaload)
+```shell
+make run DEV=true
+```
 
 
 ## What are we developing
