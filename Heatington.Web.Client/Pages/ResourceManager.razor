@@ -30,9 +30,8 @@
                 <div style="display: flex; justify-content: center;">
                     @if (!string.IsNullOrEmpty(@productionUnit.PicturePath))
                     {
-                        var imageUrl = @productionUnit.PicturePath.Replace("AssetManager", "Assets/Images");
                         <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px"
-                                  Src="@imageUrl">
+                                  Src="@productionUnit.PictureBase64Url">
                         </MudImage>
                     }
                     @* This is not working right now because the API doesn't actuall store the images. TODO: Try this again
