@@ -96,12 +96,7 @@ public class ConsoleUI(AM am, SourceDataManager.SDM sdm, Optimizer.OPT opt)
         fetchTimeSeriesDataAsync.Wait();
         _dataPoints = sdm.TimeSeriesData!;
 
-<<<<<<< HEAD
         opt.Optimize(Optimizer.OptimizationMode.Scenario2);
-=======
-        opt.LoadData();
-        opt.Optimize();
->>>>>>> c7d5462 (SP2-160-initialized OPT microservice and fixed OPT merge errors)
 
         _results = opt.Results!;
     }
