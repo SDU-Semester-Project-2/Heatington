@@ -30,6 +30,20 @@ public class OPT()
         _dataPoints = dataPoints;
     }
 
+    public OPT(Func<Task<List<ProductionUnit>>> getProductionUnits, Func<Task<List<DataPoint>>> getDataPoints) : this()
+    {
+        LoadData(getProductionUnits, getDataPoints).Wait();
+        return;
+
+        async Task LoadData(Func<Task<List<ProductionUnit>>> getProdUnits,
+            Func<Task<List<DataPoint>>> getDatPoints)
+        {
+            _productionUnits = await getProdUnits();
+            _dataPoints = await getDatPoints();
+        }
+    }
+
+
     private void RankHeatingUnits(Func<ProductionUnit, double> evaluate)
     {
         _productionUnits = _productionUnits.OrderBy(o => evaluate(o)).ToList();
@@ -43,7 +57,7 @@ public class OPT()
     }
 
     // TODO: expand optimize with capability to optimize for co2
-    public void Optimize(string[]? orderBy = null)
+    public void OptimizeScenario1()
     {
         Console.WriteLine(_productionUnits.Count);
         Console.WriteLine(_dataPoints.Count);
@@ -167,16 +181,16 @@ public class OPT()
         // Creates an object which holds the result
         ResultHolder result = new ResultHolder(dataPoint.StartTime, dataPoint.EndTime, dataPoint.HeatDemand,
             dataPoint.ElectricityPrice, selectedBoilers);
-        // Console.WriteLine(result);
+        Console.WriteLine(result);
 
         return result;
 
-        int SatisfyHeatDemand(DataPoint dataPointToSatisfy)
+        int SatisfyHeatDemand(DataPoint dataPoint)
         {
             double currentProductionCapacity = 0;
             int i = 0;
 
-            while (dataPointToSatisfy.HeatDemand > currentProductionCapacity)
+            while (dataPoint.HeatDemand > currentProductionCapacity)
             {
                 currentProductionCapacity = currentProductionCapacity + productionUnits[i].MaxHeat;
                 i++;

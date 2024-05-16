@@ -1,10 +1,10 @@
 using Heatington.AssetManager;
 using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
-using Heatington.Services.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
 using Heatington.Optimizer;
+using Heatington.Services.Interfaces;
 
 namespace Heatington.Console
 {

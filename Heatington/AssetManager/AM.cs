@@ -109,7 +109,7 @@ public class AM(
             throw ThrowExceptionProductionUnitsEmpty();
         }
 
-        if(ProductionUnits.Any(pair => pair.Value.Id == newHeatingUnit.Id))
+        if (ProductionUnits.Any(pair => pair.Value.Id == newHeatingUnit.Id))
         {
             throw new Exception("Productionunit already exists.");
         }
