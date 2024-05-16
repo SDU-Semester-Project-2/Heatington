@@ -6,12 +6,12 @@ using Heatington.Optimizer;
 
 namespace Heatington.ResultDataManager;
 
-public class ResultDataManager(CsvController _csvController)
+public class RDM(CsvController _csvController)
 {
     private List<ResultHolder> _optResults;
     private List<FormatedResultHolder> _formatedResult;
 
-    public void FetchOptimizationData(Opt opt)
+    public void FetchOptimizationData(OPT opt)
     {
         _optResults = opt.Results;
     }

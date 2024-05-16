@@ -6,7 +6,7 @@ using static System.Console;
 
 namespace Heatington;
 
-public class ConsoleUI(AssetManager.AssetManager am, SourceDataManager.SourceDataManager sdm, Optimizer.Opt opt)
+public class ConsoleUI(AM am, SourceDataManager.SDM sdm, Optimizer.OPT opt)
 {
     private List<DataPoint> _dataPoints = new List<DataPoint>();
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();

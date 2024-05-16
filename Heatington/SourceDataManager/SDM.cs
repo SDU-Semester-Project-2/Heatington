@@ -5,12 +5,12 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.SourceDataManager
 {
-    public class SourceDataManager
+    public class SDM
     {
         private readonly IDataSource _dataSource;
         public List<DataPoint>? TimeSeriesData { get; set; }
 
-        public SourceDataManager(IDataSource dataSource)
+        public SDM(IDataSource dataSource)
         {
             _dataSource = dataSource;
         }
