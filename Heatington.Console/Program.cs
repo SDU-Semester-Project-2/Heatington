@@ -1,3 +1,4 @@
+using Heatington.AssetManager;
 using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
 using Heatington.Services.Interfaces;
@@ -22,8 +23,8 @@ namespace Heatington.Console
 
             IReadWriteController heatingGridJsonController = new JsonController(pathToHeatingGrid);
             IReadWriteController productionUnitsJsonController = new JsonController(pathToProductionUnits);
-            AssetManager.AssetManager assetManager =
-                new AssetManager.AssetManager(
+            AM am =
+                new AM(
                     heatingGridJsonController,
                     productionUnitsJsonController
                 );
@@ -32,13 +33,13 @@ namespace Heatington.Console
             string fileName = "winter_period.csv";
             string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
             IDataSource dataSource = new CsvController(filePath);
-            SourceDataManager.SourceDataManager sourceDataManager = new(dataSource);
+            SourceDataManager.SDM sdm = new(dataSource);
 
             // Optimizer
-            Opt optimizer = new Opt(assetManager, sourceDataManager);
+            OPT optimizer = new OPT(am, sdm);
 
             // Console UI
-            ConsoleUI consoleUi = new ConsoleUI(assetManager, sourceDataManager, optimizer);
+            ConsoleUI consoleUi = new ConsoleUI(am, sdm, optimizer);
             consoleUi.StartUi();
         }
 

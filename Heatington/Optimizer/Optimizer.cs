@@ -5,7 +5,7 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.Optimizer;
 
-public class Opt(AssetManager.AssetManager assetManager, SourceDataManager.SourceDataManager sourceDataManager)
+public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
 {
     private List<DataPoint>? _dataPoints = new List<DataPoint>();
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
@@ -140,9 +140,9 @@ public class Opt(AssetManager.AssetManager assetManager, SourceDataManager.Sourc
 
     private void GetDataPoints()
     {
-        Task fetchTimeSeries = sourceDataManager.FetchTimeSeriesDataAsync();
+        Task fetchTimeSeries = sdm.FetchTimeSeriesDataAsync();
         fetchTimeSeries.Wait();
-        _dataPoints = sourceDataManager.TimeSeriesData;
+        _dataPoints = sdm.TimeSeriesData;
     }
 
     public void LogDataPoints()
@@ -157,9 +157,9 @@ public class Opt(AssetManager.AssetManager assetManager, SourceDataManager.Sourc
 
     private void GetProductionUnits()
     {
-        Task loadAssets = assetManager.LoadAssets();
+        Task loadAssets = am.LoadAssets();
         loadAssets.Wait();
-        _productionUnits = assetManager.ProductionUnits!.Values.ToList();
+        _productionUnits = am.ProductionUnits!.Values.ToList();
     }
 
     public void LogProductionUnits()

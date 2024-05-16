@@ -10,7 +10,7 @@ namespace Heatington.AssetManager;
 /// await AM.LoadAssets();
 /// </code>
 /// </example>
-public class AssetManager(
+public class AM(
     IReadWriteController heatingGridJsonController,
     IReadWriteController productionUnitsJsonController
 )
