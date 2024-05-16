@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Threading.Tasks;
+using System.Net.Http.Json;
+using Heatington.AssetManager;
+using Heatington.Models;
 using Heatington.Web.Client.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor;
-using System.Net.Http.Json;
-using Heatington.AssetManager;
-using Heatington.Models;
 
 namespace Heatington.Web.Client.Pages
 {
@@ -21,13 +17,15 @@ namespace Heatington.Web.Client.Pages
         List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
         private List<HeatDemandData> heatDemandDataList = new List<HeatDemandData>();
         [Inject] public required IDialogService DialogService { get; set; }
-        [Inject] public HttpClient Http { get; set; }
+        [Inject] public required HttpClient Http { get; set; }
 
-        [Inject] public ILogger<ResourceManager> Logger { get; set; }
+        [Inject] public required ILogger<ResourceManager> Logger { get; set; }
+
         //TODO: Take a look at this, should it be like this or just list because of GUID
         // public Dictionary<ProductionUnitsEnum, ProductionUnit> _productionUnits;
 
 
+        [Obsolete]
         async void OpenDialog()
         {
             var parameters = new DialogParameters();
@@ -45,6 +43,7 @@ namespace Heatington.Web.Client.Pages
         }
 
         // Method overload to open dialog with selected boiler
+        [Obsolete]
         async void OpenDialog(ProductionUnit productionUnit)
         {
             var parameters = new DialogParameters();
