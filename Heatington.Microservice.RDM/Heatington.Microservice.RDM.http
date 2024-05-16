@@ -1,6 +1,6 @@
 @Heatington.Microservice.RDM_HostAddress = http://localhost:5143
 
-GET {{Heatington.Microservice.RDM_HostAddress}}/weatherforecast/
+GET {{Heatington.Microservice.RDM_HostAddress}}/rdm/
 Accept: application/json
 
 ###
