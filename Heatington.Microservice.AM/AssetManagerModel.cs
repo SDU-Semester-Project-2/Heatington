@@ -1,13 +1,14 @@
-using Heatington.AssetManager;
 using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
+using Heatington.AssetManager;
 
 namespace AssetManagerAPI
 {
     public class AssetManagerModel
     {
-        public static AssetManager AM;
+        public static AM am;
+
         static AssetManagerModel()
         {
             string pathToHeatingGrid =
@@ -17,12 +18,12 @@ namespace AssetManagerAPI
 
             IReadWriteController heatingGridJsonController = new JsonController(pathToHeatingGrid);
             IReadWriteController productionUnitsJsonController = new JsonController(pathToProductionUnits);
-            AM =
-                new AssetManager(
+            am =
+                new AM(
                     heatingGridJsonController,
                     productionUnitsJsonController
                 );
-            Task loadAssets = AM.LoadAssets();
+            Task loadAssets = am.LoadAssets();
             loadAssets.Wait();
         }
     }
