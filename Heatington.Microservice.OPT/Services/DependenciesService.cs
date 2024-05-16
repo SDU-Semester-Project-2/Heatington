@@ -1,10 +1,6 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-
-using Heatington.AssetManager;
 using Heatington.Controllers;
-using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
+using Heatington.Models;
 using Heatington.Services.Interfaces;
 using Heatington.SourceDataManager;
 
@@ -12,34 +8,20 @@ namespace Heatington.Microservice.OPT.Services;
 
 public static class DependenciesService
 {
-
-    public static async Task<AM> GetAssetManager()
+    public static async Task<List<ProductionUnit>> GetProductionUnits()
     {
         try
         {
-            string uri = "http://www.contoso.com/";
-            // string uri = "http://localhost:5012";
+            string uri = "http://localhost:5271/api/productionunits";
 
-            using HttpResponseMessage response = await Program.Client.GetAsync(uri);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseBody);
-            // string responseBody = await Program.Client.GetStringAsync(uri);
+            using HttpResponseMessage res = await Program.Client.GetAsync(uri);
+            res.EnsureSuccessStatusCode();
 
+            List<ProductionUnit>? productionUnits;
 
-            // TODO: change to actual asset manager
-            string pathToHeatingGrid =
-                Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/HeatingGrid.json");
-            string pathToProductionUnits =
-                Utilities.GeneratePathToFileInAssetsDirectory("AssetManager/ProductionUnits.json");
+            productionUnits = await res.Content.ReadFromJsonAsync<List<ProductionUnit>>();
 
-            IReadWriteController heatingGridJsonController = new JsonController(pathToHeatingGrid);
-            IReadWriteController productionUnitsJsonController = new JsonController(pathToProductionUnits);
-
-            return new(
-                heatingGridJsonController,
-                productionUnitsJsonController
-            );
+            return productionUnits ?? new List<ProductionUnit>();
         }
         catch (HttpRequestException e)
         {
@@ -49,22 +31,25 @@ public static class DependenciesService
         }
     }
 
-    public static async Task<SDM> GetSourceDataManager()
+    public static async Task<List<DataPoint>?> GetDataPoints()
     {
         try
         {
             // string uri = "http://www.contoso.com/";
-            string uri = "http://localhost:5012";
-            using HttpResponseMessage response = await Program.Client.GetAsync(uri);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
+            // string uri = "http://localhost:5012";
+            // using HttpResponseMessage response = await Program.Client.GetAsync(uri);
+            // response.EnsureSuccessStatusCode();
+            // string responseBody = await response.Content.ReadAsStringAsync();
             // Console.WriteLine(responseBody);
 
-            //TODO: Change to actual sdm
+            //TODO: CHANGE TO API CALL WHEN API IS READY
             string fileName = "winter_period.csv";
             string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
             IDataSource dataSource = new CsvController(filePath);
-            return new(dataSource);
+            SDM sdm = new(dataSource);
+            await sdm.FetchTimeSeriesDataAsync();
+
+            return sdm.TimeSeriesData;
         }
         catch (HttpRequestException e)
         {
