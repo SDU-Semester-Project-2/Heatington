@@ -96,7 +96,7 @@ public class ConsoleUI(AM am, SourceDataManager.SDM sdm, Optimizer.OPT opt)
         fetchTimeSeriesDataAsync.Wait();
         _dataPoints = sdm.TimeSeriesData!;
 
-        opt.LoadData();
+        opt.OrderProductionUnits();
         opt.Optimize();
 
         _results = opt.Results!;

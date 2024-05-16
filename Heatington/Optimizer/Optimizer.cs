@@ -2,23 +2,30 @@ using Heatington.Models;
 
 namespace Heatington.Optimizer;
 
-public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
+public class OPT()
 {
     private List<DataPoint>? _dataPoints = new List<DataPoint>();
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
     public List<ResultHolder>? Results { get; private set; } = new List<ResultHolder>();
 
-    public void LoadData()
+    public OPT(List<ProductionUnit> productionUnits, List<DataPoint>? dataPoints) : this()
     {
-        GetDataPoints();
-        GetProductionUnits();
+        _productionUnits = productionUnits;
+        _dataPoints = dataPoints;
 
+        OrderProductionUnits();
+    }
+
+    public void OrderProductionUnits()
+    {
         _productionUnits = _productionUnits.OrderBy(o => o.ProductionCost).ToList();
     }
 
     // TODO: expand optimize with capability to optimize for co2
     public void Optimize(string[]? orderBy = null)
     {
+        Console.WriteLine(_productionUnits.Count);
+        Console.WriteLine(_dataPoints.Count);
         //checks if there are no boilers that use electricity
         bool onlyFossil = _productionUnits.TrueForAll(x => x.MaxElectricity == 0);
         if (_dataPoints != null)
@@ -105,7 +112,7 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
                 currentProductionCapacity = currentProductionCapacity + productionUnits[i].MaxHeat;
                 i++;
 
-                if (i > productionUnits.Count)
+                if (i >= productionUnits.Count)
                 {
                     Console.WriteLine("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
                     throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
@@ -128,13 +135,6 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
         Results.ForEach(Console.WriteLine);
     }
 
-    private void GetDataPoints()
-    {
-        Task fetchTimeSeries = sdm.FetchTimeSeriesDataAsync();
-        fetchTimeSeries.Wait();
-        _dataPoints = sdm.TimeSeriesData;
-    }
-
     public void LogDataPoints()
     {
         if (_dataPoints == null)
@@ -143,13 +143,6 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
         }
 
         _dataPoints.ForEach(Console.WriteLine);
-    }
-
-    private void GetProductionUnits()
-    {
-        Task loadAssets = am.LoadAssets();
-        loadAssets.Wait();
-        _productionUnits = am.ProductionUnits!.Values.ToList();
     }
 
     public void LogProductionUnits()
