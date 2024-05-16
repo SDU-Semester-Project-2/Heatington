@@ -3,6 +3,7 @@ using Heatington.Controllers;
 using Heatington.Controllers.Interfaces;
 using Heatington.Services.Interfaces;
 using Heatington.Helpers;
+using Heatington.Models;
 using Heatington.Optimizer;
 
 namespace Heatington.Console
@@ -35,13 +36,25 @@ namespace Heatington.Console
             IDataSource dataSource = new CsvController(filePath);
             SourceDataManager.SDM sdm = new(dataSource);
 
+
+            // Get the production units
+            Task loadAssets = am.LoadAssets();
+            loadAssets.Wait();
+            List<ProductionUnit> productionUnits = am.ProductionUnits!.Values.ToList();
+
+            // Get the data points
+            Task fetchTimeSeries = sdm.FetchTimeSeriesDataAsync();
+            fetchTimeSeries.Wait();
+            List<DataPoint>? dataPoints = sdm.TimeSeriesData;
+
             // Optimizer
-            OPT optimizer = new OPT(am, sdm);
+            OPT optimizer = new OPT(productionUnits, dataPoints);
 
             // Console UI
             ConsoleUI consoleUi = new ConsoleUI(am, sdm, optimizer);
             consoleUi.StartUi();
         }
+
 
         private static async Task RunDocFx()
         {

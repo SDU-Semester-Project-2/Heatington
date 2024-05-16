@@ -96,9 +96,6 @@ public class ConsoleUI(AM am, SourceDataManager.SDM sdm, Optimizer.OPT opt)
         fetchTimeSeriesDataAsync.Wait();
         _dataPoints = sdm.TimeSeriesData!;
 
-        opt.LoadData();
-        // opt.Optimize();
-        //it stays for now bcs there was an error when merging (fix is incoming in optimizer api)
         opt.Optimize(Optimizer.OptimizationMode.Scenario2);
 
         _results = opt.Results!;
