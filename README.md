@@ -14,10 +14,7 @@ make run_console
 ```shell
 make
 ```
-or for development (hot reaload) (NOT IMPLEMENTED YET )
-```shell
-make DEV=true
-```
+there is an `DEV` variable inside of `Makefile` you can set it to false to turn off the hot reload
 
 
 ## What are we developing
