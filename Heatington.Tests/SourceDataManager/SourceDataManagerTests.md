@@ -1,43 +1,49 @@
-# SourceDataManager Unit Test
+# Unit Testing the SourceDataManager Class
 
-This document provides an overview of a unit test for `SourceDataManager`.
+This documentation provides insights into the unit testing approach for the `SourceDataManager` class,
 
-## Source DataManager Test Class
+## Structure of `SourceDataManagerTest` Class
 
-`SourceDataManagerTest` is a class that contains unit tests for the `SourceDataManager` class. The class includes a setup to establish and initialize the dependencies for the test.
+The `SourceDataManagerTest` class encapsulates the unit tests for `SourceDataManager`, where we set up instances of the
+necessary dependencies.
+
+We utilize _stubDataSource as a stub for our actual data source. The _sourceDataManager
+is the instance of SourceDataManager, the class subjected to testing.
+
+# The Test Method `FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully`
+
+We designed `FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully` to simulate the behaviour
+of `FetchTimeSeriesDataAsync`.
+This is facilitated via the `Theory` attribute in with several `InlineData` attributes,
+allowing the execution of this test method multiple times with different argument sets.
 
 ```csharp
-private readonly FakeDataSource _fakeDataSource;
-private readonly Heatington.SourceDataManager.SourceDataManager _sourceDataManager;
-```
-
-`_fakeDataSource` is an instance of `FakeDataSource`, a stub class that mimics the behavior of a real-world data storage.
-`_sourceDataManager` is the class instance we are testing, `SourceDataManager`.
-
-## Test Method: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
-
-This method tests the behavior of the `FetchTimeSeriesDataAsync` method under different scenarios. To facilitate this, we are using the `Theory` attribute along with multiple `InlineData` attributes.
-
-```csharp
-[Theory] ...
+[Theory]
+...
 public async Task FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(params string[] data)
-{ ...
+...
 ```
 
-This means that this test method will be run multiple times, once for each `InlineData` attribute. The parameters for each `InlineData` attribute are mapped to the `data` array.
+During each execution:
 
-Inside the test method:
-- In the Arrange step, an array of data points (timestamps and the corresponding heat and electricity readings) are created and added to `_fakeDataSource.Data`,
-- The Act step calls the `FetchTimeSeriesDataAsync` method, and
-- The Assert step asserts that the data fetched from the `FetchTimeSeriesDataAsync` method and the `_fakeDataSource.Data` counts are equal, confirming the fetch function's correct functioning.
+- **Arrange**: Initially, `DataPoint` objects, consisting of timestamps and corresponding heat and electricity readings,
+- are populated into `_stubDataSource.Data` using multiple sets of data provided by the InlineData attribute
+- **Act**: Subsequently, the `FetchTimeSeriesDataAsync` method is invoked.
+- **Assert**: Finally, we verify the equality between the counts of the data fetched by `FetchTimeSeriesDataAsync and
+- **_stubDataSource.Data**, thereby establishing the successful operation of the fetch function.
 
-## Fake Data Source
+## The Stub Data Source `StubDataSource`
 
-The `FakeDataSource` class is used to simulate the `IDataSource` interface's behaviors. This "mock" class allows for testing the `SourceDataManager` in isolation, without requiring any actual data source.
+We introduced `StubDataSource` to simulate behaviors corresponding to the `IDataSource` interface.
+This stub class enables us to test `SourceDataManager` in isolation, eliminating any dependencies on actual data
+sources.
 
-The `GetDataAsync` method in `FakeDataSource` returns the data objects set in the test method. The `SaveData` method is not used in these tests and therefore throws a `NotImplementedException` when called. This class enables a controlled environment that makes the tests more predictable and easier to debug.
+Calling `GetDataAsync` on `StubDataSource` yields the custom data objects set in the test method.
+However, invoking SaveData is futile since the tests do not utilize it, and it throws NotImplementedException when
+called.
 
-## Notes
+## Concluding Remarks
 
-The team has decided against using a mocking framework for this project, opting instead for manual stubs and fakes.
-This decision was made to keep the project lightweight and avoid introducing unnecessary dependencies.
+Our preference for manual stubs (instead of a mocking framework) ensures that our project remains lightweight without
+any surplus dependencies. This simplifies and clarifies the test scenarios, leading to more straightforward debugging
+and maintenance endeavours.
