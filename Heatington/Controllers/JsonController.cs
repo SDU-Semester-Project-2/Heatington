@@ -89,7 +89,7 @@ public class ProductionUnitJsonConverter : JsonConverter<ProductionUnit>
     public override ProductionUnit Read(
         ref Utf8JsonReader reader,
         Type typeToConvert,
-        JsonSerializerOptions options) => new ProductionUnit("", "","", 1, 1, 1, 1, 1);
+        JsonSerializerOptions options) => new ProductionUnit("", "", "", 1, 1, 1, 1, 1);
 
     public override void Write(
         Utf8JsonWriter writer,
