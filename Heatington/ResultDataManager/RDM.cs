@@ -16,7 +16,7 @@ public class RDM(CsvController _csvController)
         _optResults = opt.Results;
     }
 
-    private List<FormatedResultHolder> FormatResults(List<ResultHolder> rawResults)
+    public List<FormatedResultHolder> FormatResults(List<ResultHolder> rawResults)
     {
         List<FormatedResultHolder> formatedResults = new();
 
@@ -30,7 +30,6 @@ public class RDM(CsvController _csvController)
                     entry.NetProductionCost));
             }
         }
-
         return formatedResults;
     }
 

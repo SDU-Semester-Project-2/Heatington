@@ -19,5 +19,6 @@ public class ResultDataManagerModel
 
         //Result Data Manager
         Rdm = new ResultDataManager.RDM(csvController);
+        Console.WriteLine("YOOOO RDM STARTED");
     }
 }
