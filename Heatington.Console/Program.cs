@@ -59,7 +59,7 @@ namespace Heatington.Console
         private static async Task RunDocFx()
         {
             //updates the documentation on dotnet run
-            await Docfx.Docset.Build("../docfx.json");
+            // await Docfx.Docset.Build("../docfx.json");
         }
     }
 }
