@@ -1,48 +1,45 @@
-#!/bin/bash
-
-DEV=false
-RUN_IN_TERMINAL_CMD=alacritty -e
-# RUN_IN_TERMINAL_CMD=x-terminal-emulator -e
-
-CUR_DIR := $(shell pwd)
-
+# Determine the operating system
 ifeq ($(OS),Windows_NT)
-    RUN_IN_TERMINAL := start cmd /k
-else ifeq ($(shell uname),Darwin)
-    RUN_IN_TERMINAL := open -a Terminal
-else ifeq ($(shell cat /etc/os-release 2>/dev/null | grep -c nixos),1)
-    RUN_IN_TERMINAL := x-terminal-emulator -e
+    OS_TYPE := Windows
 else
-    RUN_IN_TERMINAL := $(RUN_IN_TERMINAL_CMD)
+    OS_TYPE := $(shell uname)
 endif
 
-ifeq ($(DEV),true)
-    DOTNET_RUN_CMD := dotnet watch
+# Define the default target
+.DEFAULT_GOAL := run_projects
+
+# Define the run_projects target
+run_projects:
+ifeq ($(OS_TYPE),Windows)
+	@echo Running on Windows
+	@$(MAKE) run_projects_windows
 else
-    DOTNET_RUN_CMD := dotnet run
+	@echo Running on Unix-based system
+	@$(MAKE) run_projects_unix
 endif
 
-run:
-	@echo "Starting all services..." &
-	@make api &
-	@make web &
-#    @make console &
-	@echo "end..."
+# Define the run_projects_windows target
+run_projects_windows: run_web_windows run_console_windows
 
-console:
-	@echo "Running Console app..."
-	$(RUN_IN_TERMINAL) sh -c "cd $(CUR_DIR)/Heatington.Console && $(DOTNET_RUN_CMD)"
-	@echo "Console app terminated"
+# Define the run_projects_unix target
+run_projects_unix: run_web_unix run_console_unix
 
-web:
-	@echo "Running Web app..."
-	$(RUN_IN_TERMINAL) sh -c "cd $(CUR_DIR)/Heatington.Web && $(DOTNET_RUN_CMD)"
-	@echo "Web app is terminated"
+# Define the run_web_windows target
+run_web_windows:
+	@echo Running web project on Windows
+	@call ./scripts/run_web.bat
 
-api:
-	@echo "Running APIs..."
-	$(RUN_IN_TERMINAL) sh -c "cd $(CUR_DIR)/Heatington.Microservice.OPT && $(DOTNET_RUN_CMD)"
-	$(RUN_IN_TERMINAL) sh -c "cd $(CUR_DIR)/Heatington.Microservice.AM && $(DOTNET_RUN_CMD)"
-	$(RUN_IN_TERMINAL) sh -c "cd $(CUR_DIR)/Heatington.Microservice.SDM && $(DOTNET_RUN_CMD)"
-	$(RUN_IN_TERMINAL) sh -c "cd $(CUR_DIR)/Heatington.Microservice.RDM && $(DOTNET_RUN_CMD)"
-	@echo "APIs terminated!"
+# Define the run_web_unix target
+run_web_unix:
+	@echo Running web project on Unix-based system
+	@./scripts/run_web.sh
+
+# Define the run_console_windows target
+run_console_windows:
+	@echo Running console project on Windows
+	@call ./scripts/run_console.bat
+
+# Define the run_console_unix target
+run_console_unix:
+	@echo Running console project on Unix-based system
+	@./scripts/run_console.sh
