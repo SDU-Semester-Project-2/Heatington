@@ -1,19 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
+using Heatington.Models;
 
-namespace SourceDataManagerAPI
+namespace SourceDataManagerAPI.Controllers
 {
-    public class TimeSeriesDataController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TimeSeriesDataController : ControllerBase
     {
-        [Route("api/[controller]")]
-        [ApiController]
-        public class CsvController : ControllerBase
+        [HttpGet]
+        public ActionResult<List<DataPoint>> Get()
         {
-            [HttpGet]
-            public ContentResult Get()
-            {
-                var csvData = "Column1,Column2,Column3\nValue1,Value2,Value3";
-                return Content(csvData, "text/plain");
-            }
+            return SourceDataManagerModel.SDM.TimeSeriesData;
         }
     }
 }
