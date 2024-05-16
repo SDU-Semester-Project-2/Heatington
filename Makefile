@@ -1,3 +1,5 @@
+DEV=false
+
 # Determine the operating system
 ifeq ($(OS),Windows_NT)
     OS_TYPE := Windows
@@ -12,17 +14,21 @@ endif
 run_projects:
 ifeq ($(OS_TYPE),Windows)
 	@echo Running on Windows
-	@$(MAKE) run_projects_windows
+	@$(MAKE) run_web_windows
 else
 	@echo Running on Unix-based system
-	@$(MAKE) run_projects_unix
+	@$(MAKE) run_web_unix
 endif
 
-# Define the run_projects_windows target
-run_projects_windows: run_web_windows run_console_windows
+run_console:
+ifeq ($(OS_TYPE),Windows)
+	@echo Running on Windows
+	@$(MAKE) run_console_windows
+else
+	@echo Running on Unix-based system
+	@$(MAKE) run_console_unix
+endif
 
-# Define the run_projects_unix target
-run_projects_unix: run_web_unix run_console_unix
 
 # Define the run_web_windows target
 run_web_windows:
@@ -32,6 +38,7 @@ run_web_windows:
 # Define the run_web_unix target
 run_web_unix:
 	@echo Running web project on Unix-based system
+	@chmod +x ./scripts/run_web.sh
 	@./scripts/run_web.sh
 
 # Define the run_console_windows target
@@ -42,4 +49,5 @@ run_console_windows:
 # Define the run_console_unix target
 run_console_unix:
 	@echo Running console project on Unix-based system
+	@chmod +x ./scripts/run_console.sh
 	@./scripts/run_console.sh

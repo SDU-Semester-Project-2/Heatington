@@ -7,16 +7,16 @@
 ## _HOW TO RUN THE APP_
 ### Running the Console App
 ```shell
-make console
+make run_console
 ```
 
 ### Running the Web App
 ```shell
-make run
+make
 ```
-or for development (hot reaload)
+or for development (hot reaload) (NOT IMPLEMENTED YET )
 ```shell
-make run DEV=true
+make DEV=true
 ```
 
 
