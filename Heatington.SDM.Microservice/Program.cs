@@ -7,6 +7,8 @@ namespace SourceDataManagerAPI
     {
         public static void Main(string[] args)
         {
+            //only here for testing
+            // SourceDataManagerModel.SDM.LogTimeSeriesData();
             CreateHostBuilder(args).Build().Run();
         }
 
