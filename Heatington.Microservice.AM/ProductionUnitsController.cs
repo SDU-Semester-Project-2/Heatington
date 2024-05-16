@@ -1,6 +1,4 @@
 using Heatington.AssetManager;
-using Heatington.Controllers;
-using Heatington.Helpers;
 using Heatington.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +11,7 @@ namespace AssetManagerAPI.Controllers
         [HttpGet]
         public ActionResult<List<ProductionUnit>> Get()
         {
-            return AssetManagerModel.AM.ProductionUnits!.Values.ToList();
+            return AssetManagerModel.am.ProductionUnits!.Values.ToList();
         }
 
         [HttpPut("{id}")]
@@ -32,7 +30,7 @@ namespace AssetManagerAPI.Controllers
             //If id is not in the list it will update the first one. I think it would be nicer
             //to throw an Exception we can catch if the Production unit with that id is not
             //present in the list.
-            AssetManagerModel.AM.WriteHeatingUnit(id, updated);
+            AssetManagerModel.am.WriteHeatingUnit(id, updated);
 
             return NoContent();
         }
@@ -42,7 +40,7 @@ namespace AssetManagerAPI.Controllers
         {
             try
             {
-                AssetManagerModel.AM.AddHeatingUnit(ProductionUnitsEnum.CustomBoiler, newHeatingUnit);
+                AssetManagerModel.am.AddHeatingUnit(ProductionUnitsEnum.CustomBoiler, newHeatingUnit);
             }
             catch (Exception e)
             {

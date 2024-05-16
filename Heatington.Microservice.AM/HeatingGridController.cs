@@ -13,8 +13,9 @@ namespace AssetManagerAPI.Controllers
         [HttpGet]
         public ActionResult<HeatingGrid> Get()
         {
-            return AssetManagerModel.AM.HeatingGridInformation == null ?
-                NoContent() : AssetManagerModel.AM.HeatingGridInformation;
+            return AssetManagerModel.am.HeatingGridInformation == null
+                ? NoContent()
+                : AssetManagerModel.am.HeatingGridInformation;
         }
     }
 }
