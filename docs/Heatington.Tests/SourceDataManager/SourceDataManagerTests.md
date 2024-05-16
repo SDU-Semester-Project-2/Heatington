@@ -17,12 +17,20 @@ of `FetchTimeSeriesDataAsync`.
 This is facilitated via the `Theory` attribute in with several `InlineData` attributes,
 allowing the execution of this test method multiple times with different argument sets.
 
-```csharp
-[Theory]
-...
-public async Task FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(params string[] data)
-...
-```
+During each execution:
+
+- **Arrange**: Similar to the previous test, we populate the `_stubDataSource.Data` with `DataPoint` objects.
+
+- **Act**: We invoke the `FetchTimeSeriesDataAsync` method.
+
+- **Assert**: We check if the `DataPoint` objects fetched by `FetchTimeSeriesDataAsync` match the `DataPoint` objects
+- in `_stubDataSource.Data`.
+
+## The Test Method `VerifyDataPoints_ShouldMatchExpectedData`
+
+The test method `VerifyDataPoints_ShouldMatchExpectedData` checks if the fetched data by `FetchTimeSeriesDataAsync`
+matches the expected data.
+
 
 During each execution:
 
