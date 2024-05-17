@@ -8,10 +8,10 @@ namespace Heatington.Microservice.RDM;
 
 public class ResultDataManagerModel
 {
-    //public static ResultDataManager.ResultDataManager? RDM;
     public static ResultDataManager.RDM? Rdm;
+    private static ResultDataManagerService _service = new ResultDataManagerService();
 
-    public static async Task LoadResultDataManager()
+    public static void LoadResultDataManager()
     {
         //CSV Controller
         string path = Utilities.GetAbsolutePathToAssetsDirectory();
@@ -20,5 +20,11 @@ public class ResultDataManagerModel
         //Result Data Manager
         Rdm = new ResultDataManager.RDM(csvController);
         Console.WriteLine("YOOOO RDM STARTED");
+
+        //Load data
+        var optData = _service.GetDataFromOpt();
+        Rdm.FetchOptimizationData(optData.Result);
+
+        //optData.Result.ForEach(Console.WriteLine);
     }
 }
