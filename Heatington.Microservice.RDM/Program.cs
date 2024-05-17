@@ -4,13 +4,9 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        ResultDataManagerModel.LoadResultDataManager();
+
         CreateHostBuilder(args).Build().Run();
-
-        _ = ResultDataManagerModel.LoadResultDataManager();
-
-        var service = new ResultDataManagerService();
-
-        _ = service.GetDataFromOpt();
     }
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -16,7 +16,29 @@ public class RDM(CsvController _csvController)
         _optResults = opt.Results;
     }
 
+    public void FetchOptimizationData(List<ResultHolder> rawResults)
+    {
+        _optResults = rawResults;
+    }
+
     public List<FormatedResultHolder> FormatResults(List<ResultHolder> rawResults)
+    {
+        List<FormatedResultHolder> formatedResults = new();
+
+        // I am very sorry for the O(n^2)
+        foreach (var entry in rawResults)
+        {
+            foreach (var unit in entry.Boilers)
+            {
+                formatedResults.Add(new FormatedResultHolder(
+                    entry.StartTime, entry.EndTime, entry.HeatDemand, entry.ElectricityPrice, unit,
+                    entry.NetProductionCost));
+            }
+        }
+        return formatedResults;
+    }
+
+    public List<FormatedResultHolder> FormatResults()
     {
         List<FormatedResultHolder> formatedResults = new();
 
