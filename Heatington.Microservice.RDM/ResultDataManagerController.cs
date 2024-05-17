@@ -2,6 +2,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using Heatington.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Heatington.Microservice.RDM;
@@ -13,12 +14,6 @@ public class ResultDataManagerController
     [HttpGet]
     public ActionResult<IEnumerable<FormatedResultHolder>> GetFormatedResults()
     {
-        return ResultDataManagerModel.Rdm.FormatedResults;
-
-        /*List<FormatedResultHolder> troie = new List<FormatedResultHolder>();
-
-        troie.Add(new FormatedResultHolder(DateTime.Now, DateTime.Now, 23,23, null,23));
-
-        return troie;*/
+        return ResultDataManagerModel.Rdm.FormatResults();
     }
 }
