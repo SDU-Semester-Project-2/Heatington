@@ -9,7 +9,7 @@ namespace Heatington.ResultDataManager;
 public class RDM(CsvController _csvController)
 {
     private List<ResultHolder> _optResults;
-    private List<FormatedResultHolder> _formatedResult;
+    public List<FormatedResultHolder> FormatedResults;
 
     public void FetchOptimizationData(OPT opt)
     {

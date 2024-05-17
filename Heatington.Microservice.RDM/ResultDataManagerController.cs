@@ -13,7 +13,7 @@ public class ResultDataManagerController
     [HttpGet]
     public ActionResult<IEnumerable<FormatedResultHolder>> GetFormatedResults()
     {
-        return ResultDataManagerModel.Rdm.
+        return ResultDataManagerModel.Rdm.FormatedResults;
 
         /*List<FormatedResultHolder> troie = new List<FormatedResultHolder>();
 
