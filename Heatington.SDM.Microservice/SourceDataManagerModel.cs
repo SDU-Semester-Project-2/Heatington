@@ -9,8 +9,8 @@ namespace SourceDataManagerAPI
 {
     public class SourceDataManagerModel
     {
-        public static SourceDataManager SDM_Winter;
-        public static SourceDataManager SDM_Summer;
+        public static SDM SDM_Winter;
+        public static SDM SDM_Summer;
         static SourceDataManagerModel()
         {
             string fileNameWinter = "winter_period.csv";
@@ -21,8 +21,8 @@ namespace SourceDataManagerAPI
             IDataSource dataSourceWinter = new CsvController(filePathWinter);
             IDataSource dataSourceSummer = new CsvController(filePathSummer);
 
-            SDM_Winter = new SourceDataManager(dataSourceWinter);
-            SDM_Summer = new SourceDataManager(dataSourceSummer);
+            SDM_Winter = new SDM(dataSourceWinter);
+            SDM_Summer = new SDM(dataSourceSummer);
 
             Task loadTimeSeriesWinter = SDM_Winter.FetchTimeSeriesDataAsync();
             Task loadTimeSeriesSummer = SDM_Summer.FetchTimeSeriesDataAsync();
