@@ -1,9 +1,7 @@
-using Heatington.SourceDataManager;
-using Heatington.Services.Interfaces;
-using Heatington.Helpers;
 using Heatington.Controllers;
-
-
+using Heatington.Helpers;
+using Heatington.Services.Interfaces;
+using Heatington.SourceDataManager;
 
 namespace SourceDataManagerAPI
 {
@@ -11,13 +9,14 @@ namespace SourceDataManagerAPI
     {
         public static SDM SDM_Winter;
         public static SDM SDM_Summer;
+
         static SourceDataManagerModel()
         {
             string fileNameWinter = "winter_period.csv";
             string filePathWinter = Utilities.GeneratePathToFileInAssetsDirectory(fileNameWinter);
             string fileNameSummer = "summer_period.csv";
             string filePathSummer = Utilities.GeneratePathToFileInAssetsDirectory(fileNameSummer);
-            
+
             IDataSource dataSourceWinter = new CsvController(filePathWinter);
             IDataSource dataSourceSummer = new CsvController(filePathSummer);
 
