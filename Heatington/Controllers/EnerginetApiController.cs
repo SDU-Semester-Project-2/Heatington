@@ -1,6 +1,6 @@
 using System.Net.Http.Headers;
-using Heatington.Models;
 using System.Text.Json;
+using Heatington.Models;
 
 namespace Heatington.Controllers
 {
@@ -8,7 +8,8 @@ namespace Heatington.Controllers
     {
         private HttpClient _client;
 
-        public EnerginetApiContorller(){
+        public EnerginetApiContorller()
+        {
             _client = new();
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(
@@ -18,17 +19,17 @@ namespace Heatington.Controllers
         public async Task<string> ProcessRepositoriesAsync(string dataset, DateTime start, DateTime end, Dictionary<string, string[]>? filters = null, string[]? columns = null)
         {
             filters = filters ?? new();
-            columns = columns ?? new string[] {};
+            columns = columns ?? new string[] { };
             string startString = "start=" + start.ToString("yyyy-MM-ddTHH:mm");
             string endString = "end=" + end.ToString("yyyy-MM-ddTHH:mm");
             string filterString = "filter={" +
-                    String.Join(",", filters.Select(pair => '"' + pair.Key+ '"' + ":[\"" + String.Join("\",\"", pair.Value)  + "\"]" )) +
+                    String.Join(",", filters.Select(pair => '"' + pair.Key + '"' + ":[\"" + String.Join("\",\"", pair.Value) + "\"]")) +
                 "}";
             string columnsString = "columns=" + String.Join(",", columns);
 
             string rawJson = await _client.GetStringAsync(
-                $"https://api.energidataservice.dk/dataset/" + dataset + '?' + startString+ '&' + endString + '&' + filterString +'&' + columnsString);
-            Console.WriteLine($"https://api.energidataservice.dk/dataset/" + dataset + '?' + startString+ '&' + endString + '&' + filterString +'&' + columnsString);
+                $"https://api.energidataservice.dk/dataset/" + dataset + '?' + startString + '&' + endString + '&' + filterString + '&' + columnsString);
+            Console.WriteLine($"https://api.energidataservice.dk/dataset/" + dataset + '?' + startString + '&' + endString + '&' + filterString + '&' + columnsString);
             return rawJson;
         }
     }
