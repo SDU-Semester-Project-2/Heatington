@@ -1,6 +1,7 @@
 using MudBlazor;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http.Json;
 using Heatington.Models;
@@ -13,12 +14,13 @@ namespace Heatington.Web.Client.Pages;
 
 public partial class Home : ComponentBase
 {
-    // Charts
-    private readonly ChartOptions _options = new ChartOptions();
-    private List<ChartSeries> _heatDemandWinterSeries = new List<ChartSeries>();
-
+    private static List<HeatDemandChartData> _heatDemandWinterSeries;
 
     private List<ProductionUnit> _productionUnits = [];
+
+    // Charts
+    private int Index = -1;
+    public ChartOptions Options = new ChartOptions();
 
 
     //TODO: Use Real Data!
@@ -26,6 +28,9 @@ public partial class Home : ComponentBase
     private double TotalExpenses = new Random().Next(50000, 100000);
     private double totalHeatProduced = new Random().Next(5000, 10000);
     private double totalProfit = new Random().Next(100000, 200000);
+
+    public List<ChartSeries> Series { get; set; }
+    public string[] XAxisLabels { get; set; }
 
     [Inject] public HttpClient Http { get; set; }
     [Inject] public IDialogService DialogService { get; set; }
@@ -38,9 +43,12 @@ public partial class Home : ComponentBase
             Logger.LogInformation("OnInitializedAsync in Home.razor started");
             await base.OnInitializedAsync();
             _productionUnits = await LoadProductionUnits();
+
             List<DataPoint> winterData = await LoadCsvData("Assets/Data/winter-data.csv");
-            _heatDemandWinterSeries = new List<ChartSeries> { GetHeatDemandSeries(winterData) };
-            ;
+            _heatDemandWinterSeries = GetHeatDemandSeries(winterData);
+            LogHeatDemandSeriesData(_heatDemandWinterSeries);
+            InitializeChartData();
+
             List<ChartSeries> winterElectricityDataSeries = GetElectricityPriceSeries(winterData);
             // List<DataPoint> summerData = await LoadCsvData("Assets/Data/summer-data.csv");
             // List<ChartSeries> summerHeatDataSeries = GetHeatDemandSeries(summerData);
@@ -55,6 +63,25 @@ public partial class Home : ComponentBase
         }
     }
 
+
+    void InitializeChartData()
+    {
+        if (_heatDemandWinterSeries == null)
+        {
+            throw new InvalidOperationException(
+                "The heat demand winter series must be initialized before calling this method.");
+        }
+
+        Series = new List<ChartSeries>()
+        {
+            new ChartSeries()
+            {
+                Name = "Heat Demand", Data = _heatDemandWinterSeries.Select(x => x.YData).ToArray()
+            },
+        };
+
+        XAxisLabels = _heatDemandWinterSeries.Select(x => x.XData).ToArray();
+    }
 
     private async Task<List<ProductionUnit>> LoadProductionUnits()
     {
@@ -82,6 +109,15 @@ public partial class Home : ComponentBase
         return productionUnits;
     }
 
+    // TODO: Testing purpose only, may delete this later
+    private void LogHeatDemandSeriesData(List<HeatDemandChartData> seriesData)
+    {
+        var seriesDataStr = string.Join(", ",
+            seriesData.Select(data => $"(XData: {data.XData}, YData: {data.YData})"));
+        Logger.LogInformation($"_heatDemandWinterSeries: {seriesDataStr}");
+    }
+
+
     private async Task<List<DataPoint>> LoadCsvData(string path)
     {
         try
@@ -93,6 +129,12 @@ public partial class Home : ComponentBase
             List<DataPoint> dataPoints = csvData.ConvertRecords<DataPoint>();
             Logger.LogInformation($"Successfully converted CsvData to List<DataPoint> with {dataPoints.Count} items");
 
+            // Log entire list as one entry
+            var dataPointsStr = string.Join(", ",
+                dataPoints.Select(dp =>
+                    $"(StartTime: {dp.StartTime}, EndTime: {dp.EndTime}, HeatDemand: {dp.HeatDemand}, ElectricityPrice: {dp.ElectricityPrice})"));
+            Logger.LogInformation($"DataPoints: {dataPointsStr}");
+
             return dataPoints;
         }
         catch (Exception ex)
@@ -102,12 +144,20 @@ public partial class Home : ComponentBase
         }
     }
 
-    private ChartSeries GetHeatDemandSeries(List<DataPoint> dataPoints)
+    private List<HeatDemandChartData> GetHeatDemandSeries(List<DataPoint> dataPoints)
     {
-        return new ChartSeries
+        var heatDemandChartDataList = dataPoints.Select(dataPoint => new HeatDemandChartData
         {
-            Name = "Heat Demand Winter", Data = dataPoints.Select(dataPoint => dataPoint.HeatDemand).ToArray()
-        };
+            XData = FormatDate(dataPoint.StartTime), YData = dataPoint.HeatDemand
+        }).ToList();
+
+        // Logging each HeatDemandChartData
+        // foreach (var data in heatDemandChartDataList)
+        // {
+        //     Logger.LogInformation($"GetXData: {data.XData}, GetYData: {data.YData}");
+        // }
+
+        return heatDemandChartDataList;
     }
 
     private List<ChartSeries> GetElectricityPriceSeries(List<DataPoint> dataPoints) =>
@@ -128,9 +178,22 @@ public partial class Home : ComponentBase
     {
         var offset = TimeSpan.FromHours(2); // Offset for Central European Summer (+2 GMT)
         DateTime datetimeInDanish = datetime.ToUniversalTime().Add(offset);
-        string formattedDate = datetimeInDanish.ToString("dd.MM.yyyy HH:mm");
+        string formattedDate = datetimeInDanish.ToString("yyyy-MM-ddTHH:mm:ss");
 
+        // Logger.LogInformation($"FormatDate: {formattedDate}"); // Logging formatted date
         return formattedDate;
+    }
+
+
+    // To many x-labels, want to clean it
+    public IEnumerable<string> GetUniqueDays(IEnumerable<string> dates)
+    {
+        return dates
+            .Select(d =>
+                DateTime.ParseExact(d, "dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture)) // Parse the datetime strings
+            .Select(d => d.Date) // Select just the Date part of the DateTime
+            .Distinct() // Get only unique dates
+            .Select(d => d.ToString("dd.MM.yyyy")); // Format the DateTime as a string
     }
 
     private void ViewMore(ProductionUnit productionUnit)
@@ -181,5 +244,11 @@ public partial class Home : ComponentBase
             TotalItems = sorted.Count,
             Items = sorted.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList()
         });
+    }
+
+    public class HeatDemandChartData
+    {
+        public string XData { get; set; }
+        public double YData { get; set; }
     }
 }
