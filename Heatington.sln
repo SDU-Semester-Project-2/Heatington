@@ -14,6 +14,8 @@ Project("{6865debf-71a2-4840-8d31-c1b4b60150f3}") = "Heatington.Microservice.OPT
 EndProject
 Project("{29acf159-6bba-45bf-a8f6-e17a5129689f}") = "Heatington.Microservice.AM", "Heatington.Microservice.AM\Heatington.Microservice.AM.csproj", "{29acf159-6bba-45bf-a8f6-e17a5129689f}"
 EndProject
+Project("{35147ba0-fc02-4a3c-920c-02b3d9e14cf6}") = "Heatington.Microservice.SDM", "Heatington.Microservice.SDM\Heatington.Microservice.SDM.csproj", "{35147ba0-fc02-4a3c-920c-02b3d9e14cf6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,5 +71,13 @@ Global
         {29acf159-6bba-45bf-a8f6-e17a5129689f}.Debug|Any CPU.Build.0 = Release|Any CPU
 
         {29acf159-6bba-45bf-a8f6-e17a5129689f}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+
+        {35147ba0-fc02-4a3c-920c-02b3d9e14cf6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {35147ba0-fc02-4a3c-920c-02b3d9e14cf6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {35147ba0-fc02-4a3c-920c-02b3d9e14cf6}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+        {35147ba0-fc02-4a3c-920c-02b3d9e14cf6}.Debug|Any CPU.Build.0 = Release|Any CPU
+
+        {35147ba0-fc02-4a3c-920c-02b3d9e14cf6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+
 	EndGlobalSection
 EndGlobal
