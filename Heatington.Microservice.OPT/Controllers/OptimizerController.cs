@@ -21,12 +21,12 @@ namespace Heatington.Microservice.OPT.Controllers
         /// <param name="mode">modes: 1->Scenario1, 2->Scenario2, 3->co2 </param>
         /// <param name="season">seasons: winter, summer </param>
         [HttpGet]
-        public async Task<ActionResult<List<ResultHolder>?>> Get([FromQuery] int mode = 2,
-            [FromQuery] string season = "summer")
+        public async Task<ActionResult<List<ResultHolder>?>> Get(
+            [FromQuery] int mode = 2,
+            [FromQuery] string season = "summer"
+        )
         {
-            Console.WriteLine("\n\nMODE:");
-            Console.WriteLine(mode);
-            if (mode is > 3 or < 0)
+            if (Enum.IsDefined(typeof(OptimizationMode), mode))
             {
                 return StatusCode(400, "Wrong argument value: mode. Value has to be in range: [0,3]");
             }
@@ -42,7 +42,7 @@ namespace Heatington.Microservice.OPT.Controllers
 
             try
             {
-                opt.Optimize(OptimizationMode.Scenario2);
+                opt.Optimize((OptimizationMode)mode);
                 return Ok(opt.Results);
             }
             catch (Exception e)
