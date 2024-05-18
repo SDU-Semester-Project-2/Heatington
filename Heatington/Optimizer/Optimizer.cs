@@ -5,9 +5,25 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.Optimizer;
 
+public enum OptimizationMode
+{
+    Scenario1,
+    Scenario2,
+    Co2
+}
+
 public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
 {
     private List<DataPoint>? _dataPoints = new List<DataPoint>();
+
+    private readonly Delegate[] evals = new Delegate[]
+    {
+        new Func<ProductionUnit, double>((unit) => unit.ProductionCost),
+        new Func<ProductionUnit, DataPoint, double>((unit, dataPoint) =>
+            unit.ProductionCost - unit.MaxElectricity * dataPoint.ElectricityPrice),
+        new Func<ProductionUnit, double>((unit) => unit.Co2Emission)
+    };
+
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
     public List<ResultHolder>? Results { get; private set; } = new List<ResultHolder>();
 
@@ -15,8 +31,11 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
     {
         GetDataPoints();
         GetProductionUnits();
+    }
 
-        _productionUnits = _productionUnits.OrderBy(o => o.ProductionCost).ToList();
+    private void RankHeatingUnits(Func<ProductionUnit, double> evaluate)
+    {
+        _productionUnits = _productionUnits.OrderBy(o => evaluate(o)).ToList();
     }
 
     // TODO: expand optimize with capability to optimize for co2
@@ -24,15 +43,66 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
     {
         //checks if there are no boilers that use electricity
         bool onlyFossil = _productionUnits.TrueForAll(x => x.MaxElectricity == 0);
+        Optimize((int a, int b) => a + b);
+        /*
+        if(!onlyFossil)
+        {
+            if(evals[(int)OptimizationMode.Scenario2] is Func<ProductionUnit, DataPoint, double> eval)
+            {
+                OptimizeForEachDataPoint(eval);
+            }
+            Optimize(OptimizationMode.Scenario2);
+        }
+        else
+        {
+            Optimize(OptimizationMode.Scenario1);
+            if(evals[(int)OptimizationMode.Co2] is Func<ProductionUnit, double> eval)
+            {
+                OptimizeOnce(eval);
+            }
+        }
+        */
+    }
+
+    public void Optimize(OptimizationMode mode)
+    {
+        Optimize(evals[(int)mode]);
+    }
+
+    public void Optimize(Delegate evaluation)
+    {
+        if (evaluation is Func<ProductionUnit, double> evalOnce)
+        {
+            OptimizeOnce(evalOnce);
+            return;
+        }
+        else if (evaluation is Func<ProductionUnit, DataPoint, double> evalForEach)
+        {
+            OptimizeForEachDataPoint(evalForEach);
+            return;
+        }
+        else
+        {
+            throw new Exception("Not a valid evaluation method.");
+        }
+    }
+
+    private void OptimizeForEachDataPoint(Func<ProductionUnit, DataPoint, double> eval)
+    {
         foreach (DataPoint dataPoint in _dataPoints)
         {
-            if (!onlyFossil)
-            {
-                //orders production units by net production cost
-                _productionUnits = _productionUnits.OrderBy(x =>
-                    x.ProductionCost - x.MaxElectricity * dataPoint.ElectricityPrice).ToList();
-            }
+            RankHeatingUnits((x => eval(x, dataPoint)));
 
+            ResultHolder result = CalculateHeatUnitsRequired(dataPoint, _productionUnits);
+            Results?.Add(result);
+        }
+    }
+
+    private void OptimizeOnce(Func<ProductionUnit, double> eval)
+    {
+        RankHeatingUnits(eval);
+        foreach (DataPoint dataPoint in _dataPoints)
+        {
             ResultHolder result = CalculateHeatUnitsRequired(dataPoint, _productionUnits);
             Results?.Add(result);
         }
@@ -80,7 +150,7 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
         //Console.WriteLine("Number of boilers: {0}", nOfBoilers);
 
         // Selects the correct boilers based on how many need to be activated
-        List<ProductionUnit> selectedBoilers = SelectBoiler(nOfBoilers);
+        List<ProductionUnit> selectedBoilers = productionUnits.GetRange(0, nOfBoilers); // SelectBoiler(nOfBoilers);
 
         //Console.WriteLine("Boilers selected:");
         //selectedBoilers.ForEach(Console.WriteLine);
@@ -113,18 +183,6 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
             }
 
             return i;
-        }
-
-        List<ProductionUnit> SelectBoiler(int j)
-        {
-            List<ProductionUnit> selectedBoilers = new List<ProductionUnit>();
-
-            for (int i = 0; i < j; i++)
-            {
-                selectedBoilers.Add(productionUnits[i]);
-            }
-
-            return selectedBoilers;
         }
     }
 
