@@ -6,65 +6,23 @@ using System.Net.Http.Json;
 using Heatington.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Heatington.Services.Serializers;
 
 
 namespace Heatington.Web.Client.Pages;
 
 public partial class Home : ComponentBase
 {
+    // Charts
     private readonly ChartOptions _options = new ChartOptions();
-
-
-    // for electricity chart
-
-    private readonly List<ChartSeries> _seriesElectricity = new List<ChartSeries>()
-    {
-        new ChartSeries()
-        {
-            Name = "Electricity Production", Data = new double[] { 110, 105, 115, 120, 108, 112, 118 },
-        },
-        new ChartSeries()
-        {
-            Name = "Electricity Consumption", Data = new double[] { 115, 100, 113, 118, 109, 115, 117 },
-        },
-        new ChartSeries() { Name = "Electricity Price", Data = new double[] { 50, 55, 60, 53, 57, 54, 59 }, }
-    };
-
-    private readonly string[] _xAxisLabels1 =
-    {
-        "01.01.2024", "02.01.2024", "03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024"
-    };
-
-    private readonly string[] _xAxisLabels3 =
-    {
-        "01.01.2024", "02.01.2024", "03.01.2024", "04.01.2024", "05.01.2024", "06.01.2024", "07.01.2024"
-    };
-
-    readonly Random random = new Random();
-    private int _indexBoilers = -1;
-    private int _indexElectricity = -1;
-
-
-    // for heat chart
-
-    private int _indexHeat = -1;
+    private List<ChartSeries> _heatDemandWinterSeries = new List<ChartSeries>();
 
 
     private List<ProductionUnit> _productionUnits = [];
 
 
-    // for optimizer chart
-
-    private List<ChartSeries> _seriesBoilers = new List<ChartSeries>();
-
-    private List<ChartSeries> _seriesHeat = new List<ChartSeries>()
-    {
-        new ChartSeries() { Name = "Heat Demand", Data = new double[] { 90, 79, 72, 69, 62, 68, 89 }, },
-        new ChartSeries() { Name = "Heat Produced", Data = new double[] { 92, 78, 73, 75, 60, 68, 89 }, }
-    };
-
+    //TODO: Use Real Data!
     private double totalCO2Produced = new Random().Next(20000, 50000);
-
     private double TotalExpenses = new Random().Next(50000, 100000);
     private double totalHeatProduced = new Random().Next(5000, 10000);
     private double totalProfit = new Random().Next(100000, 200000);
@@ -80,9 +38,14 @@ public partial class Home : ComponentBase
             Logger.LogInformation("OnInitializedAsync in Home.razor started");
             await base.OnInitializedAsync();
             _productionUnits = await LoadProductionUnits();
+            List<DataPoint> winterData = await LoadCsvData("Assets/Data/winter-data.csv");
+            _heatDemandWinterSeries = new List<ChartSeries> { GetHeatDemandSeries(winterData) };
+            ;
+            List<ChartSeries> winterElectricityDataSeries = GetElectricityPriceSeries(winterData);
+            // List<DataPoint> summerData = await LoadCsvData("Assets/Data/summer-data.csv");
+            // List<ChartSeries> summerHeatDataSeries = GetHeatDemandSeries(summerData);
+            // List<ChartSeries> summerElectricityDataSeries = GetElectricityPriceSeries(summerData);
 
-
-            RandomizeData();
             StateHasChanged();
         }
         catch (Exception e)
@@ -119,6 +82,57 @@ public partial class Home : ComponentBase
         return productionUnits;
     }
 
+    private async Task<List<DataPoint>> LoadCsvData(string path)
+    {
+        try
+        {
+            string csvRawData = await Http.GetStringAsync(path);
+            Logger.LogInformation($"Successfully fetched CSV data from {path}");
+            CsvData csvData = CsvSerializer.Deserialize(csvRawData, true);
+            Logger.LogInformation("Successfully deserialized CSV data to CsvData object");
+            List<DataPoint> dataPoints = csvData.ConvertRecords<DataPoint>();
+            Logger.LogInformation($"Successfully converted CsvData to List<DataPoint> with {dataPoints.Count} items");
+
+            return dataPoints;
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, $"An error occurred when trying to load CSV data from {path}");
+            throw;
+        }
+    }
+
+    private ChartSeries GetHeatDemandSeries(List<DataPoint> dataPoints)
+    {
+        return new ChartSeries
+        {
+            Name = "Heat Demand Winter", Data = dataPoints.Select(dataPoint => dataPoint.HeatDemand).ToArray()
+        };
+    }
+
+    private List<ChartSeries> GetElectricityPriceSeries(List<DataPoint> dataPoints) =>
+        dataPoints.Select(dataPoint =>
+            new ChartSeries
+            {
+                // Format DateTime within the method
+                Name = $"{FormatDate(dataPoint.StartTime)} - {FormatDate(dataPoint.EndTime)}",
+                Data = new[] { dataPoint.ElectricityPrice }
+            }).ToList();
+
+
+    // TimeZone data is not included with .NET's WebAssembly runtime.
+    // To bypass this, we directly convert UTC DateTime to Danish Time (CET/CEST) during series generation.
+    // This offset-based conversion ensures we avoid timezone exceptions and retain compatibility across different OS.
+
+    private string FormatDate(DateTime datetime)
+    {
+        var offset = TimeSpan.FromHours(2); // Offset for Central European Summer (+2 GMT)
+        DateTime datetimeInDanish = datetime.ToUniversalTime().Add(offset);
+        string formattedDate = datetimeInDanish.ToString("dd.MM.yyyy HH:mm");
+
+        return formattedDate;
+    }
+
     private void ViewMore(ProductionUnit productionUnit)
     {
         NavManager.NavigateTo("/resource-manager");
@@ -131,21 +145,6 @@ public partial class Home : ComponentBase
 
     private string DisplayData(string data) => data.Length != 0 ? data : "No Data";
 
-
-    private void RandomizeData()
-    {
-        var newSeries = new List<ChartSeries>();
-        foreach (var productionUnit in _productionUnits)
-        {
-            var series = new ChartSeries() { Name = productionUnit.Name, Data = new double[7] };
-            for (int i = 0; i < 7; i++)
-                series.Data[i] = random.NextDouble() * 100;
-            newSeries.Add(series);
-        }
-
-        _seriesBoilers = newSeries;
-        StateHasChanged();
-    }
 
     // Trying to implement sorting TODO: not working on mobile version?!
     public async Task<TableData<ProductionUnit>> GetBoilersAsync(TableState state)
