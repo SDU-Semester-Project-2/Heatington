@@ -568,8 +568,58 @@ public partial class Home : ComponentBase
         {
             productionUnits = productionUnitsArray.ToList();
         }
-
         return productionUnits;
+    }
+
+    private async Task<List<DataPoint>> LoadCsvData(string path)
+    {
+        try
+        {
+            string csvRawData = await Http.GetStringAsync(path);
+            Logger.LogInformation($"Successfully fetched CSV data from {path}");
+            CsvData csvData = CsvSerializer.Deserialize(csvRawData, true);
+            Logger.LogInformation("Successfully deserialized CSV data to CsvData object");
+            List<DataPoint> dataPoints = csvData.ConvertRecords<DataPoint>();
+            Logger.LogInformation($"Successfully converted CsvData to List<DataPoint> with {dataPoints.Count} items");
+
+            return dataPoints;
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, $"An error occurred when trying to load CSV data from {path}");
+            throw;
+        }
+    }
+
+    private ChartSeries GetHeatDemandSeries(List<DataPoint> dataPoints)
+    {
+        return new ChartSeries
+        {
+            Name = "Heat Demand Winter", Data = dataPoints.Select(dataPoint => dataPoint.HeatDemand).ToArray()
+        };
+    }
+
+    private List<ChartSeries> GetElectricityPriceSeries(List<DataPoint> dataPoints) =>
+        dataPoints.Select(dataPoint =>
+            new ChartSeries
+            {
+                // Format DateTime within the method
+                Name = $"{FormatDate(dataPoint.StartTime)} - {FormatDate(dataPoint.EndTime)}",
+                Data = new[] { dataPoint.ElectricityPrice }
+            }).ToList();
+
+
+    // TimeZone data is not included with .NET's WebAssembly runtime.
+    // To bypass this, we directly convert UTC DateTime to Danish Time (CET/CEST) during series generation.
+    // This offset-based conversion ensures we avoid timezone exceptions and retain compatibility across different OS.
+
+    private string FormatDate(DateTime datetime)
+    {
+        var offset = TimeSpan.FromHours(2); // Offset for Central European Summer (+2 GMT)
+        DateTime datetimeInDanish = datetime.ToUniversalTime().Add(offset);
+        string formattedDate = datetimeInDanish.ToString("dd.MM.yyyy HH:mm");
+
+        return formattedDate;
     }
 
     private List<ChartData>? GetHeatDemandSeries(List<DataPoint>? dataPoints)
