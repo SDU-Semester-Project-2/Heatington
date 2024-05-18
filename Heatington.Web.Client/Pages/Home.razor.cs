@@ -15,6 +15,7 @@ namespace Heatington.Web.Client.Pages;
 public partial class Home : ComponentBase
 {
     private static List<HeatDemandChartData> _heatDemandWinterSeries;
+    private static List<HeatDemandChartData> _heatDemandSummerSeries;
 
     private List<ProductionUnit> _productionUnits = [];
 
@@ -22,6 +23,8 @@ public partial class Home : ComponentBase
 
     // Charts
     private int Index = -1;
+
+    private bool isDataReady = false;
 
 
     //TODO: Use Real Data!
@@ -45,15 +48,19 @@ public partial class Home : ComponentBase
             await base.OnInitializedAsync();
             _productionUnits = await LoadProductionUnits();
 
+            _heatDemandWinterSeries = [];
+            _heatDemandSummerSeries = [];
+
             List<DataPoint> winterData = await LoadCsvData("Assets/Data/winter-data.csv");
             _heatDemandWinterSeries = GetHeatDemandSeries(winterData);
             LogHeatDemandSeriesData(_heatDemandWinterSeries);
-            InitializeChartData();
 
-            List<ChartSeries> winterElectricityDataSeries = GetElectricityPriceSeries(winterData);
-            // List<DataPoint> summerData = await LoadCsvData("Assets/Data/summer-data.csv");
-            // List<ChartSeries> summerHeatDataSeries = GetHeatDemandSeries(summerData);
-            // List<ChartSeries> summerElectricityDataSeries = GetElectricityPriceSeries(summerData);
+            List<DataPoint> summerData = await LoadCsvData("Assets/Data/summer-data.csv");
+            _heatDemandSummerSeries = GetHeatDemandSeries(summerData);
+            LogHeatDemandSeriesData(_heatDemandSummerSeries);
+
+            InitializeHeatDemandChartData();
+            isDataReady = true;
 
             StateHasChanged();
         }
@@ -65,28 +72,22 @@ public partial class Home : ComponentBase
     }
 
 
-    void InitializeChartData()
+    void InitializeHeatDemandChartData()
     {
-        if (_heatDemandWinterSeries == null)
+        if (_heatDemandWinterSeries == null || _heatDemandWinterSeries.Count == 0 ||
+            _heatDemandSummerSeries == null || _heatDemandSummerSeries.Count == 0)
         {
-            throw new InvalidOperationException(
-                "The heat demand winter series must be initialized before calling this method.");
+            return;
         }
 
         Series = new List<ChartSeries>()
         {
-            new ChartSeries()
-            {
-                Name = "Heat Demand", Data = _heatDemandWinterSeries.Select(x => x.YData).ToArray()
-            },
+            new ChartSeries() { Name = "Winter", Data = _heatDemandWinterSeries.Select(x => x.YData).ToArray() },
+            new ChartSeries() { Name = "Summer", Data = _heatDemandSummerSeries.Select(x => x.YData).ToArray() }
         };
-        XAxisLabels =
-            _heatDemandWinterSeries
-                .Select(x => DateTime.ParseExact(x.XData, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture))
-                .Select(dateTime => dateTime.Date)
-                .Distinct()
-                .Select(date => date.ToString("yyyy-MM-dd"))
-                .ToArray();
+        XAxisLabels = Enumerable.Range(1, _heatDemandWinterSeries.Count)
+            .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
+            .ToArray();
     }
 
     private async Task<List<ProductionUnit>> LoadProductionUnits()

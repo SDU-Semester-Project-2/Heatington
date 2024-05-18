@@ -76,23 +76,15 @@
     <MudText Typo="Typo.h4" class="text-center">
         Heat Demand
     </MudText>
-    <MudText Typo="Typo.h6" class="text-center">
-        Winter
-    </MudText>
-    <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="Index"
-              XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="HeatAndElectricityChartOptions"/>
-    <MudText Typo="Typo.h6" class="text-center">
-        Summer
-    </MudText>
+    @if (isDataReady)
+    {
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="Index"
+                  XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="HeatAndElectricityChartOptions"/>
+    }
+
     <MudDivider FlexItem></MudDivider>
     <MudText Typo="Typo.h4" class="text-center">
         Electricity Prices
-    </MudText>
-    <MudText Typo="Typo.h6" class="text-center">
-        Winter
-    </MudText>
-    <MudText Typo="Typo.h6" class="text-center">
-        Summer
     </MudText>
     <MudDivider FlexItem></MudDivider>
     <MudText Typo="Typo.h4" class="text-center">
