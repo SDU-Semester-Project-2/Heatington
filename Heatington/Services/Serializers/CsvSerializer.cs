@@ -5,11 +5,8 @@ namespace Heatington.Services.Serializers
     [System.AttributeUsage(System.AttributeTargets.Constructor, AllowMultiple = false)]
     public sealed class CsvConstructorAttribute : Attribute;
 
-    class CsvData
+    public class CsvData
     {
-        public List<string[]> Table { get; private set; }
-        public string[]? Header { get; private set; }
-
         public CsvData(List<string[]> data, string[]? header = null)
         {
             int numberOfFields = data[0].Length;
@@ -26,6 +23,9 @@ namespace Heatington.Services.Serializers
             Table = data;
             Header = header;
         }
+
+        public List<string[]> Table { get; private set; }
+        public string[]? Header { get; private set; }
 
         public static CsvData Create<T>(List<T> data, string[]? header = null)
         {
@@ -108,16 +108,8 @@ namespace Heatington.Services.Serializers
         }
     }
 
-    static class CsvSerializer
+    public static class CsvSerializer
     {
-        private enum State
-        {
-            Start,
-            UnquotedEntry,
-            QuotedEntry,
-            AnotherQuote
-        }
-
         public static CsvData Deserialize(string rawData, bool includesHeader)
         {
             State currentState = State.Start;
@@ -284,6 +276,14 @@ namespace Heatington.Services.Serializers
 
             return ((escapedHeader != null && includeHeaderIfNotNull) ? String.Join(",", escapedHeader) : "") + '\n' +
                    String.Join("\n", escapedTable.Select(x => String.Join(",", x)));
+        }
+
+        private enum State
+        {
+            Start,
+            UnquotedEntry,
+            QuotedEntry,
+            AnotherQuote
         }
     }
 }
