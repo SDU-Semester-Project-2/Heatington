@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Text.Json.Serialization;
 using Heatington.Controllers;
 using Heatington.Services.Serializers;
 
@@ -15,6 +16,14 @@ namespace Heatington.Models
             ElectricityPrice = double.Parse(electricityPrice, CultureInfo.InvariantCulture);
         }
 
+        [JsonConstructor]
+        public DataPoint(DateTime startTime, DateTime endTime, double heatDemand, double electricityPrice)
+        {
+            StartTime = startTime;
+            EndTime = endTime;
+            HeatDemand = heatDemand;
+            ElectricityPrice = electricityPrice;
+        }
         // TODO: Maybe implement factory method to increase the abstraction
 
         public DateTime StartTime { get; }
