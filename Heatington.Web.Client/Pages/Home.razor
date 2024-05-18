@@ -74,43 +74,26 @@
     </MudGrid>
     <MudDivider FlexItem></MudDivider>
     <MudText Typo="Typo.h4" class="text-center">
-        Heat
+        Heat Demand
     </MudText>
-
-    @*Heat Line Chart*@
-    <div>
-        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@_seriesHeat" @bind-SelectedIndex="_indexHeat" XAxisLabels="@_xAxisLabels1" Width="100%" Height="350px" ChartOptions="@_options"/>
-        <MudGrid>
-            @* <MudItem xs="12"> *@
-            @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexHeat < 0 ? "None" : _seriesHeat[_indexHeat].Name)</MudText> *@
-            @* </MudItem> *@
-        </MudGrid>
-    </div>
     <MudDivider FlexItem></MudDivider>
     <MudText Typo="Typo.h4" class="text-center">
-        Electricity
+        Electricity Prices
     </MudText>
-    <div>
-        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@_seriesElectricity" @bind-SelectedIndex="_indexElectricity" XAxisLabels="@_xAxisLabels1" Width="100%" Height="350px" ChartOptions="@_options"/>
-        <MudGrid>
-            @* <MudItem xs="12"> *@
-            @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexElectricity < 0 ? "None" : _seriesElectricity[_indexElectricity].Name)</MudText> *@
-            @* </MudItem> *@
-        </MudGrid>
-    </div>
     <MudDivider FlexItem></MudDivider>
     <MudText Typo="Typo.h4" class="text-center">
         Optimizer
     </MudText>
-    <div>
-        <MudChart ChartType="ChartType.Line" ChartSeries="@_seriesBoilers" XAxisLabels="@_xAxisLabels3" Width="100%" Height="350px" CanHideSeries/>
-        <MudGrid>
-            @* <MudItem xs="12"> *@
-            @*     <MudText Class="text-center" Typo="Typo.body1">Selected: @(_indexBoilers < 0 ? "None" : _seriesBoilers[_indexBoilers].Name)</MudText> *@
-            @* </MudItem> *@
-        </MudGrid>
-        <MudChart ChartType="ChartType.StackedBar" ChartSeries="@_seriesBoilers" XAxisLabels="_xAxisLabels3" Width="100%" Height="350px"/>
-    </div>
+    <MudText Typo="Typo.h6" class="text-center">
+        Net Production Cost
+    </MudText>
+    <MudText Typo="Typo.h6" class="text-center">
+        CO2 Emission
+    </MudText>
+    <MudText Typo="Typo.h6" class="text-center">
+        Operation Points
+    </MudText>
+
     <MudDivider FlexItem></MudDivider>
     <MudText Typo="Typo.h4" class="text-center">
         Production Units
