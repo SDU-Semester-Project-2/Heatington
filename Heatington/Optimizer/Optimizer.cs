@@ -1,7 +1,4 @@
-using Heatington.Controllers;
-using Heatington.Helpers;
 using Heatington.Models;
-using Heatington.Services.Interfaces;
 
 namespace Heatington.Optimizer;
 
@@ -18,9 +15,9 @@ public class OPT(AssetManager.AM am, SourceDataManager.SDM sdm)
 
     private readonly Delegate[] evals = new Delegate[]
     {
-        new Func<ProductionUnit, double>((unit) => unit.ProductionCost),
-        new Func<ProductionUnit, DataPoint, double>((unit, dataPoint) =>
-            unit.ProductionCost - unit.MaxElectricity * dataPoint.ElectricityPrice),
+        new Func<ProductionUnit, double>((unit) => unit.ProductionCost), new Func<ProductionUnit, DataPoint, double>(
+            (unit, dataPoint) =>
+                unit.ProductionCost - unit.MaxElectricity * dataPoint.ElectricityPrice),
         new Func<ProductionUnit, double>((unit) => unit.Co2Emission)
     };
 
