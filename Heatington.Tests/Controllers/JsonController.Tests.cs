@@ -2,6 +2,7 @@ using System.Text.Json;
 using Heatington.Controllers;
 using Heatington.Controllers.Enums;
 using Heatington.Models;
+using Xunit.Abstractions;
 
 namespace Heatington.Tests.Controllers;
 

@@ -67,6 +67,7 @@ public class FileControllerTests : UseTestDirectory
         string fakeContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod";
         IReadWriteController fileController1;
         IReadWriteController fileController2;
+        int initialNumOfFiles = Directory.GetParent(TestFilePath)!.GetFiles().Length;
 
         //Act
         fileController1 = new FileController(TestFilePath);
@@ -77,7 +78,7 @@ public class FileControllerTests : UseTestDirectory
 
         //Assert
         int expectedNumOfFiles = 2;
-        int actualNumOfFiles = Directory.GetParent(TestFilePath)!.GetFiles().Length;
+        int actualNumOfFiles = Directory.GetParent(TestFilePath)!.GetFiles().Length - initialNumOfFiles;
         Assert.Equal(expectedNumOfFiles, actualNumOfFiles);
 
         Assert.Equal(OperationStatus.SUCCESS, status1);

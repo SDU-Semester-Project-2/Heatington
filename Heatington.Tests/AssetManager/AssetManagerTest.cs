@@ -4,12 +4,11 @@ using Heatington.Controllers.Interfaces;
 using Heatington.Helpers;
 using Heatington.Models;
 
-namespace Heatington.Tests;
+namespace Heatington.Tests.AssetManager;
 
 public class AssetManagerTest
 {
-
-    private readonly AssetManager.AssetManager _assetManager;
+    private readonly AM _assetManager;
 
     public AssetManagerTest()
     {
@@ -21,7 +20,7 @@ public class AssetManagerTest
         IReadWriteController heatingGridJsonController = new JsonController(pathToHeatingGrid);
         IReadWriteController productionUnitsJsonController = new JsonController(pathToProductionUnits);
 
-        _assetManager = new AssetManager.AssetManager(heatingGridJsonController, productionUnitsJsonController);
+        _assetManager = new AM(heatingGridJsonController, productionUnitsJsonController);
     }
 
     [Fact]
@@ -30,7 +29,7 @@ public class AssetManagerTest
         //Arrange
         HeatingGrid expectedHeatingGrid = new HeatingGrid("AssetManager/heating-grid.png",
             "Heatington Grid / Heating Area");
-        HeatingGrid loadedHeatingGrid;
+        HeatingGrid? loadedHeatingGrid;
 
         //Act
         Task loadAssets = _assetManager.LoadAssets();

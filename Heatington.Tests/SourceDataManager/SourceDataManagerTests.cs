@@ -1,12 +1,13 @@
 using System.Globalization;
 using Heatington.Models;
 using Heatington.Services.Interfaces;
+using Heatington.SourceDataManager;
 
 namespace Heatington.Tests.SourceDataManager
 {
     public class StubDataSource : IDataSource
     {
-        public List<DataPoint> Data { get; set; }
+        public List<DataPoint>? Data { get; set; }
 
         public Task<List<DataPoint>?> GetDataAsync()
         {
@@ -21,13 +22,13 @@ namespace Heatington.Tests.SourceDataManager
 
     public class SourceDataManagerTest
     {
-        private readonly Heatington.SourceDataManager.SourceDataManager _sourceDataManager;
+        private readonly SDM _sourceDataManager;
         private readonly StubDataSource _stubDataSource;
 
         public SourceDataManagerTest()
         {
             _stubDataSource = new StubDataSource();
-            _sourceDataManager = new Heatington.SourceDataManager.SourceDataManager(_stubDataSource);
+            _sourceDataManager = new(_stubDataSource);
         }
 
         [Theory]
