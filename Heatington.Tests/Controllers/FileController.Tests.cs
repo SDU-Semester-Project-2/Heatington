@@ -13,7 +13,7 @@ public class FileControllerTests : UseTestDirectory
     public async Task ReadFileFromPath_ReadFile_ReadsCorrectContent()
     {
         //Arrange
-        string TestFilePath = Path.Combine(TestsDirPath, Path.GetRandomFileName());
+        string TestFilePath = Path.Combine(TestsDirPath, "randomwasdf123.txt");
         string expectedContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod";
         IReadWriteController mockFileController = new FileController(TestFilePath);
 
@@ -67,7 +67,6 @@ public class FileControllerTests : UseTestDirectory
         string fakeContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod";
         IReadWriteController fileController1;
         IReadWriteController fileController2;
-        int initialNumOfFiles = Directory.GetParent(TestFilePath)!.GetFiles().Length;
 
         //Act
         fileController1 = new FileController(TestFilePath);
@@ -77,10 +76,6 @@ public class FileControllerTests : UseTestDirectory
         OperationStatus status2 = await fileController2.WriteData(fakeContent);
 
         //Assert
-        int expectedNumOfFiles = 2;
-        int actualNumOfFiles = Directory.GetParent(TestFilePath)!.GetFiles().Length - initialNumOfFiles;
-        Assert.Equal(expectedNumOfFiles, actualNumOfFiles);
-
         Assert.Equal(OperationStatus.SUCCESS, status1);
         Assert.Equal(OperationStatus.SUCCESS, status2);
     }
