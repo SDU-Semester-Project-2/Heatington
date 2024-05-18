@@ -18,9 +18,10 @@ public partial class Home : ComponentBase
 
     private List<ProductionUnit> _productionUnits = [];
 
+    public ChartOptions HeatAndElectricityChartOptions = new ChartOptions { YAxisTicks = 1 };
+
     // Charts
     private int Index = -1;
-    public ChartOptions Options = new ChartOptions();
 
 
     //TODO: Use Real Data!
@@ -79,8 +80,13 @@ public partial class Home : ComponentBase
                 Name = "Heat Demand", Data = _heatDemandWinterSeries.Select(x => x.YData).ToArray()
             },
         };
-
-        XAxisLabels = _heatDemandWinterSeries.Select(x => x.XData).ToArray();
+        XAxisLabels =
+            _heatDemandWinterSeries
+                .Select(x => DateTime.ParseExact(x.XData, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture))
+                .Select(dateTime => dateTime.Date)
+                .Distinct()
+                .Select(date => date.ToString("yyyy-MM-dd"))
+                .ToArray();
     }
 
     private async Task<List<ProductionUnit>> LoadProductionUnits()
