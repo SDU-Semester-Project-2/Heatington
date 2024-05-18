@@ -14,9 +14,10 @@ namespace Heatington.Web.Client.Pages;
 
 public partial class Home : ComponentBase
 {
-    private static List<HeatDemandChartData> _heatDemandWinterSeries;
-    private static List<HeatDemandChartData> _heatDemandSummerSeries;
-
+    private static List<ChartData> _heatDemandWinterSeries;
+    private static List<ChartData> _heatDemandSummerSeries;
+    private static List<ChartData> _electricityPriceWinterSeries;
+    private static List<ChartData> _electricityPriceSummerSeries;
     private List<ProductionUnit> _productionUnits = [];
 
     public ChartOptions HeatAndElectricityChartOptions = new ChartOptions { YAxisTicks = 1 };
@@ -33,7 +34,8 @@ public partial class Home : ComponentBase
     private double totalHeatProduced = new Random().Next(5000, 10000);
     private double totalProfit = new Random().Next(100000, 200000);
 
-    public List<ChartSeries> Series { get; set; }
+    public List<ChartSeries> HeatDemandSeries { get; set; }
+    public List<ChartSeries> ElectricityPriceSeries { get; set; }
     public string[] XAxisLabels { get; set; }
 
     [Inject] public HttpClient Http { get; set; }
@@ -50,16 +52,20 @@ public partial class Home : ComponentBase
 
             _heatDemandWinterSeries = [];
             _heatDemandSummerSeries = [];
+            _electricityPriceSummerSeries = [];
+            _electricityPriceWinterSeries = [];
 
             List<DataPoint> winterData = await LoadCsvData("Assets/Data/winter-data.csv");
             _heatDemandWinterSeries = GetHeatDemandSeries(winterData);
-            LogHeatDemandSeriesData(_heatDemandWinterSeries);
+            _electricityPriceWinterSeries = GetElectricityPriceSeries(winterData);
 
             List<DataPoint> summerData = await LoadCsvData("Assets/Data/summer-data.csv");
             _heatDemandSummerSeries = GetHeatDemandSeries(summerData);
-            LogHeatDemandSeriesData(_heatDemandSummerSeries);
+            _electricityPriceSummerSeries = GetElectricityPriceSeries(summerData);
+
 
             InitializeHeatDemandChartData();
+            InitializeElectricityPriceChartData();
             isDataReady = true;
 
             StateHasChanged();
@@ -80,12 +86,36 @@ public partial class Home : ComponentBase
             return;
         }
 
-        Series = new List<ChartSeries>()
+        HeatDemandSeries = new List<ChartSeries>()
         {
             new ChartSeries() { Name = "Winter", Data = _heatDemandWinterSeries.Select(x => x.YData).ToArray() },
             new ChartSeries() { Name = "Summer", Data = _heatDemandSummerSeries.Select(x => x.YData).ToArray() }
         };
         XAxisLabels = Enumerable.Range(1, _heatDemandWinterSeries.Count)
+            .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
+            .ToArray();
+    }
+
+    void InitializeElectricityPriceChartData()
+    {
+        if (_electricityPriceWinterSeries == null || _electricityPriceWinterSeries.Count == 0 ||
+            _electricityPriceSummerSeries == null || _electricityPriceSummerSeries.Count == 0)
+        {
+            return;
+        }
+
+        ElectricityPriceSeries = new List<ChartSeries>()
+        {
+            new ChartSeries()
+            {
+                Name = "Winter", Data = _electricityPriceWinterSeries.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Summer", Data = _electricityPriceSummerSeries.Select(x => x.YData).ToArray()
+            }
+        };
+        XAxisLabels = Enumerable.Range(1, _electricityPriceWinterSeries.Count)
             .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
             .ToArray();
     }
@@ -117,7 +147,7 @@ public partial class Home : ComponentBase
     }
 
     // TODO: Testing purpose only, may delete this later
-    private void LogHeatDemandSeriesData(List<HeatDemandChartData> seriesData)
+    private void LogHeatDemandSeriesData(List<ChartData> seriesData)
     {
         var seriesDataStr = string.Join(", ",
             seriesData.Select(data => $"(XData: {data.XData}, YData: {data.YData})"));
@@ -151,9 +181,9 @@ public partial class Home : ComponentBase
         }
     }
 
-    private List<HeatDemandChartData> GetHeatDemandSeries(List<DataPoint> dataPoints)
+    private List<ChartData> GetHeatDemandSeries(List<DataPoint> dataPoints)
     {
-        var heatDemandChartDataList = dataPoints.Select(dataPoint => new HeatDemandChartData
+        var heatDemandChartDataList = dataPoints.Select(dataPoint => new ChartData
         {
             XData = FormatDate(dataPoint.StartTime), YData = dataPoint.HeatDemand
         }).ToList();
@@ -167,14 +197,15 @@ public partial class Home : ComponentBase
         return heatDemandChartDataList;
     }
 
-    private List<ChartSeries> GetElectricityPriceSeries(List<DataPoint> dataPoints) =>
-        dataPoints.Select(dataPoint =>
-            new ChartSeries
-            {
-                // Format DateTime within the method
-                Name = $"{FormatDate(dataPoint.StartTime)} - {FormatDate(dataPoint.EndTime)}",
-                Data = new[] { dataPoint.ElectricityPrice }
-            }).ToList();
+    private List<ChartData> GetElectricityPriceSeries(List<DataPoint> dataPoints)
+    {
+        var electricityPriceDataList = dataPoints.Select(dataPoint => new ChartData()
+        {
+            XData = FormatDate(dataPoint.StartTime), YData = dataPoint.ElectricityPrice
+        }).ToList();
+
+        return electricityPriceDataList;
+    }
 
 
     // TimeZone data is not included with .NET's WebAssembly runtime.
@@ -253,7 +284,7 @@ public partial class Home : ComponentBase
         });
     }
 
-    public class HeatDemandChartData
+    public class ChartData
     {
         public string XData { get; set; }
         public double YData { get; set; }
