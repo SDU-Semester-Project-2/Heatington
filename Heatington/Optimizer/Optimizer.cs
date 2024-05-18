@@ -181,7 +181,7 @@ public class OPT()
         // Creates an object which holds the result
         ResultHolder result = new ResultHolder(dataPoint.StartTime, dataPoint.EndTime, dataPoint.HeatDemand,
             dataPoint.ElectricityPrice, selectedBoilers);
-        Console.WriteLine(result);
+        // Console.WriteLine(result);
 
         return result;
 
