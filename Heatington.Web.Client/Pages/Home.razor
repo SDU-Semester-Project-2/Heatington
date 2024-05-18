@@ -1,5 +1,7 @@
 ﻿@inject NavigationManager NavManager
 @page "/"
+@using System.Globalization
+@using Heatington.Models
 
 <style>
 .text-center {
@@ -111,40 +113,69 @@
     </div>
     <MudDivider FlexItem></MudDivider>
     <MudText Typo="Typo.h4" class="text-center">
-        Boilers
+        Production Units
     </MudText>
-    <MudTable Items="@_boilers" ServerData="new Func<TableState, Task<TableData<Boiler>>>(GetBoilersAsync)">
+    <MudTable Items="@_productionUnits">
         <HeaderContent>
             <MudTh>
-                <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.Name)">Name</MudTableSortLabel>
+                <MudTableSortLabel SortBy="new Func<ProductionUnit, object>(u => u.Name)">Name</MudTableSortLabel>
             </MudTh>
             <MudTh>
-                <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.MaxHeat)">Max Heat</MudTableSortLabel>
+                <MudTableSortLabel SortBy="new Func<ProductionUnit, object>(u => u.FullName)">
+                    Full Name
+                </MudTableSortLabel>
             </MudTh>
             <MudTh>
-                <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.MaxElectricity)">Max Electricity</MudTableSortLabel>
+                <MudTableSortLabel SortBy="new Func<ProductionUnit, object>(u => u.MaxHeat)">
+                    Max Heat MW
+                </MudTableSortLabel>
             </MudTh>
             <MudTh>
-                <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.ProductionCosts)">Production Costs</MudTableSortLabel>
+                <MudTableSortLabel SortBy="new Func<ProductionUnit, object>(u => u.MaxElectricity)">
+                    Max Electricity MW
+                </MudTableSortLabel>
             </MudTh>
             <MudTh>
-                <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.CO2Emissions)">CO2 Emissions</MudTableSortLabel>
+                <MudTableSortLabel SortBy="new Func<ProductionUnit, object>(u => u.ProductionCost)">
+                    Production Costs
+                    DKK/Mwh(th)
+                </MudTableSortLabel>
             </MudTh>
             <MudTh>
-                <MudTableSortLabel SortBy="new Func<Boiler, object>(boiler => boiler.PrimaryEnergy)">Primary Energy Consumption</MudTableSortLabel>
+                <MudTableSortLabel SortBy="new Func<ProductionUnit, object>(u => u.Co2Emission)">
+                    CO2 Emissions
+                    kg/Mwh(th)
+                </MudTableSortLabel>
             </MudTh>
-            <MudTh></MudTh> <!-- Header for the 'View More' button -->
+            <MudTh>
+                <MudTableSortLabel SortBy="new Func<ProductionUnit, object>(u => u.GasConsumption)">
+                    Primary Energy
+                    Consumption Mwh/Mwh(th)
+                </MudTableSortLabel>
+            </MudTh>
+            <MudTh></MudTh>
         </HeaderContent>
 
-        <RowTemplate Context="boiler">
-            <MudTd DataLabel="Name">@DisplayData(@boiler.Name)</MudTd>
-            <MudTd DataLabel="Max Heat">@DisplayData(@boiler.MaxHeat)</MudTd>
-            <MudTd DataLabel="Max Electricity">@DisplayData(@boiler.MaxElectricity)</MudTd>
-            <MudTd DataLabel="Production Costs">@DisplayData(@boiler.ProductionCosts)</MudTd>
-            <MudTd DataLabel="CO2 Emissions">@DisplayData(@boiler.CO2Emissions)</MudTd>
-            <MudTd DataLabel="Primary Energy Consumption">@DisplayData(@boiler.PrimaryEnergy)</MudTd>
+        <RowTemplate Context="productionUnit">
+            <MudTd DataLabel="Name">@productionUnit.Name</MudTd>
+            <MudTd DataLabel="Full Name">@productionUnit.FullName</MudTd>
+            <MudTd DataLabel="Max Heat">@productionUnit.MaxHeat.ToString(CultureInfo.InvariantCulture)</MudTd>
+            <MudTd
+                DataLabel="Max Electricity">
+                @productionUnit.MaxElectricity.ToString(CultureInfo.InvariantCulture)
+            </MudTd>
+            <MudTd
+                DataLabel="Production Costs">
+                @productionUnit.ProductionCost.ToString(CultureInfo.InvariantCulture)
+            </MudTd>
+            <MudTd DataLabel="CO2 Emissions">@productionUnit.Co2Emission.ToString(CultureInfo.InvariantCulture)</MudTd>
+            <MudTd
+                DataLabel="Primary Energy Consumption">
+                @productionUnit.GasConsumption.ToString(CultureInfo.InvariantCulture)
+            </MudTd>
             <MudTd>
-                <MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => ViewMore(boiler))">
+                <MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary"
+                           OnClick="(() => ViewMore(productionUnit))">
                     View More
                 </MudButton>
             </MudTd>
