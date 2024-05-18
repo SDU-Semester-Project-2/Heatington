@@ -12,12 +12,13 @@ public abstract class UseTestDirectory : IDisposable
         {
             Directory.CreateDirectory(TestsDirPath);
         }
-        else
-        {
-            ClearTestsDirectory();
-        }
+        // else
+        // {
+        //     ClearTestsDirectory();
+        // }
     }
-    private void ClearTestsDirectory() // NOT A TEST
+
+    public void ClearTestsDirectory() // NOT A TEST
     {
         // clear and remove temporary test folder
         DirectoryInfo di = new DirectoryInfo(TestsDirPath);
