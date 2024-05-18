@@ -2,6 +2,8 @@ using MudBlazor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Json;
+using Heatington.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -10,49 +12,6 @@ namespace Heatington.Web.Client.Pages;
 
 public partial class Home : ComponentBase
 {
-    readonly List<Boiler> _boilers =
-    [
-        new Boiler
-        {
-            Name = "Gas Boiler",
-            MaxHeat = "5.0 MW",
-            MaxElectricity = "",
-            ProductionCosts = "500 DKK / MWh(th)",
-            CO2Emissions = "215 kg / MWh(th)",
-            PrimaryEnergy = "1,1 MWh(gas) / MWh(th)"
-        },
-
-        new Boiler
-        {
-            Name = "Oil Boiler",
-            MaxHeat = "4.0 MW",
-            MaxElectricity = "",
-            ProductionCosts = "700 DKK / MWh(th)",
-            CO2Emissions = "265 kg / MWh(th)",
-            PrimaryEnergy = "1,2 MWh(oil) / MWh(th)"
-        },
-
-        new Boiler
-        {
-            Name = "Gas Motor",
-            MaxHeat = "3.6 MW",
-            MaxElectricity = "2.7 MW",
-            ProductionCosts = "1,100 DKK / MWh(th)",
-            CO2Emissions = "640 kg / MWh(th)",
-            PrimaryEnergy = "1.9 MWh(gas) / MWh(th)"
-        },
-
-        new Boiler
-        {
-            Name = "Electric Boiler",
-            MaxHeat = "8.0 MW",
-            MaxElectricity = "-8.0 MW",
-            ProductionCosts = "50 DKK / MWh(th)",
-            CO2Emissions = "", // As no value provided
-            PrimaryEnergy = "" // As no value provided
-        }
-    ];
-
     private readonly ChartOptions _options = new ChartOptions();
 
 
@@ -91,6 +50,9 @@ public partial class Home : ComponentBase
     private int _indexHeat = -1;
 
 
+    private List<ProductionUnit> _productionUnits = [];
+
+
     // for optimizer chart
 
     private List<ChartSeries> _seriesBoilers = new List<ChartSeries>();
@@ -107,7 +69,47 @@ public partial class Home : ComponentBase
     private double totalHeatProduced = new Random().Next(5000, 10000);
     private double totalProfit = new Random().Next(100000, 200000);
 
-    private void ViewMore(Boiler boiler)
+    [Inject] public HttpClient Http { get; set; }
+    [Inject] public IDialogService DialogService { get; set; }
+    [Inject] public ILogger<Home> Logger { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Logger.LogInformation("OnInitializedAsync in Home.razor started");
+            await base.OnInitializedAsync();
+
+            ProductionUnit[]? productionUnitsArray =
+                await Http.GetFromJsonAsync<ProductionUnit[]>("http://localhost:5271/api/productionunits");
+
+            if (productionUnitsArray != null)
+            {
+                _productionUnits = productionUnitsArray.ToList();
+            }
+
+            Logger.LogInformation($"Fetched {_productionUnits.Count} units.");
+            foreach (ProductionUnit productionUnit in _productionUnits)
+            {
+                Logger.LogInformation($"Production unit: {productionUnit.Name}, " +
+                                      $"MaxHeat: {productionUnit.MaxHeat}, " +
+                                      $"MaxElectricity: {productionUnit.MaxElectricity}, " +
+                                      $"ProductionCost: {productionUnit.ProductionCost}, " +
+                                      $"CO2 emissions: {productionUnit.Co2Emission}, " +
+                                      $"Primary energy consumption: {productionUnit.GasConsumption}");
+            }
+
+            RandomizeData();
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private void ViewMore(ProductionUnit productionUnit)
     {
         NavManager.NavigateTo("/resource-manager");
     }
@@ -119,18 +121,13 @@ public partial class Home : ComponentBase
 
     private string DisplayData(string data) => data.Length != 0 ? data : "No Data";
 
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        RandomizeData();
-    }
 
     private void RandomizeData()
     {
         var newSeries = new List<ChartSeries>();
-        foreach (var boiler in _boilers)
+        foreach (var productionUnit in _productionUnits)
         {
-            var series = new ChartSeries() { Name = boiler.Name, Data = new double[7] };
+            var series = new ChartSeries() { Name = productionUnit.Name, Data = new double[7] };
             for (int i = 0; i < 7; i++)
                 series.Data[i] = random.NextDouble() * 100;
             newSeries.Add(series);
@@ -141,22 +138,22 @@ public partial class Home : ComponentBase
     }
 
     // Trying to implement sorting TODO: not working on mobile version?!
-    public async Task<TableData<Boiler>> GetBoilersAsync(TableState state)
+    public async Task<TableData<ProductionUnit>> GetBoilersAsync(TableState state)
     {
-        Func<Boiler, object> sortBy = null;
+        Func<ProductionUnit, object> sortBy = null;
         switch (state.SortLabel)
         {
             case "Max Heat":
                 sortBy = (boiler) => boiler.MaxHeat;
                 break;
             case "Production Costs":
-                sortBy = (boiler) => boiler.ProductionCosts;
+                sortBy = (boiler) => boiler.ProductionCost;
                 break;
             case "CO2 Emissions":
-                sortBy = (boiler) => boiler.CO2Emissions;
+                sortBy = (boiler) => boiler.Co2Emission;
                 break;
             case "Primary Energy Consumption":
-                sortBy = (boiler) => boiler.PrimaryEnergy;
+                sortBy = (boiler) => boiler.GasConsumption;
                 break;
             default:
                 sortBy = (boiler) => boiler.Name;
@@ -165,26 +162,15 @@ public partial class Home : ComponentBase
 
         var sorted = state.SortDirection switch
         {
-            SortDirection.Ascending => _boilers.OrderBy(sortBy).ToList(),
-            SortDirection.Descending => _boilers.OrderByDescending(sortBy).ToList(),
-            _ => _boilers
+            SortDirection.Ascending => _productionUnits.OrderBy(sortBy).ToList(),
+            SortDirection.Descending => _productionUnits.OrderByDescending(sortBy).ToList(),
+            _ => _productionUnits
         };
 
-        return await Task.FromResult(new TableData<Boiler>
+        return await Task.FromResult(new TableData<ProductionUnit>
         {
             TotalItems = sorted.Count,
             Items = sorted.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList()
         });
-    }
-
-    public class Boiler
-    {
-        public string Name { get; set; }
-        public string MaxHeat { get; set; }
-        public string MaxElectricity { get; set; }
-        public string ProductionCosts { get; set; }
-        public string CO2Emissions { get; set; }
-        public string PrimaryEnergy { get; set; }
-        public SortDirection? SortDirection { get; set; }
     }
 }
