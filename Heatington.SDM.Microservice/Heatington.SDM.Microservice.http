@@ -1,6 +1,0 @@
-@Heatington.SDM.Microservice_HostAddress = http://localhost:5165
-
-GET {{Heatington.SDM.Microservice_HostAddress}}/TimeSeriesData
-Accept: application/json
-
-###
