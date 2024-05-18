@@ -31,25 +31,20 @@ public static class DependenciesService
         }
     }
 
-    public static async Task<List<DataPoint>?> GetDataPoints()
+    public static async Task<List<DataPoint>?> GetDataPoints(string season)
     {
         try
         {
-            // string uri = "http://www.contoso.com/";
-            // string uri = "http://localhost:5012";
-            // using HttpResponseMessage response = await Program.Client.GetAsync(uri);
-            // response.EnsureSuccessStatusCode();
-            // string responseBody = await response.Content.ReadAsStringAsync();
-            // Console.WriteLine(responseBody);
+            string uri = $"http://localhost:5165/api/TimeSeriesData?season={season}";
 
-            //TODO: CHANGE TO API CALL WHEN API IS READY
-            string fileName = "winter_period.csv";
-            string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
-            IDataSource dataSource = new CsvController(filePath);
-            SDM sdm = new(dataSource);
-            await sdm.FetchTimeSeriesDataAsync();
+            using HttpResponseMessage res = await Program.Client.GetAsync(uri);
+            res.EnsureSuccessStatusCode();
 
-            return sdm.TimeSeriesData;
+            List<DataPoint>? dataPoints;
+
+            dataPoints = await res.Content.ReadFromJsonAsync<List<DataPoint>>();
+
+            return dataPoints ?? new List<DataPoint>();
         }
         catch (HttpRequestException e)
         {
