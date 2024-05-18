@@ -121,7 +121,6 @@ namespace Heatington.Services.Serializers
             QuotedEntry,
             AnotherQuote
         }
-
         public static CsvData Deserialize(string rawData, bool includesHeader)
         {
             State currentState = State.Start;

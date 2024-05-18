@@ -9,6 +9,9 @@ using Heatington.Web.Client.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor;
+using System.Net.Http.Json;
+using Heatington.AssetManager;
+using Heatington.Models;
 
 namespace Heatington.Web.Client.Pages
 {
@@ -35,7 +38,7 @@ namespace Heatington.Web.Client.Pages
         }
 
         [Inject] public required IDialogService DialogService { get; set; }
-        [Inject] public required HttpClient Http { get; set; }
+        [Inject] public HttpClient Http { get; set; }
 
         [Inject] public required ILogger<ResourceManager> Logger { get; set; }
         //TODO: Take a look at this, should it be like this or just list because of GUID
