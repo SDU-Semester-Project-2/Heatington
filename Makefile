@@ -7,8 +7,21 @@ else
     OS_TYPE := $(shell uname)
 endif
 
-# Define the default target
-.DEFAULT_GOAL := run
+.PHONY: internal-target external-target
+.DEFAULT_GOAL := external-target
+
+handle_interrupt:
+	@echo "Interrupt signal received. Running cleanup script..."
+
+external-target:
+	bash -c "trap 'trap - SIGINT SIGTERM ERR; \
+	echo Starting clean up...; \
+	chmod +x ./scripts/terminate_dotnet_processes.sh; \
+	./scripts/terminate_dotnet_processes.sh; \
+	exit 1' SIGINT SIGTERM ERR; $(MAKE) internal-target"
+
+internal-target: run
+	echo "starting internal target..."
 
 # Define the run_projects target
 run:
@@ -84,5 +97,3 @@ run_console_unix_dev:
 	@echo Running console project on Unix-based system
 	@chmod +x ./scripts/run_console_dev.sh
 	@./scripts/run_console_dev.sh
-
-
