@@ -79,25 +79,8 @@ public partial class Home : ComponentBase
         {
             Logger.LogInformation("OnInitializedAsync in Home.razor started");
             await base.OnInitializedAsync();
+            _productionUnits = await LoadProductionUnits();
 
-            ProductionUnit[]? productionUnitsArray =
-                await Http.GetFromJsonAsync<ProductionUnit[]>("http://localhost:5271/api/productionunits");
-
-            if (productionUnitsArray != null)
-            {
-                _productionUnits = productionUnitsArray.ToList();
-            }
-
-            Logger.LogInformation($"Fetched {_productionUnits.Count} units.");
-            foreach (ProductionUnit productionUnit in _productionUnits)
-            {
-                Logger.LogInformation($"Production unit: {productionUnit.Name}, " +
-                                      $"MaxHeat: {productionUnit.MaxHeat}, " +
-                                      $"MaxElectricity: {productionUnit.MaxElectricity}, " +
-                                      $"ProductionCost: {productionUnit.ProductionCost}, " +
-                                      $"CO2 emissions: {productionUnit.Co2Emission}, " +
-                                      $"Primary energy consumption: {productionUnit.GasConsumption}");
-            }
 
             RandomizeData();
             StateHasChanged();
@@ -107,6 +90,33 @@ public partial class Home : ComponentBase
             Console.WriteLine(e);
             throw;
         }
+    }
+
+
+    private async Task<List<ProductionUnit>> LoadProductionUnits()
+    {
+        ProductionUnit[]? productionUnitsArray =
+            await Http.GetFromJsonAsync<ProductionUnit[]>("http://localhost:5271/api/productionunits");
+
+        List<ProductionUnit> productionUnits = new List<ProductionUnit>();
+
+        if (productionUnitsArray != null)
+        {
+            productionUnits = productionUnitsArray.ToList();
+        }
+
+        Logger.LogInformation($"Fetched {productionUnits.Count} units.");
+        foreach (ProductionUnit productionUnit in productionUnits)
+        {
+            Logger.LogInformation($"Production unit: {productionUnit.Name}, " +
+                                  $"MaxHeat: {productionUnit.MaxHeat}, " +
+                                  $"MaxElectricity: {productionUnit.MaxElectricity}, " +
+                                  $"ProductionCost: {productionUnit.ProductionCost}, " +
+                                  $"CO2 emissions: {productionUnit.Co2Emission}, " +
+                                  $"Primary energy consumption: {productionUnit.GasConsumption}");
+        }
+
+        return productionUnits;
     }
 
     private void ViewMore(ProductionUnit productionUnit)
