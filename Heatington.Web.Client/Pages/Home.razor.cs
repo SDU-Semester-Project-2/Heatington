@@ -1,3 +1,11 @@
+/// TODO:
+/// - Get the statistics all in one or for 6 scenarios individually
+/// - Operation Points
+/// - CO2
+/// - Fetching is done for all 6, you have to write your own formatting and init methods
+/// - TLDR: We need Operation Points graph, CO2 Emission Graphs for all 6 scenarios. After that it should be easy to
+///   calculate statistics by using the formatted data.
+
 using MudBlazor;
 using System;
 using System.Collections.Generic;
@@ -25,6 +33,7 @@ public partial class Home : ComponentBase
     private static List<ChartData> _productionCostScenario2Summer;
     private static List<ChartData> _productionCostScenarioCo2Winter;
     private static List<ChartData> _productionCostScenarioCo2Summer;
+
     private List<ProductionUnit> _productionUnits = [];
     public ChartOptions HeatAndElectricityChartOptions = new ChartOptions { YAxisTicks = 1 };
     private int Index = -1;
@@ -207,17 +216,6 @@ public partial class Home : ComponentBase
         if (productionUnitsArray != null)
         {
             productionUnits = productionUnitsArray.ToList();
-        }
-
-        Logger.LogInformation($"Fetched {productionUnits.Count} units.");
-        foreach (ProductionUnit productionUnit in productionUnits)
-        {
-            Logger.LogInformation($"Production unit: {productionUnit.Name}, " +
-                                  $"MaxHeat: {productionUnit.MaxHeat}, " +
-                                  $"MaxElectricity: {productionUnit.MaxElectricity}, " +
-                                  $"ProductionCost: {productionUnit.ProductionCost}, " +
-                                  $"CO2 emissions: {productionUnit.Co2Emission}, " +
-                                  $"Primary energy consumption: {productionUnit.GasConsumption}");
         }
 
         return productionUnits;
