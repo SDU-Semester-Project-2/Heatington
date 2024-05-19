@@ -1,5 +1,5 @@
-dotnet watch --project ./Heatington.Microservices.AM/Heatington.Microservices.AM.csproj &
- dotnet watch --project ./Heatington.Microservices.SDM/Heatington.Microservices.SDM.csproj &
+dotnet watch --project ./Heatington.Microservice.AM/Heatington.Microservice.AM.csproj &
+ dotnet watch --project ./Heatington.Microservice.SDM/Heatington.Microservice.SDM.csproj &
  dotnet watch --project ./Heatington.Microservice.OPT/Heatington.Microservice.OPT.csproj &
- dotnet watch --project ./Heatington.Microservices.RDM/Heatington.Microservices.RDM.csproj &
+ dotnet watch --project ./Heatington.Microservice.RDM/Heatington.Microservice.RDM.csproj &
  dotnet watch --project ./Heatington.Web/Heatington.Web.csproj
