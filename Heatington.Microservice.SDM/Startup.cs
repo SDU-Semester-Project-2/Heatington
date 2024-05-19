@@ -23,7 +23,7 @@ namespace SourceDataManagerAPI
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:5165")
+                        builder.WithOrigins("http://localhost:5150")
                             .AllowAnyHeader()
                             .AllowAnyMethod();
                     });
