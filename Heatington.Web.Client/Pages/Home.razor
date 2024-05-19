@@ -128,26 +128,29 @@
     </MudText>
     @if (isDataReady)
     {
+        <!-- Heat Demand chart -->
+        <MudText Typo="Typo.h4" class="text-center">Heat Demand</MudText>
         <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@HeatDemandSeries" @bind-SelectedIndex="Index"
                   XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="HeatAndElectricityChartOptions"/>
-    }
+        <MudDivider FlexItem></MudDivider>
 
-    <MudDivider FlexItem></MudDivider>
-    <MudText Typo="Typo.h4" class="text-center">
-        Electricity Prices
-    </MudText>
-    @if (isDataReady)
-    {
+        <!-- Electricity Prices chart -->
+        <MudText Typo="Typo.h4" class="text-center">Electricity Prices</MudText>
         <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@ElectricityPriceSeries" @bind-SelectedIndex="Index"
                   XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="HeatAndElectricityChartOptions"/>
+        <MudDivider FlexItem></MudDivider>
+
+        <!-- Net Production Cost chart -->
+        <MudText Typo="Typo.h4" class="text-center">
+            Optimizer
+        </MudText>
+        <MudText Typo="Typo.h6" class="text-center">
+            Net Production Cost
+        </MudText>
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@ProductionCostSeries" @bind-SelectedIndex="Index"
+                  XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="ProductionCostChartOptions"/>
+        <MudDivider FlexItem></MudDivider>
     }
-    <MudDivider FlexItem></MudDivider>
-    <MudText Typo="Typo.h4" class="text-center">
-        Optimizer
-    </MudText>
-    <MudText Typo="Typo.h6" class="text-center">
-        Net Production Cost
-    </MudText>
     <MudText Typo="Typo.h6" class="text-center">
         CO2 Emission
     </MudText>
