@@ -4,9 +4,9 @@ namespace Heatington.Optimizer;
 
 public enum OptimizationMode
 {
-    Scenario1 = 1,
-    Scenario2 = 2,
-    Co2 = 3
+    Scenario1,
+    Scenario2,
+    Co2
 }
 
 public class OPT()
