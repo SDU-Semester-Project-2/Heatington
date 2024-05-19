@@ -26,9 +26,9 @@ namespace Heatington.Microservice.OPT.Controllers
             [FromQuery] string season = "summer"
         )
         {
-            if (Enum.IsDefined(typeof(OptimizationMode), mode))
+            if (!Enum.IsDefined(typeof(OptimizationMode), mode))
             {
-                return StatusCode(400, "Wrong argument value: mode. Value has to be in range: [0,3]");
+                return StatusCode(400, "Wrong argument value: mode. Value has to be in (1,2,3) set");
             }
 
             // production units
