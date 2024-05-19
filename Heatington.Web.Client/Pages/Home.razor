@@ -22,10 +22,59 @@
 
 <MudContainer Class="d-flex flex-column align-items-center text-align-center space-y-4 ">
     <MudText Typo="Typo.h4" class="text-center">Heating Grid</MudText>
-    <MudImage Src="Assets/Images/heating-grid.png"></MudImage>
+    <MudImage Fluid="true" Alt="Heating Grid Map" Class="rounded-lg" Src="Assets/Images/heating-grid.png"></MudImage>
 
     <MudText Typo="Typo.h4" class="text-center">
-        Statistics
+        Statistics for Winter Period
+    </MudText>
+    <MudGrid>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
+                <div class="d-flex align-items-start">
+                    <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" class="mr-3"/>
+                    <div>
+                        <MudText Typo="Typo.h5" GutterBottom>Expenses</MudText>
+                        <MudText Typo="Typo.h6">@($"{TotalExpenses} DKK")</MudText>
+                    </div>
+                </div>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
+                <div class="d-flex align-items-start">
+                    <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3"/>
+                    <div>
+                        <MudText Typo="Typo.h5" GutterBottom>Profit</MudText>
+                        <MudText Typo="Typo.h6">@($"{totalProfit} DKK")</MudText>
+                    </div>
+                </div>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
+                <div class="d-flex align-items-start">
+                    <MudIcon Icon="@Icons.Material.Filled.Cloud" Size="Size.Large" class="mr-3"/>
+                    <div>
+                        <MudText Typo="Typo.h5" GutterBottom>CO2 Produced</MudText>
+                        <MudText Typo="Typo.h6">@($"{totalCO2Produced} kg")</MudText>
+                    </div>
+                </div>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="3">
+            <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
+                <div class="d-flex align-items-start">
+                    <MudIcon Icon="@Icons.Material.Filled.WbSunny" Size="Size.Large" class="mr-3"/>
+                    <div>
+                        <MudText Typo="Typo.h5" GutterBottom>Heat Produced</MudText>
+                        <MudText Typo="Typo.h6">@($"{totalHeatProduced} MW")</MudText>
+                    </div>
+                </div>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+    <MudText Typo="Typo.h4" class="text-center">
+        Statistics for Summer Period
     </MudText>
     <MudGrid>
         <MudItem xs="12" sm="6" md="3">
