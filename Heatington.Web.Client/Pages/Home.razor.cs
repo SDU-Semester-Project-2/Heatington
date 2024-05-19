@@ -15,16 +15,23 @@ public partial class Home : ComponentBase
 {
     private static List<ChartData> _heatDemandWinterSeries;
     private static List<ChartData> _heatDemandSummerSeries;
+
     private static List<ChartData> _electricityPriceWinterSeries;
     private static List<ChartData> _electricityPriceSummerSeries;
+
+    private static List<ChartData> _productionCostScenario1Winter;
+    private static List<ChartData> _productionCostScenario1Summer;
+
+    private static List<ChartData> _productionCostScenario2Winter;
+    private static List<ChartData> _productionCostScenario2Summer;
+
+    private static List<ChartData> _productionCostScenarioCo2Winter;
+    private static List<ChartData> _productionCostScenarioCo2Summer;
     private List<ProductionUnit> _productionUnits = [];
-
     public ChartOptions HeatAndElectricityChartOptions = new ChartOptions { YAxisTicks = 1 };
-
-    // Charts
     private int Index = -1;
-
     private bool isDataReady = false;
+    public ChartOptions ProductionCostChartOptions = new ChartOptions();
 
 
     //TODO: Use Real Data!
@@ -33,9 +40,11 @@ public partial class Home : ComponentBase
     private double totalHeatProduced = new Random().Next(5000, 10000);
     private double totalProfit = new Random().Next(100000, 200000);
 
-    public List<ChartSeries> HeatDemandSeries { get; set; }
-    public List<ChartSeries> ElectricityPriceSeries { get; set; }
-    public string[] XAxisLabels { get; set; }
+    private List<ChartSeries> HeatDemandSeries { get; set; }
+    private List<ChartSeries> ElectricityPriceSeries { get; set; }
+    private List<ChartSeries> ProductionCostSeries { get; set; }
+
+    private string[] XAxisLabels { get; set; }
 
     [Inject] public HttpClient Http { get; set; }
     [Inject] public IDialogService DialogService { get; set; }
@@ -67,6 +76,12 @@ public partial class Home : ComponentBase
             _electricityPriceSummerSeries = GetElectricityPriceSeries(summerData);
 
 
+            List<ResultHolder> rawResultDataWinterScenario1 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(
+                    "http://localhost:5019/api/optimizer?season=winter&mode=1");
+            _productionCostScenario1Winter = GetProductionCostSeries(rawResultDataWinterScenario1);
+
+            InitializeProductionCostChartData();
             InitializeHeatDemandChartData();
             InitializeElectricityPriceChartData();
             isDataReady = true;
@@ -123,6 +138,25 @@ public partial class Home : ComponentBase
             .ToArray();
     }
 
+    void InitializeProductionCostChartData()
+    {
+        if (_productionCostScenario1Winter == null || _productionCostScenario1Winter.Count == 0)
+        {
+            return;
+        }
+
+        ProductionCostSeries = new List<ChartSeries>()
+        {
+            new ChartSeries()
+            {
+                Name = "Winter Scenario 1", Data = _productionCostScenario1Winter.Select(x => x.YData).ToArray()
+            }
+        };
+        XAxisLabels = Enumerable.Range(1, _productionCostScenario1Winter.Count)
+            .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
+            .ToArray();
+    }
+
     private async Task<List<ProductionUnit>> LoadProductionUnits()
     {
         ProductionUnit[]? productionUnitsArray =
@@ -167,6 +201,16 @@ public partial class Home : ComponentBase
         }).ToList();
 
         return electricityPriceDataList;
+    }
+
+    private List<ChartData> GetProductionCostSeries(List<ResultHolder> rawResultData)
+    {
+        var productionCostDataList = rawResultData.Select(item => new ChartData()
+        {
+            XData = FormatDate(item.StartTime), YData = item.NetProductionCost
+        }).ToList();
+
+        return productionCostDataList;
     }
 
 
