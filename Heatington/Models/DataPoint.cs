@@ -9,8 +9,16 @@ namespace Heatington.Models
         [CsvConstructor]
         public DataPoint(string startTime, string endTime, string heatDemand, string electricityPrice)
         {
-            StartTime = DateTime.ParseExact(startTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
-            EndTime = DateTime.ParseExact(endTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
+            try
+            {
+                StartTime = DateTime.ParseExact(startTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
+                EndTime = DateTime.ParseExact(endTime, "M/d/yy H:mm", CultureInfo.InvariantCulture);
+            }
+            catch(FormatException)
+            {
+                StartTime = DateTime.ParseExact(startTime, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+                EndTime = DateTime.ParseExact(endTime, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+            }
             HeatDemand = double.Parse(heatDemand, CultureInfo.InvariantCulture);
             ElectricityPrice = double.Parse(electricityPrice, CultureInfo.InvariantCulture);
         }

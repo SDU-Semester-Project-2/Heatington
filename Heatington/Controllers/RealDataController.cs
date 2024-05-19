@@ -8,13 +8,14 @@ using Heatington.Services.Interfaces;
 
 namespace Heatington.Controllers
 {
-    class RealDataContorller : IDataSource
+    public class RealDataController : IDataSource
     {
         private EnerginetApiContorller _apiContorller;
-
-        public RealDataContorller()
+        public string filePath;
+        public RealDataController(string FilePath)
         {
             _apiContorller = new();
+            filePath = FilePath;
         }
 
 
@@ -22,8 +23,6 @@ namespace Heatington.Controllers
         {
             try
             {
-                string fileName = "winter_period.csv";
-                string filePath = Utilities.GeneratePathToFileInAssetsDirectory(fileName);
                 CsvController staticDataController = new CsvController(filePath);
                 List<DataPoint>? staticData = await staticDataController.GetDataAsync();
                 if (staticData is null || staticData.Count < 0)

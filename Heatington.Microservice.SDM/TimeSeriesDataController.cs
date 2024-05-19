@@ -10,17 +10,22 @@ namespace SourceDataManagerAPI.Controllers
         [HttpGet]
         public ActionResult<List<DataPoint>> Get(string season)
         {
-            if(season.ToLower() == "winter")        //http://localhost:5165/api/TimeSeriesData?season=winter
+            switch (season.ToLower())
             {
-                return SourceDataManagerModel.SDM_Winter.TimeSeriesData;
-            }
-            else if(season.ToLower() == "summer")   //http://localhost:5165/api/TimeSeriesData?season=summer
-            {
-                return SourceDataManagerModel.SDM_Summer.TimeSeriesData;
-            }
-            else
-            {
-                return BadRequest("Invalid season.");
+                case "winter":              //http://localhost:5165/api/TimeSeriesData?season=winter
+                    return SourceDataManagerModel.SDM_Winter.TimeSeriesData;
+
+                case "summer":              //http://localhost:5165/api/TimeSeriesData?season=summer
+                    return SourceDataManagerModel.SDM_Summer.TimeSeriesData;
+
+                case "winter-real":         //http://localhost:5165/api/TimeSeriesData?season=winter-real
+                    return SourceDataManagerModel.SDM_WinterReal.TimeSeriesData;
+
+                case "summer-real":         //http://localhost:5165/api/TimeSeriesData?season=summer-real
+                    return SourceDataManagerModel.SDM_SummerReal.TimeSeriesData;
+
+                default:
+                    return BadRequest("Invalid season.");
             }
         }
     }
