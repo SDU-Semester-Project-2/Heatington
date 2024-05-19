@@ -1,0 +1,673 @@
+﻿StartTime,EndTime,HeatDemand,ElectricityPrice,Boilers,NetProductionCost
+08/02/2023 00.00.00,08/02/2023 01.00.00,"6,62","1190,94","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1615,538"
+08/02/2023 00.00.00,08/02/2023 01.00.00,"6,62","1190,94","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,604, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1615,538"
+08/02/2023 01.00.00,08/02/2023 02.00.00,"6,85","1154,55","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1517,285"
+08/02/2023 01.00.00,08/02/2023 02.00.00,"6,85","1154,55","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,65, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1517,285"
+08/02/2023 02.00.00,08/02/2023 03.00.00,"6,98","1116,22","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1413,794"
+08/02/2023 02.00.00,08/02/2023 03.00.00,"6,98","1116,22","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,676, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1413,794"
+08/02/2023 03.00.00,08/02/2023 04.00.00,"7,04","1101,12","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1373,024"
+08/02/2023 03.00.00,08/02/2023 04.00.00,"7,04","1101,12","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,688, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1373,024"
+08/02/2023 04.00.00,08/02/2023 05.00.00,"7,72","1086,24","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1332,848"
+08/02/2023 04.00.00,08/02/2023 05.00.00,"7,72","1086,24","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,824, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1332,848"
+08/02/2023 05.00.00,08/02/2023 06.00.00,"7,85","1109,53","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1395,731"
+08/02/2023 05.00.00,08/02/2023 06.00.00,"7,85","1109,53","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,85, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1395,731"
+08/02/2023 06.00.00,08/02/2023 07.00.00,"8,15","1307,4","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1929,98"
+08/02/2023 06.00.00,08/02/2023 07.00.00,"8,15","1307,4","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,91, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1929,98"
+08/02/2023 07.00.00,08/02/2023 08.00.00,"7,62","1463,3","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2350,91"
+08/02/2023 07.00.00,08/02/2023 08.00.00,"7,62","1463,3","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,804, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2350,91"
+08/02/2023 08.00.00,08/02/2023 09.00.00,"7,55","1608,78","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2743,706"
+08/02/2023 08.00.00,08/02/2023 09.00.00,"7,55","1608,78","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,79, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2743,706"
+08/02/2023 09.00.00,08/02/2023 10.00.00,"7,6","1309,7","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1936,19"
+08/02/2023 09.00.00,08/02/2023 10.00.00,"7,6","1309,7","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,8, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1936,19"
+08/02/2023 10.00.00,08/02/2023 11.00.00,"7,75","952,51","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-971,777"
+08/02/2023 10.00.00,08/02/2023 11.00.00,"7,75","952,51","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,83, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-971,777"
+08/02/2023 11.00.00,08/02/2023 12.00.00,"7,06","882,93","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-783,911"
+08/02/2023 11.00.00,08/02/2023 12.00.00,"7,06","882,93","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,692, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-783,911"
+08/02/2023 12.00.00,08/02/2023 13.00.00,"6,68","860,31","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-722,837"
+08/02/2023 12.00.00,08/02/2023 13.00.00,"6,68","860,31","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,616, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-722,837"
+08/02/2023 13.00.00,08/02/2023 14.00.00,"6,73","854,88","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-708,176"
+08/02/2023 13.00.00,08/02/2023 14.00.00,"6,73","854,88","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,626, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-708,176"
+08/02/2023 14.00.00,08/02/2023 15.00.00,"6,84","850,12","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-695,324"
+08/02/2023 14.00.00,08/02/2023 15.00.00,"6,84","850,12","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,648, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-695,324"
+08/02/2023 15.00.00,08/02/2023 16.00.00,"7,3","933,09","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-919,343"
+08/02/2023 15.00.00,08/02/2023 16.00.00,"7,3","933,09","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,74, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-919,343"
+08/02/2023 16.00.00,08/02/2023 17.00.00,"7,39","953,26","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-973,802"
+08/02/2023 16.00.00,08/02/2023 17.00.00,"7,39","953,26","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,758, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-973,802"
+08/02/2023 17.00.00,08/02/2023 18.00.00,"7,68","951,1","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-967,97"
+08/02/2023 17.00.00,08/02/2023 18.00.00,"7,68","951,1","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,816, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-967,97"
+08/02/2023 18.00.00,08/02/2023 19.00.00,"7,38","765,21","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-466,067"
+08/02/2023 18.00.00,08/02/2023 19.00.00,"7,38","765,21","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,756, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-466,067"
+08/02/2023 19.00.00,08/02/2023 20.00.00,"7,4","716,47","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-334,469"
+08/02/2023 19.00.00,08/02/2023 20.00.00,"7,4","716,47","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,76, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-334,469"
+08/02/2023 20.00.00,08/02/2023 21.00.00,"7,56","696,3","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-280,01"
+08/02/2023 20.00.00,08/02/2023 21.00.00,"7,56","696,3","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,792, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-280,01"
+08/02/2023 21.00.00,08/02/2023 22.00.00,"7,69","665,34","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-196,418"
+08/02/2023 21.00.00,08/02/2023 22.00.00,"7,69","665,34","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,818, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-196,418"
+08/02/2023 22.00.00,08/02/2023 23.00.00,"7,66","663,56","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-191,612"
+08/02/2023 22.00.00,08/02/2023 23.00.00,"7,66","663,56","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,812, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-191,612"
+08/02/2023 23.00.00,09/02/2023 00.00.00,"7,54","636,77","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-119,279"
+08/02/2023 23.00.00,09/02/2023 00.00.00,"7,54","636,77","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,788, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-119,279"
+09/02/2023 00.00.00,09/02/2023 01.00.00,"7,58","615,31","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-61,337"
+09/02/2023 00.00.00,09/02/2023 01.00.00,"7,58","615,31","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,796, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-61,337"
+09/02/2023 01.00.00,09/02/2023 02.00.00,"7,68","588,89","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","9,997"
+09/02/2023 01.00.00,09/02/2023 02.00.00,"7,68","588,89","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,816, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","9,997"
+09/02/2023 02.00.00,09/02/2023 03.00.00,"7,71","577,88","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","39,724"
+09/02/2023 02.00.00,09/02/2023 03.00.00,"7,71","577,88","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,822, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","39,724"
+09/02/2023 03.00.00,09/02/2023 04.00.00,"7,7","577,66","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","40,318"
+09/02/2023 03.00.00,09/02/2023 04.00.00,"7,7","577,66","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,82, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","40,318"
+09/02/2023 04.00.00,09/02/2023 05.00.00,"8,16","583,16","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","25,468"
+09/02/2023 04.00.00,09/02/2023 05.00.00,"8,16","583,16","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,912, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","25,468"
+09/02/2023 05.00.00,09/02/2023 06.00.00,"8,45","617,99","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-68,573"
+09/02/2023 05.00.00,09/02/2023 06.00.00,"8,45","617,99","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,97, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-68,573"
+09/02/2023 06.00.00,09/02/2023 07.00.00,"8,51","629,23","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-98,921"
+09/02/2023 06.00.00,09/02/2023 07.00.00,"8,51","629,23","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,982, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-98,921"
+09/02/2023 07.00.00,09/02/2023 08.00.00,"7,79","689,06","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-260,462"
+09/02/2023 07.00.00,09/02/2023 08.00.00,"7,79","689,06","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,838, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-260,462"
+09/02/2023 08.00.00,09/02/2023 09.00.00,"7,64","769,66","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-478,082"
+09/02/2023 08.00.00,09/02/2023 09.00.00,"7,64","769,66","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,808, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-478,082"
+09/02/2023 09.00.00,09/02/2023 10.00.00,"7,71","802,85","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-567,695"
+09/02/2023 09.00.00,09/02/2023 10.00.00,"7,71","802,85","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,822, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-567,695"
+09/02/2023 10.00.00,09/02/2023 11.00.00,"7,64","781,42","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-509,834"
+09/02/2023 10.00.00,09/02/2023 11.00.00,"7,64","781,42","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,808, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-509,834"
+09/02/2023 11.00.00,09/02/2023 12.00.00,"6,99","716,9","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-335,63"
+09/02/2023 11.00.00,09/02/2023 12.00.00,"6,99","716,9","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,678, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-335,63"
+09/02/2023 12.00.00,09/02/2023 13.00.00,"6,39","692,56","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-269,912"
+09/02/2023 12.00.00,09/02/2023 13.00.00,"6,39","692,56","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,558, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-269,912"
+09/02/2023 13.00.00,09/02/2023 14.00.00,"6,22","678,35","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-231,545"
+09/02/2023 13.00.00,09/02/2023 14.00.00,"6,22","678,35","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,524, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-231,545"
+09/02/2023 14.00.00,09/02/2023 15.00.00,"6,28","647,02","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-146,954"
+09/02/2023 14.00.00,09/02/2023 15.00.00,"6,28","647,02","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,536, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-146,954"
+09/02/2023 15.00.00,09/02/2023 16.00.00,"6,78","645,53","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-142,931"
+09/02/2023 15.00.00,09/02/2023 16.00.00,"6,78","645,53","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,636, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-142,931"
+09/02/2023 16.00.00,09/02/2023 17.00.00,"7,01","650,07","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-155,189"
+09/02/2023 16.00.00,09/02/2023 17.00.00,"7,01","650,07","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,682, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-155,189"
+09/02/2023 17.00.00,09/02/2023 18.00.00,"7,18","647,16","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-147,332"
+09/02/2023 17.00.00,09/02/2023 18.00.00,"7,18","647,16","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,716, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-147,332"
+09/02/2023 18.00.00,09/02/2023 19.00.00,"6,65","649,7","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-154,19"
+09/02/2023 18.00.00,09/02/2023 19.00.00,"6,65","649,7","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,61, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-154,19"
+09/02/2023 19.00.00,09/02/2023 20.00.00,"6,72","638,53","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-124,031"
+09/02/2023 19.00.00,09/02/2023 20.00.00,"6,72","638,53","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,624, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-124,031"
+09/02/2023 20.00.00,09/02/2023 21.00.00,"6,86","625,29","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-88,283"
+09/02/2023 20.00.00,09/02/2023 21.00.00,"6,86","625,29","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,652, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-88,283"
+09/02/2023 21.00.00,09/02/2023 22.00.00,"6,83","621,34","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-77,618"
+09/02/2023 21.00.00,09/02/2023 22.00.00,"6,83","621,34","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,646, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-77,618"
+09/02/2023 22.00.00,09/02/2023 23.00.00,"6,86","624,62","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-86,474"
+09/02/2023 22.00.00,09/02/2023 23.00.00,"6,86","624,62","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,652, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-86,474"
+09/02/2023 23.00.00,10/02/2023 00.00.00,"6,78","620,15","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-74,405"
+09/02/2023 23.00.00,10/02/2023 00.00.00,"6,78","620,15","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,636, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-74,405"
+10/02/2023 00.00.00,10/02/2023 01.00.00,"6,8","580,99","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","31,327"
+10/02/2023 00.00.00,10/02/2023 01.00.00,"6,8","580,99","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,64, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","31,327"
+10/02/2023 01.00.00,10/02/2023 02.00.00,"6,8","592,3","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","0,79"
+10/02/2023 01.00.00,10/02/2023 02.00.00,"6,8","592,3","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,64, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","0,79"
+10/02/2023 02.00.00,10/02/2023 03.00.00,"6,82","622,22","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-79,994"
+10/02/2023 02.00.00,10/02/2023 03.00.00,"6,82","622,22","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,644, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-79,994"
+10/02/2023 03.00.00,10/02/2023 04.00.00,"6,95","634,79","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-113,933"
+10/02/2023 03.00.00,10/02/2023 04.00.00,"6,95","634,79","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,67, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-113,933"
+10/02/2023 04.00.00,10/02/2023 05.00.00,"7,73","659,87","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-181,649"
+10/02/2023 04.00.00,10/02/2023 05.00.00,"7,73","659,87","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,826, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-181,649"
+10/02/2023 05.00.00,10/02/2023 06.00.00,"7,9","706,76","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-308,252"
+10/02/2023 05.00.00,10/02/2023 06.00.00,"7,9","706,76","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,86, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-308,252"
+10/02/2023 06.00.00,10/02/2023 07.00.00,"8,11","795,76","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-548,552"
+10/02/2023 06.00.00,10/02/2023 07.00.00,"8,11","795,76","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,902, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-548,552"
+10/02/2023 07.00.00,10/02/2023 08.00.00,"7,62","1235,88","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1736,876"
+10/02/2023 07.00.00,10/02/2023 08.00.00,"7,62","1235,88","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,804, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1736,876"
+10/02/2023 08.00.00,10/02/2023 09.00.00,"7,64","1310,52","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1938,404"
+10/02/2023 08.00.00,10/02/2023 09.00.00,"7,64","1310,52","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,808, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1938,404"
+10/02/2023 09.00.00,10/02/2023 10.00.00,"7,44","1072,23","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1295,021"
+10/02/2023 09.00.00,10/02/2023 10.00.00,"7,44","1072,23","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,768, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1295,021"
+10/02/2023 10.00.00,10/02/2023 11.00.00,"7,26","847,86","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-689,222"
+10/02/2023 10.00.00,10/02/2023 11.00.00,"7,26","847,86","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,732, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-689,222"
+10/02/2023 11.00.00,10/02/2023 12.00.00,"7,03","740,32","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-398,864"
+10/02/2023 11.00.00,10/02/2023 12.00.00,"7,03","740,32","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,686, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-398,864"
+10/02/2023 12.00.00,10/02/2023 13.00.00,"6,77","706,46","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-307,442"
+10/02/2023 12.00.00,10/02/2023 13.00.00,"6,77","706,46","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,634, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-307,442"
+10/02/2023 13.00.00,10/02/2023 14.00.00,"6,72","671,18","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-212,186"
+10/02/2023 13.00.00,10/02/2023 14.00.00,"6,72","671,18","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,624, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-212,186"
+10/02/2023 14.00.00,10/02/2023 15.00.00,"6,9","615,67","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-62,309"
+10/02/2023 14.00.00,10/02/2023 15.00.00,"6,9","615,67","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,66, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-62,309"
+10/02/2023 15.00.00,10/02/2023 16.00.00,"7,34","608,6","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-43,22"
+10/02/2023 15.00.00,10/02/2023 16.00.00,"7,34","608,6","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,748, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-43,22"
+10/02/2023 16.00.00,10/02/2023 17.00.00,"7,48","597,21","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-12,467"
+10/02/2023 16.00.00,10/02/2023 17.00.00,"7,48","597,21","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,776, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-12,467"
+10/02/2023 17.00.00,10/02/2023 18.00.00,"7,45","603,39","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-29,153"
+10/02/2023 17.00.00,10/02/2023 18.00.00,"7,45","603,39","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,77, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-29,153"
+10/02/2023 18.00.00,10/02/2023 19.00.00,"6,92","593,12","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1,424"
+10/02/2023 18.00.00,10/02/2023 19.00.00,"6,92","593,12","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,664, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1,424"
+10/02/2023 19.00.00,10/02/2023 20.00.00,"6,82","578,01","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","39,373"
+10/02/2023 19.00.00,10/02/2023 20.00.00,"6,82","578,01","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,644, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","39,373"
+10/02/2023 20.00.00,10/02/2023 21.00.00,"6,78","544,08","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","130,984"
+10/02/2023 20.00.00,10/02/2023 21.00.00,"6,78","544,08","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,636, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","130,984"
+10/02/2023 21.00.00,10/02/2023 22.00.00,"6,68","527,93","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","174,589"
+10/02/2023 21.00.00,10/02/2023 22.00.00,"6,68","527,93","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,616, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","174,589"
+10/02/2023 22.00.00,10/02/2023 23.00.00,"6,56","499,2","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","252,16"
+10/02/2023 22.00.00,10/02/2023 23.00.00,"6,56","499,2","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,592, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","252,16"
+10/02/2023 23.00.00,11/02/2023 00.00.00,"6,46","334,89","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","695,797"
+10/02/2023 23.00.00,11/02/2023 00.00.00,"6,46","334,89","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,572, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","695,797"
+11/02/2023 00.00.00,11/02/2023 01.00.00,"6,35","557,82","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","93,886"
+11/02/2023 00.00.00,11/02/2023 01.00.00,"6,35","557,82","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,55, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","93,886"
+11/02/2023 01.00.00,11/02/2023 02.00.00,"6,31","577,84","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","39,832"
+11/02/2023 01.00.00,11/02/2023 02.00.00,"6,31","577,84","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,542, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","39,832"
+11/02/2023 02.00.00,11/02/2023 03.00.00,"6,37","576,8","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","42,64"
+11/02/2023 02.00.00,11/02/2023 03.00.00,"6,37","576,8","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,554, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","42,64"
+11/02/2023 03.00.00,11/02/2023 04.00.00,"6,43","573,45","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","51,685"
+11/02/2023 03.00.00,11/02/2023 04.00.00,"6,43","573,45","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,566, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","51,685"
+11/02/2023 04.00.00,11/02/2023 05.00.00,"7,04","576,58","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","43,234"
+11/02/2023 04.00.00,11/02/2023 05.00.00,"7,04","576,58","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,688, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","43,234"
+11/02/2023 05.00.00,11/02/2023 06.00.00,"6,96","566,53","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","70,369"
+11/02/2023 05.00.00,11/02/2023 06.00.00,"6,96","566,53","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,672, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","70,369"
+11/02/2023 06.00.00,11/02/2023 07.00.00,"6,96","580,97","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","31,381"
+11/02/2023 06.00.00,11/02/2023 07.00.00,"6,96","580,97","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,672, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","31,381"
+11/02/2023 07.00.00,11/02/2023 08.00.00,"6,61","587,59","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","13,507"
+11/02/2023 07.00.00,11/02/2023 08.00.00,"6,61","587,59","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,602, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","13,507"
+11/02/2023 08.00.00,11/02/2023 09.00.00,"6,82","595,41","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-7,607"
+11/02/2023 08.00.00,11/02/2023 09.00.00,"6,82","595,41","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,644, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-7,607"
+11/02/2023 09.00.00,11/02/2023 10.00.00,"6,89","607,17","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-39,359"
+11/02/2023 09.00.00,11/02/2023 10.00.00,"6,89","607,17","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,658, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-39,359"
+11/02/2023 10.00.00,11/02/2023 11.00.00,"6,69","612,83","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-54,641"
+11/02/2023 10.00.00,11/02/2023 11.00.00,"6,69","612,83","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,618, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-54,641"
+11/02/2023 11.00.00,11/02/2023 12.00.00,"6,62","607,17","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-39,359"
+11/02/2023 11.00.00,11/02/2023 12.00.00,"6,62","607,17","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,604, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-39,359"
+11/02/2023 12.00.00,11/02/2023 13.00.00,"6,5","600,03","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-20,081"
+11/02/2023 12.00.00,11/02/2023 13.00.00,"6,5","600,03","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,58, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-20,081"
+11/02/2023 13.00.00,11/02/2023 14.00.00,"6,4","603,9","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-30,53"
+11/02/2023 13.00.00,11/02/2023 14.00.00,"6,4","603,9","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,56, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-30,53"
+11/02/2023 14.00.00,11/02/2023 15.00.00,"6,58","609,7","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-46,19"
+11/02/2023 14.00.00,11/02/2023 15.00.00,"6,58","609,7","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,596, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-46,19"
+11/02/2023 15.00.00,11/02/2023 16.00.00,"6,2","599,21","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-17,867"
+11/02/2023 15.00.00,11/02/2023 16.00.00,"6,2","599,21","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,52, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-17,867"
+11/02/2023 16.00.00,11/02/2023 17.00.00,"6,29","660,25","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-182,675"
+11/02/2023 16.00.00,11/02/2023 17.00.00,"6,29","660,25","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,538, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-182,675"
+11/02/2023 17.00.00,11/02/2023 18.00.00,"6,07","744,23","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-409,421"
+11/02/2023 17.00.00,11/02/2023 18.00.00,"6,07","744,23","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,494, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-409,421"
+11/02/2023 18.00.00,11/02/2023 19.00.00,"6,27","832,82","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-648,614"
+11/02/2023 18.00.00,11/02/2023 19.00.00,"6,27","832,82","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,534, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-648,614"
+11/02/2023 19.00.00,11/02/2023 20.00.00,"6,3","809,51","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-585,677"
+11/02/2023 19.00.00,11/02/2023 20.00.00,"6,3","809,51","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,54, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-585,677"
+11/02/2023 20.00.00,11/02/2023 21.00.00,"6,25","743,26","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-406,802"
+11/02/2023 20.00.00,11/02/2023 21.00.00,"6,25","743,26","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,53, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-406,802"
+11/02/2023 21.00.00,11/02/2023 22.00.00,"6,16","731,05","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-373,835"
+11/02/2023 21.00.00,11/02/2023 22.00.00,"6,16","731,05","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,512, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-373,835"
+11/02/2023 22.00.00,11/02/2023 23.00.00,"6,23","703,51","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-299,477"
+11/02/2023 22.00.00,11/02/2023 23.00.00,"6,23","703,51","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,526, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-299,477"
+11/02/2023 23.00.00,12/02/2023 00.00.00,"6,09","706,04","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-306,308"
+11/02/2023 23.00.00,12/02/2023 00.00.00,"6,09","706,04","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,498, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-306,308"
+12/02/2023 00.00.00,12/02/2023 01.00.00,"6,05","965,7","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1007,39"
+12/02/2023 00.00.00,12/02/2023 01.00.00,"6,05","965,7","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,49, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1007,39"
+12/02/2023 01.00.00,12/02/2023 02.00.00,"6,05","934,21","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-922,367"
+12/02/2023 01.00.00,12/02/2023 02.00.00,"6,05","934,21","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,49, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-922,367"
+12/02/2023 02.00.00,12/02/2023 03.00.00,"6,06","981,11","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1048,997"
+12/02/2023 02.00.00,12/02/2023 03.00.00,"6,06","981,11","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,492, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1048,997"
+12/02/2023 03.00.00,12/02/2023 04.00.00,"6,24","949,69","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-964,163"
+12/02/2023 03.00.00,12/02/2023 04.00.00,"6,24","949,69","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,528, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-964,163"
+12/02/2023 04.00.00,12/02/2023 05.00.00,"6,75","881,88","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-781,076"
+12/02/2023 04.00.00,12/02/2023 05.00.00,"6,75","881,88","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,63, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-781,076"
+12/02/2023 05.00.00,12/02/2023 06.00.00,"6,74","885,08","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-789,716"
+12/02/2023 05.00.00,12/02/2023 06.00.00,"6,74","885,08","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,628, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-789,716"
+12/02/2023 06.00.00,12/02/2023 07.00.00,"6,72","804,15","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-571,205"
+12/02/2023 06.00.00,12/02/2023 07.00.00,"6,72","804,15","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,624, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-571,205"
+12/02/2023 07.00.00,12/02/2023 08.00.00,"6,27","864,83","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-735,041"
+12/02/2023 07.00.00,12/02/2023 08.00.00,"6,27","864,83","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,534, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-735,041"
+12/02/2023 08.00.00,12/02/2023 09.00.00,"6,51","1056,9","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1253,63"
+12/02/2023 08.00.00,12/02/2023 09.00.00,"6,51","1056,9","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,582, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1253,63"
+12/02/2023 09.00.00,12/02/2023 10.00.00,"6,71","1004,78","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1112,906"
+12/02/2023 09.00.00,12/02/2023 10.00.00,"6,71","1004,78","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,622, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1112,906"
+12/02/2023 10.00.00,12/02/2023 11.00.00,"6,59","1002,18","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1105,886"
+12/02/2023 10.00.00,12/02/2023 11.00.00,"6,59","1002,18","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,598, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1105,886"
+12/02/2023 11.00.00,12/02/2023 12.00.00,"6,41","900,34","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-830,918"
+12/02/2023 11.00.00,12/02/2023 12.00.00,"6,41","900,34","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,562, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-830,918"
+12/02/2023 12.00.00,12/02/2023 13.00.00,"6,28","790,61","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-534,647"
+12/02/2023 12.00.00,12/02/2023 13.00.00,"6,28","790,61","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,536, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-534,647"
+12/02/2023 13.00.00,12/02/2023 14.00.00,"6,26","756,88","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-443,576"
+12/02/2023 13.00.00,12/02/2023 14.00.00,"6,26","756,88","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,532, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-443,576"
+12/02/2023 14.00.00,12/02/2023 15.00.00,"6,53","740,73","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-399,971"
+12/02/2023 14.00.00,12/02/2023 15.00.00,"6,53","740,73","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,586, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-399,971"
+12/02/2023 15.00.00,12/02/2023 16.00.00,"6,48","733,8","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-381,26"
+12/02/2023 15.00.00,12/02/2023 16.00.00,"6,48","733,8","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,576, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-381,26"
+12/02/2023 16.00.00,12/02/2023 17.00.00,"6,45","877,86","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-770,222"
+12/02/2023 16.00.00,12/02/2023 17.00.00,"6,45","877,86","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,57, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-770,222"
+12/02/2023 17.00.00,12/02/2023 18.00.00,"6,14","1123,45","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1433,315"
+12/02/2023 17.00.00,12/02/2023 18.00.00,"6,14","1123,45","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,508, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1433,315"
+12/02/2023 18.00.00,12/02/2023 19.00.00,"6,3","1247,03","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1766,981"
+12/02/2023 18.00.00,12/02/2023 19.00.00,"6,3","1247,03","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,54, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1766,981"
+12/02/2023 19.00.00,12/02/2023 20.00.00,"6,17","1002,63","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1107,101"
+12/02/2023 19.00.00,12/02/2023 20.00.00,"6,17","1002,63","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,514, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1107,101"
+12/02/2023 20.00.00,12/02/2023 21.00.00,"6,1","1002,33","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1106,291"
+12/02/2023 20.00.00,12/02/2023 21.00.00,"6,1","1002,33","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,5, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1106,291"
+12/02/2023 21.00.00,12/02/2023 22.00.00,"6,09","797,16","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-552,332"
+12/02/2023 21.00.00,12/02/2023 22.00.00,"6,09","797,16","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,498, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-552,332"
+12/02/2023 22.00.00,12/02/2023 23.00.00,"6,09","767,38","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-471,926"
+12/02/2023 22.00.00,12/02/2023 23.00.00,"6,09","767,38","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,498, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-471,926"
+12/02/2023 23.00.00,13/02/2023 00.00.00,"6,03","734,85","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-384,095"
+12/02/2023 23.00.00,13/02/2023 00.00.00,"6,03","734,85","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,486, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-384,095"
+13/02/2023 00.00.00,13/02/2023 01.00.00,"6,08","773,11","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-487,397"
+13/02/2023 00.00.00,13/02/2023 01.00.00,"6,08","773,11","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,496, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-487,397"
+13/02/2023 01.00.00,13/02/2023 02.00.00,"6,18","753,01","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-433,127"
+13/02/2023 01.00.00,13/02/2023 02.00.00,"6,18","753,01","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,516, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-433,127"
+13/02/2023 02.00.00,13/02/2023 03.00.00,"6,26","751,67","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-429,509"
+13/02/2023 02.00.00,13/02/2023 03.00.00,"6,26","751,67","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,532, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-429,509"
+13/02/2023 03.00.00,13/02/2023 04.00.00,"6,39","766,93","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-470,711"
+13/02/2023 03.00.00,13/02/2023 04.00.00,"6,39","766,93","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,558, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-470,711"
+13/02/2023 04.00.00,13/02/2023 05.00.00,"6,96","773,33","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-487,991"
+13/02/2023 04.00.00,13/02/2023 05.00.00,"6,96","773,33","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,672, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-487,991"
+13/02/2023 05.00.00,13/02/2023 06.00.00,"7,09","818,15","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-609,005"
+13/02/2023 05.00.00,13/02/2023 06.00.00,"7,09","818,15","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,698, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-609,005"
+13/02/2023 06.00.00,13/02/2023 07.00.00,"7,34","1170,72","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1560,944"
+13/02/2023 06.00.00,13/02/2023 07.00.00,"7,34","1170,72","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,748, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1560,944"
+13/02/2023 07.00.00,13/02/2023 08.00.00,"6,84","1459,72","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2341,244"
+13/02/2023 07.00.00,13/02/2023 08.00.00,"6,84","1459,72","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,648, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2341,244"
+13/02/2023 08.00.00,13/02/2023 09.00.00,"6,94","1505,28","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2464,256"
+13/02/2023 08.00.00,13/02/2023 09.00.00,"6,94","1505,28","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,668, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2464,256"
+13/02/2023 09.00.00,13/02/2023 10.00.00,"6,86","1460,61","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2343,647"
+13/02/2023 09.00.00,13/02/2023 10.00.00,"6,86","1460,61","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,652, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2343,647"
+13/02/2023 10.00.00,13/02/2023 11.00.00,"6,73","1290,5","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1884,35"
+13/02/2023 10.00.00,13/02/2023 11.00.00,"6,73","1290,5","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,626, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1884,35"
+13/02/2023 11.00.00,13/02/2023 12.00.00,"6,46","1049,67","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1234,109"
+13/02/2023 11.00.00,13/02/2023 12.00.00,"6,46","1049,67","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,572, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1234,109"
+13/02/2023 12.00.00,13/02/2023 13.00.00,"6,21","916,42","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-874,334"
+13/02/2023 12.00.00,13/02/2023 13.00.00,"6,21","916,42","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,522, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-874,334"
+13/02/2023 13.00.00,13/02/2023 14.00.00,"6,26","893,34","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-812,018"
+13/02/2023 13.00.00,13/02/2023 14.00.00,"6,26","893,34","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,532, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-812,018"
+13/02/2023 14.00.00,13/02/2023 15.00.00,"6,34","893,34","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-812,018"
+13/02/2023 14.00.00,13/02/2023 15.00.00,"6,34","893,34","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,548, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-812,018"
+13/02/2023 15.00.00,13/02/2023 16.00.00,"6,66","900,78","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-832,106"
+13/02/2023 15.00.00,13/02/2023 16.00.00,"6,66","900,78","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,612, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-832,106"
+13/02/2023 16.00.00,13/02/2023 17.00.00,"6,71","1118,39","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1419,653"
+13/02/2023 16.00.00,13/02/2023 17.00.00,"6,71","1118,39","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,622, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1419,653"
+13/02/2023 17.00.00,13/02/2023 18.00.00,"6,81","1400,01","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2180,027"
+13/02/2023 17.00.00,13/02/2023 18.00.00,"6,81","1400,01","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,642, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2180,027"
+13/02/2023 18.00.00,13/02/2023 19.00.00,"6,47","1651,19","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2858,213"
+13/02/2023 18.00.00,13/02/2023 19.00.00,"6,47","1651,19","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,574, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2858,213"
+13/02/2023 19.00.00,13/02/2023 20.00.00,"6,26","1538,03","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2552,681"
+13/02/2023 19.00.00,13/02/2023 20.00.00,"6,26","1538,03","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,532, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2552,681"
+13/02/2023 20.00.00,13/02/2023 21.00.00,"6,2","1398,52","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2176,004"
+13/02/2023 20.00.00,13/02/2023 21.00.00,"6,2","1398,52","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,52, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2176,004"
+13/02/2023 21.00.00,13/02/2023 22.00.00,"6,22","1257,52","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1795,304"
+13/02/2023 21.00.00,13/02/2023 22.00.00,"6,22","1257,52","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,524, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1795,304"
+13/02/2023 22.00.00,13/02/2023 23.00.00,"6,15","1198,34","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1635,518"
+13/02/2023 22.00.00,13/02/2023 23.00.00,"6,15","1198,34","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,51, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1635,518"
+13/02/2023 23.00.00,14/02/2023 00.00.00,"6,19","1117,57","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1417,439"
+13/02/2023 23.00.00,14/02/2023 00.00.00,"6,19","1117,57","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,518, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1417,439"
+14/02/2023 00.00.00,14/02/2023 01.00.00,"6,15","1010,17","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1127,459"
+14/02/2023 00.00.00,14/02/2023 01.00.00,"6,15","1010,17","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,51, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1127,459"
+14/02/2023 01.00.00,14/02/2023 02.00.00,"6,33","985,59","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1061,093"
+14/02/2023 01.00.00,14/02/2023 02.00.00,"6,33","985,59","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,546, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1061,093"
+14/02/2023 02.00.00,14/02/2023 03.00.00,"6,32","984,39","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1057,853"
+14/02/2023 02.00.00,14/02/2023 03.00.00,"6,32","984,39","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,544, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1057,853"
+14/02/2023 03.00.00,14/02/2023 04.00.00,"6,38","984,1","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1057,07"
+14/02/2023 03.00.00,14/02/2023 04.00.00,"6,38","984,1","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,556, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1057,07"
+14/02/2023 04.00.00,14/02/2023 05.00.00,"7,02","985,59","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1061,093"
+14/02/2023 04.00.00,14/02/2023 05.00.00,"7,02","985,59","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,684, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1061,093"
+14/02/2023 05.00.00,14/02/2023 06.00.00,"7,21","1057,17","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1254,359"
+14/02/2023 05.00.00,14/02/2023 06.00.00,"7,21","1057,17","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,722, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1254,359"
+14/02/2023 06.00.00,14/02/2023 07.00.00,"7,4","1238,09","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1742,843"
+14/02/2023 06.00.00,14/02/2023 07.00.00,"7,4","1238,09","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,76, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1742,843"
+14/02/2023 07.00.00,14/02/2023 08.00.00,"6,92","1489,63","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2422,001"
+14/02/2023 07.00.00,14/02/2023 08.00.00,"6,92","1489,63","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,664, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2422,001"
+14/02/2023 08.00.00,14/02/2023 09.00.00,"7,06","1541,69","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2562,563"
+14/02/2023 08.00.00,14/02/2023 09.00.00,"7,06","1541,69","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,692, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2562,563"
+14/02/2023 09.00.00,14/02/2023 10.00.00,"7,02","1345,2","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2032,04"
+14/02/2023 09.00.00,14/02/2023 10.00.00,"7,02","1345,2","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,684, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2032,04"
+14/02/2023 10.00.00,14/02/2023 11.00.00,"7,12","1029,83","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1180,541"
+14/02/2023 10.00.00,14/02/2023 11.00.00,"7,12","1029,83","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,704, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1180,541"
+14/02/2023 11.00.00,14/02/2023 12.00.00,"7,08","1036,53","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1198,631"
+14/02/2023 11.00.00,14/02/2023 12.00.00,"7,08","1036,53","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,696, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1198,631"
+14/02/2023 12.00.00,14/02/2023 13.00.00,"7,08","970,99","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1021,673"
+14/02/2023 12.00.00,14/02/2023 13.00.00,"7,08","970,99","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,696, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1021,673"
+14/02/2023 13.00.00,14/02/2023 14.00.00,7,"934,12","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-922,124"
+14/02/2023 13.00.00,14/02/2023 14.00.00,7,"934,12","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,68, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-922,124"
+14/02/2023 14.00.00,14/02/2023 15.00.00,"6,64","945,44","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-952,688"
+14/02/2023 14.00.00,14/02/2023 15.00.00,"6,64","945,44","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,608, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-952,688"
+14/02/2023 15.00.00,14/02/2023 16.00.00,"7,09","985,59","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1061,093"
+14/02/2023 15.00.00,14/02/2023 16.00.00,"7,09","985,59","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,698, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1061,093"
+14/02/2023 16.00.00,14/02/2023 17.00.00,"7,07","1137,39","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1470,953"
+14/02/2023 16.00.00,14/02/2023 17.00.00,"7,07","1137,39","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,694, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1470,953"
+14/02/2023 17.00.00,14/02/2023 18.00.00,"7,03","1346,76","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2036,252"
+14/02/2023 17.00.00,14/02/2023 18.00.00,"7,03","1346,76","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,686, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2036,252"
+14/02/2023 18.00.00,14/02/2023 19.00.00,"6,53","1489,63","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2422,001"
+14/02/2023 18.00.00,14/02/2023 19.00.00,"6,53","1489,63","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,586, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2422,001"
+14/02/2023 19.00.00,14/02/2023 20.00.00,"6,38","1437,34","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-2280,818"
+14/02/2023 19.00.00,14/02/2023 20.00.00,"6,38","1437,34","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,556, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-2280,818"
+14/02/2023 20.00.00,14/02/2023 21.00.00,"6,51","1309,52","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1935,704"
+14/02/2023 20.00.00,14/02/2023 21.00.00,"6,51","1309,52","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,582, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1935,704"
+14/02/2023 21.00.00,14/02/2023 22.00.00,"6,34","1192,43","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1619,561"
+14/02/2023 21.00.00,14/02/2023 22.00.00,"6,34","1192,43","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,548, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1619,561"
+14/02/2023 22.00.00,14/02/2023 23.00.00,"6,41","1124,95","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1437,365"
+14/02/2023 22.00.00,14/02/2023 23.00.00,"6,41","1124,95","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,562, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1437,365"
+14/02/2023 23.00.00,15/02/2023 00.00.00,"6,35","1055,68","ID:72b13383-1838-40ee-abd5-bc754f598d55, Name:GM, Operation Point:1, Max Heat:3,6, Production Cost:1100
+Max Electricity:2,7, Gas Consumption:1,9, CO2 Emission:640","-1250,336"
+14/02/2023 23.00.00,15/02/2023 00.00.00,"6,35","1055,68","ID:618bbd4e-de8c-493d-a930-d4747d5e7c9a, Name:GB, Operation Point:0,55, Max Heat:5, Production Cost:500
+Gas Consumption:1,1, CO2 Emission:0","-1250,336"
