@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using Heatington.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SourceDataManagerAPI.Controllers
 {

@@ -1,7 +1,7 @@
-using Heatington.SourceDataManager;
-using Heatington.Services.Interfaces;
-using Heatington.Helpers;
 using Heatington.Controllers;
+using Heatington.Helpers;
+using Heatington.Services.Interfaces;
+using Heatington.SourceDataManager;
 
 namespace SourceDataManagerAPI
 {
@@ -9,6 +9,7 @@ namespace SourceDataManagerAPI
     {
         public static SDM SDM_Winter;
         public static SDM SDM_Summer;
+
         public static SDM SDM_WinterReal;
         public static SDM SDM_SummerReal;
 
@@ -21,7 +22,7 @@ namespace SourceDataManagerAPI
 
             IDataSource dataSourceWinter = new CsvController(filePathWinter);
             IDataSource dataSourceSummer = new CsvController(filePathSummer);
-            
+
             SDM_Winter = new SDM(dataSourceWinter);
             SDM_Summer = new SDM(dataSourceSummer);
 
@@ -31,7 +32,6 @@ namespace SourceDataManagerAPI
             loadTimeSeriesWinter.Wait();
             loadTimeSeriesSummer.Wait();
 
-            
             IDataSource dataSourceWinterReal = new RealDataController(filePathWinter);
             IDataSource dataSourceSummerReal = new RealDataController(filePathSummer);
 
@@ -40,17 +40,15 @@ namespace SourceDataManagerAPI
 
             loadRealDataSourceWinter.Wait();
             loadRealDataSourceSummer.Wait();
-            
+
             SDM_WinterReal = new SDM(dataSourceWinterReal);
             SDM_SummerReal = new SDM(dataSourceWinterReal);
 
             Task loadTimeSeriesWinterReal = SDM_WinterReal.FetchTimeSeriesDataAsync();
             Task loadTimeSeriesSummerReal = SDM_SummerReal.FetchTimeSeriesDataAsync();
-            
+
             loadTimeSeriesWinterReal.Wait();
             loadTimeSeriesSummerReal.Wait();
-
-            
         }
     }
 }
