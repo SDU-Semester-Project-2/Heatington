@@ -4,6 +4,17 @@
 
 > [How to install Docfx](./docs/introduction.md)
 
+## _HOW TO RUN THE APP_
+### Running the Console App
+```shell
+make run_console
+```
+
+### Running the Web App
+```shell
+make
+```
+there is an `DEV` variable inside of `Makefile` you can set it to false to turn off the hot reload
 
 
 ## What are we developing
