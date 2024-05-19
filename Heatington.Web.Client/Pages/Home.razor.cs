@@ -21,10 +21,8 @@ public partial class Home : ComponentBase
 
     private static List<ChartData> _productionCostScenario1Winter;
     private static List<ChartData> _productionCostScenario1Summer;
-
     private static List<ChartData> _productionCostScenario2Winter;
     private static List<ChartData> _productionCostScenario2Summer;
-
     private static List<ChartData> _productionCostScenarioCo2Winter;
     private static List<ChartData> _productionCostScenarioCo2Summer;
     private List<ProductionUnit> _productionUnits = [];
@@ -81,11 +79,36 @@ public partial class Home : ComponentBase
                     "http://localhost:5019/api/optimizer?season=winter&mode=1");
             _productionCostScenario1Winter = GetProductionCostSeries(rawResultDataWinterScenario1);
 
+            List<ResultHolder> rawResultDataWinterScenario2 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(
+                    "http://localhost:5019/api/optimizer?season=winter&mode=2");
+            _productionCostScenario2Winter = GetProductionCostSeries(rawResultDataWinterScenario2);
+
+            List<ResultHolder> rawResultDataWinterScenarioCo2 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(
+                    "http://localhost:5019/api/optimizer?season=winter&mode=2");
+            _productionCostScenarioCo2Winter = GetProductionCostSeries(rawResultDataWinterScenarioCo2);
+
+            List<ResultHolder> rawResultDataSummerScenario1 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(
+                    "http://localhost:5019/api/optimizer?season=summer&mode=1");
+            _productionCostScenario1Summer = GetProductionCostSeries(rawResultDataSummerScenario1);
+
+            List<ResultHolder> rawResultDataSummerScenario2 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(
+                    "http://localhost:5019/api/optimizer?season=summer&mode=2");
+            _productionCostScenario2Summer = GetProductionCostSeries(rawResultDataSummerScenario2);
+
+            List<ResultHolder> rawResultDataSummerScenarioCo2 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(
+                    "http://localhost:5019/api/optimizer?season=summer&mode=2");
+            _productionCostScenarioCo2Summer = GetProductionCostSeries(rawResultDataSummerScenarioCo2);
+
+
             InitializeProductionCostChartData();
             InitializeHeatDemandChartData();
             InitializeElectricityPriceChartData();
             isDataReady = true;
-
             StateHasChanged();
         }
         catch (Exception e)
@@ -140,16 +163,33 @@ public partial class Home : ComponentBase
 
     void InitializeProductionCostChartData()
     {
-        if (_productionCostScenario1Winter == null || _productionCostScenario1Winter.Count == 0)
-        {
-            return;
-        }
-
         ProductionCostSeries = new List<ChartSeries>()
         {
             new ChartSeries()
             {
                 Name = "Winter Scenario 1", Data = _productionCostScenario1Winter.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Winter Scenario 2", Data = _productionCostScenario2Winter.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Winter Scenario Co2",
+                Data = _productionCostScenarioCo2Winter.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Summer Scenario 1", Data = _productionCostScenario1Summer.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Summer Scenario 2", Data = _productionCostScenario2Summer.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Summer Scenario Co2",
+                Data = _productionCostScenarioCo2Summer.Select(x => x.YData).ToArray()
             }
         };
         XAxisLabels = Enumerable.Range(1, _productionCostScenario1Winter.Count)
