@@ -32,12 +32,7 @@
                                   Src="@productionUnit.PictureBase64Url">
                         </MudImage>
                     }
-                    @* This is not working right now because the API doesn't actuall store the images. TODO: Try this again
-                    @if (!string.IsNullOrEmpty(@productionUnit.PicturePath)) *@
-                    @* { *@
-                    @*     var imageUrl = $"http://localhost:5271/api/productionunits/{@productionUnit.PicturePath}"; *@
-                    @*     <MudImage Style="min-width: 220px; max-width: 220px; max-height: 220px; min-height: 220px" Src="@imageUrl"></MudImage> *@
-                    @* } *@
+
                 </div>
                 <div class="mt-3">
                     <MudText Typo="Typo.body2">Max Heat: @productionUnit.MaxHeat MW</MudText>
@@ -60,6 +55,12 @@
         <MudText Typo="Typo.h4"> Heat Demand Data</MudText>
         <InputFile id="fileUpload" OnChange="HandleCSVUpload"></InputFile>
     </div>
+    <div class="mt-3">
+        <MudSelect class="" @bind-Value="SelectedSeason" Label="Select season" Variant="Variant.Outlined" T="string">
+            <MudSelectItem Value=@("Winter")/>
+            <MudSelectItem Value=@("Summer")/>
+        </MudSelect>
+    </div>
 </MudContainer>
 
 
@@ -70,8 +71,8 @@
             <Columns>
                 <PropertyColumn Property="data => data.StartDate" Title="Start Time"/>
                 <PropertyColumn Property="data => data.EndDate" Title="End Time"/>
-                <PropertyColumn Property="data => data.Value1" Title="Heat Demand MWh"/>
-                <PropertyColumn Property="data => data.Value2" Title="Electricity Price DKK/MWh"/>
+                <PropertyColumn Property="data => data.HeatDemand" Title="Heat Demand MWh"/>
+                <PropertyColumn Property="data => data.ElectricityPrice" Title="Electricity Price DKK/MWh"/>
             </Columns>
         </MudDataGrid>
     </MudContainer>
