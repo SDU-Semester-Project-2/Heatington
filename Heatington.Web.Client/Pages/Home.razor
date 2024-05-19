@@ -4,16 +4,16 @@
 @using Heatington.Models
 
 <style>
-.text-center {
-    text-align: center;
-}
-.space-y-4 > * + * {
-    margin-top: 2rem;
-}
+    .text-center {
+        text-align: center;
+    }
+    .space-y-4 > * + * {
+        margin-top: 2rem;
+    }
 
-.chart-container {
-    width: 100%;
-}
+    .chart-container {
+        width: 100%;
+    }
 
 
 </style>
@@ -152,6 +152,10 @@
     <MudText Typo="Typo.h6" class="text-center">
         CO2 Emission
     </MudText>
+    <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2EmissionSeries" @bind-SelectedIndex="Index"
+              XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
+    <MudDivider FlexItem></MudDivider>
+
     <MudText Typo="Typo.h6" class="text-center">
         Operation Points
     </MudText>
@@ -228,4 +232,3 @@
     </MudTable>
 
 </MudContainer>
-
