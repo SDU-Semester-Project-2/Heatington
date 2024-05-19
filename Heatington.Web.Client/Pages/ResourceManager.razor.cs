@@ -1,11 +1,14 @@
+using System.ComponentModel;
 using System.Globalization;
-using System.Net.Http.Json;
-using Heatington.AssetManager;
-using Heatington.Models;
 using Heatington.Web.Client.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor;
+using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Heatington.AssetManager;
+using Heatington.Models;
 
 namespace Heatington.Web.Client.Pages
 {
@@ -15,15 +18,28 @@ namespace Heatington.Web.Client.Pages
 
 
         List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
+        private string _selectedSeason = "Winter";
         private List<HeatDemandData> heatDemandDataList = new List<HeatDemandData>();
+
+        public string SelectedSeason
+        {
+            get { return _selectedSeason; }
+            set
+            {
+                if (_selectedSeason != value)
+                {
+                    _selectedSeason = value;
+                    _ = LoadDataForSeason();
+                }
+            }
+        }
+
         [Inject] public required IDialogService DialogService { get; set; }
         [Inject] public required HttpClient Http { get; set; }
 
         [Inject] public required ILogger<ResourceManager> Logger { get; set; }
-
         //TODO: Take a look at this, should it be like this or just list because of GUID
         // public Dictionary<ProductionUnitsEnum, ProductionUnit> _productionUnits;
-
 
         [Obsolete]
         async void OpenDialog()
@@ -42,7 +58,6 @@ namespace Heatington.Web.Client.Pages
             }
         }
 
-        // Method overload to open dialog with selected boiler
         [Obsolete]
         async void OpenDialog(ProductionUnit productionUnit)
         {
@@ -60,6 +75,15 @@ namespace Heatington.Web.Client.Pages
             }
         }
 
+        private async Task LoadDataForSeason()
+        {
+            string apiEndpoint = $"http://localhost:5165/api/TimeSeriesData?season={_selectedSeason.ToLower()}";
+            string jsonContent = await Http.GetStringAsync(apiEndpoint);
+            Logger.LogInformation("Fetched JSON content: " + jsonContent.Substring(0, 200));
+            heatDemandDataList.Clear();
+            ParseJsonData(jsonContent);
+            StateHasChanged();
+        }
 
         private string DisplayData(double data) =>
             Convert.ToString(data.ToString().Length != 0 ? data.ToString().Length : "No Data");
@@ -98,13 +122,29 @@ namespace Heatington.Web.Client.Pages
                     {
                         StartDate = DateTime.Parse(values[0], culture),
                         EndDate = DateTime.Parse(values[1], culture),
-                        Value1 = float.Parse(values[2], culture),
-                        Value2 = float.Parse(values[3], culture),
+                        HeatDemand = float.Parse(values[2], culture),
+                        ElectricityPrice = float.Parse(values[3], culture),
                     });
                 }
             }
 
             StateHasChanged();
+        }
+
+        private void ParseJsonData(string jsonContent)
+        {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                Converters = { new JsonStringEnumConverter(), new DateTimeConverter() }
+            };
+
+            var data = JsonSerializer.Deserialize<List<HeatDemandData>>(jsonContent, options);
+
+            foreach (var item in data)
+            {
+                heatDemandDataList.Add(item);
+            }
         }
 
         protected override async Task OnInitializedAsync()
@@ -137,30 +177,14 @@ namespace Heatington.Web.Client.Pages
                             throw new Exception();
                         }
                     }
-
-                    // Checking Logs
-                    // TODO: Delete this later?
-                    Logger.LogInformation($"Fetched {_productionUnits.Count} units.");
-                    foreach (var unit in _productionUnits)
-                    {
-                        Logger.LogInformation($"Unit: {unit.Name}");
-                        Logger.LogInformation($"PicturePath: {unit.PicturePath}");
-                        if (!string.IsNullOrEmpty(unit.PictureBase64Url))
-                        {
-                            Logger.LogInformation($"PictureBase64Url: " +
-                                                  $"{unit.PictureBase64Url.Substring(0, 50)}...");
-                        }
-                    }
                 }
 
-                var pathToProjectRootDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent
-                    ?.Parent?.Parent?.Parent;
-
-                if (pathToProjectRootDirectory != null)
+                if (heatDemandDataList.Count == 0)
                 {
-                    string pathToFile = Path.Combine(pathToProjectRootDirectory.FullName,
-                        "Heatington.Web.Client/wwwroot/Assets/Data/winter-data.csv");
-                    await ReadCsvDataOnLoad(pathToFile);
+                    string jsonContent =
+                        await Http.GetStringAsync("http://localhost:5165/api/TimeSeriesData?season=winter");
+                    Logger.LogInformation("Fetched JSON content: " + jsonContent.Substring(0, 200));
+                    ParseJsonData(jsonContent);
                 }
 
                 StateHasChanged();
@@ -171,12 +195,29 @@ namespace Heatington.Web.Client.Pages
             }
         }
 
+        public class DateTimeConverter : JsonConverter<DateTime>
+        {
+            public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            {
+                return DateTime.ParseExact(reader.GetString(), format: "yyyy-MM-ddTHH:mm:ss",
+                    CultureInfo.InvariantCulture);
+            }
+
+            public override void Write(Utf8JsonWriter writer, DateTime dateTimeValue, JsonSerializerOptions options)
+            {
+                writer.WriteStringValue(dateTimeValue.ToString("yyyy-MM-ddTHH:mm:ss"));
+            }
+        }
+
         public class HeatDemandData
         {
-            public DateTime StartDate { get; set; }
-            public DateTime EndDate { get; set; }
-            public float Value1 { get; set; }
-            public float Value2 { get; set; }
+            [JsonPropertyName("startTime")] public DateTime StartDate { get; set; }
+
+            [JsonPropertyName("endTime")] public DateTime EndDate { get; set; }
+
+            [JsonPropertyName("heatDemand")] public float HeatDemand { get; set; }
+
+            [JsonPropertyName("electricityPrice")] public float ElectricityPrice { get; set; }
         }
     }
 }
