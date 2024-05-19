@@ -1,7 +1,6 @@
 using MudBlazor;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Net.Http.Json;
 using Heatington.Models;
@@ -150,53 +149,12 @@ public partial class Home : ComponentBase
         return productionUnits;
     }
 
-    // TODO: Testing purpose only, may delete this later
-    private void LogHeatDemandSeriesData(List<ChartData> seriesData)
-    {
-        var seriesDataStr = string.Join(", ",
-            seriesData.Select(data => $"(XData: {data.XData}, YData: {data.YData})"));
-        Logger.LogInformation($"_heatDemandWinterSeries: {seriesDataStr}");
-    }
-
-
-    private async Task<List<DataPoint>> LoadCsvData(string path)
-    {
-        try
-        {
-            string csvRawData = await Http.GetStringAsync(path);
-            Logger.LogInformation($"Successfully fetched CSV data from {path}");
-            CsvData csvData = CsvSerializer.Deserialize(csvRawData, true);
-            Logger.LogInformation("Successfully deserialized CSV data to CsvData object");
-            List<DataPoint> dataPoints = csvData.ConvertRecords<DataPoint>();
-            Logger.LogInformation($"Successfully converted CsvData to List<DataPoint> with {dataPoints.Count} items");
-
-            // Log entire list as one entry
-            var dataPointsStr = string.Join(", ",
-                dataPoints.Select(dp =>
-                    $"(StartTime: {dp.StartTime}, EndTime: {dp.EndTime}, HeatDemand: {dp.HeatDemand}, ElectricityPrice: {dp.ElectricityPrice})"));
-            Logger.LogInformation($"DataPoints: {dataPointsStr}");
-
-            return dataPoints;
-        }
-        catch (Exception ex)
-        {
-            Logger.LogError(ex, $"An error occurred when trying to load CSV data from {path}");
-            throw;
-        }
-    }
-
     private List<ChartData> GetHeatDemandSeries(List<DataPoint> dataPoints)
     {
         var heatDemandChartDataList = dataPoints.Select(dataPoint => new ChartData
         {
             XData = FormatDate(dataPoint.StartTime), YData = dataPoint.HeatDemand
         }).ToList();
-
-        // Logging each HeatDemandChartData
-        // foreach (var data in heatDemandChartDataList)
-        // {
-        //     Logger.LogInformation($"GetXData: {data.XData}, GetYData: {data.YData}");
-        // }
 
         return heatDemandChartDataList;
     }
@@ -221,71 +179,12 @@ public partial class Home : ComponentBase
         var offset = TimeSpan.FromHours(2); // Offset for Central European Summer (+2 GMT)
         DateTime datetimeInDanish = datetime.ToUniversalTime().Add(offset);
         string formattedDate = datetimeInDanish.ToString("yyyy-MM-ddTHH:mm:ss");
-
-        // Logger.LogInformation($"FormatDate: {formattedDate}"); // Logging formatted date
         return formattedDate;
-    }
-
-
-    // To many x-labels, want to clean it
-    public IEnumerable<string> GetUniqueDays(IEnumerable<string> dates)
-    {
-        return dates
-            .Select(d =>
-                DateTime.ParseExact(d, "dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture)) // Parse the datetime strings
-            .Select(d => d.Date) // Select just the Date part of the DateTime
-            .Distinct() // Get only unique dates
-            .Select(d => d.ToString("dd.MM.yyyy")); // Format the DateTime as a string
     }
 
     private void ViewMore(ProductionUnit productionUnit)
     {
         NavManager.NavigateTo("/resource-manager");
-    }
-
-    private void GoTo(string pageName)
-    {
-        NavManager.NavigateTo($"/{pageName}");
-    }
-
-    private string DisplayData(string data) => data.Length != 0 ? data : "No Data";
-
-
-    // Trying to implement sorting TODO: not working on mobile version?!
-    public async Task<TableData<ProductionUnit>> GetBoilersAsync(TableState state)
-    {
-        Func<ProductionUnit, object> sortBy = null;
-        switch (state.SortLabel)
-        {
-            case "Max Heat":
-                sortBy = (boiler) => boiler.MaxHeat;
-                break;
-            case "Production Costs":
-                sortBy = (boiler) => boiler.ProductionCost;
-                break;
-            case "CO2 Emissions":
-                sortBy = (boiler) => boiler.Co2Emission;
-                break;
-            case "Primary Energy Consumption":
-                sortBy = (boiler) => boiler.GasConsumption;
-                break;
-            default:
-                sortBy = (boiler) => boiler.Name;
-                break;
-        }
-
-        var sorted = state.SortDirection switch
-        {
-            SortDirection.Ascending => _productionUnits.OrderBy(sortBy).ToList(),
-            SortDirection.Descending => _productionUnits.OrderByDescending(sortBy).ToList(),
-            _ => _productionUnits
-        };
-
-        return await Task.FromResult(new TableData<ProductionUnit>
-        {
-            TotalItems = sorted.Count,
-            Items = sorted.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList()
-        });
     }
 
     public class ChartData
