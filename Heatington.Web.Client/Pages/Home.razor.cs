@@ -55,11 +55,15 @@ public partial class Home : ComponentBase
             _electricityPriceSummerSeries = [];
             _electricityPriceWinterSeries = [];
 
-            List<DataPoint> winterData = await LoadCsvData("Assets/Data/winter-data.csv");
+            List<DataPoint> winterData =
+                await Http.GetFromJsonAsync<List<DataPoint>>("http://localhost:5165/api/TimeSeriesData?season=winter");
+            ;
             _heatDemandWinterSeries = GetHeatDemandSeries(winterData);
             _electricityPriceWinterSeries = GetElectricityPriceSeries(winterData);
 
-            List<DataPoint> summerData = await LoadCsvData("Assets/Data/summer-data.csv");
+            List<DataPoint> summerData =
+                await Http.GetFromJsonAsync<List<DataPoint>>("http://localhost:5165/api/TimeSeriesData?season=summer");
+            ;
             _heatDemandSummerSeries = GetHeatDemandSeries(summerData);
             _electricityPriceSummerSeries = GetElectricityPriceSeries(summerData);
 
