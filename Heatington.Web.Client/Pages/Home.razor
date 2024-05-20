@@ -129,10 +129,7 @@
     <!-- Heat Demand Chart -->
     <MudText Typo="Typo.h4" class="text-center">Heat Demand</MudText>
     <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@HeatDemandSeries" @bind-SelectedIndex="Index"
-              XAxisLabels="@XAxisLabels" Width="100%" Height="350px">
-        <ChartOptions>
-            <ChartOptions Title="Operation Points" YAxisTicks="5"/>
-        </ChartOptions>
+              XAxisLabels="@XAxisLabels" ChartOptions="HeatChartChartOptions" Width="100%" Height="350px">
     </MudChart>
 
     <MudDivider FlexItem></MudDivider>
@@ -140,7 +137,7 @@
     <!-- Electricity Prices Chart -->
     <MudText Typo="Typo.h4" class="text-center">Electricity Prices</MudText>
     <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@ElectricityPriceSeries" @bind-SelectedIndex="Index"
-              XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="HeatAndElectricityChartOptions"/>
+              XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="ElectricityChartOptions"/>
     <MudDivider FlexItem></MudDivider>
 
     <!-- Net Production Cost Chart -->
