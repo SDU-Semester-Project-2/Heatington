@@ -1,5 +1,6 @@
 using MudBlazor;
 using System.Net.Http.Json;
+using System.Xml.XPath;
 using Heatington.Models;
 using Heatington.Optimizer;
 using Microsoft.AspNetCore.Components;
@@ -8,12 +9,15 @@ namespace Heatington.Web.Client.Pages;
 
 public partial class Home : ComponentBase
 {
+    // heat demand
     private static List<ChartData>? _heatDemandWinterSeries;
     private static List<ChartData>? _heatDemandSummerSeries;
 
+    // electricity price
     private static List<ChartData>? _electricityPriceWinterSeries;
     private static List<ChartData>? _electricityPriceSummerSeries;
 
+    // net production cost
     private static List<ChartData>? _netProductionCostScenario1Winter;
     private static List<ChartData>? _netProductionCostScenario1Summer;
     private static List<ChartData>? _netProductionCostScenario2Winter;
@@ -21,6 +25,15 @@ public partial class Home : ComponentBase
     private static List<ChartData>? _netProductionCostScenarioCo2Winter;
     private static List<ChartData>? _netProductionCostScenarioCo2Summer;
 
+    // co2 emission
+    private Dictionary<string, List<ChartData>> _co2EmissionScenario1Summer;
+    private Dictionary<string, List<ChartData>> _co2EmissionScenario1Winter;
+    private Dictionary<string, List<ChartData>> _co2EmissionScenario2Summer;
+    private Dictionary<string, List<ChartData>> _co2EmissionScenario2Winter;
+    private Dictionary<string, List<ChartData>> _co2EmissionScenarioCo2Summer;
+    private Dictionary<string, List<ChartData>> _co2EmissionScenarioCo2Winter;
+
+    // operation points
     private List<ChartData>? _operationPointsScenario1Summer;
     private List<ChartData>? _operationPointsScenario1Winter;
     private List<ChartData>? _operationPointsScenario2Summer;
@@ -29,12 +42,28 @@ public partial class Home : ComponentBase
     private List<ChartData>? _operationPointsScenarioCo2Winter;
 
     private List<ProductionUnit> _productionUnits = [];
+
+    // Statistics
+    // heat demand
     private double _totalSummerHeatDemand;
-    private double _totalSummerNetProductionCost;
+
     private double _totalWinterHeatDemand;
+
+    // production cost
+    private double _totalSummerNetProductionCost;
+
     private double _totalWinterNetProductionCost;
 
-    public ChartOptions Co2EmissionChartOptions = new ChartOptions();
+    // profit
+    private double _totalSummerProft;
+
+    private double _totalWinterProfit;
+
+    // co2 emission
+    private double _totalSummerCo2Emission;
+    private double _totalWinterCo2Emission;
+
+    public ChartOptions Co2EmissionChartOptions = new ChartOptions { YAxisTicks = 100, };
     public ChartOptions ElectricityChartOptions = new ChartOptions();
     public ChartOptions HeatDemandChartOptions = new ChartOptions { YAxisTicks = 1 };
     private int Index = -1;
@@ -44,14 +73,19 @@ public partial class Home : ComponentBase
 
 
     //TODO: REPLACE WITH REAL DATA
-    private double totalCO2Produced = new Random().Next(20000, 50000);
-    private double totalProfit = new Random().Next(100000, 200000);
-
     private List<ChartSeries> HeatDemandSeries { get; set; }
     private List<ChartSeries> ElectricityPriceSeries { get; set; }
     private List<ChartSeries> NetProductionCostSeries { get; set; }
-    private List<ChartSeries> Co2EmissionSeries { get; set; }
 
+    // Co2 Emission Series
+    private List<ChartSeries> Co2SeriesWinter1 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> Co2SeriesWinter2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> Co2SeriesWinterCo2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> Co2SeriesSummer1 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> Co2SeriesSummer2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> Co2SeriesSummerCo2 { get; set; } = new List<ChartSeries>();
+
+    // OPERATION POINTS SERIES
     private List<ChartSeries> OperationPointsSeriesWinter1 { get; set; } = new List<ChartSeries>();
     private List<ChartSeries> OperationPointsSeriesWinter2 { get; set; } = new List<ChartSeries>();
     private List<ChartSeries> OperationPointsSeriesWinterCo2 { get; set; } = new List<ChartSeries>();
@@ -61,6 +95,7 @@ public partial class Home : ComponentBase
 
 
     private string[] XAxisLabels { get; set; }
+    private string?[] XAxisCo2EmissionLabels { get; set; }
     [Inject] public HttpClient Http { get; set; }
     [Inject] public IDialogService DialogService { get; set; }
     [Inject] public ILogger<Home> Logger { get; set; }
@@ -69,7 +104,7 @@ public partial class Home : ComponentBase
     {
         try
         {
-            Logger.LogInformation("OnInitializedAsync in Home.razor started");
+            // Logger.LogInformation("OnInitializedAsync in Home.razor started");
             await base.OnInitializedAsync();
             _productionUnits = await LoadProductionUnits();
 
@@ -126,6 +161,14 @@ public partial class Home : ComponentBase
             _netProductionCostScenario2Summer = GetNetProductionCostSeries(rawResultDataSummerScenario2);
             _netProductionCostScenarioCo2Summer = GetNetProductionCostSeries(rawResultDataSummerScenarioCo2);
 
+            // Co2 Emission
+            _co2EmissionScenario1Winter = GetCo2EmissionSeries(rawResultDataWinterScenario1);
+            _co2EmissionScenario2Winter = GetCo2EmissionSeries(rawResultDataWinterScenario2);
+            _co2EmissionScenarioCo2Winter = GetCo2EmissionSeries(rawResultDataWinterScenarioCo2);
+            _co2EmissionScenario1Summer = GetCo2EmissionSeries(rawResultDataSummerScenario1);
+            _co2EmissionScenario2Summer = GetCo2EmissionSeries(rawResultDataSummerScenario2);
+            _co2EmissionScenarioCo2Summer = GetCo2EmissionSeries(rawResultDataSummerScenarioCo2);
+
             // Operation Points TODO: NOT FULLY FINISHED
             _operationPointsScenario1Winter = await GetOperationPoints("winter", OptimizationMode.Scenario1);
             _operationPointsScenario2Winter = await GetOperationPoints("winter", OptimizationMode.Scenario2);
@@ -134,23 +177,21 @@ public partial class Home : ComponentBase
             _operationPointsScenario2Summer = await GetOperationPoints("summer", OptimizationMode.Scenario2);
             _operationPointsScenarioCo2Summer = await GetOperationPoints("summer", OptimizationMode.Co2);
 
-
-            // Sum heat demand and production cost for winter and summer periods
+            // Sum
+            // heat demand
             _totalWinterHeatDemand = SumHeatDemand(_heatDemandWinterSeries);
             _totalSummerHeatDemand = SumHeatDemand(_heatDemandSummerSeries);
+            // net production cost
             _totalWinterNetProductionCost = SumProductionCost(_netProductionCostScenario2Winter);
-
-
-            // SumProductionCost(_netProductionCostScenario1Winter) +
-            // SumProductionCost(_netProductionCostScenario2Winter) +
-            // SumProductionCost(_netProductionCostScenarioCo2Winter);
-
             _totalSummerNetProductionCost = SumProductionCost(_netProductionCostScenario2Summer);
+            // profit
+            _totalSummerProft = 0;
+            _totalWinterProfit = 0;
+            // co2 emission
+            _totalSummerCo2Emission = SumCo2Emission(_co2EmissionScenario2Summer);
+            _totalWinterCo2Emission = SumCo2Emission(_co2EmissionScenario2Winter);
 
-            // SumProductionCost(_netProductionCostScenario1Summer) +
-            // SumProductionCost(_netProductionCostScenario2Summer) +
-            // SumProductionCost(_netProductionCostScenarioCo2Summer);
-
+            // initialize the charts
             InitializeHeatDemandChartData();
             InitializeElectricityPriceChartData();
             InitializeProductionCostChartData();
@@ -249,44 +290,45 @@ public partial class Home : ComponentBase
             .ToArray();
     }
 
+    private List<ChartSeries> addBoilerCo2EmissionCharSeries(Dictionary<string, List<ChartData>> boilersChartData)
+    {
+        List<ChartSeries> co2EmissionChartSeries = new();
+
+        foreach (var (key, value) in boilersChartData)
+        {
+            co2EmissionChartSeries.Add(
+                new ChartSeries() { Name = key.ToString(), Data = value.Select(x => x.YData).ToArray() }
+            );
+        }
+
+        return co2EmissionChartSeries;
+    }
+
+    // CO2
     void InitializeCo2EmissionChartData()
     {
-        Co2EmissionSeries = new List<ChartSeries>()
-        {
-            new ChartSeries()
-            {
-                Name = "Winter Scenario 1",
-                Data = _netProductionCostScenario1Winter!.Select(x => x.YData).ToArray()
-            },
-            new ChartSeries()
-            {
-                Name = "Winter Scenario 2",
-                Data = _netProductionCostScenario2Winter!.Select(x => x.YData).ToArray()
-            },
-            new ChartSeries()
-            {
-                Name = "Winter Scenario Co2",
-                Data = _netProductionCostScenarioCo2Winter!.Select(x => x.YData).ToArray()
-            },
-            new ChartSeries()
-            {
-                Name = "Summer Scenario 1",
-                Data = _netProductionCostScenario1Summer!.Select(x => x.YData).ToArray()
-            },
-            new ChartSeries()
-            {
-                Name = "Summer Scenario 2",
-                Data = _netProductionCostScenario2Summer!.Select(x => x.YData).ToArray()
-            },
-            new ChartSeries()
-            {
-                Name = "Summer Scenario Co2",
-                Data = _netProductionCostScenarioCo2Summer!.Select(x => x.YData).ToArray()
-            }
-        };
-        XAxisLabels = Enumerable.Range(1, _netProductionCostScenario1Winter.Count)
-            .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
+        // WINTER
+        Co2SeriesWinter1 = addBoilerCo2EmissionCharSeries(_co2EmissionScenario1Winter);
+        Co2SeriesWinter2 = addBoilerCo2EmissionCharSeries(_co2EmissionScenario2Winter);
+        Co2SeriesWinterCo2 = addBoilerCo2EmissionCharSeries(_co2EmissionScenarioCo2Winter);
+
+        // SUMMER
+        Co2SeriesSummer1 = addBoilerCo2EmissionCharSeries(_co2EmissionScenario1Summer);
+        Co2SeriesSummer2 = addBoilerCo2EmissionCharSeries(_co2EmissionScenario2Summer);
+        Co2SeriesSummerCo2 = addBoilerCo2EmissionCharSeries(_co2EmissionScenarioCo2Summer);
+
+        // Assuming all scenarios have the same number of data points
+        int numDataPoints = _co2EmissionScenario1Winter?.Count ?? 0;
+        Console.WriteLine(_co2EmissionScenario1Winter?.First().Value[12].XData);
+        XAxisCo2EmissionLabels = Enumerable.Range(1, numDataPoints)
+            .Select(i => i % 12 == 0
+                ? _co2EmissionScenario1Winter?.First().Value[i].XData
+                : string.Empty)
             .ToArray();
+
+        // XAxisCo2EmissionLabels = _co2EmissionScenario1Summer.First().Value.Select(
+        //      x => x.XData
+        //     ).ToArray();
     }
 
     private void InitializeOperationPointsChartData()
@@ -349,6 +391,44 @@ public partial class Home : ComponentBase
         return electricityPriceDataList;
     }
 
+    private Dictionary<string, List<ChartData>> GetCo2EmissionSeries(List<ResultHolder>? rawResultData)
+    {
+        Dictionary<string, List<ChartData>> co2Emission = new Dictionary<string, List<ChartData>>();
+
+        if (rawResultData != null)
+        {
+            foreach (var result in rawResultData)
+            {
+                foreach (var boiler in result.Boilers)
+                {
+                    if (co2Emission.ContainsKey(boiler.FullName))
+                    {
+                        // Boiler already exists in the dictionary, add data to the existing list
+                        co2Emission[boiler.FullName].Add(new ChartData
+                        {
+                            XData = FormatDate(result.StartTime), YData = boiler.Co2Emission,
+                        });
+                    }
+                    else
+                    {
+                        // Boiler does not exist in the dictionary, create a new entry
+                        co2Emission[boiler.FullName] = new List<ChartData>
+                        {
+                            new ChartData { XData = FormatDate(result.StartTime), YData = boiler.Co2Emission, }
+                        };
+                    }
+                }
+            }
+        }
+
+        foreach (var (key, value) in co2Emission)
+        {
+            co2Emission[key]?.Insert(0, new ChartData() { XData = co2Emission[key][0].XData, YData = 0 });
+        }
+
+        return co2Emission;
+    }
+
     private List<ChartData>? GetNetProductionCostSeries(List<ResultHolder>? rawResultData)
     {
         var productionCostDataList = rawResultData?.Select(item => new ChartData()
@@ -408,7 +488,7 @@ public partial class Home : ComponentBase
                 // Construct a string representation of the data for logging
                 string logMessage =
                     $"StartTime: {result.StartTime}, Boiler: {boiler.FullName}, OperationPoint: {boiler.OperationPoint}";
-                Logger.LogInformation(logMessage);
+                // Logger.LogInformation(logMessage);
             }
         }
     }
@@ -442,6 +522,25 @@ public partial class Home : ComponentBase
         return (int)Math.Round(sum);
     }
 
+    private double SumCo2Emission(Dictionary<string, List<ChartData>> seriesDict)
+    {
+        double sum = 0;
+        foreach (var (seriesKey, seriesValue) in seriesDict)
+        {
+            sum += seriesValue.Sum(data => data.YData);
+        }
+
+        return (int)Math.Round(sum);
+    }
+
+    private double SumProfit(List<ChartData>? series)
+    {
+        if (series == null || series.Count == 0)
+            return 0;
+
+        double sum = series.Sum(data => data.YData);
+        return (int)Math.Round(sum);
+    }
 
     private void ViewMore(ProductionUnit productionUnit)
     {
