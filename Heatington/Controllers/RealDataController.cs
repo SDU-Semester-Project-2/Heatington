@@ -33,10 +33,10 @@ namespace Heatington.Controllers
                         await GetElectricityPricesAsync(staticData[0].StartTime, staticData[^1].EndTime, "DK2");
                     electricityPrices.Reverse();
                     return staticData.Zip(electricityPrices, (data, price) => new DataPoint(
-                        data.StartTime.ToString(CultureInfo.CurrentCulture),
-                        data.EndTime.ToString(CultureInfo.CurrentCulture),
-                        data.HeatDemand.ToString(CultureInfo.CurrentCulture),
-                        price.ToString(CultureInfo.CurrentCulture)
+                        data.StartTime.ToString("MM/dd/yyyy HH:mm:ss"),
+                        data.EndTime.ToString("MM/dd/yyyy HH:mm:ss"),
+                        data.HeatDemand.ToString(CultureInfo.InvariantCulture),
+                        price.ToString(CultureInfo.InvariantCulture)
                     )).ToList();
                 }
             }

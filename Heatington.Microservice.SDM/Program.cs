@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -9,6 +10,7 @@ namespace SourceDataManagerAPI
         {
             //only here for testing
             // SourceDataManagerModel.SDM.LogTimeSeriesData();
+            //Console.WriteLine(CultureInfo.CurrentCulture);
             CreateHostBuilder(args).Build().Run();
         }
 

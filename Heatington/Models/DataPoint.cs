@@ -20,7 +20,7 @@ namespace Heatington.Models
                 // startTime = formatTime(startTime);
                 // endTime = formatTime(endTime);
 
-                string dateTimeFormat = "M/d/yyyy H:mm:ss tt";
+                string dateTimeFormat = "MM/dd/yyyy HH:mm:ss";
 
                 if ((DateTime.TryParseExact(
                          startTime,
