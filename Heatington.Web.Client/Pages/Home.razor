@@ -31,7 +31,7 @@
         Statistics for Winter Period (Scenario 2)
     </MudText>
     <MudGrid>
-        <MudItem xs="12" sm="6" md="3">
+        <MudItem xs="12" sm="6" md="4">
             <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                 <div class="d-flex align-items-start">
                     <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" class="mr-3"/>
@@ -42,18 +42,18 @@
                 </div>
             </MudCard>
         </MudItem>
-        <MudItem xs="12" sm="6" md="3">
-            <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
-                <div class="d-flex align-items-start">
-                    <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3"/>
-                    <div>
-                        <MudText Typo="Typo.h5" GutterBottom>Profit</MudText>
-                        <MudText Typo="Typo.h6">@($"{_totalWinterProfit} DKK")</MudText>
-                    </div>
-                </div>
-            </MudCard>
-        </MudItem>
-        <MudItem xs="12" sm="6" md="3">
+        @* <MudItem xs="12" sm="6" md="3"> *@
+        @*     <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4"> *@
+        @*         <div class="d-flex align-items-start"> *@
+        @*             <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3"/> *@
+        @*             <div> *@
+        @*                 <MudText Typo="Typo.h5" GutterBottom>Profit</MudText> *@
+        @*                 <MudText Typo="Typo.h6">@($"{_totalWinterProfit} DKK")</MudText> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*     </MudCard> *@
+        @* </MudItem> *@
+        <MudItem xs="12" sm="6" md="4">
             <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                 <div class="d-flex align-items-start">
                     <MudIcon Icon="@Icons.Material.Filled.Cloud" Size="Size.Large" class="mr-3"/>
@@ -64,7 +64,7 @@
                 </div>
             </MudCard>
         </MudItem>
-        <MudItem xs="12" sm="6" md="3">
+        <MudItem xs="12" sm="6" md="4">
             <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                 <div class="d-flex align-items-start">
                     <MudIcon Icon="@Icons.Material.Filled.WbSunny" Size="Size.Large" class="mr-3"/>
@@ -79,8 +79,8 @@
     <MudText Typo="Typo.h5" class="text-center">
         Statistics for Summer Period (Scenario 2)
     </MudText>
-    <MudGrid>
-        <MudItem xs="12" sm="6" md="3">
+    <MudGrid >
+        <MudItem xs="12" sm="6" md="4">
             <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                 <div class="d-flex align-items-start">
                     <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" class="mr-3"/>
@@ -91,18 +91,18 @@
                 </div>
             </MudCard>
         </MudItem>
-        <MudItem xs="12" sm="6" md="3">
-            <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
-                <div class="d-flex align-items-start">
-                    <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3"/>
-                    <div>
-                        <MudText Typo="Typo.h5" GutterBottom>Profit</MudText>
-                        <MudText Typo="Typo.h6">@($"{_totalSummerProft} DKK")</MudText>
-                    </div>
-                </div>
-            </MudCard>
-        </MudItem>
-        <MudItem xs="12" sm="6" md="3">
+        @* <MudItem xs="12" sm="6" md="3"> *@
+        @*     <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4"> *@
+        @*         <div class="d-flex align-items-start"> *@
+        @*             <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3"/> *@
+        @*             <div> *@
+        @*                 <MudText Typo="Typo.h5" GutterBottom>Profit</MudText> *@
+        @*                 <MudText Typo="Typo.h6">@($"{_totalSummerProft} DKK")</MudText> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*     </MudCard> *@
+        @* </MudItem> *@
+        <MudItem xs="12" sm="6" md="4">
             <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                 <div class="d-flex align-items-start">
                     <MudIcon Icon="@Icons.Material.Filled.Cloud" Size="Size.Large" class="mr-3"/>
@@ -113,7 +113,7 @@
                 </div>
             </MudCard>
         </MudItem>
-        <MudItem xs="12" sm="6" md="3">
+        <MudItem xs="12" sm="6" md="4">
             <MudCard Elevation="8" class="mx-2 my-3 px-4 py-4">
                 <div class="d-flex align-items-start">
                     <MudIcon Icon="@Icons.Material.Filled.WbSunny" Size="Size.Large" class="mr-3"/>
@@ -162,7 +162,7 @@
         <MudTabPanel Text="Winter Scenario 1">
             <!-- Chart for CO2 Emission Scenario 1 -->
             <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesWinter1" @bind-SelectedIndex="Index"
-                      XAxisLabels="@XAxisCo2EmissionLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
+                      XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
         </MudTabPanel>
 
         <MudTabPanel Text="Winter Scenario 2">
