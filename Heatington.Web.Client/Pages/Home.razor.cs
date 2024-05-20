@@ -29,6 +29,11 @@ public partial class Home : ComponentBase
     private List<ChartData>? _operationPointsScenarioCo2Winter;
 
     private List<ProductionUnit> _productionUnits = [];
+    private double _totalSummerHeatDemand;
+    private double _totalSummerProductionCost;
+
+    private double _totalWinterHeatDemand;
+    private double _totalWinterProductionCost;
     public ChartOptions Co2EmissionChartOptions = new ChartOptions();
     public ChartOptions HeatAndElectricityChartOptions = new ChartOptions { YAxisTicks = 1 };
     private int Index = -1;
@@ -129,6 +134,16 @@ public partial class Home : ComponentBase
             _operationPointsScenario2Summer = await GetOperationPoints("summer", OptimizationMode.Scenario2);
             _operationPointsScenarioCo2Summer = await GetOperationPoints("summer", OptimizationMode.Co2);
 
+
+            // Sum heat demand and production cost for winter and summer periods
+            _totalWinterHeatDemand = SumHeatDemand(_heatDemandWinterSeries);
+            _totalSummerHeatDemand = SumHeatDemand(_heatDemandSummerSeries);
+            _totalWinterProductionCost = SumProductionCost(_productionCostScenario1Winter) +
+                                         SumProductionCost(_productionCostScenario2Winter) +
+                                         SumProductionCost(_productionCostScenarioCo2Winter);
+            _totalSummerProductionCost = SumProductionCost(_productionCostScenario1Summer) +
+                                         SumProductionCost(_productionCostScenario2Summer) +
+                                         SumProductionCost(_productionCostScenarioCo2Summer);
 
             InitializeHeatDemandChartData();
             InitializeElectricityPriceChartData();
@@ -432,10 +447,30 @@ public partial class Home : ComponentBase
         return formattedDate;
     }
 
+    private double SumHeatDemand(List<ChartData>? series)
+    {
+        if (series == null || series.Count == 0)
+            return 0;
+
+        double sum = series.Sum(data => data.YData);
+        return (int)Math.Round(sum);
+    }
+
+    private double SumProductionCost(List<ChartData>? series)
+    {
+        if (series == null || series.Count == 0)
+            return 0;
+
+        double sum = series.Sum(data => data.YData);
+        return (int)Math.Round(sum);
+    }
+
+
     private void ViewMore(ProductionUnit productionUnit)
     {
         NavManager.NavigateTo("/resource-manager");
     }
+
 
     public class ChartData
     {
