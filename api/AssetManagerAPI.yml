@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: AssetManagerAPI
+  commentId: N:AssetManagerAPI
+  id: AssetManagerAPI
+  children:
+  - AssetManagerAPI.AssetManagerModel
+  - AssetManagerAPI.Program
+  - AssetManagerAPI.Startup
+  langs:
+  - csharp
+  - vb
+  name: AssetManagerAPI
+  nameWithType: AssetManagerAPI
+  fullName: AssetManagerAPI
+  type: Namespace
+  assemblies:
+  - Heatington.Microservice.AM
+references:
+- uid: AssetManagerAPI.AssetManagerModel
+  commentId: T:AssetManagerAPI.AssetManagerModel
+  href: AssetManagerAPI.AssetManagerModel.html
+  name: AssetManagerModel
+  nameWithType: AssetManagerModel
+  fullName: AssetManagerAPI.AssetManagerModel
+- uid: AssetManagerAPI.Program
+  commentId: T:AssetManagerAPI.Program
+  href: AssetManagerAPI.Program.html
+  name: Program
+  nameWithType: Program
+  fullName: AssetManagerAPI.Program
+- uid: AssetManagerAPI.Startup
+  commentId: T:AssetManagerAPI.Startup
+  href: AssetManagerAPI.Startup.html
+  name: Startup
+  nameWithType: Startup
+  fullName: AssetManagerAPI.Startup

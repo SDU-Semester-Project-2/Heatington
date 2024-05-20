@@ -5,15 +5,18 @@ items:
   id: ProductionUnit
   parent: Heatington.Models
   children:
-  - Heatington.Models.ProductionUnit.#ctor(System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - Heatington.Models.ProductionUnit.#ctor
+  - Heatington.Models.ProductionUnit.#ctor(System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
   - Heatington.Models.ProductionUnit.Clone
   - Heatington.Models.ProductionUnit.Co2Emission
+  - Heatington.Models.ProductionUnit.FullName
   - Heatington.Models.ProductionUnit.GasConsumption
   - Heatington.Models.ProductionUnit.Id
   - Heatington.Models.ProductionUnit.MaxElectricity
   - Heatington.Models.ProductionUnit.MaxHeat
   - Heatington.Models.ProductionUnit.Name
   - Heatington.Models.ProductionUnit.OperationPoint
+  - Heatington.Models.ProductionUnit.PictureBase64Url
   - Heatington.Models.ProductionUnit.PicturePath
   - Heatington.Models.ProductionUnit.ProductionCost
   - Heatington.Models.ProductionUnit.ToString
@@ -27,7 +30,7 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnit
     path: Heatington/Models/ProductionUnit.cs
@@ -49,6 +52,81 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Heatington.Models.ProductionUnit.#ctor(System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:Heatington.Models.ProductionUnit.#ctor(System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)'
+  parent: Heatington.Models.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: ProductionUnit(string, string, string, double, double, double, double, double)
+  nameWithType: ProductionUnit.ProductionUnit(string, string, string, double, double, double, double, double)
+  fullName: Heatington.Models.ProductionUnit.ProductionUnit(string, string, string, double, double, double, double, double)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 7
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: public ProductionUnit(string name, string fullName, string picturePath, double maxHeat, double productionCost, double maxElectricity, double gasConsumption, double co2Emission)
+    parameters:
+    - id: name
+      type: System.String
+    - id: fullName
+      type: System.String
+    - id: picturePath
+      type: System.String
+    - id: maxHeat
+      type: System.Double
+    - id: productionCost
+      type: System.Double
+    - id: maxElectricity
+      type: System.Double
+    - id: gasConsumption
+      type: System.Double
+    - id: co2Emission
+      type: System.Double
+    content.vb: Public Sub New(name As String, fullName As String, picturePath As String, maxHeat As Double, productionCost As Double, maxElectricity As Double, gasConsumption As Double, co2Emission As Double)
+  overload: Heatington.Models.ProductionUnit.#ctor*
+  nameWithType.vb: ProductionUnit.New(String, String, String, Double, Double, Double, Double, Double)
+  fullName.vb: Heatington.Models.ProductionUnit.New(String, String, String, Double, Double, Double, Double, Double)
+  name.vb: New(String, String, String, Double, Double, Double, Double, Double)
+- uid: Heatington.Models.ProductionUnit.#ctor
+  commentId: M:Heatington.Models.ProductionUnit.#ctor
+  id: '#ctor'
+  parent: Heatington.Models.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: ProductionUnit()
+  nameWithType: ProductionUnit.ProductionUnit()
+  fullName: Heatington.Models.ProductionUnit.ProductionUnit()
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 24
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: public ProductionUnit()
+    content.vb: Public Sub New()
+  overload: Heatington.Models.ProductionUnit.#ctor*
+  nameWithType.vb: ProductionUnit.New()
+  fullName.vb: Heatington.Models.ProductionUnit.New()
+  name.vb: New()
 - uid: Heatington.Models.ProductionUnit.Id
   commentId: P:Heatington.Models.ProductionUnit.Id
   id: Id
@@ -63,11 +141,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Id
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 4
+    startLine: 29
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -92,11 +170,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Name
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 5
+    startLine: 30
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -107,6 +185,35 @@ items:
       type: System.String
     content.vb: Public Property Name As String
   overload: Heatington.Models.ProductionUnit.Name*
+- uid: Heatington.Models.ProductionUnit.FullName
+  commentId: P:Heatington.Models.ProductionUnit.FullName
+  id: FullName
+  parent: Heatington.Models.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: FullName
+  nameWithType: ProductionUnit.FullName
+  fullName: Heatington.Models.ProductionUnit.FullName
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FullName
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 31
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: public string FullName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FullName As String
+  overload: Heatington.Models.ProductionUnit.FullName*
 - uid: Heatington.Models.ProductionUnit.PicturePath
   commentId: P:Heatington.Models.ProductionUnit.PicturePath
   id: PicturePath
@@ -121,20 +228,20 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: PicturePath
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 6
+    startLine: 32
   assemblies:
   - Heatington
   namespace: Heatington.Models
   syntax:
-    content: public string PicturePath { get; }
+    content: public string PicturePath { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public ReadOnly Property PicturePath As String
+    content.vb: Public Property PicturePath As String
   overload: Heatington.Models.ProductionUnit.PicturePath*
 - uid: Heatington.Models.ProductionUnit.MaxHeat
   commentId: P:Heatington.Models.ProductionUnit.MaxHeat
@@ -150,20 +257,20 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: MaxHeat
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 8
+    startLine: 33
   assemblies:
   - Heatington
   namespace: Heatington.Models
   syntax:
-    content: public double MaxHeat { get; }
+    content: public double MaxHeat { get; set; }
     parameters: []
     return:
       type: System.Double
-    content.vb: Public ReadOnly Property MaxHeat As Double
+    content.vb: Public Property MaxHeat As Double
   overload: Heatington.Models.ProductionUnit.MaxHeat*
 - uid: Heatington.Models.ProductionUnit.ProductionCost
   commentId: P:Heatington.Models.ProductionUnit.ProductionCost
@@ -179,20 +286,20 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionCost
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 9
+    startLine: 34
   assemblies:
   - Heatington
   namespace: Heatington.Models
   syntax:
-    content: public double ProductionCost { get; }
+    content: public double ProductionCost { get; set; }
     parameters: []
     return:
       type: System.Double
-    content.vb: Public ReadOnly Property ProductionCost As Double
+    content.vb: Public Property ProductionCost As Double
   overload: Heatington.Models.ProductionUnit.ProductionCost*
 - uid: Heatington.Models.ProductionUnit.MaxElectricity
   commentId: P:Heatington.Models.ProductionUnit.MaxElectricity
@@ -208,20 +315,20 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: MaxElectricity
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 10
+    startLine: 35
   assemblies:
   - Heatington
   namespace: Heatington.Models
   syntax:
-    content: public double MaxElectricity { get; }
+    content: public double MaxElectricity { get; set; }
     parameters: []
     return:
       type: System.Double
-    content.vb: Public ReadOnly Property MaxElectricity As Double
+    content.vb: Public Property MaxElectricity As Double
   overload: Heatington.Models.ProductionUnit.MaxElectricity*
 - uid: Heatington.Models.ProductionUnit.GasConsumption
   commentId: P:Heatington.Models.ProductionUnit.GasConsumption
@@ -237,20 +344,20 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GasConsumption
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 11
+    startLine: 36
   assemblies:
   - Heatington
   namespace: Heatington.Models
   syntax:
-    content: public double GasConsumption { get; }
+    content: public double GasConsumption { get; set; }
     parameters: []
     return:
       type: System.Double
-    content.vb: Public ReadOnly Property GasConsumption As Double
+    content.vb: Public Property GasConsumption As Double
   overload: Heatington.Models.ProductionUnit.GasConsumption*
 - uid: Heatington.Models.ProductionUnit.Co2Emission
   commentId: P:Heatington.Models.ProductionUnit.Co2Emission
@@ -266,21 +373,50 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Co2Emission
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 12
+    startLine: 37
   assemblies:
   - Heatington
   namespace: Heatington.Models
   syntax:
-    content: public double Co2Emission { get; }
+    content: public double Co2Emission { get; set; }
     parameters: []
     return:
       type: System.Double
-    content.vb: Public ReadOnly Property Co2Emission As Double
+    content.vb: Public Property Co2Emission As Double
   overload: Heatington.Models.ProductionUnit.Co2Emission*
+- uid: Heatington.Models.ProductionUnit.PictureBase64Url
+  commentId: P:Heatington.Models.ProductionUnit.PictureBase64Url
+  id: PictureBase64Url
+  parent: Heatington.Models.ProductionUnit
+  langs:
+  - csharp
+  - vb
+  name: PictureBase64Url
+  nameWithType: ProductionUnit.PictureBase64Url
+  fullName: Heatington.Models.ProductionUnit.PictureBase64Url
+  type: Property
+  source:
+    remote:
+      path: Heatington/Models/ProductionUnit.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: PictureBase64Url
+    path: Heatington/Models/ProductionUnit.cs
+    startLine: 39
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: public string PictureBase64Url { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PictureBase64Url As String
+  overload: Heatington.Models.ProductionUnit.PictureBase64Url*
 - uid: Heatington.Models.ProductionUnit.OperationPoint
   commentId: P:Heatington.Models.ProductionUnit.OperationPoint
   id: OperationPoint
@@ -295,11 +431,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OperationPoint
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 14
+    startLine: 41
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -310,50 +446,6 @@ items:
       type: System.Double
     content.vb: Public Property OperationPoint As Double
   overload: Heatington.Models.ProductionUnit.OperationPoint*
-- uid: Heatington.Models.ProductionUnit.#ctor(System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
-  commentId: M:Heatington.Models.ProductionUnit.#ctor(System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)
-  id: '#ctor(System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double)'
-  parent: Heatington.Models.ProductionUnit
-  langs:
-  - csharp
-  - vb
-  name: ProductionUnit(string, string, double, double, double, double, double)
-  nameWithType: ProductionUnit.ProductionUnit(string, string, double, double, double, double, double)
-  fullName: Heatington.Models.ProductionUnit.ProductionUnit(string, string, double, double, double, double, double)
-  type: Constructor
-  source:
-    remote:
-      path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: .ctor
-    path: Heatington/Models/ProductionUnit.cs
-    startLine: 28
-  assemblies:
-  - Heatington
-  namespace: Heatington.Models
-  syntax:
-    content: public ProductionUnit(string name, string picturePath, double maxHeat, double productionCost, double maxElectricity, double gasConsumption, double co2Emission)
-    parameters:
-    - id: name
-      type: System.String
-    - id: picturePath
-      type: System.String
-    - id: maxHeat
-      type: System.Double
-    - id: productionCost
-      type: System.Double
-    - id: maxElectricity
-      type: System.Double
-    - id: gasConsumption
-      type: System.Double
-    - id: co2Emission
-      type: System.Double
-    content.vb: Public Sub New(name As String, picturePath As String, maxHeat As Double, productionCost As Double, maxElectricity As Double, gasConsumption As Double, co2Emission As Double)
-  overload: Heatington.Models.ProductionUnit.#ctor*
-  nameWithType.vb: ProductionUnit.New(String, String, Double, Double, Double, Double, Double)
-  fullName.vb: Heatington.Models.ProductionUnit.New(String, String, Double, Double, Double, Double, Double)
-  name.vb: New(String, String, Double, Double, Double, Double, Double)
 - uid: Heatington.Models.ProductionUnit.Clone
   commentId: M:Heatington.Models.ProductionUnit.Clone
   id: Clone
@@ -368,11 +460,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Clone
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 42
+    startLine: 56
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -401,11 +493,11 @@ items:
   source:
     remote:
       path: Heatington/Models/ProductionUnit.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Models/ProductionUnit.cs
-    startLine: 47
+    startLine: 61
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -663,6 +755,37 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Heatington.Models.ProductionUnit.#ctor*
+  commentId: Overload:Heatington.Models.ProductionUnit.#ctor
+  href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit__ctor_System_String_System_String_System_String_System_Double_System_Double_System_Double_System_Double_System_Double_
+  name: ProductionUnit
+  nameWithType: ProductionUnit.ProductionUnit
+  fullName: Heatington.Models.ProductionUnit.ProductionUnit
+  nameWithType.vb: ProductionUnit.New
+  fullName.vb: Heatington.Models.ProductionUnit.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
 - uid: Heatington.Models.ProductionUnit.Id*
   commentId: Overload:Heatington.Models.ProductionUnit.Id
   href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit_Id
@@ -683,17 +806,12 @@ references:
   name: Name
   nameWithType: ProductionUnit.Name
   fullName: Heatington.Models.ProductionUnit.Name
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
+- uid: Heatington.Models.ProductionUnit.FullName*
+  commentId: Overload:Heatington.Models.ProductionUnit.FullName
+  href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit_FullName
+  name: FullName
+  nameWithType: ProductionUnit.FullName
+  fullName: Heatington.Models.ProductionUnit.FullName
 - uid: Heatington.Models.ProductionUnit.PicturePath*
   commentId: Overload:Heatington.Models.ProductionUnit.PicturePath
   href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit_PicturePath
@@ -706,17 +824,6 @@ references:
   name: MaxHeat
   nameWithType: ProductionUnit.MaxHeat
   fullName: Heatington.Models.ProductionUnit.MaxHeat
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
 - uid: Heatington.Models.ProductionUnit.ProductionCost*
   commentId: Overload:Heatington.Models.ProductionUnit.ProductionCost
   href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit_ProductionCost
@@ -741,21 +848,18 @@ references:
   name: Co2Emission
   nameWithType: ProductionUnit.Co2Emission
   fullName: Heatington.Models.ProductionUnit.Co2Emission
+- uid: Heatington.Models.ProductionUnit.PictureBase64Url*
+  commentId: Overload:Heatington.Models.ProductionUnit.PictureBase64Url
+  href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit_PictureBase64Url
+  name: PictureBase64Url
+  nameWithType: ProductionUnit.PictureBase64Url
+  fullName: Heatington.Models.ProductionUnit.PictureBase64Url
 - uid: Heatington.Models.ProductionUnit.OperationPoint*
   commentId: Overload:Heatington.Models.ProductionUnit.OperationPoint
   href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit_OperationPoint
   name: OperationPoint
   nameWithType: ProductionUnit.OperationPoint
   fullName: Heatington.Models.ProductionUnit.OperationPoint
-- uid: Heatington.Models.ProductionUnit.#ctor*
-  commentId: Overload:Heatington.Models.ProductionUnit.#ctor
-  href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit__ctor_System_String_System_String_System_Double_System_Double_System_Double_System_Double_System_Double_
-  name: ProductionUnit
-  nameWithType: ProductionUnit.ProductionUnit
-  fullName: Heatington.Models.ProductionUnit.ProductionUnit
-  nameWithType.vb: ProductionUnit.New
-  fullName.vb: Heatington.Models.ProductionUnit.New
-  name.vb: New
 - uid: Heatington.Models.ProductionUnit.Clone*
   commentId: Overload:Heatington.Models.ProductionUnit.Clone
   href: Heatington.Models.ProductionUnit.html#Heatington_Models_ProductionUnit_Clone

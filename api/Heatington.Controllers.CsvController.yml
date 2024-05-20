@@ -8,7 +8,9 @@ items:
   - Heatington.Controllers.CsvController.#ctor(System.String)
   - Heatington.Controllers.CsvController.GetDataAsync
   - Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  - Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.FormatedResultHolder})
   - Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  - Heatington.Controllers.CsvController.SaveData``1(System.Collections.Generic.List{``0})
   langs:
   - csharp
   - vb
@@ -19,11 +21,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CsvController
     path: Heatington/Controllers/CsvController.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -35,7 +37,7 @@ items:
   inheritance:
   - System.Object
   implements:
-  - Heatington.Controllers.Interfaces.IDataSource
+  - Heatington.Services.Interfaces.IDataSource
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -58,11 +60,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Controllers/CsvController.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -93,11 +95,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GetDataAsync
     path: Heatington/Controllers/CsvController.cs
-    startLine: 15
+    startLine: 16
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -109,7 +111,41 @@ items:
     content.vb: Public Function GetDataAsync() As Task(Of List(Of DataPoint))
   overload: Heatington.Controllers.CsvController.GetDataAsync*
   implements:
-  - Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
+  - Heatington.Services.Interfaces.IDataSource.GetDataAsync
+- uid: Heatington.Controllers.CsvController.SaveData``1(System.Collections.Generic.List{``0})
+  commentId: M:Heatington.Controllers.CsvController.SaveData``1(System.Collections.Generic.List{``0})
+  id: SaveData``1(System.Collections.Generic.List{``0})
+  parent: Heatington.Controllers.CsvController
+  langs:
+  - csharp
+  - vb
+  name: SaveData<T>(List<T>)
+  nameWithType: CsvController.SaveData<T>(List<T>)
+  fullName: Heatington.Controllers.CsvController.SaveData<T>(System.Collections.Generic.List<T>)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/CsvController.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SaveData
+    path: Heatington/Controllers/CsvController.cs
+    startLine: 31
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: public void SaveData<T>(List<T> data)
+    parameters:
+    - id: data
+      type: System.Collections.Generic.List{{T}}
+    typeParameters:
+    - id: T
+    content.vb: Public Sub SaveData(Of T)(data As List(Of T))
+  overload: Heatington.Controllers.CsvController.SaveData*
+  nameWithType.vb: CsvController.SaveData(Of T)(List(Of T))
+  fullName.vb: Heatington.Controllers.CsvController.SaveData(Of T)(System.Collections.Generic.List(Of T))
+  name.vb: SaveData(Of T)(List(Of T))
 - uid: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
   commentId: M:Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
   id: SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
@@ -124,11 +160,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SaveData
     path: Heatington/Controllers/CsvController.cs
-    startLine: 30
+    startLine: 46
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -141,7 +177,7 @@ items:
     content.vb: Public Sub SaveData(data As List(Of DataPoint))
   overload: Heatington.Controllers.CsvController.SaveData*
   implements:
-  - Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  - Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
   nameWithType.vb: CsvController.SaveData(List(Of DataPoint))
   fullName.vb: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint))
   name.vb: SaveData(List(Of DataPoint))
@@ -159,11 +195,11 @@ items:
   source:
     remote:
       path: Heatington/Controllers/CsvController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SaveData
     path: Heatington/Controllers/CsvController.cs
-    startLine: 46
+    startLine: 62
   assemblies:
   - Heatington
   namespace: Heatington.Controllers
@@ -177,6 +213,38 @@ items:
   nameWithType.vb: CsvController.SaveData(List(Of ResultHolder))
   fullName.vb: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List(Of Heatington.Models.ResultHolder))
   name.vb: SaveData(List(Of ResultHolder))
+- uid: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.FormatedResultHolder})
+  commentId: M:Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List{Heatington.Models.FormatedResultHolder})
+  id: SaveData(System.Collections.Generic.List{Heatington.Models.FormatedResultHolder})
+  parent: Heatington.Controllers.CsvController
+  langs:
+  - csharp
+  - vb
+  name: SaveData(List<FormatedResultHolder>)
+  nameWithType: CsvController.SaveData(List<FormatedResultHolder>)
+  fullName: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List<Heatington.Models.FormatedResultHolder>)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/CsvController.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SaveData
+    path: Heatington/Controllers/CsvController.cs
+    startLine: 79
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: public void SaveData(List<FormatedResultHolder> data)
+    parameters:
+    - id: data
+      type: System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+    content.vb: Public Sub SaveData(data As List(Of FormatedResultHolder))
+  overload: Heatington.Controllers.CsvController.SaveData*
+  nameWithType.vb: CsvController.SaveData(List(Of FormatedResultHolder))
+  fullName.vb: Heatington.Controllers.CsvController.SaveData(System.Collections.Generic.List(Of Heatington.Models.FormatedResultHolder))
+  name.vb: SaveData(List(Of FormatedResultHolder))
 references:
 - uid: Heatington.Controllers
   commentId: N:Heatington.Controllers
@@ -211,13 +279,13 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: Heatington.Controllers.Interfaces.IDataSource
-  commentId: T:Heatington.Controllers.Interfaces.IDataSource
-  parent: Heatington.Controllers.Interfaces
-  href: Heatington.Controllers.Interfaces.IDataSource.html
+- uid: Heatington.Services.Interfaces.IDataSource
+  commentId: T:Heatington.Services.Interfaces.IDataSource
+  parent: Heatington.Services.Interfaces
+  href: Heatington.Services.Interfaces.IDataSource.html
   name: IDataSource
   nameWithType: IDataSource
-  fullName: Heatington.Controllers.Interfaces.IDataSource
+  fullName: Heatington.Services.Interfaces.IDataSource
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -444,36 +512,36 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Heatington.Controllers.Interfaces
-  commentId: N:Heatington.Controllers.Interfaces
+- uid: Heatington.Services.Interfaces
+  commentId: N:Heatington.Services.Interfaces
   href: Heatington.html
-  name: Heatington.Controllers.Interfaces
-  nameWithType: Heatington.Controllers.Interfaces
-  fullName: Heatington.Controllers.Interfaces
+  name: Heatington.Services.Interfaces
+  nameWithType: Heatington.Services.Interfaces
+  fullName: Heatington.Services.Interfaces
   spec.csharp:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Controllers
-    name: Controllers
-    href: Heatington.Controllers.html
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
   - name: .
-  - uid: Heatington.Controllers.Interfaces
+  - uid: Heatington.Services.Interfaces
     name: Interfaces
-    href: Heatington.Controllers.Interfaces.html
+    href: Heatington.Services.Interfaces.html
   spec.vb:
   - uid: Heatington
     name: Heatington
     href: Heatington.html
   - name: .
-  - uid: Heatington.Controllers
-    name: Controllers
-    href: Heatington.Controllers.html
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
   - name: .
-  - uid: Heatington.Controllers.Interfaces
+  - uid: Heatington.Services.Interfaces
     name: Interfaces
-    href: Heatington.Controllers.Interfaces.html
+    href: Heatington.Services.Interfaces.html
 - uid: Heatington.Controllers.CsvController.#ctor*
   commentId: Overload:Heatington.Controllers.CsvController.#ctor
   href: Heatington.Controllers.CsvController.html#Heatington_Controllers_CsvController__ctor_System_String_
@@ -500,23 +568,23 @@ references:
   name: GetDataAsync
   nameWithType: CsvController.GetDataAsync
   fullName: Heatington.Controllers.CsvController.GetDataAsync
-- uid: Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
-  commentId: M:Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
-  parent: Heatington.Controllers.Interfaces.IDataSource
-  href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_GetDataAsync
+- uid: Heatington.Services.Interfaces.IDataSource.GetDataAsync
+  commentId: M:Heatington.Services.Interfaces.IDataSource.GetDataAsync
+  parent: Heatington.Services.Interfaces.IDataSource
+  href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_GetDataAsync
   name: GetDataAsync()
   nameWithType: IDataSource.GetDataAsync()
-  fullName: Heatington.Controllers.Interfaces.IDataSource.GetDataAsync()
+  fullName: Heatington.Services.Interfaces.IDataSource.GetDataAsync()
   spec.csharp:
-  - uid: Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
+  - uid: Heatington.Services.Interfaces.IDataSource.GetDataAsync
     name: GetDataAsync
-    href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_GetDataAsync
+    href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_GetDataAsync
   - name: (
   - name: )
   spec.vb:
-  - uid: Heatington.Controllers.Interfaces.IDataSource.GetDataAsync
+  - uid: Heatington.Services.Interfaces.IDataSource.GetDataAsync
     name: GetDataAsync
-    href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_GetDataAsync
+    href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_GetDataAsync
   - name: (
   - name: )
 - uid: System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
@@ -633,73 +701,28 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
 - uid: Heatington.Controllers.CsvController.SaveData*
   commentId: Overload:Heatington.Controllers.CsvController.SaveData
-  href: Heatington.Controllers.CsvController.html#Heatington_Controllers_CsvController_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  href: Heatington.Controllers.CsvController.html#Heatington_Controllers_CsvController_SaveData__1_System_Collections_Generic_List___0__
   name: SaveData
   nameWithType: CsvController.SaveData
   fullName: Heatington.Controllers.CsvController.SaveData
-- uid: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
-  commentId: M:Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
-  parent: Heatington.Controllers.Interfaces.IDataSource
-  isExternal: true
-  href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
-  name: SaveData(List<DataPoint>)
-  nameWithType: IDataSource.SaveData(List<DataPoint>)
-  fullName: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>)
-  nameWithType.vb: IDataSource.SaveData(List(Of DataPoint))
-  fullName.vb: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint))
-  name.vb: SaveData(List(Of DataPoint))
-  spec.csharp:
-  - uid: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
-    name: SaveData
-    href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
-  - name: (
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: Heatington.Models.DataPoint
-    name: DataPoint
-    href: Heatington.Models.DataPoint.html
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: Heatington.Controllers.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
-    name: SaveData
-    href: Heatington.Controllers.Interfaces.IDataSource.html#Heatington_Controllers_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
-  - name: (
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: Heatington.Models.DataPoint
-    name: DataPoint
-    href: Heatington.Models.DataPoint.html
-  - name: )
-  - name: )
-- uid: System.Collections.Generic.List{Heatington.Models.DataPoint}
-  commentId: T:System.Collections.Generic.List{Heatington.Models.DataPoint}
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{``0}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<DataPoint>
-  nameWithType: List<DataPoint>
-  fullName: System.Collections.Generic.List<Heatington.Models.DataPoint>
-  nameWithType.vb: List(Of DataPoint)
-  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.DataPoint)
-  name.vb: List(Of DataPoint)
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: Heatington.Models.DataPoint
-    name: DataPoint
-    href: Heatington.Models.DataPoint.html
+  - name: T
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -709,9 +732,7 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Heatington.Models.DataPoint
-    name: DataPoint
-    href: Heatington.Models.DataPoint.html
+  - name: T
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -778,6 +799,82 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  commentId: M:Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  parent: Heatington.Services.Interfaces.IDataSource
+  isExternal: true
+  href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  name: SaveData(List<DataPoint>)
+  nameWithType: IDataSource.SaveData(List<DataPoint>)
+  fullName: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>)
+  nameWithType.vb: IDataSource.SaveData(List(Of DataPoint))
+  fullName.vb: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: SaveData(List(Of DataPoint))
+  spec.csharp:
+  - uid: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+    name: SaveData
+    href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+    name: SaveData
+    href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List{Heatington.Models.DataPoint}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.DataPoint}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<DataPoint>
+  nameWithType: List<DataPoint>
+  fullName: System.Collections.Generic.List<Heatington.Models.DataPoint>
+  nameWithType.vb: List(Of DataPoint)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.DataPoint)
+  name.vb: List(Of DataPoint)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
 - uid: System.Collections.Generic.List{Heatington.Models.ResultHolder}
   commentId: T:System.Collections.Generic.List{Heatington.Models.ResultHolder}
   parent: System.Collections.Generic
@@ -810,4 +907,37 @@ references:
   - uid: Heatington.Models.ResultHolder
     name: ResultHolder
     href: Heatington.Models.ResultHolder.html
+  - name: )
+- uid: System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<FormatedResultHolder>
+  nameWithType: List<FormatedResultHolder>
+  fullName: System.Collections.Generic.List<Heatington.Models.FormatedResultHolder>
+  nameWithType.vb: List(Of FormatedResultHolder)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.FormatedResultHolder)
+  name.vb: List(Of FormatedResultHolder)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.FormatedResultHolder
+    name: FormatedResultHolder
+    href: Heatington.Models.FormatedResultHolder.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.FormatedResultHolder
+    name: FormatedResultHolder
+    href: Heatington.Models.FormatedResultHolder.html
   - name: )

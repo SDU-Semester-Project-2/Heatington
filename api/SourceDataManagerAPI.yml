@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: SourceDataManagerAPI
+  commentId: N:SourceDataManagerAPI
+  id: SourceDataManagerAPI
+  children:
+  - SourceDataManagerAPI.Program
+  - SourceDataManagerAPI.SourceDataManagerModel
+  - SourceDataManagerAPI.Startup
+  langs:
+  - csharp
+  - vb
+  name: SourceDataManagerAPI
+  nameWithType: SourceDataManagerAPI
+  fullName: SourceDataManagerAPI
+  type: Namespace
+  assemblies:
+  - Heatington.Microservice.SDM
+references:
+- uid: SourceDataManagerAPI.Program
+  commentId: T:SourceDataManagerAPI.Program
+  href: SourceDataManagerAPI.Program.html
+  name: Program
+  nameWithType: Program
+  fullName: SourceDataManagerAPI.Program
+- uid: SourceDataManagerAPI.SourceDataManagerModel
+  commentId: T:SourceDataManagerAPI.SourceDataManagerModel
+  href: SourceDataManagerAPI.SourceDataManagerModel.html
+  name: SourceDataManagerModel
+  nameWithType: SourceDataManagerModel
+  fullName: SourceDataManagerAPI.SourceDataManagerModel
+- uid: SourceDataManagerAPI.Startup
+  commentId: T:SourceDataManagerAPI.Startup
+  href: SourceDataManagerAPI.Startup.html
+  name: Startup
+  nameWithType: Startup
+  fullName: SourceDataManagerAPI.Startup

@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: AssetManagerAPI.Controllers
+  commentId: N:AssetManagerAPI.Controllers
+  id: AssetManagerAPI.Controllers
+  children:
+  - AssetManagerAPI.Controllers.HeatingGridController
+  - AssetManagerAPI.Controllers.ImagesController
+  - AssetManagerAPI.Controllers.ProductionUnitsController
+  langs:
+  - csharp
+  - vb
+  name: AssetManagerAPI.Controllers
+  nameWithType: AssetManagerAPI.Controllers
+  fullName: AssetManagerAPI.Controllers
+  type: Namespace
+  assemblies:
+  - Heatington.Microservice.AM
+references:
+- uid: AssetManagerAPI.Controllers.HeatingGridController
+  commentId: T:AssetManagerAPI.Controllers.HeatingGridController
+  href: AssetManagerAPI.Controllers.HeatingGridController.html
+  name: HeatingGridController
+  nameWithType: HeatingGridController
+  fullName: AssetManagerAPI.Controllers.HeatingGridController
+- uid: AssetManagerAPI.Controllers.ImagesController
+  commentId: T:AssetManagerAPI.Controllers.ImagesController
+  href: AssetManagerAPI.Controllers.ImagesController.html
+  name: ImagesController
+  nameWithType: ImagesController
+  fullName: AssetManagerAPI.Controllers.ImagesController
+- uid: AssetManagerAPI.Controllers.ProductionUnitsController
+  commentId: T:AssetManagerAPI.Controllers.ProductionUnitsController
+  href: AssetManagerAPI.Controllers.ProductionUnitsController.html
+  name: ProductionUnitsController
+  nameWithType: ProductionUnitsController
+  fullName: AssetManagerAPI.Controllers.ProductionUnitsController

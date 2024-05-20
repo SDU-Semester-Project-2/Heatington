@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Web.Components.Pages
+  commentId: N:Heatington.Web.Components.Pages
+  id: Heatington.Web.Components.Pages
+  children:
+  - Heatington.Web.Components.Pages.Error
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Web.Components.Pages
+  nameWithType: Heatington.Web.Components.Pages
+  fullName: Heatington.Web.Components.Pages
+  type: Namespace
+  assemblies:
+  - Heatington.Web
+references:
+- uid: Heatington.Web.Components.Pages.Error
+  commentId: T:Heatington.Web.Components.Pages.Error
+  href: Heatington.Web.Components.Pages.Error.html
+  name: Error
+  nameWithType: Error
+  fullName: Heatington.Web.Components.Pages.Error
