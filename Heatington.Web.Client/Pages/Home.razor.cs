@@ -20,8 +20,8 @@ public partial class Home : ComponentBase
     private static List<ChartData>? _productionCostScenario2Summer;
     private static List<ChartData>? _productionCostScenarioCo2Winter;
     private static List<ChartData>? _productionCostScenarioCo2Summer;
-    private List<ChartData>? _operationPointsScenario1Summer;
 
+    private List<ChartData>? _operationPointsScenario1Summer;
     private List<ChartData>? _operationPointsScenario1Winter;
     private List<ChartData>? _operationPointsScenario2Summer;
     private List<ChartData>? _operationPointsScenario2Winter;
@@ -48,7 +48,13 @@ public partial class Home : ComponentBase
     private List<ChartSeries> ProductionCostSeries { get; set; }
     private List<ChartSeries> Co2EmissionSeries { get; set; }
 
-    private List<ChartSeries> OperationPointsSeries { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> OperationPointsSeriesWinter1 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> OperationPointsSeriesWinter2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> OperationPointsSeriesWinterCo2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> OperationPointsSeriesSummer1 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> OperationPointsSeriesSummer2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> OperationPointsSeriesSummerCo2 { get; set; } = new List<ChartSeries>();
+
 
     private string[] XAxisLabels { get; set; }
 
@@ -264,7 +270,7 @@ public partial class Home : ComponentBase
 
     private void InitializeOperationPointsChartData()
     {
-        OperationPointsSeries = new List<ChartSeries>()
+        OperationPointsSeriesWinter1 = new List<ChartSeries>()
         {
             new ChartSeries()
             {
@@ -272,6 +278,52 @@ public partial class Home : ComponentBase
                 Data = _operationPointsScenario1Winter?.Select(x => x.YData).ToArray() ?? new double[0]
             },
         };
+
+        OperationPointsSeriesWinter2 = new List<ChartSeries>()
+        {
+            new ChartSeries()
+            {
+                Name = "Electric Boiler",
+                Data = _operationPointsScenario2Winter?.Select(x => x.YData).ToArray() ?? new double[0]
+            },
+        };
+
+        OperationPointsSeriesWinterCo2 = new List<ChartSeries>()
+        {
+            new ChartSeries()
+            {
+                Name = "Electric Boiler",
+                Data = _operationPointsScenarioCo2Winter?.Select(x => x.YData).ToArray() ?? new double[0]
+            },
+        };
+
+        OperationPointsSeriesSummer1 = new List<ChartSeries>()
+        {
+            new ChartSeries()
+            {
+                Name = "Electric Boiler",
+                Data = _operationPointsScenario1Summer?.Select(x => x.YData).ToArray() ?? new double[0]
+            },
+        };
+
+        OperationPointsSeriesSummer2 = new List<ChartSeries>()
+        {
+            new ChartSeries()
+            {
+                Name = "Electric Boiler",
+                Data = _operationPointsScenario2Summer?.Select(x => x.YData).ToArray() ?? new double[0]
+            },
+        };
+
+        OperationPointsSeriesSummerCo2 = new List<ChartSeries>()
+        {
+            new ChartSeries()
+            {
+                Name = "Electric Boiler",
+                Data = _operationPointsScenarioCo2Summer?.Select(x => x.YData).ToArray() ?? new double[0]
+            },
+        };
+
 
         // Assuming all scenarios have the same number of data points
         int numDataPoints = _operationPointsScenario1Winter?.Count ?? 0;
