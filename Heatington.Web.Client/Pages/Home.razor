@@ -34,7 +34,7 @@
                 <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" class="mr-3"/>
                 <div>
                     <MudText Typo="Typo.h5" GutterBottom>Expenses</MudText>
-                    <MudText Typo="Typo.h6">@($"{_totalWinterProductionCost} DKK")</MudText>
+                    <MudText Typo="Typo.h6">@($"{_totalWinterNetProductionCost} DKK")</MudText>
                 </div>
             </div>
         </MudCard>
@@ -83,7 +83,7 @@
                 <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Large" class="mr-3"/>
                 <div>
                     <MudText Typo="Typo.h5" GutterBottom>Expenses</MudText>
-                    <MudText Typo="Typo.h6">@($"{_totalSummerProductionCost} DKK")</MudText>
+                    <MudText Typo="Typo.h6">@($"{_totalSummerNetProductionCost} DKK")</MudText>
                 </div>
             </div>
         </MudCard>
@@ -150,7 +150,8 @@
     <MudText Typo="Typo.h6" class="text-center">
         Net Production Cost
     </MudText>
-    <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@ProductionCostSeries" @bind-SelectedIndex="Index"
+    <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@NetProductionCostSeries"
+              @bind-SelectedIndex="Index"
               XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="ProductionCostChartOptions"/>
     <MudDivider FlexItem></MudDivider>
 }
