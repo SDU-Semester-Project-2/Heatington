@@ -15,7 +15,8 @@ public class OPT()
 
     private readonly Delegate[] evals = new Delegate[]
     {
-        new Func<ProductionUnit, double>((unit) => unit.ProductionCost), new Func<ProductionUnit, DataPoint, double>(
+        new Func<ProductionUnit, double>((unit) => unit.ProductionCost),
+        new Func<ProductionUnit, DataPoint, double>(
             (unit, dataPoint) =>
                 unit.ProductionCost - unit.MaxElectricity * dataPoint.ElectricityPrice),
         new Func<ProductionUnit, double>((unit) => unit.Co2Emission)
@@ -34,40 +35,6 @@ public class OPT()
     {
         _productionUnits = _productionUnits.OrderBy(o => evaluate(o)).ToList();
 
-        OrderProductionUnits();
-    }
-
-    public void OrderProductionUnits()
-    {
-        _productionUnits = _productionUnits.OrderBy(o => o.ProductionCost).ToList();
-    }
-
-    // TODO: expand optimize with capability to optimize for co2
-    public void Optimize()
-    {
-        Console.WriteLine(_productionUnits.Count);
-        Console.WriteLine(_dataPoints.Count);
-        //checks if there are no boilers that use electricity
-        bool onlyFossil = _productionUnits.TrueForAll(x => x.MaxElectricity == 0);
-        Optimize((int a, int b) => a + b);
-        /*
-        if(!onlyFossil)
-        {
-            if(evals[(int)OptimizationMode.Scenario2] is Func<ProductionUnit, DataPoint, double> eval)
-            {
-                OptimizeForEachDataPoint(eval);
-            }
-            Optimize(OptimizationMode.Scenario2);
-        }
-        else
-        {
-            Optimize(OptimizationMode.Scenario1);
-            if(evals[(int)OptimizationMode.Co2] is Func<ProductionUnit, double> eval)
-            {
-                OptimizeOnce(eval);
-            }
-        }
-        */
     }
 
     public void Optimize(OptimizationMode mode)

@@ -12,7 +12,7 @@ public class ResultHolder(
     public double HeatDemand { get; } = heatDemand;
     public double ElectricityPrice { get; } = electricityPrice;
     public List<ProductionUnit> Boilers { get; set; } = boilers;
-    public double NetProductionCost { get; set; } = Math.Round(boilers.Sum(x => x.ProductionCost - x.MaxElectricity * electricityPrice), 4);
+    public double NetProductionCost { get; set; } = Math.Round(boilers.Sum(x => x.OperationPoint*(x.ProductionCost*x.MaxHeat - x.MaxElectricity * electricityPrice)), 4);
 
     public object Clone()
     {
