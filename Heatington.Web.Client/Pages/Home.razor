@@ -25,7 +25,7 @@
 <MudImage Fluid="true" Alt="Heating Grid Map" Class="rounded-lg" Src="Assets/Images/heating-grid.png"></MudImage>
 
 <MudText Typo="Typo.h4" class="text-center">
-    Statistics for Winter Period
+    Statistics for Winter Period (Scenario 2)
 </MudText>
 <MudGrid>
     <MudItem xs="12" sm="6" md="3">
@@ -45,7 +45,7 @@
                 <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3"/>
                 <div>
                     <MudText Typo="Typo.h5" GutterBottom>Profit</MudText>
-                    <MudText Typo="Typo.h6">@($"{totalProfit} DKK")</MudText>
+                    <MudText Typo="Typo.h6">@($"{_totalWinterProfit} DKK")</MudText>
                 </div>
             </div>
         </MudCard>
@@ -56,7 +56,7 @@
                 <MudIcon Icon="@Icons.Material.Filled.Cloud" Size="Size.Large" class="mr-3"/>
                 <div>
                     <MudText Typo="Typo.h5" GutterBottom>CO2 Produced</MudText>
-                    <MudText Typo="Typo.h6">@($"{totalCO2Produced} kg")</MudText>
+                    <MudText Typo="Typo.h6">@($"{_totalWinterCo2Emission} kg")</MudText>
                 </div>
             </div>
         </MudCard>
@@ -74,7 +74,7 @@
     </MudItem>
 </MudGrid>
 <MudText Typo="Typo.h4" class="text-center">
-    Statistics for Summer Period
+    Statistics for Summer Period (Scenario 2)
 </MudText>
 <MudGrid>
     <MudItem xs="12" sm="6" md="3">
@@ -94,7 +94,7 @@
                 <MudIcon Icon="@Icons.Material.Filled.AccountBalance" Size="Size.Large" class="mr-3"/>
                 <div>
                     <MudText Typo="Typo.h5" GutterBottom>Profit</MudText>
-                    <MudText Typo="Typo.h6">@($"{totalProfit} DKK")</MudText>
+                    <MudText Typo="Typo.h6">@($"{_totalSummerProft} DKK")</MudText>
                 </div>
             </div>
         </MudCard>
@@ -105,7 +105,7 @@
                 <MudIcon Icon="@Icons.Material.Filled.Cloud" Size="Size.Large" class="mr-3"/>
                 <div>
                     <MudText Typo="Typo.h5" GutterBottom>CO2 Produced</MudText>
-                    <MudText Typo="Typo.h6">@($"{totalCO2Produced} kg")</MudText>
+                    <MudText Typo="Typo.h6">@($"{_totalSummerCo2Emission} kg")</MudText>
                 </div>
             </div>
         </MudCard>
@@ -131,7 +131,6 @@
     <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@HeatDemandSeries" @bind-SelectedIndex="Index"
               XAxisLabels="@XAxisLabels" ChartOptions="HeatDemandChartOptions" Width="100%" Height="350px">
     </MudChart>
-
     <MudDivider FlexItem></MudDivider>
 
     <!-- Electricity Prices Chart -->
@@ -152,13 +151,60 @@
               XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="ProductionCostChartOptions"/>
     <MudDivider FlexItem></MudDivider>
 }
+
 <!-- CO2 Emission Chart -->
 <MudText Typo="Typo.h6" class="text-center">
     CO2 Emission
 </MudText>
-<MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2EmissionSeries" @bind-SelectedIndex="Index"
-          XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
+
+<MudTabs>
+    @* WINTER SCENARIO  *@
+    <MudTabPanel Text="Winter Scenario 1">
+        <!-- Chart for CO2 Emission Scenario 1 -->
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesWinter1" @bind-SelectedIndex="Index"
+                  XAxisLabels="@XAxisCo2EmissionLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
+    </MudTabPanel>
+
+    <MudTabPanel Text="Winter Scenario 2">
+        <!-- Chart for CO2 Emission Scenario 2 -->
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesWinter2"
+                  XAxisLabels="@XAxisLabels"
+                  Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+        </MudChart>
+    </MudTabPanel>
+    <MudTabPanel Text="Winter Scenario Co2">
+        <!-- Chart for CO2 Emission Scenario CO2 -->
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesWinterCo2"
+                  XAxisLabels="@XAxisLabels"
+                  Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+        </MudChart>
+    </MudTabPanel>
+
+    @* SUMMER SCENARIO  *@
+    <MudTabPanel Text="Summer Scenario 1">
+        <!-- Chart for CO2 Emission Scenario 1 -->
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesSummer1"
+                  XAxisLabels="@XAxisLabels"
+                  Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+        </MudChart>
+    </MudTabPanel>
+    <MudTabPanel Text="Summer Scenario 2">
+        <!-- Chart for Co2 Emission Scenario 2 -->
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesSummer2"
+                  XAxisLabels="@XAxisLabels"
+                  Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+        </MudChart>
+    </MudTabPanel>
+    <MudTabPanel Text="Summer Scenario Co2">
+        <!-- Chart for CO2 Emission Scenario CO2 -->
+        <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesSummerCo2"
+                  XAxisLabels="@XAxisLabels"
+                  Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+        </MudChart>
+    </MudTabPanel>
+</MudTabs>
 <MudDivider FlexItem></MudDivider>
+
 
 <!-- Operation Points Chart -->
 <MudText Typo="Typo.h6" class="text-center">
