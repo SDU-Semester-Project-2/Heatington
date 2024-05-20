@@ -268,7 +268,7 @@ public partial class Home : ComponentBase
         {
             new ChartSeries()
             {
-                Name = "ElectricBoiler",
+                Name = "Electric Boiler",
                 Data = _operationPointsScenario1Winter?.Select(x => x.YData).ToArray() ?? new double[0]
             },
         };
