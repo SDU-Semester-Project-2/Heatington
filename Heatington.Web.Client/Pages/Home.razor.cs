@@ -36,7 +36,7 @@ public partial class Home : ComponentBase
 
     public ChartOptions Co2EmissionChartOptions = new ChartOptions();
     public ChartOptions ElectricityChartOptions = new ChartOptions();
-    public ChartOptions HeatChartChartOptions = new ChartOptions { YAxisTicks = 1 };
+    public ChartOptions HeatDemandChartOptions = new ChartOptions { YAxisTicks = 1 };
     private int Index = -1;
     private bool isDataReady = false;
     public ChartOptions OperationPointsChartOptions = new ChartOptions { YAxisTicks = 1 };
@@ -92,13 +92,13 @@ public partial class Home : ComponentBase
             string baseWinterOptUri = "http://localhost:5019/api/optimizer?season=winter&mode=";
             string optWinterScenario1Uri = $"{baseWinterOptUri}{(int)OptimizationMode.Scenario1}";
             string optWinterScenario2Uri = $"{baseWinterOptUri}{(int)OptimizationMode.Scenario2}";
-            string optWinterCO2Uri = $"{baseWinterOptUri}{(int)OptimizationMode.Co2}";
+            string optWinterCo2Uri = $"{baseWinterOptUri}{(int)OptimizationMode.Co2}";
 
             // Summer period
             string baseSummerOptUri = "http://localhost:5019/api/optimizer?season=summer&mode=";
             string optSummerScenario1Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Scenario1}";
             string optSummerScenario2Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Scenario2}";
-            string optSummerCO2Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Co2}";
+            string optSummerCo2Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Co2}";
 
             List<ResultHolder>? rawResultDataWinterScenario1 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterScenario1Uri);
@@ -107,7 +107,7 @@ public partial class Home : ComponentBase
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterScenario2Uri);
 
             List<ResultHolder>? rawResultDataWinterScenarioCo2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterCO2Uri);
+                await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterCo2Uri);
 
             List<ResultHolder>? rawResultDataSummerScenario1 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerScenario1Uri);
@@ -116,7 +116,7 @@ public partial class Home : ComponentBase
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerScenario2Uri);
 
             List<ResultHolder>? rawResultDataSummerScenarioCo2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerCO2Uri);
+                await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerCo2Uri);
 
             // Net Production Cost
             _netProductionCostScenario1Winter = GetNetProductionCostSeries(rawResultDataWinterScenario1);
