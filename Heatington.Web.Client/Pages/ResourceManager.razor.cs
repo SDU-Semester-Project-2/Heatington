@@ -14,7 +14,7 @@ namespace Heatington.Web.Client.Pages
 {
     public partial class ResourceManager : ComponentBase
     {
-        private bool _isLoading = false;
+        private bool isDataLoaded = false;
 
 
         List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
@@ -187,6 +187,7 @@ namespace Heatington.Web.Client.Pages
                     ParseJsonData(jsonContent);
                 }
 
+                isDataLoaded = true;
                 StateHasChanged();
             }
             catch (Exception ex)
