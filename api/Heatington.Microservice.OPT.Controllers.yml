@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Microservice.OPT.Controllers
+  commentId: N:Heatington.Microservice.OPT.Controllers
+  id: Heatington.Microservice.OPT.Controllers
+  children:
+  - Heatington.Microservice.OPT.Controllers.OptimizerController
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Microservice.OPT.Controllers
+  nameWithType: Heatington.Microservice.OPT.Controllers
+  fullName: Heatington.Microservice.OPT.Controllers
+  type: Namespace
+  assemblies:
+  - Heatington.Microservice.OPT
+references:
+- uid: Heatington.Microservice.OPT.Controllers.OptimizerController
+  commentId: T:Heatington.Microservice.OPT.Controllers.OptimizerController
+  href: Heatington.Microservice.OPT.Controllers.OptimizerController.html
+  name: OptimizerController
+  nameWithType: OptimizerController
+  fullName: Heatington.Microservice.OPT.Controllers.OptimizerController

@@ -4,7 +4,7 @@ items:
   commentId: N:Heatington.ResultDataManager
   id: Heatington.ResultDataManager
   children:
-  - Heatington.ResultDataManager.ResultDataManager
+  - Heatington.ResultDataManager.RDM
   langs:
   - csharp
   - vb
@@ -15,9 +15,9 @@ items:
   assemblies:
   - Heatington
 references:
-- uid: Heatington.ResultDataManager.ResultDataManager
-  commentId: T:Heatington.ResultDataManager.ResultDataManager
-  href: Heatington.ResultDataManager.ResultDataManager.html
-  name: ResultDataManager
-  nameWithType: ResultDataManager
-  fullName: Heatington.ResultDataManager.ResultDataManager
+- uid: Heatington.ResultDataManager.RDM
+  commentId: T:Heatington.ResultDataManager.RDM
+  href: Heatington.ResultDataManager.RDM.html
+  name: RDM
+  nameWithType: RDM
+  fullName: Heatington.ResultDataManager.RDM

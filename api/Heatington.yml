@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington
+  commentId: N:Heatington
+  id: Heatington
+  children:
+  - Heatington.ConsoleUI
+  langs:
+  - csharp
+  - vb
+  name: Heatington
+  nameWithType: Heatington
+  fullName: Heatington
+  type: Namespace
+  assemblies:
+  - Heatington.Console
+references:
+- uid: Heatington.ConsoleUI
+  commentId: T:Heatington.ConsoleUI
+  href: Heatington.ConsoleUI.html
+  name: ConsoleUI
+  nameWithType: ConsoleUI
+  fullName: Heatington.ConsoleUI

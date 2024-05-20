@@ -1,0 +1,875 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Controllers.RealDataController
+  commentId: T:Heatington.Controllers.RealDataController
+  id: RealDataController
+  parent: Heatington.Controllers
+  children:
+  - Heatington.Controllers.RealDataController.#ctor(System.String)
+  - Heatington.Controllers.RealDataController.GetDataAsync
+  - Heatington.Controllers.RealDataController.GetElectricityPricesAsync(System.DateTime,System.DateTime,System.String)
+  - Heatington.Controllers.RealDataController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  - Heatington.Controllers.RealDataController.filePath
+  langs:
+  - csharp
+  - vb
+  name: RealDataController
+  nameWithType: RealDataController
+  fullName: Heatington.Controllers.RealDataController
+  type: Class
+  source:
+    remote:
+      path: Heatington/Controllers/RealDataController.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: RealDataController
+    path: Heatington/Controllers/RealDataController.cs
+    startLine: 8
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: 'public class RealDataController : IDataSource'
+    content.vb: Public Class RealDataController Implements IDataSource
+  inheritance:
+  - System.Object
+  implements:
+  - Heatington.Services.Interfaces.IDataSource
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Controllers.RealDataController.filePath
+  commentId: F:Heatington.Controllers.RealDataController.filePath
+  id: filePath
+  parent: Heatington.Controllers.RealDataController
+  langs:
+  - csharp
+  - vb
+  name: filePath
+  nameWithType: RealDataController.filePath
+  fullName: Heatington.Controllers.RealDataController.filePath
+  type: Field
+  source:
+    remote:
+      path: Heatington/Controllers/RealDataController.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: filePath
+    path: Heatington/Controllers/RealDataController.cs
+    startLine: 11
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: public string filePath
+    return:
+      type: System.String
+    content.vb: Public filePath As String
+- uid: Heatington.Controllers.RealDataController.#ctor(System.String)
+  commentId: M:Heatington.Controllers.RealDataController.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Heatington.Controllers.RealDataController
+  langs:
+  - csharp
+  - vb
+  name: RealDataController(string)
+  nameWithType: RealDataController.RealDataController(string)
+  fullName: Heatington.Controllers.RealDataController.RealDataController(string)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Controllers/RealDataController.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Controllers/RealDataController.cs
+    startLine: 12
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: public RealDataController(string FilePath)
+    parameters:
+    - id: FilePath
+      type: System.String
+    content.vb: Public Sub New(FilePath As String)
+  overload: Heatington.Controllers.RealDataController.#ctor*
+  nameWithType.vb: RealDataController.New(String)
+  fullName.vb: Heatington.Controllers.RealDataController.New(String)
+  name.vb: New(String)
+- uid: Heatington.Controllers.RealDataController.GetDataAsync
+  commentId: M:Heatington.Controllers.RealDataController.GetDataAsync
+  id: GetDataAsync
+  parent: Heatington.Controllers.RealDataController
+  langs:
+  - csharp
+  - vb
+  name: GetDataAsync()
+  nameWithType: RealDataController.GetDataAsync()
+  fullName: Heatington.Controllers.RealDataController.GetDataAsync()
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/RealDataController.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: GetDataAsync
+    path: Heatington/Controllers/RealDataController.cs
+    startLine: 19
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  example: []
+  syntax:
+    content: public Task<List<DataPoint>?> GetDataAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
+    content.vb: Public Function GetDataAsync() As Task(Of List(Of DataPoint))
+  overload: Heatington.Controllers.RealDataController.GetDataAsync*
+  implements:
+  - Heatington.Services.Interfaces.IDataSource.GetDataAsync
+- uid: Heatington.Controllers.RealDataController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  commentId: M:Heatington.Controllers.RealDataController.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  id: SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  parent: Heatington.Controllers.RealDataController
+  langs:
+  - csharp
+  - vb
+  name: SaveData(List<DataPoint>)
+  nameWithType: RealDataController.SaveData(List<DataPoint>)
+  fullName: Heatington.Controllers.RealDataController.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/RealDataController.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SaveData
+    path: Heatington/Controllers/RealDataController.cs
+    startLine: 49
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  example: []
+  syntax:
+    content: public void SaveData(List<DataPoint> data)
+    parameters:
+    - id: data
+      type: System.Collections.Generic.List{Heatington.Models.DataPoint}
+    content.vb: Public Sub SaveData(data As List(Of DataPoint))
+  overload: Heatington.Controllers.RealDataController.SaveData*
+  implements:
+  - Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  nameWithType.vb: RealDataController.SaveData(List(Of DataPoint))
+  fullName.vb: Heatington.Controllers.RealDataController.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: SaveData(List(Of DataPoint))
+- uid: Heatington.Controllers.RealDataController.GetElectricityPricesAsync(System.DateTime,System.DateTime,System.String)
+  commentId: M:Heatington.Controllers.RealDataController.GetElectricityPricesAsync(System.DateTime,System.DateTime,System.String)
+  id: GetElectricityPricesAsync(System.DateTime,System.DateTime,System.String)
+  parent: Heatington.Controllers.RealDataController
+  langs:
+  - csharp
+  - vb
+  name: GetElectricityPricesAsync(DateTime, DateTime, string)
+  nameWithType: RealDataController.GetElectricityPricesAsync(DateTime, DateTime, string)
+  fullName: Heatington.Controllers.RealDataController.GetElectricityPricesAsync(System.DateTime, System.DateTime, string)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Controllers/RealDataController.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: GetElectricityPricesAsync
+    path: Heatington/Controllers/RealDataController.cs
+    startLine: 57
+  assemblies:
+  - Heatington
+  namespace: Heatington.Controllers
+  syntax:
+    content: public Task<List<double>> GetElectricityPricesAsync(DateTime start, DateTime end, string priceArea)
+    parameters:
+    - id: start
+      type: System.DateTime
+    - id: end
+      type: System.DateTime
+    - id: priceArea
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{System.Double}}
+    content.vb: Public Function GetElectricityPricesAsync(start As Date, [end] As Date, priceArea As String) As Task(Of List(Of Double))
+  overload: Heatington.Controllers.RealDataController.GetElectricityPricesAsync*
+  nameWithType.vb: RealDataController.GetElectricityPricesAsync(Date, Date, String)
+  fullName.vb: Heatington.Controllers.RealDataController.GetElectricityPricesAsync(Date, Date, String)
+  name.vb: GetElectricityPricesAsync(Date, Date, String)
+references:
+- uid: Heatington.Controllers
+  commentId: N:Heatington.Controllers
+  href: Heatington.html
+  name: Heatington.Controllers
+  nameWithType: Heatington.Controllers
+  fullName: Heatington.Controllers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Controllers
+    name: Controllers
+    href: Heatington.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Heatington.Services.Interfaces.IDataSource
+  commentId: T:Heatington.Services.Interfaces.IDataSource
+  parent: Heatington.Services.Interfaces
+  href: Heatington.Services.Interfaces.IDataSource.html
+  name: IDataSource
+  nameWithType: IDataSource
+  fullName: Heatington.Services.Interfaces.IDataSource
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Services.Interfaces
+  commentId: N:Heatington.Services.Interfaces
+  href: Heatington.html
+  name: Heatington.Services.Interfaces
+  nameWithType: Heatington.Services.Interfaces
+  fullName: Heatington.Services.Interfaces
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Interfaces
+    name: Interfaces
+    href: Heatington.Services.Interfaces.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Interfaces
+    name: Interfaces
+    href: Heatington.Services.Interfaces.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Heatington.Controllers.RealDataController.#ctor*
+  commentId: Overload:Heatington.Controllers.RealDataController.#ctor
+  href: Heatington.Controllers.RealDataController.html#Heatington_Controllers_RealDataController__ctor_System_String_
+  name: RealDataController
+  nameWithType: RealDataController.RealDataController
+  fullName: Heatington.Controllers.RealDataController.RealDataController
+  nameWithType.vb: RealDataController.New
+  fullName.vb: Heatington.Controllers.RealDataController.New
+  name.vb: New
+- uid: Heatington.Controllers.RealDataController.GetDataAsync*
+  commentId: Overload:Heatington.Controllers.RealDataController.GetDataAsync
+  href: Heatington.Controllers.RealDataController.html#Heatington_Controllers_RealDataController_GetDataAsync
+  name: GetDataAsync
+  nameWithType: RealDataController.GetDataAsync
+  fullName: Heatington.Controllers.RealDataController.GetDataAsync
+- uid: Heatington.Services.Interfaces.IDataSource.GetDataAsync
+  commentId: M:Heatington.Services.Interfaces.IDataSource.GetDataAsync
+  parent: Heatington.Services.Interfaces.IDataSource
+  href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_GetDataAsync
+  name: GetDataAsync()
+  nameWithType: IDataSource.GetDataAsync()
+  fullName: Heatington.Services.Interfaces.IDataSource.GetDataAsync()
+  spec.csharp:
+  - uid: Heatington.Services.Interfaces.IDataSource.GetDataAsync
+    name: GetDataAsync
+    href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_GetDataAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Heatington.Services.Interfaces.IDataSource.GetDataAsync
+    name: GetDataAsync
+    href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_GetDataAsync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{Heatington.Models.DataPoint}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<DataPoint>>
+  nameWithType: Task<List<DataPoint>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<Heatington.Models.DataPoint>>
+  nameWithType.vb: Task(Of List(Of DataPoint))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: Task(Of List(Of DataPoint))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Heatington.Controllers.RealDataController.SaveData*
+  commentId: Overload:Heatington.Controllers.RealDataController.SaveData
+  href: Heatington.Controllers.RealDataController.html#Heatington_Controllers_RealDataController_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  name: SaveData
+  nameWithType: RealDataController.SaveData
+  fullName: Heatington.Controllers.RealDataController.SaveData
+- uid: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  commentId: M:Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+  parent: Heatington.Services.Interfaces.IDataSource
+  isExternal: true
+  href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  name: SaveData(List<DataPoint>)
+  nameWithType: IDataSource.SaveData(List<DataPoint>)
+  fullName: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List<Heatington.Models.DataPoint>)
+  nameWithType.vb: IDataSource.SaveData(List(Of DataPoint))
+  fullName.vb: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: SaveData(List(Of DataPoint))
+  spec.csharp:
+  - uid: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+    name: SaveData
+    href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Heatington.Services.Interfaces.IDataSource.SaveData(System.Collections.Generic.List{Heatington.Models.DataPoint})
+    name: SaveData
+    href: Heatington.Services.Interfaces.IDataSource.html#Heatington_Services_Interfaces_IDataSource_SaveData_System_Collections_Generic_List_Heatington_Models_DataPoint__
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List{Heatington.Models.DataPoint}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.DataPoint}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<DataPoint>
+  nameWithType: List<DataPoint>
+  fullName: System.Collections.Generic.List<Heatington.Models.DataPoint>
+  nameWithType.vb: List(Of DataPoint)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.DataPoint)
+  name.vb: List(Of DataPoint)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Heatington.Controllers.RealDataController.GetElectricityPricesAsync*
+  commentId: Overload:Heatington.Controllers.RealDataController.GetElectricityPricesAsync
+  href: Heatington.Controllers.RealDataController.html#Heatington_Controllers_RealDataController_GetElectricityPricesAsync_System_DateTime_System_DateTime_System_String_
+  name: GetElectricityPricesAsync
+  nameWithType: RealDataController.GetElectricityPricesAsync
+  fullName: Heatington.Controllers.RealDataController.GetElectricityPricesAsync
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{System.Double}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{System.Double}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<double>>
+  nameWithType: Task<List<double>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<double>>
+  nameWithType.vb: Task(Of List(Of Double))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of Double))
+  name.vb: Task(Of List(Of Double))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+  - name: )

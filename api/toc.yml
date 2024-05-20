@@ -1,10 +1,33 @@
 ### YamlMime:TableOfContent
 items:
+- uid: AssetManagerAPI
+  name: AssetManagerAPI
+  items:
+  - uid: AssetManagerAPI.AssetManagerModel
+    name: AssetManagerModel
+  - uid: AssetManagerAPI.Program
+    name: Program
+  - uid: AssetManagerAPI.Startup
+    name: Startup
+- uid: AssetManagerAPI.Controllers
+  name: AssetManagerAPI.Controllers
+  items:
+  - uid: AssetManagerAPI.Controllers.HeatingGridController
+    name: HeatingGridController
+  - uid: AssetManagerAPI.Controllers.ImagesController
+    name: ImagesController
+  - uid: AssetManagerAPI.Controllers.ProductionUnitsController
+    name: ProductionUnitsController
+- uid: Heatington
+  name: Heatington
+  items:
+  - uid: Heatington.ConsoleUI
+    name: ConsoleUI
 - uid: Heatington.AssetManager
   name: Heatington.AssetManager
   items:
-  - uid: Heatington.AssetManager.AssetManager
-    name: AssetManager
+  - uid: Heatington.AssetManager.AM
+    name: AM
   - uid: Heatington.AssetManager.ProductionUnitsEnum
     name: ProductionUnitsEnum
 - uid: Heatington.Controllers
@@ -18,6 +41,8 @@ items:
     name: JsonController
   - uid: Heatington.Controllers.ProductionUnitJsonConverter
     name: ProductionUnitJsonConverter
+  - uid: Heatington.Controllers.RealDataController
+    name: RealDataController
 - uid: Heatington.Controllers.Enums
   name: Heatington.Controllers.Enums
   items:
@@ -26,8 +51,6 @@ items:
 - uid: Heatington.Controllers.Interfaces
   name: Heatington.Controllers.Interfaces
   items:
-  - uid: Heatington.Controllers.Interfaces.IDataSource
-    name: IDataSource
   - uid: Heatington.Controllers.Interfaces.IReadWriteController
     name: IReadWriteController
 - uid: Heatington.Helpers
@@ -35,11 +58,30 @@ items:
   items:
   - uid: Heatington.Helpers.Utilities
     name: Utilities
+- uid: Heatington.Microservice.OPT
+  name: Heatington.Microservice.OPT
+  items:
+  - uid: Heatington.Microservice.OPT.Program
+    name: Program
+  - uid: Heatington.Microservice.OPT.Startup
+    name: Startup
+- uid: Heatington.Microservice.OPT.Controllers
+  name: Heatington.Microservice.OPT.Controllers
+  items:
+  - uid: Heatington.Microservice.OPT.Controllers.OptimizerController
+    name: OptimizerController
+- uid: Heatington.Microservice.OPT.Services
+  name: Heatington.Microservice.OPT.Services
+  items:
+  - uid: Heatington.Microservice.OPT.Services.DependenciesService
+    name: DependenciesService
 - uid: Heatington.Models
   name: Heatington.Models
   items:
   - uid: Heatington.Models.DataPoint
     name: DataPoint
+  - uid: Heatington.Models.FormatedResultHolder
+    name: FormatedResultHolder
   - uid: Heatington.Models.HeatingGrid
     name: HeatingGrid
   - uid: Heatington.Models.ProductionUnit
@@ -49,16 +91,20 @@ items:
 - uid: Heatington.Optimizer
   name: Heatington.Optimizer
   items:
-  - uid: Heatington.Optimizer.Opt
-    name: Opt
+  - uid: Heatington.Optimizer.OPT
+    name: OPT
+  - uid: Heatington.Optimizer.OptimizationMode
+    name: OptimizationMode
 - uid: Heatington.ResultDataManager
   name: Heatington.ResultDataManager
   items:
-  - uid: Heatington.ResultDataManager.ResultDataManager
-    name: ResultDataManager
+  - uid: Heatington.ResultDataManager.RDM
+    name: RDM
 - uid: Heatington.Services.Interfaces
   name: Heatington.Services.Interfaces
   items:
+  - uid: Heatington.Services.Interfaces.IDataSource
+    name: IDataSource
   - uid: Heatington.Services.Interfaces.ISerializeDeserialize
     name: ISerializeDeserialize
 - uid: Heatington.Services.Serializers
@@ -66,11 +112,15 @@ items:
   items:
   - uid: Heatington.Services.Serializers.CsvConstructorAttribute
     name: CsvConstructorAttribute
+  - uid: Heatington.Services.Serializers.CsvData
+    name: CsvData
+  - uid: Heatington.Services.Serializers.CsvSerializer
+    name: CsvSerializer
 - uid: Heatington.SourceDataManager
   name: Heatington.SourceDataManager
   items:
-  - uid: Heatington.SourceDataManager.SourceDataManager
-    name: SourceDataManager
+  - uid: Heatington.SourceDataManager.SDM
+    name: SDM
 - uid: Heatington.Tests
   name: Heatington.Tests
   items:
@@ -81,4 +131,76 @@ items:
   items:
   - uid: Heatington.Tests.Controllers.FileControllerTests
     name: FileControllerTests
+- uid: Heatington.Web.Client
+  name: Heatington.Web.Client
+  items:
+  - uid: Heatington.Web.Client.Routes
+    name: Routes
+  - uid: Heatington.Web.Client._Imports
+    name: _Imports
+- uid: Heatington.Web.Client.Components
+  name: Heatington.Web.Client.Components
+  items:
+  - uid: Heatington.Web.Client.Components.AddBoilerDialog
+    name: AddBoilerDialog
+  - uid: Heatington.Web.Client.Components.EditBoilerDialog
+    name: EditBoilerDialog
+- uid: Heatington.Web.Client.Layout
+  name: Heatington.Web.Client.Layout
+  items:
+  - uid: Heatington.Web.Client.Layout.MainLayout
+    name: MainLayout
+  - uid: Heatington.Web.Client.Layout.NavMenu
+    name: NavMenu
+- uid: Heatington.Web.Client.Pages
+  name: Heatington.Web.Client.Pages
+  items:
+  - uid: Heatington.Web.Client.Pages.About
+    name: About
+  - uid: Heatington.Web.Client.Pages.About.TeamMember
+    name: About.TeamMember
+  - uid: Heatington.Web.Client.Pages.DataVisualizer
+    name: DataVisualizer
+  - uid: Heatington.Web.Client.Pages.Home
+    name: Home
+  - uid: Heatington.Web.Client.Pages.Home.ChartData
+    name: Home.ChartData
+  - uid: Heatington.Web.Client.Pages.Modules
+    name: Modules
+  - uid: Heatington.Web.Client.Pages.Modules.ModuleInfo
+    name: Modules.ModuleInfo
+  - uid: Heatington.Web.Client.Pages.Optimizer
+    name: Optimizer
+  - uid: Heatington.Web.Client.Pages.ResourceManager
+    name: ResourceManager
+  - uid: Heatington.Web.Client.Pages.ResourceManager.DateTimeConverter
+    name: ResourceManager.DateTimeConverter
+  - uid: Heatington.Web.Client.Pages.ResourceManager.HeatDemandData
+    name: ResourceManager.HeatDemandData
+- uid: Heatington.Web.Components
+  name: Heatington.Web.Components
+  items:
+  - uid: Heatington.Web.Components.App
+    name: App
+  - uid: Heatington.Web.Components._Imports
+    name: _Imports
+- uid: Heatington.Web.Components.Pages
+  name: Heatington.Web.Components.Pages
+  items:
+  - uid: Heatington.Web.Components.Pages.Error
+    name: Error
+- uid: SourceDataManagerAPI
+  name: SourceDataManagerAPI
+  items:
+  - uid: SourceDataManagerAPI.Program
+    name: Program
+  - uid: SourceDataManagerAPI.SourceDataManagerModel
+    name: SourceDataManagerModel
+  - uid: SourceDataManagerAPI.Startup
+    name: Startup
+- uid: SourceDataManagerAPI.Controllers
+  name: SourceDataManagerAPI.Controllers
+  items:
+  - uid: SourceDataManagerAPI.Controllers.TimeSeriesDataController
+    name: TimeSeriesDataController
 memberLayout: SamePage

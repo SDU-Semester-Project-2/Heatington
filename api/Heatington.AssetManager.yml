@@ -4,7 +4,7 @@ items:
   commentId: N:Heatington.AssetManager
   id: Heatington.AssetManager
   children:
-  - Heatington.AssetManager.AssetManager
+  - Heatington.AssetManager.AM
   - Heatington.AssetManager.ProductionUnitsEnum
   langs:
   - csharp
@@ -16,12 +16,13 @@ items:
   assemblies:
   - Heatington
 references:
-- uid: Heatington.AssetManager.AssetManager
-  commentId: T:Heatington.AssetManager.AssetManager
-  href: Heatington.AssetManager.AssetManager.html
-  name: AssetManager
-  nameWithType: AssetManager
-  fullName: Heatington.AssetManager.AssetManager
+- uid: Heatington.AssetManager.AM
+  commentId: T:Heatington.AssetManager.AM
+  parent: Heatington.AssetManager
+  href: Heatington.AssetManager.AM.html
+  name: AM
+  nameWithType: AM
+  fullName: Heatington.AssetManager.AM
 - uid: Heatington.AssetManager.ProductionUnitsEnum
   commentId: T:Heatington.AssetManager.ProductionUnitsEnum
   parent: Heatington.AssetManager
