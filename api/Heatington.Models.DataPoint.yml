@@ -5,6 +5,7 @@ items:
   id: DataPoint
   parent: Heatington.Models
   children:
+  - Heatington.Models.DataPoint.#ctor(System.DateTime,System.DateTime,System.Double,System.Double)
   - Heatington.Models.DataPoint.#ctor(System.String,System.String,System.String,System.String)
   - Heatington.Models.DataPoint.ElectricityPrice
   - Heatington.Models.DataPoint.EndTime
@@ -21,7 +22,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: DataPoint
     path: Heatington/Models/DataPoint.cs
@@ -55,7 +56,7 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/DataPoint.cs
@@ -79,6 +80,54 @@ items:
   nameWithType.vb: DataPoint.New(String, String, String, String)
   fullName.vb: Heatington.Models.DataPoint.New(String, String, String, String)
   name.vb: New(String, String, String, String)
+- uid: Heatington.Models.DataPoint.#ctor(System.DateTime,System.DateTime,System.Double,System.Double)
+  commentId: M:Heatington.Models.DataPoint.#ctor(System.DateTime,System.DateTime,System.Double,System.Double)
+  id: '#ctor(System.DateTime,System.DateTime,System.Double,System.Double)'
+  parent: Heatington.Models.DataPoint
+  langs:
+  - csharp
+  - vb
+  name: DataPoint(DateTime, DateTime, double, double)
+  nameWithType: DataPoint.DataPoint(DateTime, DateTime, double, double)
+  fullName: Heatington.Models.DataPoint.DataPoint(System.DateTime, System.DateTime, double, double)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Models/DataPoint.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Models/DataPoint.cs
+    startLine: 54
+  assemblies:
+  - Heatington
+  namespace: Heatington.Models
+  syntax:
+    content: >-
+      [JsonConstructor]
+
+      public DataPoint(DateTime startTime, DateTime endTime, double heatDemand, double electricityPrice)
+    parameters:
+    - id: startTime
+      type: System.DateTime
+    - id: endTime
+      type: System.DateTime
+    - id: heatDemand
+      type: System.Double
+    - id: electricityPrice
+      type: System.Double
+    content.vb: >-
+      <JsonConstructor>
+
+      Public Sub New(startTime As Date, endTime As Date, heatDemand As Double, electricityPrice As Double)
+  overload: Heatington.Models.DataPoint.#ctor*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonConstructorAttribute
+    ctor: System.Text.Json.Serialization.JsonConstructorAttribute.#ctor
+    arguments: []
+  nameWithType.vb: DataPoint.New(Date, Date, Double, Double)
+  fullName.vb: Heatington.Models.DataPoint.New(Date, Date, Double, Double)
+  name.vb: New(Date, Date, Double, Double)
 - uid: Heatington.Models.DataPoint.StartTime
   commentId: P:Heatington.Models.DataPoint.StartTime
   id: StartTime
@@ -93,11 +142,11 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartTime
     path: Heatington/Models/DataPoint.cs
-    startLine: 19
+    startLine: 64
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -122,11 +171,11 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: EndTime
     path: Heatington/Models/DataPoint.cs
-    startLine: 21
+    startLine: 66
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -151,11 +200,11 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemand
     path: Heatington/Models/DataPoint.cs
-    startLine: 23
+    startLine: 68
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -180,11 +229,11 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityPrice
     path: Heatington/Models/DataPoint.cs
-    startLine: 25
+    startLine: 70
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -209,11 +258,11 @@ items:
   source:
     remote:
       path: Heatington/Models/DataPoint.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Models/DataPoint.cs
-    startLine: 27
+    startLine: 72
   assemblies:
   - Heatington
   namespace: Heatington.Models
@@ -483,12 +532,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Heatington.Models.DataPoint.StartTime*
-  commentId: Overload:Heatington.Models.DataPoint.StartTime
-  href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_StartTime
-  name: StartTime
-  nameWithType: DataPoint.StartTime
-  fullName: Heatington.Models.DataPoint.StartTime
 - uid: System.DateTime
   commentId: T:System.DateTime
   parent: System
@@ -500,6 +543,23 @@ references:
   nameWithType.vb: Date
   fullName.vb: Date
   name.vb: Date
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Heatington.Models.DataPoint.StartTime*
+  commentId: Overload:Heatington.Models.DataPoint.StartTime
+  href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_StartTime
+  name: StartTime
+  nameWithType: DataPoint.StartTime
+  fullName: Heatington.Models.DataPoint.StartTime
 - uid: Heatington.Models.DataPoint.EndTime*
   commentId: Overload:Heatington.Models.DataPoint.EndTime
   href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_EndTime
@@ -512,17 +572,6 @@ references:
   name: HeatDemand
   nameWithType: DataPoint.HeatDemand
   fullName: Heatington.Models.DataPoint.HeatDemand
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
 - uid: Heatington.Models.DataPoint.ElectricityPrice*
   commentId: Overload:Heatington.Models.DataPoint.ElectricityPrice
   href: Heatington.Models.DataPoint.html#Heatington_Models_DataPoint_ElectricityPrice

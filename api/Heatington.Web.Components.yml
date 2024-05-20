@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Web.Components
+  commentId: N:Heatington.Web.Components
+  id: Heatington.Web.Components
+  children:
+  - Heatington.Web.Components.App
+  - Heatington.Web.Components._Imports
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Web.Components
+  nameWithType: Heatington.Web.Components
+  fullName: Heatington.Web.Components
+  type: Namespace
+  assemblies:
+  - Heatington.Web
+references:
+- uid: Heatington.Web.Components._Imports
+  commentId: T:Heatington.Web.Components._Imports
+  href: Heatington.Web.Components._Imports.html
+  name: _Imports
+  nameWithType: _Imports
+  fullName: Heatington.Web.Components._Imports
+- uid: Heatington.Web.Components.App
+  commentId: T:Heatington.Web.Components.App
+  href: Heatington.Web.Components.App.html
+  name: App
+  nameWithType: App
+  fullName: Heatington.Web.Components.App

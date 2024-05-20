@@ -4,7 +4,6 @@ items:
   commentId: N:Heatington.Controllers.Interfaces
   id: Heatington.Controllers.Interfaces
   children:
-  - Heatington.Controllers.Interfaces.IDataSource
   - Heatington.Controllers.Interfaces.IReadWriteController
   langs:
   - csharp
@@ -16,13 +15,6 @@ items:
   assemblies:
   - Heatington
 references:
-- uid: Heatington.Controllers.Interfaces.IDataSource
-  commentId: T:Heatington.Controllers.Interfaces.IDataSource
-  parent: Heatington.Controllers.Interfaces
-  href: Heatington.Controllers.Interfaces.IDataSource.html
-  name: IDataSource
-  nameWithType: IDataSource
-  fullName: Heatington.Controllers.Interfaces.IDataSource
 - uid: Heatington.Controllers.Interfaces.IReadWriteController
   commentId: T:Heatington.Controllers.Interfaces.IReadWriteController
   parent: Heatington.Controllers.Interfaces

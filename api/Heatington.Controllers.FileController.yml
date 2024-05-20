@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FileController
     path: Heatington/Controllers/FileController.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Controllers/FileController.cs
@@ -91,7 +91,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadData
     path: Heatington/Controllers/FileController.cs
@@ -127,7 +127,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteData
     path: Heatington/Controllers/FileController.cs
@@ -166,7 +166,7 @@ items:
   source:
     remote:
       path: Heatington/Controllers/FileController.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/Controllers/FileController.cs

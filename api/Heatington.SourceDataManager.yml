@@ -4,7 +4,7 @@ items:
   commentId: N:Heatington.SourceDataManager
   id: Heatington.SourceDataManager
   children:
-  - Heatington.SourceDataManager.SourceDataManager
+  - Heatington.SourceDataManager.SDM
   langs:
   - csharp
   - vb
@@ -15,9 +15,32 @@ items:
   assemblies:
   - Heatington
 references:
-- uid: Heatington.SourceDataManager.SourceDataManager
-  commentId: T:Heatington.SourceDataManager.SourceDataManager
-  href: Heatington.SourceDataManager.SourceDataManager.html
-  name: SourceDataManager
-  nameWithType: SourceDataManager
-  fullName: Heatington.SourceDataManager.SourceDataManager
+- uid: Heatington.SourceDataManager.SDM
+  commentId: T:Heatington.SourceDataManager.SDM
+  parent: Heatington.SourceDataManager
+  href: Heatington.SourceDataManager.SDM.html
+  name: SDM
+  nameWithType: SDM
+  fullName: Heatington.SourceDataManager.SDM
+- uid: Heatington.SourceDataManager
+  commentId: N:Heatington.SourceDataManager
+  href: Heatington.html
+  name: Heatington.SourceDataManager
+  nameWithType: Heatington.SourceDataManager
+  fullName: Heatington.SourceDataManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.SourceDataManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.SourceDataManager
+    name: SourceDataManager
+    href: Heatington.SourceDataManager.html

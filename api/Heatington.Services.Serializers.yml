@@ -5,6 +5,8 @@ items:
   id: Heatington.Services.Serializers
   children:
   - Heatington.Services.Serializers.CsvConstructorAttribute
+  - Heatington.Services.Serializers.CsvData
+  - Heatington.Services.Serializers.CsvSerializer
   langs:
   - csharp
   - vb
@@ -21,3 +23,46 @@ references:
   name: CsvConstructorAttribute
   nameWithType: CsvConstructorAttribute
   fullName: Heatington.Services.Serializers.CsvConstructorAttribute
+- uid: Heatington.Services.Serializers.CsvData
+  commentId: T:Heatington.Services.Serializers.CsvData
+  parent: Heatington.Services.Serializers
+  href: Heatington.Services.Serializers.CsvData.html
+  name: CsvData
+  nameWithType: CsvData
+  fullName: Heatington.Services.Serializers.CsvData
+- uid: Heatington.Services.Serializers.CsvSerializer
+  commentId: T:Heatington.Services.Serializers.CsvSerializer
+  href: Heatington.Services.Serializers.CsvSerializer.html
+  name: CsvSerializer
+  nameWithType: CsvSerializer
+  fullName: Heatington.Services.Serializers.CsvSerializer
+- uid: Heatington.Services.Serializers
+  commentId: N:Heatington.Services.Serializers
+  href: Heatington.html
+  name: Heatington.Services.Serializers
+  nameWithType: Heatington.Services.Serializers
+  fullName: Heatington.Services.Serializers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Serializers
+    name: Serializers
+    href: Heatington.Services.Serializers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Serializers
+    name: Serializers
+    href: Heatington.Services.Serializers.html

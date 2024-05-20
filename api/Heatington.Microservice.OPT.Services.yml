@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Microservice.OPT.Services
+  commentId: N:Heatington.Microservice.OPT.Services
+  id: Heatington.Microservice.OPT.Services
+  children:
+  - Heatington.Microservice.OPT.Services.DependenciesService
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Microservice.OPT.Services
+  nameWithType: Heatington.Microservice.OPT.Services
+  fullName: Heatington.Microservice.OPT.Services
+  type: Namespace
+  assemblies:
+  - Heatington.Microservice.OPT
+references:
+- uid: Heatington.Microservice.OPT.Services.DependenciesService
+  commentId: T:Heatington.Microservice.OPT.Services.DependenciesService
+  href: Heatington.Microservice.OPT.Services.DependenciesService.html
+  name: DependenciesService
+  nameWithType: DependenciesService
+  fullName: Heatington.Microservice.OPT.Services.DependenciesService

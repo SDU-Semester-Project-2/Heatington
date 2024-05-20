@@ -4,6 +4,7 @@ items:
   commentId: N:Heatington.Services.Interfaces
   id: Heatington.Services.Interfaces
   children:
+  - Heatington.Services.Interfaces.IDataSource
   - Heatington.Services.Interfaces.ISerializeDeserialize
   langs:
   - csharp
@@ -15,6 +16,13 @@ items:
   assemblies:
   - Heatington
 references:
+- uid: Heatington.Services.Interfaces.IDataSource
+  commentId: T:Heatington.Services.Interfaces.IDataSource
+  parent: Heatington.Services.Interfaces
+  href: Heatington.Services.Interfaces.IDataSource.html
+  name: IDataSource
+  nameWithType: IDataSource
+  fullName: Heatington.Services.Interfaces.IDataSource
 - uid: Heatington.Services.Interfaces.ISerializeDeserialize
   commentId: T:Heatington.Services.Interfaces.ISerializeDeserialize
   parent: Heatington.Services.Interfaces

@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Optimizer.OptimizationMode
+  commentId: T:Heatington.Optimizer.OptimizationMode
+  id: OptimizationMode
+  parent: Heatington.Optimizer
+  children:
+  - Heatington.Optimizer.OptimizationMode.Co2
+  - Heatington.Optimizer.OptimizationMode.Scenario1
+  - Heatington.Optimizer.OptimizationMode.Scenario2
+  langs:
+  - csharp
+  - vb
+  name: OptimizationMode
+  nameWithType: OptimizationMode
+  fullName: Heatington.Optimizer.OptimizationMode
+  type: Enum
+  source:
+    remote:
+      path: Heatington/Optimizer/Optimizer.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: OptimizationMode
+    path: Heatington/Optimizer/Optimizer.cs
+    startLine: 4
+  assemblies:
+  - Heatington
+  namespace: Heatington.Optimizer
+  syntax:
+    content: public enum OptimizationMode
+    content.vb: Public Enum OptimizationMode
+- uid: Heatington.Optimizer.OptimizationMode.Scenario1
+  commentId: F:Heatington.Optimizer.OptimizationMode.Scenario1
+  id: Scenario1
+  parent: Heatington.Optimizer.OptimizationMode
+  langs:
+  - csharp
+  - vb
+  name: Scenario1
+  nameWithType: OptimizationMode.Scenario1
+  fullName: Heatington.Optimizer.OptimizationMode.Scenario1
+  type: Field
+  source:
+    remote:
+      path: Heatington/Optimizer/Optimizer.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Scenario1
+    path: Heatington/Optimizer/Optimizer.cs
+    startLine: 6
+  assemblies:
+  - Heatington
+  namespace: Heatington.Optimizer
+  syntax:
+    content: Scenario1 = 0
+    return:
+      type: Heatington.Optimizer.OptimizationMode
+- uid: Heatington.Optimizer.OptimizationMode.Scenario2
+  commentId: F:Heatington.Optimizer.OptimizationMode.Scenario2
+  id: Scenario2
+  parent: Heatington.Optimizer.OptimizationMode
+  langs:
+  - csharp
+  - vb
+  name: Scenario2
+  nameWithType: OptimizationMode.Scenario2
+  fullName: Heatington.Optimizer.OptimizationMode.Scenario2
+  type: Field
+  source:
+    remote:
+      path: Heatington/Optimizer/Optimizer.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Scenario2
+    path: Heatington/Optimizer/Optimizer.cs
+    startLine: 7
+  assemblies:
+  - Heatington
+  namespace: Heatington.Optimizer
+  syntax:
+    content: Scenario2 = 1
+    return:
+      type: Heatington.Optimizer.OptimizationMode
+- uid: Heatington.Optimizer.OptimizationMode.Co2
+  commentId: F:Heatington.Optimizer.OptimizationMode.Co2
+  id: Co2
+  parent: Heatington.Optimizer.OptimizationMode
+  langs:
+  - csharp
+  - vb
+  name: Co2
+  nameWithType: OptimizationMode.Co2
+  fullName: Heatington.Optimizer.OptimizationMode.Co2
+  type: Field
+  source:
+    remote:
+      path: Heatington/Optimizer/Optimizer.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Co2
+    path: Heatington/Optimizer/Optimizer.cs
+    startLine: 8
+  assemblies:
+  - Heatington
+  namespace: Heatington.Optimizer
+  syntax:
+    content: Co2 = 2
+    return:
+      type: Heatington.Optimizer.OptimizationMode
+references:
+- uid: Heatington.Optimizer
+  commentId: N:Heatington.Optimizer
+  href: Heatington.html
+  name: Heatington.Optimizer
+  nameWithType: Heatington.Optimizer
+  fullName: Heatington.Optimizer
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Optimizer
+    name: Optimizer
+    href: Heatington.Optimizer.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Optimizer
+    name: Optimizer
+    href: Heatington.Optimizer.html
+- uid: Heatington.Optimizer.OptimizationMode
+  commentId: T:Heatington.Optimizer.OptimizationMode
+  parent: Heatington.Optimizer
+  href: Heatington.Optimizer.OptimizationMode.html
+  name: OptimizationMode
+  nameWithType: OptimizationMode
+  fullName: Heatington.Optimizer.OptimizationMode

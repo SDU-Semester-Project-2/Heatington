@@ -4,7 +4,8 @@ items:
   commentId: N:Heatington.Optimizer
   id: Heatington.Optimizer
   children:
-  - Heatington.Optimizer.Opt
+  - Heatington.Optimizer.OPT
+  - Heatington.Optimizer.OptimizationMode
   langs:
   - csharp
   - vb
@@ -15,13 +16,20 @@ items:
   assemblies:
   - Heatington
 references:
-- uid: Heatington.Optimizer.Opt
-  commentId: T:Heatington.Optimizer.Opt
+- uid: Heatington.Optimizer.OptimizationMode
+  commentId: T:Heatington.Optimizer.OptimizationMode
   parent: Heatington.Optimizer
-  href: Heatington.Optimizer.Opt.html
-  name: Opt
-  nameWithType: Opt
-  fullName: Heatington.Optimizer.Opt
+  href: Heatington.Optimizer.OptimizationMode.html
+  name: OptimizationMode
+  nameWithType: OptimizationMode
+  fullName: Heatington.Optimizer.OptimizationMode
+- uid: Heatington.Optimizer.OPT
+  commentId: T:Heatington.Optimizer.OPT
+  parent: Heatington.Optimizer
+  href: Heatington.Optimizer.OPT.html
+  name: OPT
+  nameWithType: OPT
+  fullName: Heatington.Optimizer.OPT
 - uid: Heatington.Optimizer
   commentId: N:Heatington.Optimizer
   href: Heatington.html

@@ -1,0 +1,417 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Web.Client.Pages.Modules.ModuleInfo
+  commentId: T:Heatington.Web.Client.Pages.Modules.ModuleInfo
+  id: Modules.ModuleInfo
+  parent: Heatington.Web.Client.Pages
+  children:
+  - Heatington.Web.Client.Pages.Modules.ModuleInfo.Description
+  - Heatington.Web.Client.Pages.Modules.ModuleInfo.Link
+  - Heatington.Web.Client.Pages.Modules.ModuleInfo.Name
+  langs:
+  - csharp
+  - vb
+  name: Modules.ModuleInfo
+  nameWithType: Modules.ModuleInfo
+  fullName: Heatington.Web.Client.Pages.Modules.ModuleInfo
+  type: Class
+  source:
+    id: ModuleInfo
+    path: Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/Pages_Modules_razor.g.cs
+    startLine: 245
+  assemblies:
+  - Heatington.Web.Client
+  namespace: Heatington.Web.Client.Pages
+  syntax:
+    content: public class Modules.ModuleInfo
+    content.vb: Public Class Modules.ModuleInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Web.Client.Pages.Modules.ModuleInfo.Name
+  commentId: P:Heatington.Web.Client.Pages.Modules.ModuleInfo.Name
+  id: Name
+  parent: Heatington.Web.Client.Pages.Modules.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Modules.ModuleInfo.Name
+  fullName: Heatington.Web.Client.Pages.Modules.ModuleInfo.Name
+  type: Property
+  source:
+    id: Name
+    path: Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/Pages_Modules_razor.g.cs
+    startLine: 247
+  assemblies:
+  - Heatington.Web.Client
+  namespace: Heatington.Web.Client.Pages
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Heatington.Web.Client.Pages.Modules.ModuleInfo.Name*
+- uid: Heatington.Web.Client.Pages.Modules.ModuleInfo.Link
+  commentId: P:Heatington.Web.Client.Pages.Modules.ModuleInfo.Link
+  id: Link
+  parent: Heatington.Web.Client.Pages.Modules.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: Link
+  nameWithType: Modules.ModuleInfo.Link
+  fullName: Heatington.Web.Client.Pages.Modules.ModuleInfo.Link
+  type: Property
+  source:
+    id: Link
+    path: Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/Pages_Modules_razor.g.cs
+    startLine: 248
+  assemblies:
+  - Heatington.Web.Client
+  namespace: Heatington.Web.Client.Pages
+  syntax:
+    content: public string Link { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Link As String
+  overload: Heatington.Web.Client.Pages.Modules.ModuleInfo.Link*
+- uid: Heatington.Web.Client.Pages.Modules.ModuleInfo.Description
+  commentId: P:Heatington.Web.Client.Pages.Modules.ModuleInfo.Description
+  id: Description
+  parent: Heatington.Web.Client.Pages.Modules.ModuleInfo
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: Modules.ModuleInfo.Description
+  fullName: Heatington.Web.Client.Pages.Modules.ModuleInfo.Description
+  type: Property
+  source:
+    id: Description
+    path: Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/Pages_Modules_razor.g.cs
+    startLine: 249
+  assemblies:
+  - Heatington.Web.Client
+  namespace: Heatington.Web.Client.Pages
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: Heatington.Web.Client.Pages.Modules.ModuleInfo.Description*
+references:
+- uid: Heatington.Web.Client.Pages
+  commentId: N:Heatington.Web.Client.Pages
+  href: Heatington.html
+  name: Heatington.Web.Client.Pages
+  nameWithType: Heatington.Web.Client.Pages
+  fullName: Heatington.Web.Client.Pages
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Web
+    name: Web
+    href: Heatington.Web.html
+  - name: .
+  - uid: Heatington.Web.Client
+    name: Client
+    href: Heatington.Web.Client.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages
+    name: Pages
+    href: Heatington.Web.Client.Pages.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Web
+    name: Web
+    href: Heatington.Web.html
+  - name: .
+  - uid: Heatington.Web.Client
+    name: Client
+    href: Heatington.Web.Client.html
+  - name: .
+  - uid: Heatington.Web.Client.Pages
+    name: Pages
+    href: Heatington.Web.Client.Pages.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Web.Client.Pages.Modules.ModuleInfo.Name*
+  commentId: Overload:Heatington.Web.Client.Pages.Modules.ModuleInfo.Name
+  href: Heatington.Web.Client.Pages.Modules.ModuleInfo.html#Heatington_Web_Client_Pages_Modules_ModuleInfo_Name
+  name: Name
+  nameWithType: Modules.ModuleInfo.Name
+  fullName: Heatington.Web.Client.Pages.Modules.ModuleInfo.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Heatington.Web.Client.Pages.Modules.ModuleInfo.Link*
+  commentId: Overload:Heatington.Web.Client.Pages.Modules.ModuleInfo.Link
+  href: Heatington.Web.Client.Pages.Modules.ModuleInfo.html#Heatington_Web_Client_Pages_Modules_ModuleInfo_Link
+  name: Link
+  nameWithType: Modules.ModuleInfo.Link
+  fullName: Heatington.Web.Client.Pages.Modules.ModuleInfo.Link
+- uid: Heatington.Web.Client.Pages.Modules.ModuleInfo.Description*
+  commentId: Overload:Heatington.Web.Client.Pages.Modules.ModuleInfo.Description
+  href: Heatington.Web.Client.Pages.Modules.ModuleInfo.html#Heatington_Web_Client_Pages_Modules_ModuleInfo_Description
+  name: Description
+  nameWithType: Modules.ModuleInfo.Description
+  fullName: Heatington.Web.Client.Pages.Modules.ModuleInfo.Description

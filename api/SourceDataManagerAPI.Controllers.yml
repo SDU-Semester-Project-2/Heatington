@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: SourceDataManagerAPI.Controllers
+  commentId: N:SourceDataManagerAPI.Controllers
+  id: SourceDataManagerAPI.Controllers
+  children:
+  - SourceDataManagerAPI.Controllers.TimeSeriesDataController
+  langs:
+  - csharp
+  - vb
+  name: SourceDataManagerAPI.Controllers
+  nameWithType: SourceDataManagerAPI.Controllers
+  fullName: SourceDataManagerAPI.Controllers
+  type: Namespace
+  assemblies:
+  - Heatington.Microservice.SDM
+references:
+- uid: SourceDataManagerAPI.Controllers.TimeSeriesDataController
+  commentId: T:SourceDataManagerAPI.Controllers.TimeSeriesDataController
+  href: SourceDataManagerAPI.Controllers.TimeSeriesDataController.html
+  name: TimeSeriesDataController
+  nameWithType: TimeSeriesDataController
+  fullName: SourceDataManagerAPI.Controllers.TimeSeriesDataController

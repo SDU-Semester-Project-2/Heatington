@@ -5,6 +5,7 @@ items:
   id: Heatington.Models
   children:
   - Heatington.Models.DataPoint
+  - Heatington.Models.FormatedResultHolder
   - Heatington.Models.HeatingGrid
   - Heatington.Models.ProductionUnit
   - Heatington.Models.ResultHolder
@@ -24,6 +25,12 @@ references:
   name: DataPoint
   nameWithType: DataPoint
   fullName: Heatington.Models.DataPoint
+- uid: Heatington.Models.FormatedResultHolder
+  commentId: T:Heatington.Models.FormatedResultHolder
+  href: Heatington.Models.FormatedResultHolder.html
+  name: FormatedResultHolder
+  nameWithType: FormatedResultHolder
+  fullName: Heatington.Models.FormatedResultHolder
 - uid: Heatington.Models.HeatingGrid
   commentId: T:Heatington.Models.HeatingGrid
   parent: Heatington.Models

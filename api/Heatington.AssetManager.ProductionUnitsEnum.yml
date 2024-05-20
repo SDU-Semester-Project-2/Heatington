@@ -5,6 +5,7 @@ items:
   id: ProductionUnitsEnum
   parent: Heatington.AssetManager
   children:
+  - Heatington.AssetManager.ProductionUnitsEnum.CustomBoiler
   - Heatington.AssetManager.ProductionUnitsEnum.ElectricBoiler
   - Heatington.AssetManager.ProductionUnitsEnum.GasBoiler
   - Heatington.AssetManager.ProductionUnitsEnum.GasMotor
@@ -19,7 +20,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnitsEnum
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -44,7 +45,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GasBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -70,7 +71,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OilBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -96,7 +97,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GasMotor
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -122,7 +123,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -132,6 +133,32 @@ items:
   namespace: Heatington.AssetManager
   syntax:
     content: ElectricBoiler = 3
+    return:
+      type: Heatington.AssetManager.ProductionUnitsEnum
+- uid: Heatington.AssetManager.ProductionUnitsEnum.CustomBoiler
+  commentId: F:Heatington.AssetManager.ProductionUnitsEnum.CustomBoiler
+  id: CustomBoiler
+  parent: Heatington.AssetManager.ProductionUnitsEnum
+  langs:
+  - csharp
+  - vb
+  name: CustomBoiler
+  nameWithType: ProductionUnitsEnum.CustomBoiler
+  fullName: Heatington.AssetManager.ProductionUnitsEnum.CustomBoiler
+  type: Field
+  source:
+    remote:
+      path: Heatington/AssetManager/ProductionUnitsEnum.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: CustomBoiler
+    path: Heatington/AssetManager/ProductionUnitsEnum.cs
+    startLine: 8
+  assemblies:
+  - Heatington
+  namespace: Heatington.AssetManager
+  syntax:
+    content: CustomBoiler = 4
     return:
       type: Heatington.AssetManager.ProductionUnitsEnum
 references:

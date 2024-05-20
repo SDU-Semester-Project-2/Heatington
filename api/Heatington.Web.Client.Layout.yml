@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Web.Client.Layout
+  commentId: N:Heatington.Web.Client.Layout
+  id: Heatington.Web.Client.Layout
+  children:
+  - Heatington.Web.Client.Layout.MainLayout
+  - Heatington.Web.Client.Layout.NavMenu
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Web.Client.Layout
+  nameWithType: Heatington.Web.Client.Layout
+  fullName: Heatington.Web.Client.Layout
+  type: Namespace
+  assemblies:
+  - Heatington.Web.Client
+references:
+- uid: Heatington.Web.Client.Layout.NavMenu
+  commentId: T:Heatington.Web.Client.Layout.NavMenu
+  href: Heatington.Web.Client.Layout.NavMenu.html
+  name: NavMenu
+  nameWithType: NavMenu
+  fullName: Heatington.Web.Client.Layout.NavMenu
+- uid: Heatington.Web.Client.Layout.MainLayout
+  commentId: T:Heatington.Web.Client.Layout.MainLayout
+  href: Heatington.Web.Client.Layout.MainLayout.html
+  name: MainLayout
+  nameWithType: MainLayout
+  fullName: Heatington.Web.Client.Layout.MainLayout
