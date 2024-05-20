@@ -1,9 +1,23 @@
 ﻿@page "/optimizer"
 @using Heatington.Models
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Optimizer</PageTitle>
-
 @* TODO: move Chart to differnet component to reduce redundancy *@
+
+<script>
+    window.downloadFile = (fileName, content) => {
+        const blob = new Blob([content], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    };
+</script>
 
 
 <MudContainer Class="d-flex flex-column align-items-center justify-content-center text-align-center space-y-4 ">
@@ -31,7 +45,7 @@
             </MudSelect>
         </div>
     </div>
-    <MudGrid Spacing="4" Justify="Justify.Center" class="mt-5 mb-3">
+    <MudGrid Spacing="4" Justify="Justify.FlexStart" class="mt-5 mb-3">
         @foreach (var productionUnit in _productionUnits)
         {
             @if (SelectedScenario == "Scenario 1" && productionUnit.Name is "GB" or "OB")
@@ -61,6 +75,9 @@
         }
     </MudGrid>
 
+    <div class="my-5">
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="DownloadCsv">Download Results</MudButton>
+    </div>
     @if (isDataLoaded)
     {
         <MudTable Items="resultData" Dense Hover Bordered Striped>
