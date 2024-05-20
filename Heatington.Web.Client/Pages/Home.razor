@@ -162,12 +162,13 @@
           XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
 <MudDivider FlexItem></MudDivider>
 
-<!-- Operation Points  Chart -->
+<!-- Operation Points Chart -->
 <MudText Typo="Typo.h6" class="text-center">
     Operation Points
 </MudText>
-@* <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@OperationPointsSeries" XAxisLabels="@XAxisLabels" Width="100%" Height="350px"> *@
-@* </MudChart> *@
+<MudChart ChartType="ChartType.StackedBar" ChartSeries="@OperationPointsSeries" XAxisLabels="@XAxisLabels"
+          Width="100%" Height="350px" ChartOptions="OperationPointsChartOptions">
+</MudChart>
 
 
 <MudDivider FlexItem></MudDivider>

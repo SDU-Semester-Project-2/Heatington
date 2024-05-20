@@ -33,6 +33,7 @@ public partial class Home : ComponentBase
     public ChartOptions HeatAndElectricityChartOptions = new ChartOptions { YAxisTicks = 1 };
     private int Index = -1;
     private bool isDataReady = false;
+    public ChartOptions OperationPointsChartOptions = new ChartOptions { YAxisTicks = 1 };
     public ChartOptions ProductionCostChartOptions = new ChartOptions();
 
 
@@ -265,43 +266,20 @@ public partial class Home : ComponentBase
     {
         OperationPointsSeries = new List<ChartSeries>()
         {
-            new()
+            new ChartSeries()
             {
-                Name = "Winter Scenario 1",
-                Data = _operationPointsScenario1Winter?.Select(x => x.YData).ToArray() ?? []
+                Name = "ElectricBoiler",
+                Data = _operationPointsScenario1Winter?.Select(x => x.YData).ToArray() ?? new double[0]
             },
-            new()
-            {
-                Name = "Winter Scenario 2",
-                Data = _operationPointsScenario2Winter?.Select(x => x.YData).ToArray() ?? []
-            },
-            new()
-            {
-                Name = "Winter Scenario Co2",
-                Data = _operationPointsScenarioCo2Winter?.Select(x => x.YData).ToArray() ?? []
-            },
-            new()
-            {
-                Name = "Summer Scenario 1",
-                Data = _operationPointsScenario1Summer?.Select(x => x.YData).ToArray() ?? []
-            },
-            new()
-            {
-                Name = "Summer Scenario 2",
-                Data = _operationPointsScenario2Summer?.Select(x => x.YData).ToArray() ?? []
-            },
-            new()
-            {
-                Name = "Summer Scenario Co2",
-                Data = _operationPointsScenarioCo2Summer?.Select(x => x.YData).ToArray() ?? []
-            }
         };
+
         // Assuming all scenarios have the same number of data points
         int numDataPoints = _operationPointsScenario1Winter?.Count ?? 0;
         XAxisLabels = Enumerable.Range(1, numDataPoints)
             .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
             .ToArray();
     }
+
 
     private async Task<List<ProductionUnit>> LoadProductionUnits()
     {
