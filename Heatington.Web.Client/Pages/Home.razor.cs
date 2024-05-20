@@ -35,7 +35,8 @@ public partial class Home : ComponentBase
     private double _totalWinterNetProductionCost;
 
     public ChartOptions Co2EmissionChartOptions = new ChartOptions();
-    public ChartOptions HeatAndElectricityChartOptions = new ChartOptions { YAxisTicks = 1 };
+    public ChartOptions ElectricityChartOptions = new ChartOptions();
+    public ChartOptions HeatChartChartOptions = new ChartOptions { YAxisTicks = 1 };
     private int Index = -1;
     private bool isDataReady = false;
     public ChartOptions OperationPointsChartOptions = new ChartOptions { YAxisTicks = 1 };
