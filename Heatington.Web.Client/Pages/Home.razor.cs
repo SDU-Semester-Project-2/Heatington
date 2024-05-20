@@ -1,11 +1,3 @@
-/// TODO:
-/// - Get the statistics all in one or for 6 scenarios individually
-/// - Operation Points
-/// - CO2
-/// - Fetching is done for all 6, you have to write your own formatting and init methods
-/// - TLDR: We need Operation Points graph, CO2 Emission Graphs for all 6 scenarios. After that it should be easy to
-///   calculate statistics by using the formatted data.
-
 using MudBlazor;
 using System.Net.Http.Json;
 using Heatington.Models;
@@ -28,13 +20,20 @@ public partial class Home : ComponentBase
     private static List<ChartData>? _productionCostScenario2Summer;
     private static List<ChartData>? _productionCostScenarioCo2Winter;
     private static List<ChartData>? _productionCostScenarioCo2Summer;
+    private List<ChartData>? _operationPointsScenario1Summer;
+
+    private List<ChartData>? _operationPointsScenario1Winter;
+    private List<ChartData>? _operationPointsScenario2Summer;
+    private List<ChartData>? _operationPointsScenario2Winter;
+    private List<ChartData>? _operationPointsScenarioCo2Summer;
+    private List<ChartData>? _operationPointsScenarioCo2Winter;
 
     private List<ProductionUnit> _productionUnits = [];
+    public ChartOptions Co2EmissionChartOptions = new ChartOptions();
     public ChartOptions HeatAndElectricityChartOptions = new ChartOptions { YAxisTicks = 1 };
     private int Index = -1;
     private bool isDataReady = false;
     public ChartOptions ProductionCostChartOptions = new ChartOptions();
-    public ChartOptions Co2EmissionChartOptions = new ChartOptions();
 
 
     //TODO: Use Real Data!
@@ -47,6 +46,8 @@ public partial class Home : ComponentBase
     private List<ChartSeries> ElectricityPriceSeries { get; set; }
     private List<ChartSeries> ProductionCostSeries { get; set; }
     private List<ChartSeries> Co2EmissionSeries { get; set; }
+
+    private List<ChartSeries> OperationPointsSeries { get; set; } = new List<ChartSeries>();
 
     private string[] XAxisLabels { get; set; }
 
@@ -91,34 +92,42 @@ public partial class Home : ComponentBase
 
             List<ResultHolder>? rawResultDataWinterScenario1 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterScenario1Uri);
-            _productionCostScenario1Winter = GetProductionCostSeries(rawResultDataWinterScenario1);
-            Logger.LogInformation(_productionCostScenario1Winter.ToString());
 
             List<ResultHolder>? rawResultDataWinterScenario2 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterScenario2Uri);
-            _productionCostScenario2Winter = GetProductionCostSeries(rawResultDataWinterScenario2);
 
             List<ResultHolder>? rawResultDataWinterScenarioCo2 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterCO2Uri);
-            _productionCostScenarioCo2Winter = GetProductionCostSeries(rawResultDataWinterScenarioCo2);
 
             List<ResultHolder>? rawResultDataSummerScenario1 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerScenario1Uri);
-            _productionCostScenario1Summer = GetProductionCostSeries(rawResultDataSummerScenario1);
 
             List<ResultHolder>? rawResultDataSummerScenario2 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerScenario2Uri);
-            _productionCostScenario2Summer = GetProductionCostSeries(rawResultDataSummerScenario2);
 
             List<ResultHolder>? rawResultDataSummerScenarioCo2 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerCO2Uri);
+
+            _productionCostScenario1Winter = GetProductionCostSeries(rawResultDataWinterScenario1);
+            _productionCostScenario2Winter = GetProductionCostSeries(rawResultDataWinterScenario2);
+            _productionCostScenarioCo2Winter = GetProductionCostSeries(rawResultDataWinterScenarioCo2);
+            _productionCostScenario1Summer = GetProductionCostSeries(rawResultDataSummerScenario1);
+            _productionCostScenario2Summer = GetProductionCostSeries(rawResultDataSummerScenario2);
             _productionCostScenarioCo2Summer = GetProductionCostSeries(rawResultDataSummerScenarioCo2);
 
+            _operationPointsScenario1Winter = await GetOperationPoints("winter", OptimizationMode.Scenario1);
+            _operationPointsScenario2Winter = await GetOperationPoints("winter", OptimizationMode.Scenario2);
+            _operationPointsScenarioCo2Winter = await GetOperationPoints("winter", OptimizationMode.Co2);
+            _operationPointsScenario1Summer = await GetOperationPoints("summer", OptimizationMode.Scenario1);
+            _operationPointsScenario2Summer = await GetOperationPoints("summer", OptimizationMode.Scenario2);
+            _operationPointsScenarioCo2Summer = await GetOperationPoints("summer", OptimizationMode.Co2);
 
-            InitializeProductionCostChartData();
+
             InitializeHeatDemandChartData();
-            InitializeCo2EmissionChartData();
             InitializeElectricityPriceChartData();
+            InitializeProductionCostChartData();
+            InitializeCo2EmissionChartData();
+            InitializeOperationPointsChartData();
             isDataReady = true;
             StateHasChanged();
         }
@@ -252,6 +261,48 @@ public partial class Home : ComponentBase
             .ToArray();
     }
 
+    private void InitializeOperationPointsChartData()
+    {
+        OperationPointsSeries = new List<ChartSeries>()
+        {
+            new()
+            {
+                Name = "Winter Scenario 1",
+                Data = _operationPointsScenario1Winter?.Select(x => x.YData).ToArray() ?? []
+            },
+            new()
+            {
+                Name = "Winter Scenario 2",
+                Data = _operationPointsScenario2Winter?.Select(x => x.YData).ToArray() ?? []
+            },
+            new()
+            {
+                Name = "Winter Scenario Co2",
+                Data = _operationPointsScenarioCo2Winter?.Select(x => x.YData).ToArray() ?? []
+            },
+            new()
+            {
+                Name = "Summer Scenario 1",
+                Data = _operationPointsScenario1Summer?.Select(x => x.YData).ToArray() ?? []
+            },
+            new()
+            {
+                Name = "Summer Scenario 2",
+                Data = _operationPointsScenario2Summer?.Select(x => x.YData).ToArray() ?? []
+            },
+            new()
+            {
+                Name = "Summer Scenario Co2",
+                Data = _operationPointsScenarioCo2Summer?.Select(x => x.YData).ToArray() ?? []
+            }
+        };
+        // Assuming all scenarios have the same number of data points
+        int numDataPoints = _operationPointsScenario1Winter?.Count ?? 0;
+        XAxisLabels = Enumerable.Range(1, numDataPoints)
+            .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
+            .ToArray();
+    }
+
     private async Task<List<ProductionUnit>> LoadProductionUnits()
     {
         ProductionUnit[]? productionUnitsArray =
@@ -295,6 +346,47 @@ public partial class Home : ComponentBase
         }).ToList();
 
         return productionCostDataList;
+    }
+
+    private async Task<List<ChartData>> GetOperationPoints(string season, OptimizationMode mode)
+    {
+        string uri = $"http://localhost:5019/api/optimizer?season={season}&mode={(int)mode}";
+        List<ResultHolder>? rawResultData = await Http.GetFromJsonAsync<List<ResultHolder>>(uri);
+
+        if (rawResultData != null)
+        {
+            // Log the operation points
+            LogOperationPoints(rawResultData);
+
+            List<ChartData> operationPoints = new List<ChartData>();
+
+            foreach (var result in rawResultData)
+            {
+                foreach (var boiler in result.Boilers)
+                {
+                    // Add operation point data to the list
+                    operationPoints.Add(new ChartData { YData = boiler.OperationPoint, });
+                }
+            }
+
+            return operationPoints;
+        }
+
+        return new List<ChartData>();
+    }
+
+    private void LogOperationPoints(List<ResultHolder> rawResultData)
+    {
+        foreach (var result in rawResultData)
+        {
+            foreach (var boiler in result.Boilers)
+            {
+                // Construct a string representation of the data for logging
+                string logMessage =
+                    $"StartTime: {result.StartTime}, Boiler: {boiler.FullName}, OperationPoint: {boiler.OperationPoint}";
+                Logger.LogInformation(logMessage);
+            }
+        }
     }
 
 
