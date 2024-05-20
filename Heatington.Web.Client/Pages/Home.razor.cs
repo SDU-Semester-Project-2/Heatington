@@ -291,60 +291,20 @@ public partial class Home : ComponentBase
 
     private void InitializeOperationPointsChartData()
     {
-        OperationPointsSeriesWinter1 = new List<ChartSeries>()
-        {
-            new ChartSeries()
-            {
-                Name = "Electric Boiler",
-                Data = _operationPointsScenario1Winter?.Select(x => x.YData).ToArray() ?? new double[0]
-            },
-        };
+        OperationPointsSeriesWinter1 = new List<ChartSeries>();
+        OperationPointsSeriesWinter2 = new List<ChartSeries>();
+        OperationPointsSeriesWinterCo2 = new List<ChartSeries>();
+        OperationPointsSeriesSummer1 = new List<ChartSeries>();
+        OperationPointsSeriesSummer2 = new List<ChartSeries>();
+        OperationPointsSeriesSummerCo2 = new List<ChartSeries>();
 
-        OperationPointsSeriesWinter2 = new List<ChartSeries>()
-        {
-            new ChartSeries()
-            {
-                Name = "Electric Boiler",
-                Data = _operationPointsScenario2Winter?.Select(x => x.YData).ToArray() ?? new double[0]
-            },
-        };
-
-        OperationPointsSeriesWinterCo2 = new List<ChartSeries>()
-        {
-            new ChartSeries()
-            {
-                Name = "Electric Boiler",
-                Data = _operationPointsScenarioCo2Winter?.Select(x => x.YData).ToArray() ?? new double[0]
-            },
-        };
-
-        OperationPointsSeriesSummer1 = new List<ChartSeries>()
-        {
-            new ChartSeries()
-            {
-                Name = "Electric Boiler",
-                Data = _operationPointsScenario1Summer?.Select(x => x.YData).ToArray() ?? new double[0]
-            },
-        };
-
-        OperationPointsSeriesSummer2 = new List<ChartSeries>()
-        {
-            new ChartSeries()
-            {
-                Name = "Electric Boiler",
-                Data = _operationPointsScenario2Summer?.Select(x => x.YData).ToArray() ?? new double[0]
-            },
-        };
-
-        OperationPointsSeriesSummerCo2 = new List<ChartSeries>()
-        {
-            new ChartSeries()
-            {
-                Name = "Electric Boiler",
-                Data = _operationPointsScenarioCo2Summer?.Select(x => x.YData).ToArray() ?? new double[0]
-            },
-        };
-
+        // Adding series for each scenario
+        AddOperationPointSeries(_operationPointsScenario1Winter, OperationPointsSeriesWinter1);
+        AddOperationPointSeries(_operationPointsScenario2Winter, OperationPointsSeriesWinter2);
+        AddOperationPointSeries(_operationPointsScenarioCo2Winter, OperationPointsSeriesWinterCo2);
+        AddOperationPointSeries(_operationPointsScenario1Summer, OperationPointsSeriesSummer1);
+        AddOperationPointSeries(_operationPointsScenario2Summer, OperationPointsSeriesSummer2);
+        AddOperationPointSeries(_operationPointsScenarioCo2Summer, OperationPointsSeriesSummerCo2);
 
         // Assuming all scenarios have the same number of data points
         int numDataPoints = _operationPointsScenario1Winter?.Count ?? 0;
@@ -416,7 +376,7 @@ public partial class Home : ComponentBase
                 foreach (var boiler in result.Boilers)
                 {
                     // Add operation point data to the list
-                    operationPoints.Add(new ChartData { YData = boiler.OperationPoint, });
+                    operationPoints.Add(new ChartData { XData = boiler.FullName, YData = boiler.OperationPoint });
                 }
             }
 
@@ -424,6 +384,19 @@ public partial class Home : ComponentBase
         }
 
         return new List<ChartData>();
+    }
+
+    private void AddOperationPointSeries(List<ChartData>? operationPoints, List<ChartSeries> chartSeries)
+    {
+        if (operationPoints == null)
+            return;
+
+        var groupedOperationPoints = operationPoints.GroupBy(x => x.XData);
+
+        foreach (var group in groupedOperationPoints)
+        {
+            chartSeries.Add(new ChartSeries { Name = group.Key, Data = group.Select(x => x.YData).ToArray() });
+        }
     }
 
     private void LogOperationPoints(List<ResultHolder> rawResultData)
@@ -439,8 +412,6 @@ public partial class Home : ComponentBase
             }
         }
     }
-
-
     // TimeZone data is not included with .NET's WebAssembly runtime.
     // To bypass this, we directly convert UTC DateTime to Danish Time (CET/CEST) during series generation.
     // This offset-based conversion ensures we avoid timezone exceptions and retain compatibility across different OS.
