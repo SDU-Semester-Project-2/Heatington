@@ -15,8 +15,7 @@ public class OPT()
 
     private readonly Delegate[] evals = new Delegate[]
     {
-        new Func<ProductionUnit, double>((unit) => unit.ProductionCost),
-        new Func<ProductionUnit, DataPoint, double>(
+        new Func<ProductionUnit, double>((unit) => unit.ProductionCost), new Func<ProductionUnit, DataPoint, double>(
             (unit, dataPoint) =>
                 unit.ProductionCost - unit.MaxElectricity * dataPoint.ElectricityPrice),
         new Func<ProductionUnit, double>((unit) => unit.Co2Emission)
@@ -34,7 +33,6 @@ public class OPT()
     private void RankHeatingUnits(Func<ProductionUnit, double> evaluate)
     {
         _productionUnits = _productionUnits.OrderBy(o => evaluate(o)).ToList();
-
     }
 
     public void Optimize(OptimizationMode mode)
@@ -134,7 +132,7 @@ public class OPT()
         // Creates an object which holds the result
         ResultHolder result = new ResultHolder(dataPoint.StartTime, dataPoint.EndTime, dataPoint.HeatDemand,
             dataPoint.ElectricityPrice, selectedBoilers);
-        Console.WriteLine(result);
+        // Console.WriteLine(result);
 
         return result;
 
@@ -148,7 +146,7 @@ public class OPT()
                 currentProductionCapacity = currentProductionCapacity + productionUnits[i].MaxHeat;
                 i++;
 
-                if (i >= productionUnits.Count)
+                if (i > productionUnits.Count)
                 {
                     Console.WriteLine("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");
                     throw new Exception("WARNING: HEAT DEMAND CAN NOT BE SATISFIED");

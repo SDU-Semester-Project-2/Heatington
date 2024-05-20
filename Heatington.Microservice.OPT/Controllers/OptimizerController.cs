@@ -38,10 +38,18 @@ namespace Heatington.Microservice.OPT.Controllers
             List<DataPoint>? dataPoints = await DependenciesService.GetDataPoints(season);
 
             //this is sad
-            if(mode==0 || mode==2)
+            if (mode == (int)OptimizationMode.Scenario1)
             {
-                productionUnits = productionUnits.Where(unit => unit.MaxElectricity == 0).ToList()    ;
+                productionUnits = productionUnits.Where(unit => unit.MaxElectricity == 0).ToList();
             }
+
+            Console.WriteLine(productionUnits.Count);
+            foreach (var boiler in (productionUnits))
+            {
+                Console.WriteLine(boiler);
+            }
+
+
             // Optimizer
             Optimizer.OPT opt = new Optimizer.OPT(productionUnits, dataPoints);
 
