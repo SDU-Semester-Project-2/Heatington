@@ -1,9 +1,12 @@
 // Imports omitted for brevity
 
 using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
 using Heatington.Models;
 using Heatington.Optimizer;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using MudBlazor;
 
 namespace Heatington.Web.Client.Pages
@@ -14,6 +17,7 @@ namespace Heatington.Web.Client.Pages
         private string _selectedScenario = "Scenario 1";
         private string _selectedSeason = "Winter";
         public List<ResultHolder>? resultData;
+
 
         // TODO:Replace it
         public bool SwitchState { get; set; } = true;
@@ -115,6 +119,34 @@ namespace Heatington.Web.Client.Pages
                 ("http://localhost:5271/api/productionunits");
 
             return productionUnitsArray?.ToList() ?? new List<ProductionUnit>();
+        }
+
+
+        private async void DownloadCsv()
+        {
+            StringBuilder csvContent = new StringBuilder();
+
+            csvContent.AppendLine(
+                "Start Time, End Time, Heat Demand, Electricity Price, Net Production Cost, Boilers");
+
+            foreach (var item in resultData)
+            {
+                string boilers = "";
+                foreach (var boiler in item.Boilers)
+                {
+                    boilers += $"{boiler.Name}-{boiler.OperationPoint};";
+                }
+
+
+                csvContent.AppendLine(
+                    $"{item.StartTime},{item.EndTime},{item.HeatDemand},{item.ElectricityPrice},{item.NetProductionCost},{boilers}");
+            }
+
+            // var csvData = Encoding.UTF8.GetBytes(csvContent.ToString());
+            // var csvDataUrl = $"data:text/csv;charset=utf-8,{Uri.EscapeDataString(csvContent.ToString())}";
+
+            // Trigger file download
+            await JSRuntime.InvokeVoidAsync("downloadFile", "data.csv", csvContent.ToString());
         }
     }
 }
