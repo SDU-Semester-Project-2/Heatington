@@ -1,10 +1,12 @@
 ﻿@page "/optimizer"
+@using Heatington.Models
 
 <PageTitle>Optimizer</PageTitle>
 
 @* TODO: move Chart to differnet component to reduce redundancy *@
 
-<MudContainer>
+
+<MudContainer Class="d-flex flex-column align-items-center justify-content-center text-align-center space-y-4 ">
     <div>
         <MudText Typo="Typo.h2" Align="Align.Center" class="mt-5" GutterBottom>
             Optimizer
@@ -13,14 +15,16 @@
     <div class="flex-row">
         <div class="mt-3">
             <MudSelect class="" @bind-Value="SelectedSeason" Label="Select season" Variant="Variant.Outlined"
-                       T="string">
+                       T="string"
+                       TextChanged="OnParamChange">
                 <MudSelectItem Value=@("Winter")/>
                 <MudSelectItem Value=@("Summer")/>
             </MudSelect>
         </div>
         <div class="mt-3">
             <MudSelect class="" @bind-Value="SelectedScenario" Label="Select Scenario" Variant="Variant.Outlined"
-                       T="string">
+                       T="string"
+                       TextChanged="OnParamChange">
                 <MudSelectItem Value=@("Scenario 1")/>
                 <MudSelectItem Value=@("Scenario 2")/>
                 <MudSelectItem Value=@("Scenario 3 (CO2)")/>
@@ -30,25 +34,104 @@
     <MudGrid Spacing="4" Justify="Justify.Center" class="mt-5 mb-3">
         @foreach (var productionUnit in _productionUnits)
         {
-            <MudCard Style="min-width: 200px; max-width: 300px; margin: 4px; padding: 1px">
-                @* Using px because rem is too big *@
-                <MudCardHeader Style="flex-direction: row; justify-content: center">
-                    <MudText Typo="Typo.h6">@productionUnit.FullName</MudText>
-                    <MudSwitch @bind-Value="@SwitchState" Color="Color.Primary"/>
-                </MudCardHeader>
-                <MudCardContent class="text-center">
-                    <div class="mt-3">
-                        <MudText Typo="Typo.body2">Max Heat: @productionUnit.MaxHeat MW</MudText>
-                        <MudText Typo="Typo.body2">Max Electricity: @productionUnit.MaxElectricity MW</MudText>
-                        <MudText Typo="Typo.body2">Production Costs: @productionUnit.ProductionCost DKK/Mwh(th)</MudText>
-                        <MudText Typo="Typo.body2">CO2 Emissions: @productionUnit.Co2Emission kg/Mwh(th)</MudText>
-                        <MudText Typo="Typo.body2">
-                            Primary Energy Consumption: @productionUnit.GasConsumption MWh/MWh(th)
-                        </MudText>
-                    </div>
-                </MudCardContent>
-            </MudCard>
+            @if (SelectedScenario == "Scenario 1" && productionUnit.Name is "GB" or "OB")
+            {
+            }
+            else
+            {
+                <MudCard Style="min-width: 200px; max-width: 300px; margin: 4px; padding: 1px">
+                    @* Using px because rem is too big *@
+                    <MudCardHeader Style="flex-direction: row; justify-content: center">
+                        <MudText Typo="Typo.h6">@productionUnit.FullName</MudText>
+                        <MudSwitch @bind-Value="@SwitchState" class="mx-2" Color="Color.Primary" Disabled/>
+                    </MudCardHeader>
+                    <MudCardContent class="text-center">
+                        <div class="mt-3">
+                            <MudText Typo="Typo.body2">Max Heat: @productionUnit.MaxHeat MW</MudText>
+                            <MudText Typo="Typo.body2">Max Electricity: @productionUnit.MaxElectricity MW</MudText>
+                            <MudText Typo="Typo.body2">Production Costs: @productionUnit.ProductionCost DKK/Mwh(th)</MudText>
+                            <MudText Typo="Typo.body2">CO2 Emissions: @productionUnit.Co2Emission kg/Mwh(th)</MudText>
+                            <MudText Typo="Typo.body2">
+                                Primary Energy Consumption: @productionUnit.GasConsumption MWh/MWh(th)
+                            </MudText>
+                        </div>
+                    </MudCardContent>
+                </MudCard>
+            }
         }
     </MudGrid>
 
+    @if (isDataLoaded)
+    {
+        <MudTable Items="resultData" Dense Hover Bordered Striped>
+
+            <HeaderContent>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<ResultHolder, object>(u => u.StartTime)">Start Time</MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<ResultHolder, object>(u => u.EndTime)">End Time</MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<ResultHolder, object>(u => u.HeatDemand)">Heat Demand</MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<ResultHolder, object>(u => u.ElectricityPrice)">Electricity Price</MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<ResultHolder, object>(u => u.NetProductionCost)">Net Production Cost</MudTableSortLabel>
+                </MudTh>
+                <MudTh>Boilers</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd>@context.StartTime.ToString("MM/dd/yyyy HH:mm:ss")</MudTd>
+                <MudTd>@context.EndTime.ToString("MM/dd/yyyy HH:mm:ss")</MudTd>
+                <MudTd>@context.HeatDemand</MudTd>
+                <MudTd>@context.ElectricityPrice</MudTd>
+                <MudTd>@context.NetProductionCost</MudTd>
+                <MudTd>
+
+                    @if (context.Boilers.Any())
+                    {
+                        @foreach (var boiler in context.Boilers)
+                        {
+                            <MudCard Outlined="true">
+                                <MudCardContent>
+                                    <span>
+                                        <strong>Name:</strong> @boiler.Name
+                                    </span><br/>
+                                    <span>
+                                        <strong>Max Heat:</strong> @boiler.MaxHeat
+                                    </span><br/>
+                                    <span>
+                                        <strong>Production Cost:</strong> @boiler.ProductionCost
+                                    </span><br/>
+                                    <span>
+                                        <strong>Max Electricity:</strong> @boiler.MaxElectricity
+                                    </span><br/>
+                                    <span>
+                                        <strong>Gas Consumption:</strong> @boiler.GasConsumption
+                                    </span><br/>
+                                    <span>
+                                        <strong>CO2 Emission:</strong> @boiler.Co2Emission
+                                    </span><br/>
+                                </MudCardContent>
+                            </MudCard>
+                        }
+                    }
+                    else
+                    {
+                        <MudText>No Boilers Found</MudText>
+                    }
+                </MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager/>
+            </PagerContent>
+        </MudTable>
+    }
+    else
+    {
+        <MudProgressCircular Color="Color.Default" class="align-self-center" Indeterminate="true"/>
+    }
 </MudContainer>
