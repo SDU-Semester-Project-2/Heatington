@@ -202,6 +202,51 @@
                       Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
             </MudChart>
         </MudTabPanel>
+        @* WINTER SCENARIO  *@
+        <MudTabPanel Text="Real Winter Scenario 1">
+            <!-- Chart for CO2 Emission Scenario 1 -->
+            <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@RealCo2SeriesWinter1"
+                      @bind-SelectedIndex="Index"
+                      XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
+        </MudTabPanel>
+
+        <MudTabPanel Text="Real Winter Scenario 2">
+            <!-- Chart for CO2 Emission Scenario 2 -->
+            <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@RealCo2SeriesWinter2"
+                      XAxisLabels="@XAxisLabels"
+                      Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+            </MudChart>
+        </MudTabPanel>
+        <MudTabPanel Text="Real Winter Scenario Co2">
+            <!-- Chart for CO2 Emission Scenario CO2 -->
+            <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@RealCo2SeriesWinterCo2"
+                      XAxisLabels="@XAxisLabels"
+                      Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+            </MudChart>
+        </MudTabPanel>
+
+        @* SUMMER SCENARIO  *@
+        <MudTabPanel Text="Real Summer Scenario 1">
+            <!-- Chart for CO2 Emission Scenario 1 -->
+            <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@RealCo2SeriesSummer1"
+                      XAxisLabels="@XAxisLabels"
+                      Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+            </MudChart>
+        </MudTabPanel>
+        <MudTabPanel Text="Real Summer Scenario 2">
+            <!-- Chart for Co2 Emission Scenario 2 -->
+            <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@RealCo2SeriesSummer2"
+                      XAxisLabels="@XAxisLabels"
+                      Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+            </MudChart>
+        </MudTabPanel>
+        <MudTabPanel Text="Real Summer Scenario Co2">
+            <!-- Chart for CO2 Emission Scenario CO2 -->
+            <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@RealCo2SeriesSummerCo2"
+                      XAxisLabels="@XAxisLabels"
+                      Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions">
+            </MudChart>
+        </MudTabPanel>
     </MudTabs>
     <MudDivider FlexItem></MudDivider>
 

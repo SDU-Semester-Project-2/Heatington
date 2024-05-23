@@ -52,6 +52,14 @@ public partial class Home : ComponentBase
 
     private List<ProductionUnit> _productionUnits = [];
 
+    // co2 emission - real
+    private Dictionary<string, List<ChartData>> _realCo2EmissionScenario1Summer;
+    private Dictionary<string, List<ChartData>> _realCo2EmissionScenario1Winter;
+    private Dictionary<string, List<ChartData>> _realCo2EmissionScenario2Summer;
+    private Dictionary<string, List<ChartData>> _realCo2EmissionScenario2Winter;
+    private Dictionary<string, List<ChartData>> _realCo2EmissionScenarioCo2Summer;
+    private Dictionary<string, List<ChartData>> _realCo2EmissionScenarioCo2Winter;
+
     // co2 emission
     private double _totalSummerCo2Emission;
 
@@ -93,6 +101,14 @@ public partial class Home : ComponentBase
     private List<ChartSeries> Co2SeriesSummer1 { get; set; } = new List<ChartSeries>();
     private List<ChartSeries> Co2SeriesSummer2 { get; set; } = new List<ChartSeries>();
     private List<ChartSeries> Co2SeriesSummerCo2 { get; set; } = new List<ChartSeries>();
+
+    // Co2 Emission Series - Real
+    private List<ChartSeries> RealCo2SeriesWinter1 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealCo2SeriesWinter2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealCo2SeriesWinterCo2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealCo2SeriesSummer1 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealCo2SeriesSummer2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealCo2SeriesSummerCo2 { get; set; } = new List<ChartSeries>();
 
     // OPERATION POINTS SERIES
     private List<ChartSeries> OperationPointsSeriesWinter1 { get; set; } = new List<ChartSeries>();
@@ -156,6 +172,21 @@ public partial class Home : ComponentBase
             string optSummerScenario2Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Scenario2}";
             string optSummerCo2Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Co2}";
 
+            // Real OPT
+
+            // Winter period
+            string realBaseWinterOptUri = "http://localhost:5019/api/optimizer?season=winter-real&mode=";
+            string realOptWinterScenario1Uri = $"{realBaseWinterOptUri}{(int)OptimizationMode.Scenario1}";
+            string realOptWinterScenario2Uri = $"{realBaseWinterOptUri}{(int)OptimizationMode.Scenario2}";
+            string realOptWinterCo2Uri = $"{realBaseWinterOptUri}{(int)OptimizationMode.Co2}";
+
+            // Summer period
+            string realBaseSummerOptUri = "http://localhost:5019/api/optimizer?season=summer-real&mode=";
+            string realOptSummerScenario1Uri = $"{realBaseSummerOptUri}{(int)OptimizationMode.Scenario1}";
+            string realOptSummerScenario2Uri = $"{realBaseSummerOptUri}{(int)OptimizationMode.Scenario2}";
+            string realOptSummerCo2Uri = $"{realBaseSummerOptUri}{(int)OptimizationMode.Co2}";
+
+            // Raw Result from Danfoss
             List<ResultHolder>? rawResultDataWinterScenario1 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterScenario1Uri);
 
@@ -174,6 +205,26 @@ public partial class Home : ComponentBase
             List<ResultHolder>? rawResultDataSummerScenarioCo2 =
                 await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerCo2Uri);
 
+            // Raw Result from real data
+
+            List<ResultHolder>? rawRealResultDataWinterScenario1 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptWinterScenario1Uri);
+
+            List<ResultHolder>? rawRealResultDataWinterScenario2 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptWinterScenario2Uri);
+
+            List<ResultHolder>? rawRealResultDataWinterScenarioCo2 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptWinterCo2Uri);
+
+            List<ResultHolder>? rawRealResultDataSummerScenario1 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptSummerScenario1Uri);
+
+            List<ResultHolder>? rawRealResultDataSummerScenario2 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptSummerScenario2Uri);
+
+            List<ResultHolder>? rawRealResultDataSummerScenarioCo2 =
+                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptSummerCo2Uri);
+
             // Net Production Cost
             _netProductionCostScenario1Winter = GetNetProductionCostSeries(rawResultDataWinterScenario1);
             _netProductionCostScenario2Winter = GetNetProductionCostSeries(rawResultDataWinterScenario2);
@@ -181,6 +232,14 @@ public partial class Home : ComponentBase
             _netProductionCostScenario1Summer = GetNetProductionCostSeries(rawResultDataSummerScenario1);
             _netProductionCostScenario2Summer = GetNetProductionCostSeries(rawResultDataSummerScenario2);
             _netProductionCostScenarioCo2Summer = GetNetProductionCostSeries(rawResultDataSummerScenarioCo2);
+
+            // Net Production Cost - Real Data
+            _realNetProductionCostScenario1Winter = GetNetProductionCostSeries(rawRealResultDataWinterScenario1);
+            _realNetProductionCostScenario2Winter = GetNetProductionCostSeries(rawRealResultDataWinterScenario2);
+            _realNetProductionCostScenarioCo2Winter = GetNetProductionCostSeries(rawRealResultDataWinterScenarioCo2);
+            _realNetProductionCostScenario1Summer = GetNetProductionCostSeries(rawRealResultDataSummerScenario1);
+            _realNetProductionCostScenario2Summer = GetNetProductionCostSeries(rawRealResultDataSummerScenario2);
+            _realNetProductionCostScenarioCo2Summer = GetNetProductionCostSeries(rawRealResultDataSummerScenarioCo2);
 
             // Co2 Emission
             _co2EmissionScenario1Winter = GetCo2EmissionSeries(rawResultDataWinterScenario1);
@@ -190,7 +249,16 @@ public partial class Home : ComponentBase
             _co2EmissionScenario2Summer = GetCo2EmissionSeries(rawResultDataSummerScenario2);
             _co2EmissionScenarioCo2Summer = GetCo2EmissionSeries(rawResultDataSummerScenarioCo2);
 
-            // Operation Points TODO: NOT FULLY FINISHED
+
+            // Co2 Emission - Real Data
+            _realCo2EmissionScenario1Winter = GetCo2EmissionSeries(rawRealResultDataWinterScenario1);
+            _realCo2EmissionScenario2Winter = GetCo2EmissionSeries(rawRealResultDataWinterScenario2);
+            _realCo2EmissionScenarioCo2Winter = GetCo2EmissionSeries(rawRealResultDataWinterScenarioCo2);
+            _realCo2EmissionScenario1Summer = GetCo2EmissionSeries(rawRealResultDataSummerScenario1);
+            _realCo2EmissionScenario2Summer = GetCo2EmissionSeries(rawRealResultDataSummerScenario2);
+            _realCo2EmissionScenarioCo2Summer = GetCo2EmissionSeries(rawRealResultDataSummerScenarioCo2);
+
+            // Operation Points
             _operationPointsScenario1Winter = await GetOperationPoints("winter", OptimizationMode.Scenario1);
             _operationPointsScenario2Winter = await GetOperationPoints("winter", OptimizationMode.Scenario2);
             _operationPointsScenarioCo2Winter = await GetOperationPoints("winter", OptimizationMode.Co2);
@@ -322,6 +390,36 @@ public partial class Home : ComponentBase
             {
                 Name = "Summer Scenario Co2",
                 Data = _netProductionCostScenarioCo2Summer!.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Real Winter Scenario 1",
+                Data = _realNetProductionCostScenario1Winter!.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Real Winter Scenario 2",
+                Data = _realNetProductionCostScenario2Winter!.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Real Winter Scenario Co2",
+                Data = _realNetProductionCostScenarioCo2Winter!.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Real Summer Scenario 1",
+                Data = _realNetProductionCostScenario1Summer!.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Real Summer Scenario 2",
+                Data = _realNetProductionCostScenario2Summer!.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Real Summer Scenario Co2",
+                Data = _realNetProductionCostScenarioCo2Summer!.Select(x => x.YData).ToArray()
             }
         };
         XAxisLabels = Enumerable.Range(1, _netProductionCostScenario1Winter.Count)
@@ -355,6 +453,18 @@ public partial class Home : ComponentBase
         Co2SeriesSummer1 = addBoilerCo2EmissionCharSeries(_co2EmissionScenario1Summer);
         Co2SeriesSummer2 = addBoilerCo2EmissionCharSeries(_co2EmissionScenario2Summer);
         Co2SeriesSummerCo2 = addBoilerCo2EmissionCharSeries(_co2EmissionScenarioCo2Summer);
+
+        // REAL DATA
+
+        // WINTER
+        RealCo2SeriesWinter1 = addBoilerCo2EmissionCharSeries(_realCo2EmissionScenario1Winter);
+        RealCo2SeriesWinter2 = addBoilerCo2EmissionCharSeries(_realCo2EmissionScenario2Winter);
+        RealCo2SeriesWinterCo2 = addBoilerCo2EmissionCharSeries(_realCo2EmissionScenarioCo2Winter);
+
+        // SUMMER
+        RealCo2SeriesSummer1 = addBoilerCo2EmissionCharSeries(_realCo2EmissionScenario1Summer);
+        RealCo2SeriesSummer2 = addBoilerCo2EmissionCharSeries(_realCo2EmissionScenario2Summer);
+        RealCo2SeriesSummerCo2 = addBoilerCo2EmissionCharSeries(_realCo2EmissionScenarioCo2Summer);
 
         // Assuming all scenarios have the same number of data points
         int numDataPoints = _co2EmissionScenario1Winter?.Count ?? 0;
