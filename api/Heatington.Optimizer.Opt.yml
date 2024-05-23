@@ -1,38 +1,39 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Heatington.Optimizer.Opt
-  commentId: T:Heatington.Optimizer.Opt
-  id: Opt
+- uid: Heatington.Optimizer.OPT
+  commentId: T:Heatington.Optimizer.OPT
+  id: OPT
   parent: Heatington.Optimizer
   children:
-  - Heatington.Optimizer.Opt.CalculateNetProductionCost
-  - Heatington.Optimizer.Opt.LoadData
-  - Heatington.Optimizer.Opt.LogDataPoints
-  - Heatington.Optimizer.Opt.LogProductionUnits
-  - Heatington.Optimizer.Opt.LogResults
-  - Heatington.Optimizer.Opt.OptimizeScenario1
-  - Heatington.Optimizer.Opt.Results
+  - Heatington.Optimizer.OPT.#ctor
+  - Heatington.Optimizer.OPT.#ctor(System.Collections.Generic.List{Heatington.Models.ProductionUnit},System.Collections.Generic.List{Heatington.Models.DataPoint})
+  - Heatington.Optimizer.OPT.LogDataPoints
+  - Heatington.Optimizer.OPT.LogProductionUnits
+  - Heatington.Optimizer.OPT.LogResults
+  - Heatington.Optimizer.OPT.Optimize(Heatington.Optimizer.OptimizationMode)
+  - Heatington.Optimizer.OPT.Optimize(System.Delegate)
+  - Heatington.Optimizer.OPT.Results
   langs:
   - csharp
   - vb
-  name: Opt
-  nameWithType: Opt
-  fullName: Heatington.Optimizer.Opt
+  name: OPT
+  nameWithType: OPT
+  fullName: Heatington.Optimizer.OPT
   type: Class
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: Opt
+    id: OPT
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 7
+    startLine: 11
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
   syntax:
-    content: public class Opt
-    content.vb: Public Class Opt
+    content: public class OPT
+    content.vb: Public Class OPT
   inheritance:
   - System.Object
   inheritedMembers:
@@ -43,25 +44,54 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Heatington.Optimizer.Opt.Results
-  commentId: P:Heatington.Optimizer.Opt.Results
+- uid: Heatington.Optimizer.OPT.#ctor
+  commentId: M:Heatington.Optimizer.OPT.#ctor
+  id: '#ctor'
+  parent: Heatington.Optimizer.OPT
+  langs:
+  - csharp
+  - vb
+  name: OPT()
+  nameWithType: OPT.OPT()
+  fullName: Heatington.Optimizer.OPT.OPT()
+  type: Constructor
+  source:
+    remote:
+      path: Heatington/Optimizer/Optimizer.cs
+      branch: SP2-5-data-visualization-dv
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington/Optimizer/Optimizer.cs
+    startLine: 11
+  assemblies:
+  - Heatington
+  namespace: Heatington.Optimizer
+  syntax:
+    content: public OPT()
+    content.vb: Public Sub New()
+  overload: Heatington.Optimizer.OPT.#ctor*
+  nameWithType.vb: OPT.New()
+  fullName.vb: Heatington.Optimizer.OPT.New()
+  name.vb: New()
+- uid: Heatington.Optimizer.OPT.Results
+  commentId: P:Heatington.Optimizer.OPT.Results
   id: Results
-  parent: Heatington.Optimizer.Opt
+  parent: Heatington.Optimizer.OPT
   langs:
   - csharp
   - vb
   name: Results
-  nameWithType: Opt.Results
-  fullName: Heatington.Optimizer.Opt.Results
+  nameWithType: OPT.Results
+  fullName: Heatington.Optimizer.OPT.Results
   type: Property
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Results
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 11
+    startLine: 24
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
@@ -71,163 +101,177 @@ items:
     return:
       type: System.Collections.Generic.List{Heatington.Models.ResultHolder}
     content.vb: Public Property Results As List(Of ResultHolder)
-  overload: Heatington.Optimizer.Opt.Results*
-- uid: Heatington.Optimizer.Opt.LoadData
-  commentId: M:Heatington.Optimizer.Opt.LoadData
-  id: LoadData
-  parent: Heatington.Optimizer.Opt
+  overload: Heatington.Optimizer.OPT.Results*
+- uid: Heatington.Optimizer.OPT.#ctor(System.Collections.Generic.List{Heatington.Models.ProductionUnit},System.Collections.Generic.List{Heatington.Models.DataPoint})
+  commentId: M:Heatington.Optimizer.OPT.#ctor(System.Collections.Generic.List{Heatington.Models.ProductionUnit},System.Collections.Generic.List{Heatington.Models.DataPoint})
+  id: '#ctor(System.Collections.Generic.List{Heatington.Models.ProductionUnit},System.Collections.Generic.List{Heatington.Models.DataPoint})'
+  parent: Heatington.Optimizer.OPT
   langs:
   - csharp
   - vb
-  name: LoadData()
-  nameWithType: Opt.LoadData()
-  fullName: Heatington.Optimizer.Opt.LoadData()
-  type: Method
+  name: OPT(List<ProductionUnit>, List<DataPoint>?)
+  nameWithType: OPT.OPT(List<ProductionUnit>, List<DataPoint>?)
+  fullName: Heatington.Optimizer.OPT.OPT(System.Collections.Generic.List<Heatington.Models.ProductionUnit>, System.Collections.Generic.List<Heatington.Models.DataPoint>?)
+  type: Constructor
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: LoadData
+    id: .ctor
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 13
+    startLine: 26
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
   syntax:
-    content: public void LoadData()
-    content.vb: Public Sub LoadData()
-  overload: Heatington.Optimizer.Opt.LoadData*
-- uid: Heatington.Optimizer.Opt.OptimizeScenario1
-  commentId: M:Heatington.Optimizer.Opt.OptimizeScenario1
-  id: OptimizeScenario1
-  parent: Heatington.Optimizer.Opt
+    content: public OPT(List<ProductionUnit> productionUnits, List<DataPoint>? dataPoints)
+    parameters:
+    - id: productionUnits
+      type: System.Collections.Generic.List{Heatington.Models.ProductionUnit}
+    - id: dataPoints
+      type: System.Collections.Generic.List{Heatington.Models.DataPoint}
+    content.vb: Public Sub New(productionUnits As List(Of ProductionUnit), dataPoints As List(Of DataPoint))
+  overload: Heatington.Optimizer.OPT.#ctor*
+  nameWithType.vb: OPT.New(List(Of ProductionUnit), List(Of DataPoint))
+  fullName.vb: Heatington.Optimizer.OPT.New(System.Collections.Generic.List(Of Heatington.Models.ProductionUnit), System.Collections.Generic.List(Of Heatington.Models.DataPoint))
+  name.vb: New(List(Of ProductionUnit), List(Of DataPoint))
+- uid: Heatington.Optimizer.OPT.Optimize(Heatington.Optimizer.OptimizationMode)
+  commentId: M:Heatington.Optimizer.OPT.Optimize(Heatington.Optimizer.OptimizationMode)
+  id: Optimize(Heatington.Optimizer.OptimizationMode)
+  parent: Heatington.Optimizer.OPT
   langs:
   - csharp
   - vb
-  name: OptimizeScenario1()
-  nameWithType: Opt.OptimizeScenario1()
-  fullName: Heatington.Optimizer.Opt.OptimizeScenario1()
+  name: Optimize(OptimizationMode)
+  nameWithType: OPT.Optimize(OptimizationMode)
+  fullName: Heatington.Optimizer.OPT.Optimize(Heatington.Optimizer.OptimizationMode)
   type: Method
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: OptimizeScenario1
+    id: Optimize
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 21
+    startLine: 37
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
   syntax:
-    content: public void OptimizeScenario1()
-    content.vb: Public Sub OptimizeScenario1()
-  overload: Heatington.Optimizer.Opt.OptimizeScenario1*
-- uid: Heatington.Optimizer.Opt.CalculateNetProductionCost
-  commentId: M:Heatington.Optimizer.Opt.CalculateNetProductionCost
-  id: CalculateNetProductionCost
-  parent: Heatington.Optimizer.Opt
+    content: public void Optimize(OptimizationMode mode)
+    parameters:
+    - id: mode
+      type: Heatington.Optimizer.OptimizationMode
+    content.vb: Public Sub Optimize(mode As OptimizationMode)
+  overload: Heatington.Optimizer.OPT.Optimize*
+- uid: Heatington.Optimizer.OPT.Optimize(System.Delegate)
+  commentId: M:Heatington.Optimizer.OPT.Optimize(System.Delegate)
+  id: Optimize(System.Delegate)
+  parent: Heatington.Optimizer.OPT
   langs:
   - csharp
   - vb
-  name: CalculateNetProductionCost()
-  nameWithType: Opt.CalculateNetProductionCost()
-  fullName: Heatington.Optimizer.Opt.CalculateNetProductionCost()
+  name: Optimize(Delegate)
+  nameWithType: OPT.Optimize(Delegate)
+  fullName: Heatington.Optimizer.OPT.Optimize(System.Delegate)
   type: Method
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: CalculateNetProductionCost
+    id: Optimize
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 133
+    startLine: 42
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
   syntax:
-    content: public void CalculateNetProductionCost()
-    content.vb: Public Sub CalculateNetProductionCost()
-  overload: Heatington.Optimizer.Opt.CalculateNetProductionCost*
-- uid: Heatington.Optimizer.Opt.LogResults
-  commentId: M:Heatington.Optimizer.Opt.LogResults
+    content: public void Optimize(Delegate evaluation)
+    parameters:
+    - id: evaluation
+      type: System.Delegate
+    content.vb: Public Sub Optimize(evaluation As [Delegate])
+  overload: Heatington.Optimizer.OPT.Optimize*
+- uid: Heatington.Optimizer.OPT.LogResults
+  commentId: M:Heatington.Optimizer.OPT.LogResults
   id: LogResults
-  parent: Heatington.Optimizer.Opt
+  parent: Heatington.Optimizer.OPT
   langs:
   - csharp
   - vb
   name: LogResults()
-  nameWithType: Opt.LogResults()
-  fullName: Heatington.Optimizer.Opt.LogResults()
+  nameWithType: OPT.LogResults()
+  fullName: Heatington.Optimizer.OPT.LogResults()
   type: Method
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogResults
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 154
+    startLine: 159
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
   syntax:
     content: public void LogResults()
     content.vb: Public Sub LogResults()
-  overload: Heatington.Optimizer.Opt.LogResults*
-- uid: Heatington.Optimizer.Opt.LogDataPoints
-  commentId: M:Heatington.Optimizer.Opt.LogDataPoints
+  overload: Heatington.Optimizer.OPT.LogResults*
+- uid: Heatington.Optimizer.OPT.LogDataPoints
+  commentId: M:Heatington.Optimizer.OPT.LogDataPoints
   id: LogDataPoints
-  parent: Heatington.Optimizer.Opt
+  parent: Heatington.Optimizer.OPT
   langs:
   - csharp
   - vb
   name: LogDataPoints()
-  nameWithType: Opt.LogDataPoints()
-  fullName: Heatington.Optimizer.Opt.LogDataPoints()
+  nameWithType: OPT.LogDataPoints()
+  fullName: Heatington.Optimizer.OPT.LogDataPoints()
   type: Method
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogDataPoints
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 182
+    startLine: 169
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
   syntax:
     content: public void LogDataPoints()
     content.vb: Public Sub LogDataPoints()
-  overload: Heatington.Optimizer.Opt.LogDataPoints*
-- uid: Heatington.Optimizer.Opt.LogProductionUnits
-  commentId: M:Heatington.Optimizer.Opt.LogProductionUnits
+  overload: Heatington.Optimizer.OPT.LogDataPoints*
+- uid: Heatington.Optimizer.OPT.LogProductionUnits
+  commentId: M:Heatington.Optimizer.OPT.LogProductionUnits
   id: LogProductionUnits
-  parent: Heatington.Optimizer.Opt
+  parent: Heatington.Optimizer.OPT
   langs:
   - csharp
   - vb
   name: LogProductionUnits()
-  nameWithType: Opt.LogProductionUnits()
-  fullName: Heatington.Optimizer.Opt.LogProductionUnits()
+  nameWithType: OPT.LogProductionUnits()
+  fullName: Heatington.Optimizer.OPT.LogProductionUnits()
   type: Method
   source:
     remote:
       path: Heatington/Optimizer/Optimizer.cs
-      branch: SP2-146-Create-a-Component-Dotnet-Library
+      branch: SP2-5-data-visualization-dv
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LogProductionUnits
     path: Heatington/Optimizer/Optimizer.cs
-    startLine: 207
+    startLine: 179
   assemblies:
   - Heatington
   namespace: Heatington.Optimizer
   syntax:
     content: public void LogProductionUnits()
     content.vb: Public Sub LogProductionUnits()
-  overload: Heatington.Optimizer.Opt.LogProductionUnits*
+  overload: Heatington.Optimizer.OPT.LogProductionUnits*
 references:
 - uid: Heatington.Optimizer
   commentId: N:Heatington.Optimizer
@@ -488,12 +532,21 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Heatington.Optimizer.Opt.Results*
-  commentId: Overload:Heatington.Optimizer.Opt.Results
-  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_Results
+- uid: Heatington.Optimizer.OPT.#ctor*
+  commentId: Overload:Heatington.Optimizer.OPT.#ctor
+  href: Heatington.Optimizer.OPT.html#Heatington_Optimizer_OPT__ctor
+  name: OPT
+  nameWithType: OPT.OPT
+  fullName: Heatington.Optimizer.OPT.OPT
+  nameWithType.vb: OPT.New
+  fullName.vb: Heatington.Optimizer.OPT.New
+  name.vb: New
+- uid: Heatington.Optimizer.OPT.Results*
+  commentId: Overload:Heatington.Optimizer.OPT.Results
+  href: Heatington.Optimizer.OPT.html#Heatington_Optimizer_OPT_Results
   name: Results
-  nameWithType: Opt.Results
-  fullName: Heatington.Optimizer.Opt.Results
+  nameWithType: OPT.Results
+  fullName: Heatington.Optimizer.OPT.Results
 - uid: System.Collections.Generic.List{Heatington.Models.ResultHolder}
   commentId: T:System.Collections.Generic.List{Heatington.Models.ResultHolder}
   parent: System.Collections.Generic
@@ -592,39 +645,108 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Heatington.Optimizer.Opt.LoadData*
-  commentId: Overload:Heatington.Optimizer.Opt.LoadData
-  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_LoadData
-  name: LoadData
-  nameWithType: Opt.LoadData
-  fullName: Heatington.Optimizer.Opt.LoadData
-- uid: Heatington.Optimizer.Opt.OptimizeScenario1*
-  commentId: Overload:Heatington.Optimizer.Opt.OptimizeScenario1
-  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_OptimizeScenario1
-  name: OptimizeScenario1
-  nameWithType: Opt.OptimizeScenario1
-  fullName: Heatington.Optimizer.Opt.OptimizeScenario1
-- uid: Heatington.Optimizer.Opt.CalculateNetProductionCost*
-  commentId: Overload:Heatington.Optimizer.Opt.CalculateNetProductionCost
-  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_CalculateNetProductionCost
-  name: CalculateNetProductionCost
-  nameWithType: Opt.CalculateNetProductionCost
-  fullName: Heatington.Optimizer.Opt.CalculateNetProductionCost
-- uid: Heatington.Optimizer.Opt.LogResults*
-  commentId: Overload:Heatington.Optimizer.Opt.LogResults
-  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_LogResults
+- uid: System.Collections.Generic.List{Heatington.Models.ProductionUnit}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.ProductionUnit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ProductionUnit>
+  nameWithType: List<ProductionUnit>
+  fullName: System.Collections.Generic.List<Heatington.Models.ProductionUnit>
+  nameWithType.vb: List(Of ProductionUnit)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.ProductionUnit)
+  name.vb: List(Of ProductionUnit)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.ProductionUnit
+    name: ProductionUnit
+    href: Heatington.Models.ProductionUnit.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.ProductionUnit
+    name: ProductionUnit
+    href: Heatington.Models.ProductionUnit.html
+  - name: )
+- uid: System.Collections.Generic.List{Heatington.Models.DataPoint}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.DataPoint}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<DataPoint>
+  nameWithType: List<DataPoint>
+  fullName: System.Collections.Generic.List<Heatington.Models.DataPoint>
+  nameWithType.vb: List(Of DataPoint)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.DataPoint)
+  name.vb: List(Of DataPoint)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.DataPoint
+    name: DataPoint
+    href: Heatington.Models.DataPoint.html
+  - name: )
+- uid: Heatington.Optimizer.OPT.Optimize*
+  commentId: Overload:Heatington.Optimizer.OPT.Optimize
+  href: Heatington.Optimizer.OPT.html#Heatington_Optimizer_OPT_Optimize_Heatington_Optimizer_OptimizationMode_
+  name: Optimize
+  nameWithType: OPT.Optimize
+  fullName: Heatington.Optimizer.OPT.Optimize
+- uid: Heatington.Optimizer.OptimizationMode
+  commentId: T:Heatington.Optimizer.OptimizationMode
+  parent: Heatington.Optimizer
+  href: Heatington.Optimizer.OptimizationMode.html
+  name: OptimizationMode
+  nameWithType: OptimizationMode
+  fullName: Heatington.Optimizer.OptimizationMode
+- uid: System.Delegate
+  commentId: T:System.Delegate
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.delegate
+  name: Delegate
+  nameWithType: Delegate
+  fullName: System.Delegate
+- uid: Heatington.Optimizer.OPT.LogResults*
+  commentId: Overload:Heatington.Optimizer.OPT.LogResults
+  href: Heatington.Optimizer.OPT.html#Heatington_Optimizer_OPT_LogResults
   name: LogResults
-  nameWithType: Opt.LogResults
-  fullName: Heatington.Optimizer.Opt.LogResults
-- uid: Heatington.Optimizer.Opt.LogDataPoints*
-  commentId: Overload:Heatington.Optimizer.Opt.LogDataPoints
-  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_LogDataPoints
+  nameWithType: OPT.LogResults
+  fullName: Heatington.Optimizer.OPT.LogResults
+- uid: Heatington.Optimizer.OPT.LogDataPoints*
+  commentId: Overload:Heatington.Optimizer.OPT.LogDataPoints
+  href: Heatington.Optimizer.OPT.html#Heatington_Optimizer_OPT_LogDataPoints
   name: LogDataPoints
-  nameWithType: Opt.LogDataPoints
-  fullName: Heatington.Optimizer.Opt.LogDataPoints
-- uid: Heatington.Optimizer.Opt.LogProductionUnits*
-  commentId: Overload:Heatington.Optimizer.Opt.LogProductionUnits
-  href: Heatington.Optimizer.Opt.html#Heatington_Optimizer_Opt_LogProductionUnits
+  nameWithType: OPT.LogDataPoints
+  fullName: Heatington.Optimizer.OPT.LogDataPoints
+- uid: Heatington.Optimizer.OPT.LogProductionUnits*
+  commentId: Overload:Heatington.Optimizer.OPT.LogProductionUnits
+  href: Heatington.Optimizer.OPT.html#Heatington_Optimizer_OPT_LogProductionUnits
   name: LogProductionUnits
-  nameWithType: Opt.LogProductionUnits
-  fullName: Heatington.Optimizer.Opt.LogProductionUnits
+  nameWithType: OPT.LogProductionUnits
+  fullName: Heatington.Optimizer.OPT.LogProductionUnits
