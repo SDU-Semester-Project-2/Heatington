@@ -49,8 +49,8 @@ public partial class Home : ComponentBase
     private List<ChartData>? _operationPointsScenario2Winter;
     private List<ChartData>? _operationPointsScenarioCo2Summer;
     private List<ChartData>? _operationPointsScenarioCo2Winter;
-
     private List<ProductionUnit> _productionUnits = [];
+
 
     // co2 emission - real
     private Dictionary<string, List<ChartData>> _realCo2EmissionScenario1Summer;
@@ -60,10 +60,19 @@ public partial class Home : ComponentBase
     private Dictionary<string, List<ChartData>> _realCo2EmissionScenarioCo2Summer;
     private Dictionary<string, List<ChartData>> _realCo2EmissionScenarioCo2Winter;
 
+    // operation points - real data
+    private List<ChartData>? _realOperationPointsScenario1Summer;
+    private List<ChartData>? _realOperationPointsScenario1Winter;
+    private List<ChartData>? _realOperationPointsScenario2Summer;
+    private List<ChartData>? _realOperationPointsScenario2Winter;
+    private List<ChartData>? _realOperationPointsScenarioCo2Summer;
+    private List<ChartData>? _realOperationPointsScenarioCo2Winter;
+
+
+    // Statistics
     // co2 emission
     private double _totalSummerCo2Emission;
 
-    // Statistics
     // heat demand
     private double _totalSummerHeatDemand;
 
@@ -118,6 +127,13 @@ public partial class Home : ComponentBase
     private List<ChartSeries> OperationPointsSeriesSummer2 { get; set; } = new List<ChartSeries>();
     private List<ChartSeries> OperationPointsSeriesSummerCo2 { get; set; } = new List<ChartSeries>();
 
+    // OPERATION POINTS SERIES - REAL DATA
+    private List<ChartSeries> RealOperationPointsSeriesWinter1 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealOperationPointsSeriesWinter2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealOperationPointsSeriesWinterCo2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealOperationPointsSeriesSummer1 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealOperationPointsSeriesSummer2 { get; set; } = new List<ChartSeries>();
+    private List<ChartSeries> RealOperationPointsSeriesSummerCo2 { get; set; } = new List<ChartSeries>();
 
     private string[] XAxisLabels { get; set; }
     private string?[] XAxisCo2EmissionLabels { get; set; }
@@ -265,6 +281,14 @@ public partial class Home : ComponentBase
             _operationPointsScenario1Summer = await GetOperationPoints("summer", OptimizationMode.Scenario1);
             _operationPointsScenario2Summer = await GetOperationPoints("summer", OptimizationMode.Scenario2);
             _operationPointsScenarioCo2Summer = await GetOperationPoints("summer", OptimizationMode.Co2);
+
+            // Operation Points - real data
+            _realOperationPointsScenario1Winter = await GetOperationPoints("winter-real", OptimizationMode.Scenario1);
+            _realOperationPointsScenario2Winter = await GetOperationPoints("winter-real", OptimizationMode.Scenario2);
+            _realOperationPointsScenarioCo2Winter = await GetOperationPoints("winter-real", OptimizationMode.Co2);
+            _realOperationPointsScenario1Summer = await GetOperationPoints("summer-real", OptimizationMode.Scenario1);
+            _realOperationPointsScenario2Summer = await GetOperationPoints("summer-real", OptimizationMode.Scenario2);
+            _realOperationPointsScenarioCo2Summer = await GetOperationPoints("summer-real", OptimizationMode.Co2);
 
             // Sum
             // heat demand
@@ -488,6 +512,12 @@ public partial class Home : ComponentBase
         OperationPointsSeriesSummer1 = new List<ChartSeries>();
         OperationPointsSeriesSummer2 = new List<ChartSeries>();
         OperationPointsSeriesSummerCo2 = new List<ChartSeries>();
+        RealOperationPointsSeriesWinter1 = new List<ChartSeries>();
+        RealOperationPointsSeriesWinter2 = new List<ChartSeries>();
+        RealOperationPointsSeriesWinterCo2 = new List<ChartSeries>();
+        RealOperationPointsSeriesSummer1 = new List<ChartSeries>();
+        RealOperationPointsSeriesSummer2 = new List<ChartSeries>();
+        RealOperationPointsSeriesSummerCo2 = new List<ChartSeries>();
 
         // Adding series for each scenario
         AddOperationPointSeries(_operationPointsScenario1Winter, OperationPointsSeriesWinter1);
@@ -496,6 +526,12 @@ public partial class Home : ComponentBase
         AddOperationPointSeries(_operationPointsScenario1Summer, OperationPointsSeriesSummer1);
         AddOperationPointSeries(_operationPointsScenario2Summer, OperationPointsSeriesSummer2);
         AddOperationPointSeries(_operationPointsScenarioCo2Summer, OperationPointsSeriesSummerCo2);
+        AddOperationPointSeries(_realOperationPointsScenario1Winter, RealOperationPointsSeriesWinter1);
+        AddOperationPointSeries(_realOperationPointsScenario2Winter, RealOperationPointsSeriesWinter2);
+        AddOperationPointSeries(_realOperationPointsScenarioCo2Winter, RealOperationPointsSeriesWinterCo2);
+        AddOperationPointSeries(_realOperationPointsScenario1Summer, RealOperationPointsSeriesSummer1);
+        AddOperationPointSeries(_realOperationPointsScenario2Summer, RealOperationPointsSeriesSummer2);
+        AddOperationPointSeries(_realOperationPointsScenarioCo2Summer, RealOperationPointsSeriesSummerCo2);
 
         // Assuming all scenarios have the same number of data points
         int numDataPoints = _operationPointsScenario1Winter?.Count ?? 0;
