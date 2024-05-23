@@ -10,6 +10,7 @@ namespace Heatington.Controllers
     {
         private EnerginetApiContorller _apiContorller;
         public string filePath;
+
         public RealDataController(string FilePath)
         {
             _apiContorller = new();
@@ -35,8 +36,8 @@ namespace Heatington.Controllers
                     return staticData.Zip(electricityPrices, (data, price) => new DataPoint(
                         data.StartTime.ToString(CultureInfo.CurrentCulture),
                         data.EndTime.ToString(CultureInfo.CurrentCulture),
-                        data.HeatDemand.ToString(CultureInfo.CurrentCulture),
-                        price.ToString(CultureInfo.CurrentCulture)
+                        data.HeatDemand.ToString(CultureInfo.InvariantCulture),
+                        price.ToString(CultureInfo.InvariantCulture)
                     )).ToList();
                 }
             }

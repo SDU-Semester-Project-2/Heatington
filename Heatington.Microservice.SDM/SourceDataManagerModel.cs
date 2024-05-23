@@ -32,23 +32,23 @@ namespace SourceDataManagerAPI
             loadTimeSeriesWinter.Wait();
             loadTimeSeriesSummer.Wait();
 
-            // IDataSource dataSourceWinterReal = new RealDataController(filePathWinter);
-            // IDataSource dataSourceSummerReal = new RealDataController(filePathSummer);
-            //
-            // Task loadRealDataSourceWinter = dataSourceWinterReal.GetDataAsync();
-            // Task loadRealDataSourceSummer = dataSourceSummerReal.GetDataAsync();
-            //
-            // loadRealDataSourceWinter.Wait();
-            // loadRealDataSourceSummer.Wait();
-            //
-            // SDM_WinterReal = new SDM(dataSourceWinterReal);
-            // SDM_SummerReal = new SDM(dataSourceWinterReal);
-            //
-            // Task loadTimeSeriesWinterReal = SDM_WinterReal.FetchTimeSeriesDataAsync();
-            // Task loadTimeSeriesSummerReal = SDM_SummerReal.FetchTimeSeriesDataAsync();
-            //
-            // loadTimeSeriesWinterReal.Wait();
-            // loadTimeSeriesSummerReal.Wait();
+            IDataSource dataSourceWinterReal = new RealDataController(filePathWinter);
+            IDataSource dataSourceSummerReal = new RealDataController(filePathSummer);
+
+            Task loadRealDataSourceWinter = dataSourceWinterReal.GetDataAsync();
+            Task loadRealDataSourceSummer = dataSourceSummerReal.GetDataAsync();
+
+            loadRealDataSourceWinter.Wait();
+            loadRealDataSourceSummer.Wait();
+
+            SDM_WinterReal = new SDM(dataSourceWinterReal);
+            SDM_SummerReal = new SDM(dataSourceWinterReal);
+
+            Task loadTimeSeriesWinterReal = SDM_WinterReal.FetchTimeSeriesDataAsync();
+            Task loadTimeSeriesSummerReal = SDM_SummerReal.FetchTimeSeriesDataAsync();
+
+            loadTimeSeriesWinterReal.Wait();
+            loadTimeSeriesSummerReal.Wait();
         }
     }
 }
