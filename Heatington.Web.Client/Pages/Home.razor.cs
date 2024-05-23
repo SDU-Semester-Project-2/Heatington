@@ -11,10 +11,15 @@ public partial class Home : ComponentBase
     // heat demand
     private static List<ChartData>? _heatDemandWinterSeries;
     private static List<ChartData>? _heatDemandSummerSeries;
+    private static List<ChartData>? _realheatDemandWinterSeries;
+    private static List<ChartData>? _realheatDemandSummerSeries;
 
     // electricity price
     private static List<ChartData>? _electricityPriceWinterSeries;
     private static List<ChartData>? _electricityPriceSummerSeries;
+    private static List<ChartData>? _realElectricityPriceWinterSeries;
+
+    private static List<ChartData>? _realElectricityPriceSummerSeries;
 
     // net production cost
     private static List<ChartData>? _netProductionCostScenario1Winter;
@@ -42,25 +47,25 @@ public partial class Home : ComponentBase
 
     private List<ProductionUnit> _productionUnits = [];
 
+    // co2 emission
+    private double _totalSummerCo2Emission;
+
     // Statistics
     // heat demand
     private double _totalSummerHeatDemand;
 
-    private double _totalWinterHeatDemand;
-
     // production cost
     private double _totalSummerNetProductionCost;
 
-    private double _totalWinterNetProductionCost;
-
     // profit
     private double _totalSummerProft;
+    private double _totalWinterCo2Emission;
+
+    private double _totalWinterHeatDemand;
+
+    private double _totalWinterNetProductionCost;
 
     private double _totalWinterProfit;
-
-    // co2 emission
-    private double _totalSummerCo2Emission;
-    private double _totalWinterCo2Emission;
 
     public ChartOptions Co2EmissionChartOptions = new ChartOptions { YAxisTicks = 100, };
     public ChartOptions ElectricityChartOptions = new ChartOptions();
@@ -117,10 +122,22 @@ public partial class Home : ComponentBase
             _heatDemandWinterSeries = GetHeatDemandSeries(winterData);
             _electricityPriceWinterSeries = GetElectricityPriceSeries(winterData);
 
+            List<DataPoint>? realWinterData =
+                await Http.GetFromJsonAsync<List<DataPoint>>(
+                    "http://localhost:5165/api/TimeSeriesData?season=winter-real");
+            _realheatDemandWinterSeries = GetHeatDemandSeries(realWinterData);
+            _realElectricityPriceWinterSeries = GetElectricityPriceSeries(realWinterData);
+
             List<DataPoint>? summerData =
                 await Http.GetFromJsonAsync<List<DataPoint>>("http://localhost:5165/api/TimeSeriesData?season=summer");
             _heatDemandSummerSeries = GetHeatDemandSeries(summerData);
             _electricityPriceSummerSeries = GetElectricityPriceSeries(summerData);
+
+            List<DataPoint>? realSummerData =
+                await Http.GetFromJsonAsync<List<DataPoint>>(
+                    "http://localhost:5165/api/TimeSeriesData?season=summer-real");
+            _realheatDemandSummerSeries = GetHeatDemandSeries(realSummerData);
+            _realElectricityPriceSummerSeries = GetElectricityPriceSeries(realSummerData);
 
             // Winter period
             string baseWinterOptUri = "http://localhost:5019/api/optimizer?season=winter&mode=";
@@ -218,7 +235,15 @@ public partial class Home : ComponentBase
         HeatDemandSeries = new List<ChartSeries>()
         {
             new ChartSeries() { Name = "Winter", Data = _heatDemandWinterSeries.Select(x => x.YData).ToArray() },
-            new ChartSeries() { Name = "Summer", Data = _heatDemandSummerSeries.Select(x => x.YData).ToArray() }
+            new ChartSeries() { Name = "Summer", Data = _heatDemandSummerSeries.Select(x => x.YData).ToArray() },
+            new ChartSeries()
+            {
+                Name = "Real Winter Data", Data = _realheatDemandWinterSeries.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Real Summer Data", Data = _realheatDemandSummerSeries.Select(x => x.YData).ToArray()
+            },
         };
         XAxisLabels = Enumerable.Range(1, _heatDemandWinterSeries.Count)
             .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
@@ -242,6 +267,16 @@ public partial class Home : ComponentBase
             new ChartSeries()
             {
                 Name = "Summer", Data = _electricityPriceSummerSeries.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Winter Real Data",
+                Data = _realElectricityPriceWinterSeries.Select(x => x.YData).ToArray()
+            },
+            new ChartSeries()
+            {
+                Name = "Summer Real Data",
+                Data = _realElectricityPriceSummerSeries.Select(x => x.YData).ToArray()
             }
         };
         XAxisLabels = Enumerable.Range(1, _electricityPriceWinterSeries.Count)
