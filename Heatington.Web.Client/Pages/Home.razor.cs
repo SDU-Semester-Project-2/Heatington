@@ -18,7 +18,6 @@ public partial class Home : ComponentBase
     private static List<ChartData>? _electricityPriceWinterSeries;
     private static List<ChartData>? _electricityPriceSummerSeries;
     private static List<ChartData>? _realElectricityPriceWinterSeries;
-
     private static List<ChartData>? _realElectricityPriceSummerSeries;
 
     // net production cost
@@ -28,6 +27,12 @@ public partial class Home : ComponentBase
     private static List<ChartData>? _netProductionCostScenario2Summer;
     private static List<ChartData>? _netProductionCostScenarioCo2Winter;
     private static List<ChartData>? _netProductionCostScenarioCo2Summer;
+    private static List<ChartData>? _realNetProductionCostScenario1Winter;
+    private static List<ChartData>? _realNetProductionCostScenario1Summer;
+    private static List<ChartData>? _realNetProductionCostScenario2Winter;
+    private static List<ChartData>? _realNetProductionCostScenario2Summer;
+    private static List<ChartData>? _realNetProductionCostScenarioCo2Winter;
+    private static List<ChartData>? _realNetProductionCostScenarioCo2Summer;
 
     // co2 emission
     private Dictionary<string, List<ChartData>> _co2EmissionScenario1Summer;
