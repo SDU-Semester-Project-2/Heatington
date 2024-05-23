@@ -42,7 +42,7 @@ namespace SourceDataManagerAPI
             loadRealDataSourceSummer.Wait();
 
             SDM_WinterReal = new SDM(dataSourceWinterReal);
-            SDM_SummerReal = new SDM(dataSourceWinterReal);
+            SDM_SummerReal = new SDM(dataSourceSummerReal);
 
             Task loadTimeSeriesWinterReal = SDM_WinterReal.FetchTimeSeriesDataAsync();
             Task loadTimeSeriesSummerReal = SDM_SummerReal.FetchTimeSeriesDataAsync();
