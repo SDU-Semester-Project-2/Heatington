@@ -37,31 +37,25 @@ namespace Heatington.Microservice.OPT.Controllers
             // data points
             List<DataPoint>? dataPoints = await DependenciesService.GetDataPoints(season);
 
-            // data real points
-            List<DataPoint>? realDataPoints = await DependenciesService.GetDataPoints(season);
-
             if (mode == (int)OptimizationMode.Scenario1)
             {
                 productionUnits = productionUnits.Where(unit => unit.MaxElectricity == 0).ToList();
             }
 
-            Console.WriteLine(productionUnits.Count);
-            foreach (var boiler in (productionUnits))
-            {
-                Console.WriteLine(boiler);
-            }
+            // Console.WriteLine(productionUnits.Count);
+            // foreach (var boiler in (productionUnits))
+            // {
+            //     Console.WriteLine(boiler);
+            // }
 
 
             // Optimizer
             Optimizer.OPT opt = new Optimizer.OPT(productionUnits, dataPoints);
 
-            // Optimizer for real datapoints
-            Optimizer.OPT optReal = new Optimizer.OPT(productionUnits, realDataPoints);
 
             try
             {
                 opt.Optimize((OptimizationMode)mode);
-                optReal.Optimize((OptimizationMode)mode);
                 return Ok(opt.Results);
             }
             catch (Exception e)

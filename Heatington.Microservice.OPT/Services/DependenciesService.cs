@@ -53,27 +53,4 @@ public static class DependenciesService
             throw;
         }
     }
-
-    public static async Task<List<DataPoint>?> GetRealDataPoints(string season)
-    {
-        try
-        {
-            string uri = $"http://localhost:5165/api/TimeSeriesData?season={season}-real";
-
-            using HttpResponseMessage res = await Program.Client.GetAsync(uri);
-            res.EnsureSuccessStatusCode();
-
-            List<DataPoint>? dataPoints;
-
-            dataPoints = await res.Content.ReadFromJsonAsync<List<DataPoint>>();
-
-            return dataPoints ?? new List<DataPoint>();
-        }
-        catch (HttpRequestException e)
-        {
-            Console.WriteLine("\nException Caught!");
-            Console.WriteLine("Message :{0} ", e.Message);
-            throw;
-        }
-    }
 }
