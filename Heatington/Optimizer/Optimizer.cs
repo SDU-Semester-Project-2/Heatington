@@ -11,8 +11,6 @@ public enum OptimizationMode
 
 public class OPT()
 {
-    private List<DataPoint>? _dataPoints = new List<DataPoint>();
-
     private readonly Delegate[] evals = new Delegate[]
     {
         new Func<ProductionUnit, double>((unit) => unit.ProductionCost), new Func<ProductionUnit, DataPoint, double>(
@@ -21,14 +19,17 @@ public class OPT()
         new Func<ProductionUnit, double>((unit) => unit.Co2Emission)
     };
 
+    private List<DataPoint>? _dataPoints = new List<DataPoint>();
+
     private List<ProductionUnit> _productionUnits = new List<ProductionUnit>();
-    public List<ResultHolder>? Results { get; private set; } = new List<ResultHolder>();
 
     public OPT(List<ProductionUnit> productionUnits, List<DataPoint>? dataPoints) : this()
     {
         _productionUnits = productionUnits;
         _dataPoints = dataPoints;
     }
+
+    public List<ResultHolder>? Results { get; private set; } = new List<ResultHolder>();
 
     private void RankHeatingUnits(Func<ProductionUnit, double> evaluate)
     {
@@ -79,7 +80,7 @@ public class OPT()
         }
     }
 
-    private List<ProductionUnit> SetOperationPoint(List<ProductionUnit> productionUnits, double heatDemand)
+    public List<ProductionUnit> SetOperationPoint(List<ProductionUnit> productionUnits, double heatDemand)
     {
         List<ProductionUnit> workingUnits = new();
 
@@ -113,7 +114,7 @@ public class OPT()
     }
 
     //this method now only calculates the heating units for a specified datapoint (before it was the whole datapoints set)
-    private ResultHolder CalculateHeatUnitsRequired(DataPoint dataPoint, List<ProductionUnit> productionUnits)
+    public ResultHolder CalculateHeatUnitsRequired(DataPoint dataPoint, List<ProductionUnit> productionUnits)
     {
         // Calculates how many boilers are needed to satisfy heat demand
         int nOfBoilers = SatisfyHeatDemand(dataPoint);
