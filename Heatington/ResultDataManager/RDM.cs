@@ -1,5 +1,3 @@
-using System.Buffers;
-using Heatington;
 using Heatington.Controllers;
 using Heatington.Models;
 using Heatington.Optimizer;
@@ -35,6 +33,7 @@ public class RDM(CsvController _csvController)
                     entry.NetProductionCost));
             }
         }
+
         return formatedResults;
     }
 
@@ -52,6 +51,7 @@ public class RDM(CsvController _csvController)
                     entry.NetProductionCost));
             }
         }
+
         return formatedResults;
     }
 

@@ -20,7 +20,7 @@ public class Startup
             options.AddDefaultPolicy(
                 builder =>
                 {
-                    builder.WithOrigins("http://localhost:5333")
+                    builder.WithOrigins("http://localhost:5150")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
