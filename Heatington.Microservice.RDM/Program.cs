@@ -4,8 +4,6 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        ResultDataManagerModel.LoadResultDataManager();
-
         CreateHostBuilder(args).Build().Run();
     }
 
