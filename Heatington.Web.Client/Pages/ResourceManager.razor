@@ -50,10 +50,10 @@
 
         <MudDivider class="mt-5 mb-8"></MudDivider>
 
-        <MudContainer class="d-flex flex-row justify-center align-center text-center space-y-4 ">
+        <MudContainer class="d-flex flex-column justify-center align-center text-center space-y-4 ">
             <div style="flex-direction: column">
                 <MudText Typo="Typo.h4"> Heat Demand Data</MudText>
-                <InputFile id="fileUpload" OnChange="HandleCSVUpload"></InputFile>
+                @* <InputFile id="fileUpload" OnChange="HandleCSVUpload"></InputFile> *@
             </div>
             <div class="mt-3">
                 <MudSelect class="" @bind-Value="SelectedSeason" Label="Select season" Variant="Variant.Outlined" T="string">

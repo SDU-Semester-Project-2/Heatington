@@ -10,10 +10,6 @@
     .space-y-4 > * + * {
         margin-top: 2rem;
     }
-
-    .chart-container {
-        width: 100%;
-    }
 </style>
 
 <PageTitle>Dashboard</PageTitle>
@@ -25,7 +21,7 @@
 
 <MudDivider FlexItem></MudDivider>
 
-@if (isDataReady)
+@if (_isDataReady)
 {
     <MudText Typo="Typo.h5" class="text-center">
         Statistics for Winter Period (Scenario 2)
@@ -406,7 +402,7 @@
             </MudTd>
             <MudTd>
                 <MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary"
-                           OnClick="(() => ViewMore(productionUnit))">
+                           OnClick="(() => ViewMore())">
                     View More
                 </MudButton>
             </MudTd>
