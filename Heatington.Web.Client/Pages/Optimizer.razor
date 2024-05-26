@@ -78,7 +78,7 @@
     <div class="my-5">
         <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="DownloadCsv">Download Results</MudButton>
     </div>
-    @if (isDataLoaded)
+    @if (IsDataLoaded)
     {
         <MudTable Items="resultData" Dense Hover Bordered Striped>
 
@@ -98,7 +98,7 @@
                 <MudTh>
                     <MudTableSortLabel SortBy="new Func<ResultHolder, object>(u => u.NetProductionCost)">Net Production Cost</MudTableSortLabel>
                 </MudTh>
-                <MudTh>Boilers</MudTh>
+                <MudTh>Boiler</MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd>@context.StartTime.ToString("MM/dd/yyyy HH:mm:ss")</MudTd>
@@ -108,38 +108,28 @@
                 <MudTd>@context.NetProductionCost</MudTd>
                 <MudTd>
 
-                    @if (context.Boilers.Any())
-                    {
-                        @foreach (var boiler in context.Boilers)
-                        {
-                            <MudCard Outlined="true">
-                                <MudCardContent>
-                                    <span>
-                                        <strong>Name:</strong> @boiler.Name
-                                    </span><br/>
-                                    <span>
-                                        <strong>Max Heat:</strong> @boiler.MaxHeat
-                                    </span><br/>
-                                    <span>
-                                        <strong>Production Cost:</strong> @boiler.ProductionCost
-                                    </span><br/>
-                                    <span>
-                                        <strong>Max Electricity:</strong> @boiler.MaxElectricity
-                                    </span><br/>
-                                    <span>
-                                        <strong>Gas Consumption:</strong> @boiler.GasConsumption
-                                    </span><br/>
-                                    <span>
-                                        <strong>CO2 Emission:</strong> @boiler.Co2Emission
-                                    </span><br/>
-                                </MudCardContent>
-                            </MudCard>
-                        }
-                    }
-                    else
-                    {
-                        <MudText>No Boilers Found</MudText>
-                    }
+                    <MudCard Outlined="true">
+                        <MudCardContent>
+                            <span>
+                                <strong>Name:</strong> @context.Boiler.Name
+                            </span><br/>
+                            <span>
+                                <strong>Max Heat:</strong> @context.Boiler.MaxHeat
+                            </span><br/>
+                            <span>
+                                <strong>Production Cost:</strong> @context.Boiler.ProductionCost
+                            </span><br/>
+                            <span>
+                                <strong>Max Electricity:</strong> @context.Boiler.MaxElectricity
+                            </span><br/>
+                            <span>
+                                <strong>Gas Consumption:</strong> @context.Boiler.GasConsumption
+                            </span><br/>
+                            <span>
+                                <strong>CO2 Emission:</strong> @context.Boiler.Co2Emission
+                            </span><br/>
+                        </MudCardContent>
+                    </MudCard>
                 </MudTd>
             </RowTemplate>
             <PagerContent>

@@ -3,16 +3,17 @@ using System.Net.Http.Json;
 using Heatington.Models;
 using Heatington.Optimizer;
 using Microsoft.AspNetCore.Components;
+using static System.Linq.Enumerable;
 
 namespace Heatington.Web.Client.Pages;
 
 public partial class Home : ComponentBase
 {
     // heat demand
-    private static List<ChartData>? _heatDemandWinterSeries;
-    private static List<ChartData>? _heatDemandSummerSeries;
-    private static List<ChartData>? _realheatDemandWinterSeries;
-    private static List<ChartData>? _realheatDemandSummerSeries;
+    private static List<ChartData>? s_heatDemandWinterSeries;
+    private static List<ChartData>? s_heatDemandSummerSeries;
+    private static List<ChartData>? s_realheatDemandWinterSeries;
+    private static List<ChartData>? s_realheatDemandSummerSeries;
 
     // electricity price
     private static List<ChartData>? _electricityPriceWinterSeries;
@@ -35,12 +36,12 @@ public partial class Home : ComponentBase
     private static List<ChartData>? _realNetProductionCostScenarioCo2Summer;
 
     // co2 emission
-    private Dictionary<string, List<ChartData>> _co2EmissionScenario1Summer;
-    private Dictionary<string, List<ChartData>> _co2EmissionScenario1Winter;
-    private Dictionary<string, List<ChartData>> _co2EmissionScenario2Summer;
-    private Dictionary<string, List<ChartData>> _co2EmissionScenario2Winter;
-    private Dictionary<string, List<ChartData>> _co2EmissionScenarioCo2Summer;
-    private Dictionary<string, List<ChartData>> _co2EmissionScenarioCo2Winter;
+    private Dictionary<string, List<ChartData>>? _co2EmissionScenario1Summer;
+    private Dictionary<string, List<ChartData>>? _co2EmissionScenario1Winter;
+    private Dictionary<string, List<ChartData>>? _co2EmissionScenario2Summer;
+    private Dictionary<string, List<ChartData>>? _co2EmissionScenario2Winter;
+    private Dictionary<string, List<ChartData>>? _co2EmissionScenarioCo2Summer;
+    private Dictionary<string, List<ChartData>>? _co2EmissionScenarioCo2Winter;
 
     // operation points
     private List<ChartData>? _operationPointsScenario1Summer;
@@ -53,12 +54,12 @@ public partial class Home : ComponentBase
 
 
     // co2 emission - real
-    private Dictionary<string, List<ChartData>> _realCo2EmissionScenario1Summer;
-    private Dictionary<string, List<ChartData>> _realCo2EmissionScenario1Winter;
-    private Dictionary<string, List<ChartData>> _realCo2EmissionScenario2Summer;
-    private Dictionary<string, List<ChartData>> _realCo2EmissionScenario2Winter;
-    private Dictionary<string, List<ChartData>> _realCo2EmissionScenarioCo2Summer;
-    private Dictionary<string, List<ChartData>> _realCo2EmissionScenarioCo2Winter;
+    private Dictionary<string, List<ChartData>>? _realCo2EmissionScenario1Summer;
+    private Dictionary<string, List<ChartData>>? _realCo2EmissionScenario1Winter;
+    private Dictionary<string, List<ChartData>>? _realCo2EmissionScenario2Summer;
+    private Dictionary<string, List<ChartData>>? _realCo2EmissionScenario2Winter;
+    private Dictionary<string, List<ChartData>>? _realCo2EmissionScenarioCo2Summer;
+    private Dictionary<string, List<ChartData>>? _realCo2EmissionScenarioCo2Winter;
 
     // operation points - real data
     private List<ChartData>? _realOperationPointsScenario1Summer;
@@ -80,28 +81,23 @@ public partial class Home : ComponentBase
     private double _totalSummerNetProductionCost;
 
     // profit
-    private double _totalSummerProft;
     private double _totalWinterCo2Emission;
 
     private double _totalWinterHeatDemand;
 
     private double _totalWinterNetProductionCost;
 
-    private double _totalWinterProfit;
-
     public ChartOptions Co2EmissionChartOptions = new ChartOptions { YAxisTicks = 100, };
     public ChartOptions ElectricityChartOptions = new ChartOptions();
     public ChartOptions HeatDemandChartOptions = new ChartOptions { YAxisTicks = 1 };
-    private int Index = -1;
-    private bool isDataReady = false;
-    public ChartOptions OperationPointsChartOptions = new ChartOptions { YAxisTicks = 1 };
-    public ChartOptions ProductionCostChartOptions = new ChartOptions();
+    private int Index;
+    private bool _isDataReady;
+    public readonly ChartOptions OperationPointsChartOptions = new ChartOptions { YAxisTicks = 1 };
+    private ChartOptions ProductionCostChartOptions = new ChartOptions();
 
-
-    //TODO: REPLACE WITH REAL DATA
-    private List<ChartSeries> HeatDemandSeries { get; set; }
-    private List<ChartSeries> ElectricityPriceSeries { get; set; }
-    private List<ChartSeries> NetProductionCostSeries { get; set; }
+    private List<ChartSeries>? HeatDemandSeries { get; set; }
+    private List<ChartSeries>? ElectricityPriceSeries { get; set; }
+    private List<ChartSeries>? NetProductionCostSeries { get; set; }
 
     // Co2 Emission Series
     private List<ChartSeries> Co2SeriesWinter1 { get; set; } = new List<ChartSeries>();
@@ -135,11 +131,8 @@ public partial class Home : ComponentBase
     private List<ChartSeries> RealOperationPointsSeriesSummer2 { get; set; } = new List<ChartSeries>();
     private List<ChartSeries> RealOperationPointsSeriesSummerCo2 { get; set; } = new List<ChartSeries>();
 
-    private string[] XAxisLabels { get; set; }
-    private string?[] XAxisCo2EmissionLabels { get; set; }
-    [Inject] public HttpClient Http { get; set; }
-    [Inject] public IDialogService DialogService { get; set; }
-    [Inject] public ILogger<Home> Logger { get; set; }
+    private string[]? XAxisLabels { get; set; }
+    [Inject] public required HttpClient Http { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -149,97 +142,101 @@ public partial class Home : ComponentBase
             await base.OnInitializedAsync();
             _productionUnits = await LoadProductionUnits();
 
-            _heatDemandWinterSeries = [];
-            _heatDemandSummerSeries = [];
+            s_heatDemandWinterSeries = [];
+            s_heatDemandSummerSeries = [];
             _electricityPriceSummerSeries = [];
             _electricityPriceWinterSeries = [];
 
             List<DataPoint>? winterData =
                 await Http.GetFromJsonAsync<List<DataPoint>>("http://localhost:5165/api/TimeSeriesData?season=winter");
-            _heatDemandWinterSeries = GetHeatDemandSeries(winterData);
+            s_heatDemandWinterSeries = GetHeatDemandSeries(winterData);
             _electricityPriceWinterSeries = GetElectricityPriceSeries(winterData);
 
             List<DataPoint>? realWinterData =
                 await Http.GetFromJsonAsync<List<DataPoint>>(
                     "http://localhost:5165/api/TimeSeriesData?season=winter-real");
-            _realheatDemandWinterSeries = GetHeatDemandSeries(realWinterData);
+            s_realheatDemandWinterSeries = GetHeatDemandSeries(realWinterData);
             _realElectricityPriceWinterSeries = GetElectricityPriceSeries(realWinterData);
 
             List<DataPoint>? summerData =
                 await Http.GetFromJsonAsync<List<DataPoint>>("http://localhost:5165/api/TimeSeriesData?season=summer");
-            _heatDemandSummerSeries = GetHeatDemandSeries(summerData);
+            s_heatDemandSummerSeries = GetHeatDemandSeries(summerData);
             _electricityPriceSummerSeries = GetElectricityPriceSeries(summerData);
 
             List<DataPoint>? realSummerData =
                 await Http.GetFromJsonAsync<List<DataPoint>>(
                     "http://localhost:5165/api/TimeSeriesData?season=summer-real");
-            _realheatDemandSummerSeries = GetHeatDemandSeries(realSummerData);
+            s_realheatDemandSummerSeries = GetHeatDemandSeries(realSummerData);
             _realElectricityPriceSummerSeries = GetElectricityPriceSeries(realSummerData);
 
+            string winter = "winter";
+            string summer = "summer";
+            string winterReal = "winter-real";
+            string summerReal = "summer-real";
+            int mode1 = (int)OptimizationMode.Scenario1;
+            int mode2 = (int)OptimizationMode.Scenario2;
+            int mode3 = (int)OptimizationMode.Co2;
+
             // Winter period
-            string baseWinterOptUri = "http://localhost:5019/api/optimizer?season=winter&mode=";
-            string optWinterScenario1Uri = $"{baseWinterOptUri}{(int)OptimizationMode.Scenario1}";
-            string optWinterScenario2Uri = $"{baseWinterOptUri}{(int)OptimizationMode.Scenario2}";
-            string optWinterCo2Uri = $"{baseWinterOptUri}{(int)OptimizationMode.Co2}";
+            string optWinterScenario1Uri = GenerateOptApiUri(winter, mode1);
+            string optWinterScenario2Uri = GenerateOptApiUri(winter, mode2);
+            string optWinterCo2Uri = GenerateOptApiUri(winter, mode3);
 
             // Summer period
-            string baseSummerOptUri = "http://localhost:5019/api/optimizer?season=summer&mode=";
-            string optSummerScenario1Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Scenario1}";
-            string optSummerScenario2Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Scenario2}";
-            string optSummerCo2Uri = $"{baseSummerOptUri}{(int)OptimizationMode.Co2}";
+            string optSummerScenario1Uri = GenerateOptApiUri(summer, mode1);
+            string optSummerScenario2Uri = GenerateOptApiUri(summer, mode2);
+            string optSummerCo2Uri = GenerateOptApiUri(summer, mode3);
 
             // Real OPT
 
             // Winter period
-            string realBaseWinterOptUri = "http://localhost:5019/api/optimizer?season=winter-real&mode=";
-            string realOptWinterScenario1Uri = $"{realBaseWinterOptUri}{(int)OptimizationMode.Scenario1}";
-            string realOptWinterScenario2Uri = $"{realBaseWinterOptUri}{(int)OptimizationMode.Scenario2}";
-            string realOptWinterCo2Uri = $"{realBaseWinterOptUri}{(int)OptimizationMode.Co2}";
+            string realOptWinterScenario1Uri = GenerateOptApiUri(winterReal, mode1);
+            string realOptWinterScenario2Uri = GenerateOptApiUri(winterReal, mode2);
+            string realOptWinterCo2Uri = GenerateOptApiUri(winterReal, mode3);
 
             // Summer period
-            string realBaseSummerOptUri = "http://localhost:5019/api/optimizer?season=summer-real&mode=";
-            string realOptSummerScenario1Uri = $"{realBaseSummerOptUri}{(int)OptimizationMode.Scenario1}";
-            string realOptSummerScenario2Uri = $"{realBaseSummerOptUri}{(int)OptimizationMode.Scenario2}";
-            string realOptSummerCo2Uri = $"{realBaseSummerOptUri}{(int)OptimizationMode.Co2}";
+            string realOptSummerScenario1Uri = GenerateOptApiUri(summerReal, mode1);
+            string realOptSummerScenario2Uri = GenerateOptApiUri(summerReal, mode2);
+            string realOptSummerCo2Uri = GenerateOptApiUri(summerReal, mode3);
 
             // Raw Result from Danfoss
-            List<ResultHolder>? rawResultDataWinterScenario1 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterScenario1Uri);
+            List<FormatedResultHolder>? rawResultDataWinterScenario1 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(optWinterScenario1Uri);
 
-            List<ResultHolder>? rawResultDataWinterScenario2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterScenario2Uri);
+            List<FormatedResultHolder>? rawResultDataWinterScenario2 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(optWinterScenario2Uri);
 
-            List<ResultHolder>? rawResultDataWinterScenarioCo2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(optWinterCo2Uri);
+            List<FormatedResultHolder>? rawResultDataWinterScenarioCo2 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(optWinterCo2Uri);
 
-            List<ResultHolder>? rawResultDataSummerScenario1 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerScenario1Uri);
+            List<FormatedResultHolder>? rawResultDataSummerScenario1 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(optSummerScenario1Uri);
 
-            List<ResultHolder>? rawResultDataSummerScenario2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerScenario2Uri);
+            List<FormatedResultHolder>? rawResultDataSummerScenario2 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(optSummerScenario2Uri);
 
-            List<ResultHolder>? rawResultDataSummerScenarioCo2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(optSummerCo2Uri);
+            List<FormatedResultHolder>? rawResultDataSummerScenarioCo2 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(optSummerCo2Uri);
 
             // Raw Result from real data
 
-            List<ResultHolder>? rawRealResultDataWinterScenario1 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptWinterScenario1Uri);
+            List<FormatedResultHolder>? rawRealResultDataWinterScenario1 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(realOptWinterScenario1Uri);
 
-            List<ResultHolder>? rawRealResultDataWinterScenario2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptWinterScenario2Uri);
+            List<FormatedResultHolder>? rawRealResultDataWinterScenario2 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(realOptWinterScenario2Uri);
 
-            List<ResultHolder>? rawRealResultDataWinterScenarioCo2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptWinterCo2Uri);
+            List<FormatedResultHolder>? rawRealResultDataWinterScenarioCo2 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(realOptWinterCo2Uri);
 
-            List<ResultHolder>? rawRealResultDataSummerScenario1 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptSummerScenario1Uri);
+            List<FormatedResultHolder>? rawRealResultDataSummerScenario1 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(realOptSummerScenario1Uri);
 
-            List<ResultHolder>? rawRealResultDataSummerScenario2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptSummerScenario2Uri);
+            List<FormatedResultHolder>? rawRealResultDataSummerScenario2 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(realOptSummerScenario2Uri);
 
-            List<ResultHolder>? rawRealResultDataSummerScenarioCo2 =
-                await Http.GetFromJsonAsync<List<ResultHolder>>(realOptSummerCo2Uri);
+            List<FormatedResultHolder>? rawRealResultDataSummerScenarioCo2 =
+                await Http.GetFromJsonAsync<List<FormatedResultHolder>>(realOptSummerCo2Uri);
 
             // Net Production Cost
             _netProductionCostScenario1Winter = GetNetProductionCostSeries(rawResultDataWinterScenario1);
@@ -290,16 +287,13 @@ public partial class Home : ComponentBase
             _realOperationPointsScenario2Summer = await GetOperationPoints("summer-real", OptimizationMode.Scenario2);
             _realOperationPointsScenarioCo2Summer = await GetOperationPoints("summer-real", OptimizationMode.Co2);
 
-            // Sum
+            // SUMMARIZE
             // heat demand
-            _totalWinterHeatDemand = SumHeatDemand(_heatDemandWinterSeries);
-            _totalSummerHeatDemand = SumHeatDemand(_heatDemandSummerSeries);
+            _totalWinterHeatDemand = SumHeatDemand(s_heatDemandWinterSeries);
+            _totalSummerHeatDemand = SumHeatDemand(s_heatDemandSummerSeries);
             // net production cost
             _totalWinterNetProductionCost = SumProductionCost(_netProductionCostScenario2Winter);
             _totalSummerNetProductionCost = SumProductionCost(_netProductionCostScenario2Summer);
-            // profit
-            _totalSummerProft = 0;
-            _totalWinterProfit = 0;
             // co2 emission
             _totalSummerCo2Emission = SumCo2Emission(_co2EmissionScenario2Summer);
             _totalWinterCo2Emission = SumCo2Emission(_co2EmissionScenario2Winter);
@@ -310,7 +304,7 @@ public partial class Home : ComponentBase
             InitializeProductionCostChartData();
             InitializeCo2EmissionChartData();
             InitializeOperationPointsChartData();
-            isDataReady = true;
+            _isDataReady = true;
             StateHasChanged();
         }
         catch (Exception e)
@@ -320,29 +314,37 @@ public partial class Home : ComponentBase
         }
     }
 
+    private static string GenerateOptApiUri(string season, int mode)
+    {
+        return $"http://localhost:5143/api/ResultDataManager?season={season}&mode={mode}";
+    }
 
     void InitializeHeatDemandChartData()
     {
-        if (_heatDemandWinterSeries == null || _heatDemandWinterSeries.Count == 0 ||
-            _heatDemandSummerSeries == null || _heatDemandSummerSeries.Count == 0)
+        if (s_heatDemandWinterSeries == null || s_heatDemandWinterSeries.Count == 0 ||
+            s_heatDemandSummerSeries == null || s_heatDemandSummerSeries.Count == 0)
         {
             return;
         }
 
-        HeatDemandSeries = new List<ChartSeries>()
+        if (s_realheatDemandWinterSeries != null && s_realheatDemandSummerSeries != null)
         {
-            new ChartSeries() { Name = "Winter", Data = _heatDemandWinterSeries.Select(x => x.YData).ToArray() },
-            new ChartSeries() { Name = "Summer", Data = _heatDemandSummerSeries.Select(x => x.YData).ToArray() },
-            new ChartSeries()
+            HeatDemandSeries = new List<ChartSeries>()
             {
-                Name = "Real Winter Data", Data = _realheatDemandWinterSeries.Select(x => x.YData).ToArray()
-            },
-            new ChartSeries()
-            {
-                Name = "Real Summer Data", Data = _realheatDemandSummerSeries.Select(x => x.YData).ToArray()
-            },
-        };
-        XAxisLabels = Enumerable.Range(1, _heatDemandWinterSeries.Count)
+                new ChartSeries() { Name = "Winter", Data = s_heatDemandWinterSeries.Select(x => x.YData).ToArray() },
+                new ChartSeries() { Name = "Summer", Data = s_heatDemandSummerSeries.Select(x => x.YData).ToArray() },
+                new ChartSeries()
+                {
+                    Name = "Real Winter Data", Data = s_realheatDemandWinterSeries.Select(x => x.YData).ToArray()
+                },
+                new ChartSeries()
+                {
+                    Name = "Real Summer Data", Data = s_realheatDemandSummerSeries.Select(x => x.YData).ToArray()
+                },
+            };
+        }
+
+        XAxisLabels = Range(1, s_heatDemandWinterSeries.Count)
             .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
             .ToArray();
     }
@@ -350,7 +352,8 @@ public partial class Home : ComponentBase
     void InitializeElectricityPriceChartData()
     {
         if (_electricityPriceWinterSeries == null || _electricityPriceWinterSeries.Count == 0 ||
-            _electricityPriceSummerSeries == null || _electricityPriceSummerSeries.Count == 0)
+            _electricityPriceSummerSeries == null || _electricityPriceSummerSeries.Count == 0 ||
+            _realElectricityPriceWinterSeries == null || _realElectricityPriceSummerSeries == null)
         {
             return;
         }
@@ -376,7 +379,7 @@ public partial class Home : ComponentBase
                 Data = _realElectricityPriceSummerSeries.Select(x => x.YData).ToArray()
             }
         };
-        XAxisLabels = Enumerable.Range(1, _electricityPriceWinterSeries.Count)
+        XAxisLabels = Range(1, _electricityPriceWinterSeries.Count)
             .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
             .ToArray();
     }
@@ -446,19 +449,27 @@ public partial class Home : ComponentBase
                 Data = _realNetProductionCostScenarioCo2Summer!.Select(x => x.YData).ToArray()
             }
         };
-        XAxisLabels = Enumerable.Range(1, _netProductionCostScenario1Winter.Count)
-            .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
-            .ToArray();
+        if (_netProductionCostScenario1Winter != null)
+        {
+            XAxisLabels = Range(1, _netProductionCostScenario1Winter.Count)
+                .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
+                .ToArray();
+        }
     }
 
-    private List<ChartSeries> addBoilerCo2EmissionCharSeries(Dictionary<string, List<ChartData>> boilersChartData)
+    private List<ChartSeries> addBoilerCo2EmissionCharSeries(Dictionary<string, List<ChartData>>? boilersChartData)
     {
         List<ChartSeries> co2EmissionChartSeries = new();
 
-        foreach (var (key, value) in boilersChartData)
+        if (boilersChartData == null)
+        {
+            return co2EmissionChartSeries;
+        }
+
+        foreach ((string key, List<ChartData> value) in boilersChartData)
         {
             co2EmissionChartSeries.Add(
-                new ChartSeries() { Name = key.ToString(), Data = value.Select(x => x.YData).ToArray() }
+                new ChartSeries() { Name = key, Data = value.Select(x => x.YData).ToArray() }
             );
         }
 
@@ -491,13 +502,18 @@ public partial class Home : ComponentBase
         RealCo2SeriesSummerCo2 = addBoilerCo2EmissionCharSeries(_realCo2EmissionScenarioCo2Summer);
 
         // Assuming all scenarios have the same number of data points
-        int numDataPoints = _co2EmissionScenario1Winter?.Count ?? 0;
-        Console.WriteLine(_co2EmissionScenario1Winter?.First().Value[12].XData);
-        XAxisCo2EmissionLabels = Enumerable.Range(1, numDataPoints)
+        if (_co2EmissionScenario1Winter == null)
+        {
+            return;
+        }
+
+        int numDataPoints = _co2EmissionScenario1Winter.Count;
+        Console.WriteLine(_co2EmissionScenario1Winter.First().Value[12].XData);
+        XAxisLabels = Range(1, numDataPoints)
             .Select(i => i % 12 == 0
-                ? _co2EmissionScenario1Winter?.First().Value[i].XData
+                ? _co2EmissionScenario1Winter.First().Value[i].XData
                 : string.Empty)
-            .ToArray();
+            .ToArray()!;
 
         // XAxisCo2EmissionLabels = _co2EmissionScenario1Summer.First().Value.Select(
         //      x => x.XData
@@ -535,7 +551,7 @@ public partial class Home : ComponentBase
 
         // Assuming all scenarios have the same number of data points
         int numDataPoints = _operationPointsScenario1Winter?.Count ?? 0;
-        XAxisLabels = Enumerable.Range(1, numDataPoints)
+        XAxisLabels = Range(1, numDataPoints)
             .Select(i => i % 12 == 0 ? $"T+{i}" : string.Empty)
             .ToArray();
     }
@@ -576,7 +592,7 @@ public partial class Home : ComponentBase
         return electricityPriceDataList;
     }
 
-    private Dictionary<string, List<ChartData>> GetCo2EmissionSeries(List<ResultHolder>? rawResultData)
+    private Dictionary<string, List<ChartData>> GetCo2EmissionSeries(List<FormatedResultHolder>? rawResultData)
     {
         Dictionary<string, List<ChartData>> co2Emission = new Dictionary<string, List<ChartData>>();
 
@@ -584,37 +600,34 @@ public partial class Home : ComponentBase
         {
             foreach (var result in rawResultData)
             {
-                foreach (var boiler in result.Boilers)
+                if (co2Emission.ContainsKey(result.Boiler.FullName))
                 {
-                    if (co2Emission.ContainsKey(boiler.FullName))
+                    // Boiler already exists in the dictionary, add data to the existing list
+                    co2Emission[result.Boiler.FullName].Add(new ChartData
                     {
-                        // Boiler already exists in the dictionary, add data to the existing list
-                        co2Emission[boiler.FullName].Add(new ChartData
-                        {
-                            XData = FormatDate(result.StartTime), YData = boiler.Co2Emission,
-                        });
-                    }
-                    else
+                        XData = FormatDate(result.StartTime), YData = result.Boiler.Co2Emission,
+                    });
+                }
+                else
+                {
+                    // Boiler does not exist in the dictionary, create a new entry
+                    co2Emission[result.Boiler.FullName] = new List<ChartData>
                     {
-                        // Boiler does not exist in the dictionary, create a new entry
-                        co2Emission[boiler.FullName] = new List<ChartData>
-                        {
-                            new ChartData { XData = FormatDate(result.StartTime), YData = boiler.Co2Emission, }
-                        };
-                    }
+                        new ChartData { XData = FormatDate(result.StartTime), YData = result.Boiler.Co2Emission, }
+                    };
                 }
             }
         }
 
-        foreach (var (key, value) in co2Emission)
+        foreach (var (key, _) in co2Emission)
         {
-            co2Emission[key]?.Insert(0, new ChartData() { XData = co2Emission[key][0].XData, YData = 0 });
+            co2Emission[key].Insert(0, new ChartData() { XData = co2Emission[key][0].XData, YData = 0 });
         }
 
         return co2Emission;
     }
 
-    private List<ChartData>? GetNetProductionCostSeries(List<ResultHolder>? rawResultData)
+    private List<ChartData>? GetNetProductionCostSeries(List<FormatedResultHolder>? rawResultData)
     {
         var productionCostDataList = rawResultData?.Select(item => new ChartData()
         {
@@ -627,12 +640,13 @@ public partial class Home : ComponentBase
     private async Task<List<ChartData>> GetOperationPoints(string season, OptimizationMode mode)
     {
         string uri = $"http://localhost:5019/api/optimizer?season={season}&mode={(int)mode}";
+
         List<ResultHolder>? rawResultData = await Http.GetFromJsonAsync<List<ResultHolder>>(uri);
 
         if (rawResultData != null)
         {
             // Log the operation points
-            LogOperationPoints(rawResultData);
+            // LogOperationPoints(rawResultData);
 
             List<ChartData> operationPoints = new List<ChartData>();
 
@@ -664,19 +678,20 @@ public partial class Home : ComponentBase
         }
     }
 
-    private void LogOperationPoints(List<ResultHolder> rawResultData)
-    {
-        foreach (var result in rawResultData)
-        {
-            foreach (var boiler in result.Boilers)
-            {
-                // Construct a string representation of the data for logging
-                string logMessage =
-                    $"StartTime: {result.StartTime}, Boiler: {boiler.FullName}, OperationPoint: {boiler.OperationPoint}";
-                // Logger.LogInformation(logMessage);
-            }
-        }
-    }
+    // private void LogOperationPoints(List<ResultHolder> rawResultData)
+    // {
+    //     foreach (var result in rawResultData)
+    //     {
+    //         foreach (var boiler in result.Boilers)
+    //         {
+    //             // Construct a string representation of the data for logging
+    //             string logMessage =
+    //                 $"StartTime: {result.StartTime}, Boiler: {boiler.FullName}, OperationPoint: {boiler.OperationPoint}";
+    //             // Logger.LogInformation(logMessage);
+    //         }
+    //     }
+    // }
+
     // TimeZone data is not included with .NET's WebAssembly runtime.
     // To bypass this, we directly convert UTC DateTime to Danish Time (CET/CEST) during series generation.
     // This offset-based conversion ensures we avoid timezone exceptions and retain compatibility across different OS.
@@ -707,10 +722,15 @@ public partial class Home : ComponentBase
         return (int)Math.Round(sum);
     }
 
-    private double SumCo2Emission(Dictionary<string, List<ChartData>> seriesDict)
+    private double SumCo2Emission(Dictionary<string, List<ChartData>>? seriesDict)
     {
         double sum = 0;
-        foreach (var (seriesKey, seriesValue) in seriesDict)
+        if (seriesDict == null)
+        {
+            return (int)Math.Round(sum);
+        }
+
+        foreach ((_, List<ChartData> seriesValue) in seriesDict)
         {
             sum += seriesValue.Sum(data => data.YData);
         }
@@ -718,16 +738,16 @@ public partial class Home : ComponentBase
         return (int)Math.Round(sum);
     }
 
-    private double SumProfit(List<ChartData>? series)
-    {
-        if (series == null || series.Count == 0)
-            return 0;
+    // private double SumProfit(List<ChartData>? series)
+    // {
+    //     if (series == null || series.Count == 0)
+    //         return 0;
+    //
+    //     double sum = series.Sum(data => data.YData);
+    //     return (int)Math.Round(sum);
+    // }
 
-        double sum = series.Sum(data => data.YData);
-        return (int)Math.Round(sum);
-    }
-
-    private void ViewMore(ProductionUnit productionUnit)
+    private void ViewMore()
     {
         NavManager.NavigateTo("/resource-manager");
     }
