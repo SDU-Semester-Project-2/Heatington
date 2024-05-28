@@ -41,16 +41,17 @@ public class AssetManagerTest
         Assert.Equivalent(expectedHeatingGrid, loadedHeatingGrid);
     }
 
+    // TODO: fix this
     [Fact]
     public async void AsyncLoadAssets_LoadsProductionUnitsCorrectly()
     {
         //Arrange
         List<ProductionUnit> expectedProductionUnits = new List<ProductionUnit>()
         {
-            new ProductionUnit("GB", "AssetManager/gas-boiler.jpg", 5, 500, 0, 1.1, 0),
-            new ProductionUnit("OB", "AssetManager/oil-boiler.jpg", 4, 700, 0, 1.2, 265),
-            new ProductionUnit("GM", "AssetManager/gas-motor.jpg", 3.6, 1100, 2.7, 1.9, 640),
-            new ProductionUnit("EK", "AssetManager/electric-boiler.jpg", 8, 50, -8, 0, 0)
+            new ProductionUnit("GB","Gas Boiler", "AssetManager/gas-boiler.jpg", 5, 500, 0, 1.1, 215),
+            new ProductionUnit("OB","Oil Boiler", "AssetManager/oil-boiler.jpg", 4, 700, 0, 1.2, 265),
+            new ProductionUnit("GM","Gas Motor", "AssetManager/gas-motor.jpg", 3.6, 1100, 2.7, 1.9, 640),
+            new ProductionUnit("EK", "Electric Boiler", "AssetManager/electric-boiler.jpg", 8, 50, -8, 0, 0)
         };
 
         List<ProductionUnit> loadedProductionUnits;
@@ -64,12 +65,11 @@ public class AssetManagerTest
         Assert.NotNull(loadedProductionUnits);
         Assert.Equivalent(expectedProductionUnits, loadedProductionUnits);
     }
-
     [Fact]
     public async void AssetManager_ModifyingHeatUnitWorksCorrectly()
     {
         //Arrange
-        ProductionUnit newProductionUnit = new ProductionUnit("TT", "", 77, 690, 0, 4.20, 0);
+        ProductionUnit newProductionUnit = new ProductionUnit("TT","", "", 77, 690, 0, 4.20, 0);
 
         //Act
         Task loadAssets = _assetManager.LoadAssets();
