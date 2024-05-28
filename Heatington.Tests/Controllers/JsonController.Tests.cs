@@ -16,7 +16,7 @@ public class JsonControllerTests : UseTestDirectory
     {
         // Arrange
         string TestFilePath = Path.Combine(TestsDirPath, "testJSON1.json");
-        ProductionUnit expectedProductionUnit = new("TU", "", 10, 250, 7, 1.1, 8.0);
+        ProductionUnit expectedProductionUnit = new("TU", "","fake/path.png", 10, 250, 7, 1.1, 8.0);
         JsonController jsonController = new JsonController(TestFilePath);
         ProductionUnit actualProductionUnit;
 
@@ -40,7 +40,7 @@ public class JsonControllerTests : UseTestDirectory
         // Arrange
         string TestFilePath = Path.Combine(TestsDirPath, "testJSON2.json");
         JsonController jsonController = new JsonController(TestFilePath);
-        ProductionUnit testProductionUnit = new("TU123", "none", 0, 100, 0, 6.1, 0.0);
+        ProductionUnit testProductionUnit = new("TU123", "none","fake/path.png", 0, 100, 0, 6.1, 0.0);
         ProductionUnit? actualProductionUnit;
 
         // Act

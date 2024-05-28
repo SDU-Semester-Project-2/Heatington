@@ -1,6 +1,5 @@
 using System.Text.Json;
 using Heatington.Models;
-using Heatington.Services.Interfaces;
 using Heatington.Services.Serializers;
 
 namespace Heatington.Tests.Services;
@@ -44,7 +43,7 @@ public class JsonSerializerCustomTests
     [InlineData("""
                     {
                         "Name": "TU",
-                        "FullName": "Test Unit",
+                        "FullName": "",
                         "PicturePath": "",
                         "MaxHeat": 10,
                         "ProductionCost": 250,
@@ -56,19 +55,21 @@ public class JsonSerializerCustomTests
     [InlineData("""
                     {
                         "Name": "TU",
+                        "FullName": "",
                         "PicturePath": "",
                         "MaxHeat": 10,
-                        "ProductionCost": 250,
+                        "ProductionCost": 250.0,
                         "MaxElectricity": 7,
                         "GasConsumption": 1.1,
-                        "Co2Emission":8.0
+                        "Co2Emission":8
                     }
                 """)]
+    // TODO: fix this
     [Theory]
     public void Deserialize_DeserializeProductionUnitString_GetsProductionUnit(string testUnitString)
     {
         //Arrange
-        ProductionUnit expectedUnit = new("TU", "", 10, 250, 7, 1.1, 8.0);
+        ProductionUnit expectedUnit = new("TU", "", "", 10, 250, 7, 1.1, 8.0);
         ProductionUnit actualUnit;
 
         //Act
@@ -82,6 +83,7 @@ public class JsonSerializerCustomTests
                 {
                     "PicturePath": "",
                     "Name": "Heating Grid Test",
+                    "FullName":"",
                     "Architecture":	"Test description, testing architecture",
                     "Size":	"0 homes, 2 pipes",
                     "City":	"Funfoss"
@@ -169,25 +171,29 @@ public class JsonSerializerCustomTests
     }
 
     // JSON INTO STRING
+    // TODO: fix this method
     [Fact]
     public void Serialize_SerializeProductionUnit_Success()
     {
         //Arrange
-        ProductionUnit unit = new("TU", "", 10, 250, 7, 1.1, 8.0);
+        ProductionUnit unit = new("TU", "", "", 10, 250, 7, 1.1, 8.0);
         const string expectedUnitString = """
                                               {
                                                   "Name": "TU",
+                                                  "FullName": "",
                                                   "PicturePath": "",
                                                   "MaxHeat": 10,
                                                   "ProductionCost": 250,
                                                   "MaxElectricity": 7,
                                                   "GasConsumption": 1.1,
                                                   "Co2Emission":8,
+                                                  "PictureBase64Url": null,
                                                   "OperationPoint":0
                                               }
                                           """;
         string actualUnitString;
 
+        Console.WriteLine(unit);
         //Act
         actualUnitString = JsonSerializerCustom.Serialize(unit);
 
