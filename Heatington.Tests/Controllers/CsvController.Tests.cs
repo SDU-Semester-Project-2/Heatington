@@ -14,6 +14,7 @@ public class CsvControllerTests : IDisposable
 
     public CsvControllerTests() // NOT A TEST
     {
+        Thread.Sleep(100);
         // create temporary test folder
         if (!Directory.Exists(_testsDirPath))
         {
