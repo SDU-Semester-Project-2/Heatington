@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: Heatington/Models/FormatedResultHolder.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FormatedResultHolder
     path: Heatington/Models/FormatedResultHolder.cs
@@ -57,7 +57,7 @@ items:
   source:
     remote:
       path: Heatington/Models/FormatedResultHolder.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/Models/FormatedResultHolder.cs
@@ -99,7 +99,7 @@ items:
   source:
     remote:
       path: Heatington/Models/FormatedResultHolder.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartTime
     path: Heatington/Models/FormatedResultHolder.cs
@@ -128,7 +128,7 @@ items:
   source:
     remote:
       path: Heatington/Models/FormatedResultHolder.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: EndTime
     path: Heatington/Models/FormatedResultHolder.cs
@@ -157,7 +157,7 @@ items:
   source:
     remote:
       path: Heatington/Models/FormatedResultHolder.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemand
     path: Heatington/Models/FormatedResultHolder.cs
@@ -186,7 +186,7 @@ items:
   source:
     remote:
       path: Heatington/Models/FormatedResultHolder.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityPrice
     path: Heatington/Models/FormatedResultHolder.cs
@@ -215,7 +215,7 @@ items:
   source:
     remote:
       path: Heatington/Models/FormatedResultHolder.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Boiler
     path: Heatington/Models/FormatedResultHolder.cs
@@ -244,7 +244,7 @@ items:
   source:
     remote:
       path: Heatington/Models/FormatedResultHolder.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: NetProductionCost
     path: Heatington/Models/FormatedResultHolder.cs

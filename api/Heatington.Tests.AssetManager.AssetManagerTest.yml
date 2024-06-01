@@ -1,0 +1,474 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.AssetManager.AssetManagerTest
+  commentId: T:Heatington.Tests.AssetManager.AssetManagerTest
+  id: AssetManagerTest
+  parent: Heatington.Tests.AssetManager
+  children:
+  - Heatington.Tests.AssetManager.AssetManagerTest.#ctor
+  - Heatington.Tests.AssetManager.AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly
+  - Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly
+  - Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly
+  langs:
+  - csharp
+  - vb
+  name: AssetManagerTest
+  nameWithType: AssetManagerTest
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest
+  type: Class
+  source:
+    remote:
+      path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: AssetManagerTest
+    path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+    startLine: 8
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.AssetManager
+  syntax:
+    content: public class AssetManagerTest
+    content.vb: Public Class AssetManagerTest
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Tests.AssetManager.AssetManagerTest.#ctor
+  commentId: M:Heatington.Tests.AssetManager.AssetManagerTest.#ctor
+  id: '#ctor'
+  parent: Heatington.Tests.AssetManager.AssetManagerTest
+  langs:
+  - csharp
+  - vb
+  name: AssetManagerTest()
+  nameWithType: AssetManagerTest.AssetManagerTest()
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest.AssetManagerTest()
+  type: Constructor
+  source:
+    remote:
+      path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+    startLine: 12
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.AssetManager
+  syntax:
+    content: public AssetManagerTest()
+    content.vb: Public Sub New()
+  overload: Heatington.Tests.AssetManager.AssetManagerTest.#ctor*
+  nameWithType.vb: AssetManagerTest.New()
+  fullName.vb: Heatington.Tests.AssetManager.AssetManagerTest.New()
+  name.vb: New()
+- uid: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly
+  commentId: M:Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly
+  id: AsyncLoadAssets_LoadsHeatingGridCorrectly
+  parent: Heatington.Tests.AssetManager.AssetManagerTest
+  langs:
+  - csharp
+  - vb
+  name: AsyncLoadAssets_LoadsHeatingGridCorrectly()
+  nameWithType: AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly()
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: AsyncLoadAssets_LoadsHeatingGridCorrectly
+    path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+    startLine: 25
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.AssetManager
+  syntax:
+    content: >-
+      [Fact]
+
+      public void AsyncLoadAssets_LoadsHeatingGridCorrectly()
+    content.vb: >-
+      <Fact>
+
+      Public Sub AsyncLoadAssets_LoadsHeatingGridCorrectly()
+  overload: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly
+  commentId: M:Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly
+  id: AsyncLoadAssets_LoadsProductionUnitsCorrectly
+  parent: Heatington.Tests.AssetManager.AssetManagerTest
+  langs:
+  - csharp
+  - vb
+  name: AsyncLoadAssets_LoadsProductionUnitsCorrectly()
+  nameWithType: AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly()
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: AsyncLoadAssets_LoadsProductionUnitsCorrectly
+    path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+    startLine: 44
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.AssetManager
+  syntax:
+    content: >-
+      [Fact]
+
+      public void AsyncLoadAssets_LoadsProductionUnitsCorrectly()
+    content.vb: >-
+      <Fact>
+
+      Public Sub AsyncLoadAssets_LoadsProductionUnitsCorrectly()
+  overload: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.AssetManager.AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly
+  commentId: M:Heatington.Tests.AssetManager.AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly
+  id: AssetManager_ModifyingHeatUnitWorksCorrectly
+  parent: Heatington.Tests.AssetManager.AssetManagerTest
+  langs:
+  - csharp
+  - vb
+  name: AssetManager_ModifyingHeatUnitWorksCorrectly()
+  nameWithType: AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly()
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: AssetManager_ModifyingHeatUnitWorksCorrectly
+    path: Heatington.Tests/AssetManager/AssetManagerTest.cs
+    startLine: 67
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.AssetManager
+  syntax:
+    content: >-
+      [Fact]
+
+      public void AssetManager_ModifyingHeatUnitWorksCorrectly()
+    content.vb: >-
+      <Fact>
+
+      Public Sub AssetManager_ModifyingHeatUnitWorksCorrectly()
+  overload: Heatington.Tests.AssetManager.AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+references:
+- uid: Heatington.Tests.AssetManager
+  commentId: N:Heatington.Tests.AssetManager
+  href: Heatington.html
+  name: Heatington.Tests.AssetManager
+  nameWithType: Heatington.Tests.AssetManager
+  fullName: Heatington.Tests.AssetManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.AssetManager
+    name: AssetManager
+    href: Heatington.Tests.AssetManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.AssetManager
+    name: AssetManager
+    href: Heatington.Tests.AssetManager.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Tests.AssetManager.AssetManagerTest.#ctor*
+  commentId: Overload:Heatington.Tests.AssetManager.AssetManagerTest.#ctor
+  href: Heatington.Tests.AssetManager.AssetManagerTest.html#Heatington_Tests_AssetManager_AssetManagerTest__ctor
+  name: AssetManagerTest
+  nameWithType: AssetManagerTest.AssetManagerTest
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest.AssetManagerTest
+  nameWithType.vb: AssetManagerTest.New
+  fullName.vb: Heatington.Tests.AssetManager.AssetManagerTest.New
+  name.vb: New
+- uid: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly*
+  commentId: Overload:Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly
+  href: Heatington.Tests.AssetManager.AssetManagerTest.html#Heatington_Tests_AssetManager_AssetManagerTest_AsyncLoadAssets_LoadsHeatingGridCorrectly
+  name: AsyncLoadAssets_LoadsHeatingGridCorrectly
+  nameWithType: AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsHeatingGridCorrectly
+- uid: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly*
+  commentId: Overload:Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly
+  href: Heatington.Tests.AssetManager.AssetManagerTest.html#Heatington_Tests_AssetManager_AssetManagerTest_AsyncLoadAssets_LoadsProductionUnitsCorrectly
+  name: AsyncLoadAssets_LoadsProductionUnitsCorrectly
+  nameWithType: AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest.AsyncLoadAssets_LoadsProductionUnitsCorrectly
+- uid: Heatington.Tests.AssetManager.AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly*
+  commentId: Overload:Heatington.Tests.AssetManager.AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly
+  href: Heatington.Tests.AssetManager.AssetManagerTest.html#Heatington_Tests_AssetManager_AssetManagerTest_AssetManager_ModifyingHeatUnitWorksCorrectly
+  name: AssetManager_ModifyingHeatUnitWorksCorrectly
+  nameWithType: AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly
+  fullName: Heatington.Tests.AssetManager.AssetManagerTest.AssetManager_ModifyingHeatUnitWorksCorrectly

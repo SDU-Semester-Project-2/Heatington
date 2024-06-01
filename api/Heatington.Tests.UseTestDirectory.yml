@@ -6,6 +6,7 @@ items:
   parent: Heatington.Tests
   children:
   - Heatington.Tests.UseTestDirectory.#ctor
+  - Heatington.Tests.UseTestDirectory.ClearTestsDirectory
   - Heatington.Tests.UseTestDirectory.TestsDirPath
   langs:
   - csharp
@@ -17,7 +18,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/UseTestDirectory.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: UseTestDirectory
     path: Heatington.Tests/UseTestDirectory.cs
@@ -57,7 +58,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/UseTestDirectory.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: TestsDirPath
     path: Heatington.Tests/UseTestDirectory.cs
@@ -84,7 +85,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/UseTestDirectory.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington.Tests/UseTestDirectory.cs
@@ -99,6 +100,32 @@ items:
   nameWithType.vb: UseTestDirectory.New()
   fullName.vb: Heatington.Tests.UseTestDirectory.New()
   name.vb: New()
+- uid: Heatington.Tests.UseTestDirectory.ClearTestsDirectory
+  commentId: M:Heatington.Tests.UseTestDirectory.ClearTestsDirectory
+  id: ClearTestsDirectory
+  parent: Heatington.Tests.UseTestDirectory
+  langs:
+  - csharp
+  - vb
+  name: ClearTestsDirectory()
+  nameWithType: UseTestDirectory.ClearTestsDirectory()
+  fullName: Heatington.Tests.UseTestDirectory.ClearTestsDirectory()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/UseTestDirectory.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ClearTestsDirectory
+    path: Heatington.Tests/UseTestDirectory.cs
+    startLine: 20
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests
+  syntax:
+    content: public void ClearTestsDirectory()
+    content.vb: Public Sub ClearTestsDirectory()
+  overload: Heatington.Tests.UseTestDirectory.ClearTestsDirectory*
 references:
 - uid: Heatington.Tests
   commentId: N:Heatington.Tests
@@ -387,3 +414,9 @@ references:
   nameWithType.vb: UseTestDirectory.New
   fullName.vb: Heatington.Tests.UseTestDirectory.New
   name.vb: New
+- uid: Heatington.Tests.UseTestDirectory.ClearTestsDirectory*
+  commentId: Overload:Heatington.Tests.UseTestDirectory.ClearTestsDirectory
+  href: Heatington.Tests.UseTestDirectory.html#Heatington_Tests_UseTestDirectory_ClearTestsDirectory
+  name: ClearTestsDirectory
+  nameWithType: UseTestDirectory.ClearTestsDirectory
+  fullName: Heatington.Tests.UseTestDirectory.ClearTestsDirectory

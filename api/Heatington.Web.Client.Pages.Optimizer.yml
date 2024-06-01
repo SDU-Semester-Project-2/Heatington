@@ -13,7 +13,6 @@ items:
   - Heatington.Web.Client.Pages.Optimizer.SelectedScenario
   - Heatington.Web.Client.Pages.Optimizer.SelectedSeason
   - Heatington.Web.Client.Pages.Optimizer.SwitchState
-  - Heatington.Web.Client.Pages.Optimizer.isDataLoaded
   - Heatington.Web.Client.Pages.Optimizer.resultData
   langs:
   - csharp
@@ -84,19 +83,19 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: resultData
     path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 18
+    startLine: 11
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
   syntax:
-    content: public List<ResultHolder>? resultData
+    content: public List<FormatedResultHolder>? resultData
     return:
-      type: System.Collections.Generic.List{Heatington.Models.ResultHolder}
-    content.vb: Public resultData As List(Of ResultHolder)
+      type: System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+    content.vb: Public resultData As List(Of FormatedResultHolder)
 - uid: Heatington.Web.Client.Pages.Optimizer.SwitchState
   commentId: P:Heatington.Web.Client.Pages.Optimizer.SwitchState
   id: SwitchState
@@ -111,11 +110,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SwitchState
     path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 22
+    startLine: 14
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -140,11 +139,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Http
     path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 24
+    startLine: 16
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -152,7 +151,7 @@ items:
     content: >-
       [Inject]
 
-      public HttpClient Http { get; set; }
+      public HttpClient? Http { get; set; }
     parameters: []
     return:
       type: System.Net.Http.HttpClient
@@ -179,11 +178,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Logger
     path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 25
+    startLine: 17
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -191,7 +190,7 @@ items:
     content: >-
       [Inject]
 
-      public ILogger<Optimizer> Logger { get; set; }
+      public ILogger<Optimizer>? Logger { get; set; }
     parameters: []
     return:
       type: Microsoft.Extensions.Logging.ILogger{Heatington.Web.Client.Pages.Optimizer}
@@ -204,33 +203,6 @@ items:
   - type: Microsoft.AspNetCore.Components.InjectAttribute
     ctor: Microsoft.AspNetCore.Components.InjectAttribute.#ctor
     arguments: []
-- uid: Heatington.Web.Client.Pages.Optimizer.isDataLoaded
-  commentId: F:Heatington.Web.Client.Pages.Optimizer.isDataLoaded
-  id: isDataLoaded
-  parent: Heatington.Web.Client.Pages.Optimizer
-  langs:
-  - csharp
-  - vb
-  name: isDataLoaded
-  nameWithType: Optimizer.isDataLoaded
-  fullName: Heatington.Web.Client.Pages.Optimizer.isDataLoaded
-  type: Field
-  source:
-    remote:
-      path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: isDataLoaded
-    path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 26
-  assemblies:
-  - Heatington.Web.Client
-  namespace: Heatington.Web.Client.Pages
-  syntax:
-    content: public bool isDataLoaded
-    return:
-      type: System.Boolean
-    content.vb: Public isDataLoaded As Boolean
 - uid: Heatington.Web.Client.Pages.Optimizer.SelectedScenario
   commentId: P:Heatington.Web.Client.Pages.Optimizer.SelectedScenario
   id: SelectedScenario
@@ -245,11 +217,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SelectedScenario
     path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 28
+    startLine: 20
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -274,11 +246,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SelectedSeason
     path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 40
+    startLine: 22
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -303,11 +275,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OnParamChange
     path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 53
+    startLine: 43
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -331,11 +303,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OnInitializedAsync
     path: Heatington.Web.Client/Pages/Optimizer.razor.cs
-    startLine: 75
+    startLine: 53
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -1043,26 +1015,26 @@ references:
     name: Components
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
-- uid: System.Collections.Generic.List{Heatington.Models.ResultHolder}
-  commentId: T:System.Collections.Generic.List{Heatington.Models.ResultHolder}
+- uid: System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<ResultHolder>
-  nameWithType: List<ResultHolder>
-  fullName: System.Collections.Generic.List<Heatington.Models.ResultHolder>
-  nameWithType.vb: List(Of ResultHolder)
-  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.ResultHolder)
-  name.vb: List(Of ResultHolder)
+  name: List<FormatedResultHolder>
+  nameWithType: List<FormatedResultHolder>
+  fullName: System.Collections.Generic.List<Heatington.Models.FormatedResultHolder>
+  nameWithType.vb: List(Of FormatedResultHolder)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.FormatedResultHolder)
+  name.vb: List(Of FormatedResultHolder)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: Heatington.Models.ResultHolder
-    name: ResultHolder
-    href: Heatington.Models.ResultHolder.html
+  - uid: Heatington.Models.FormatedResultHolder
+    name: FormatedResultHolder
+    href: Heatington.Models.FormatedResultHolder.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -1072,9 +1044,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Heatington.Models.ResultHolder
-    name: ResultHolder
-    href: Heatington.Models.ResultHolder.html
+  - uid: Heatington.Models.FormatedResultHolder
+    name: FormatedResultHolder
+    href: Heatington.Models.FormatedResultHolder.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1

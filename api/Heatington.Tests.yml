@@ -4,7 +4,7 @@ items:
   commentId: N:Heatington.Tests
   id: Heatington.Tests
   children:
-  - Heatington.Tests.UnitTest1
+  - Heatington.Tests.OPTTests
   - Heatington.Tests.UseTestDirectory
   langs:
   - csharp
@@ -16,12 +16,12 @@ items:
   assemblies:
   - Heatington.Tests
 references:
-- uid: Heatington.Tests.UnitTest1
-  commentId: T:Heatington.Tests.UnitTest1
-  href: Heatington.Tests.UnitTest1.html
-  name: UnitTest1
-  nameWithType: UnitTest1
-  fullName: Heatington.Tests.UnitTest1
+- uid: Heatington.Tests.OPTTests
+  commentId: T:Heatington.Tests.OPTTests
+  href: Heatington.Tests.OPTTests.html
+  name: OPTTests
+  nameWithType: OPTTests
+  fullName: Heatington.Tests.OPTTests
 - uid: Heatington.Tests.UseTestDirectory
   commentId: T:Heatington.Tests.UseTestDirectory
   parent: Heatington.Tests

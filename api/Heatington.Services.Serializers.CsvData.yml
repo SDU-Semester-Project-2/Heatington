@@ -6,8 +6,8 @@ items:
   parent: Heatington.Services.Serializers
   children:
   - Heatington.Services.Serializers.CsvData.#ctor(System.Collections.Generic.List{System.String[]},System.String[])
-  - Heatington.Services.Serializers.CsvData.ConvertRecords``1
-  - Heatington.Services.Serializers.CsvData.Create``1(System.Collections.Generic.List{``0},System.String[])
+  - Heatington.Services.Serializers.CsvData.ConvertRecords``1(System.Globalization.CultureInfo)
+  - Heatington.Services.Serializers.CsvData.Create``1(System.Collections.Generic.List{``0},System.String[],System.Globalization.CultureInfo)
   - Heatington.Services.Serializers.CsvData.Header
   - Heatington.Services.Serializers.CsvData.Table
   langs:
@@ -20,11 +20,11 @@ items:
   source:
     remote:
       path: Heatington/Services/Serializers/CsvSerializer.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CsvData
     path: Heatington/Services/Serializers/CsvSerializer.cs
-    startLine: 7
+    startLine: 8
   assemblies:
   - Heatington
   namespace: Heatington.Services.Serializers
@@ -41,40 +41,6 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Heatington.Services.Serializers.CsvData.#ctor(System.Collections.Generic.List{System.String[]},System.String[])
-  commentId: M:Heatington.Services.Serializers.CsvData.#ctor(System.Collections.Generic.List{System.String[]},System.String[])
-  id: '#ctor(System.Collections.Generic.List{System.String[]},System.String[])'
-  parent: Heatington.Services.Serializers.CsvData
-  langs:
-  - csharp
-  - vb
-  name: CsvData(List<string[]>, string[]?)
-  nameWithType: CsvData.CsvData(List<string[]>, string[]?)
-  fullName: Heatington.Services.Serializers.CsvData.CsvData(System.Collections.Generic.List<string[]>, string[]?)
-  type: Constructor
-  source:
-    remote:
-      path: Heatington/Services/Serializers/CsvSerializer.cs
-      branch: SP2-5-data-visualization-dv
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: .ctor
-    path: Heatington/Services/Serializers/CsvSerializer.cs
-    startLine: 9
-  assemblies:
-  - Heatington
-  namespace: Heatington.Services.Serializers
-  syntax:
-    content: public CsvData(List<string[]> data, string[]? header = null)
-    parameters:
-    - id: data
-      type: System.Collections.Generic.List{System.String[]}
-    - id: header
-      type: System.String[]
-    content.vb: Public Sub New(data As List(Of String()), header As String() = Nothing)
-  overload: Heatington.Services.Serializers.CsvData.#ctor*
-  nameWithType.vb: CsvData.New(List(Of String()), String())
-  fullName.vb: Heatington.Services.Serializers.CsvData.New(System.Collections.Generic.List(Of String()), String())
-  name.vb: New(List(Of String()), String())
 - uid: Heatington.Services.Serializers.CsvData.Table
   commentId: P:Heatington.Services.Serializers.CsvData.Table
   id: Table
@@ -89,11 +55,11 @@ items:
   source:
     remote:
       path: Heatington/Services/Serializers/CsvSerializer.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Table
     path: Heatington/Services/Serializers/CsvSerializer.cs
-    startLine: 26
+    startLine: 10
   assemblies:
   - Heatington
   namespace: Heatington.Services.Serializers
@@ -118,11 +84,11 @@ items:
   source:
     remote:
       path: Heatington/Services/Serializers/CsvSerializer.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Header
     path: Heatington/Services/Serializers/CsvSerializer.cs
-    startLine: 27
+    startLine: 11
   assemblies:
   - Heatington
   namespace: Heatington.Services.Serializers
@@ -133,77 +99,116 @@ items:
       type: System.String[]
     content.vb: Public Property Header As String()
   overload: Heatington.Services.Serializers.CsvData.Header*
-- uid: Heatington.Services.Serializers.CsvData.Create``1(System.Collections.Generic.List{``0},System.String[])
-  commentId: M:Heatington.Services.Serializers.CsvData.Create``1(System.Collections.Generic.List{``0},System.String[])
-  id: Create``1(System.Collections.Generic.List{``0},System.String[])
+- uid: Heatington.Services.Serializers.CsvData.#ctor(System.Collections.Generic.List{System.String[]},System.String[])
+  commentId: M:Heatington.Services.Serializers.CsvData.#ctor(System.Collections.Generic.List{System.String[]},System.String[])
+  id: '#ctor(System.Collections.Generic.List{System.String[]},System.String[])'
   parent: Heatington.Services.Serializers.CsvData
   langs:
   - csharp
   - vb
-  name: Create<T>(List<T>, string[]?)
-  nameWithType: CsvData.Create<T>(List<T>, string[]?)
-  fullName: Heatington.Services.Serializers.CsvData.Create<T>(System.Collections.Generic.List<T>, string[]?)
-  type: Method
+  name: CsvData(List<string[]>, string[]?)
+  nameWithType: CsvData.CsvData(List<string[]>, string[]?)
+  fullName: Heatington.Services.Serializers.CsvData.CsvData(System.Collections.Generic.List<string[]>, string[]?)
+  type: Constructor
   source:
     remote:
       path: Heatington/Services/Serializers/CsvSerializer.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: Create
+    id: .ctor
     path: Heatington/Services/Serializers/CsvSerializer.cs
-    startLine: 29
+    startLine: 13
   assemblies:
   - Heatington
   namespace: Heatington.Services.Serializers
   syntax:
-    content: public static CsvData Create<T>(List<T> data, string[]? header = null)
+    content: public CsvData(List<string[]> data, string[]? header = null)
+    parameters:
+    - id: data
+      type: System.Collections.Generic.List{System.String[]}
+    - id: header
+      type: System.String[]
+    content.vb: Public Sub New(data As List(Of String()), header As String() = Nothing)
+  overload: Heatington.Services.Serializers.CsvData.#ctor*
+  nameWithType.vb: CsvData.New(List(Of String()), String())
+  fullName.vb: Heatington.Services.Serializers.CsvData.New(System.Collections.Generic.List(Of String()), String())
+  name.vb: New(List(Of String()), String())
+- uid: Heatington.Services.Serializers.CsvData.Create``1(System.Collections.Generic.List{``0},System.String[],System.Globalization.CultureInfo)
+  commentId: M:Heatington.Services.Serializers.CsvData.Create``1(System.Collections.Generic.List{``0},System.String[],System.Globalization.CultureInfo)
+  id: Create``1(System.Collections.Generic.List{``0},System.String[],System.Globalization.CultureInfo)
+  parent: Heatington.Services.Serializers.CsvData
+  langs:
+  - csharp
+  - vb
+  name: Create<T>(List<T>, string[]?, CultureInfo?)
+  nameWithType: CsvData.Create<T>(List<T>, string[]?, CultureInfo?)
+  fullName: Heatington.Services.Serializers.CsvData.Create<T>(System.Collections.Generic.List<T>, string[]?, System.Globalization.CultureInfo?)
+  type: Method
+  source:
+    remote:
+      path: Heatington/Services/Serializers/CsvSerializer.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: Create
+    path: Heatington/Services/Serializers/CsvSerializer.cs
+    startLine: 31
+  assemblies:
+  - Heatington
+  namespace: Heatington.Services.Serializers
+  syntax:
+    content: public static CsvData Create<T>(List<T> data, string[]? header = null, CultureInfo? culture = null)
     parameters:
     - id: data
       type: System.Collections.Generic.List{{T}}
     - id: header
       type: System.String[]
+    - id: culture
+      type: System.Globalization.CultureInfo
     typeParameters:
     - id: T
     return:
       type: Heatington.Services.Serializers.CsvData
-    content.vb: Public Shared Function Create(Of T)(data As List(Of T), header As String() = Nothing) As CsvData
+    content.vb: Public Shared Function Create(Of T)(data As List(Of T), header As String() = Nothing, culture As CultureInfo = Nothing) As CsvData
   overload: Heatington.Services.Serializers.CsvData.Create*
-  nameWithType.vb: CsvData.Create(Of T)(List(Of T), String())
-  fullName.vb: Heatington.Services.Serializers.CsvData.Create(Of T)(System.Collections.Generic.List(Of T), String())
-  name.vb: Create(Of T)(List(Of T), String())
-- uid: Heatington.Services.Serializers.CsvData.ConvertRecords``1
-  commentId: M:Heatington.Services.Serializers.CsvData.ConvertRecords``1
-  id: ConvertRecords``1
+  nameWithType.vb: CsvData.Create(Of T)(List(Of T), String(), CultureInfo)
+  fullName.vb: Heatington.Services.Serializers.CsvData.Create(Of T)(System.Collections.Generic.List(Of T), String(), System.Globalization.CultureInfo)
+  name.vb: Create(Of T)(List(Of T), String(), CultureInfo)
+- uid: Heatington.Services.Serializers.CsvData.ConvertRecords``1(System.Globalization.CultureInfo)
+  commentId: M:Heatington.Services.Serializers.CsvData.ConvertRecords``1(System.Globalization.CultureInfo)
+  id: ConvertRecords``1(System.Globalization.CultureInfo)
   parent: Heatington.Services.Serializers.CsvData
   langs:
   - csharp
   - vb
-  name: ConvertRecords<T>()
-  nameWithType: CsvData.ConvertRecords<T>()
-  fullName: Heatington.Services.Serializers.CsvData.ConvertRecords<T>()
+  name: ConvertRecords<T>(CultureInfo?)
+  nameWithType: CsvData.ConvertRecords<T>(CultureInfo?)
+  fullName: Heatington.Services.Serializers.CsvData.ConvertRecords<T>(System.Globalization.CultureInfo?)
   type: Method
   source:
     remote:
       path: Heatington/Services/Serializers/CsvSerializer.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ConvertRecords
     path: Heatington/Services/Serializers/CsvSerializer.cs
-    startLine: 45
+    startLine: 48
   assemblies:
   - Heatington
   namespace: Heatington.Services.Serializers
   syntax:
-    content: public List<T> ConvertRecords<T>()
+    content: public List<T> ConvertRecords<T>(CultureInfo? culture = null)
+    parameters:
+    - id: culture
+      type: System.Globalization.CultureInfo
     typeParameters:
     - id: T
     return:
       type: System.Collections.Generic.List{{T}}
-    content.vb: Public Function ConvertRecords(Of T)() As List(Of T)
+    content.vb: Public Function ConvertRecords(Of T)(culture As CultureInfo = Nothing) As List(Of T)
   overload: Heatington.Services.Serializers.CsvData.ConvertRecords*
-  nameWithType.vb: CsvData.ConvertRecords(Of T)()
-  fullName.vb: Heatington.Services.Serializers.CsvData.ConvertRecords(Of T)()
-  name.vb: ConvertRecords(Of T)()
+  nameWithType.vb: CsvData.ConvertRecords(Of T)(CultureInfo)
+  fullName.vb: Heatington.Services.Serializers.CsvData.ConvertRecords(Of T)(System.Globalization.CultureInfo)
+  name.vb: ConvertRecords(Of T)(CultureInfo)
 references:
 - uid: Heatington.Services.Serializers
   commentId: N:Heatington.Services.Serializers
@@ -472,15 +477,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Heatington.Services.Serializers.CsvData.#ctor*
-  commentId: Overload:Heatington.Services.Serializers.CsvData.#ctor
-  href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData__ctor_System_Collections_Generic_List_System_String____System_String___
-  name: CsvData
-  nameWithType: CsvData.CsvData
-  fullName: Heatington.Services.Serializers.CsvData.CsvData
-  nameWithType.vb: CsvData.New
-  fullName.vb: Heatington.Services.Serializers.CsvData.New
-  name.vb: New
+- uid: Heatington.Services.Serializers.CsvData.Table*
+  commentId: Overload:Heatington.Services.Serializers.CsvData.Table
+  href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData_Table
+  name: Table
+  nameWithType: CsvData.Table
+  fullName: Heatington.Services.Serializers.CsvData.Table
 - uid: System.Collections.Generic.List{System.String[]}
   commentId: T:System.Collections.Generic.List{System.String[]}
   parent: System.Collections.Generic
@@ -519,29 +521,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: (
   - name: )
-  - name: )
-- uid: System.String[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string[]
-  nameWithType: string[]
-  fullName: string[]
-  nameWithType.vb: String()
-  fullName.vb: String()
-  name.vb: String()
-  spec.csharp:
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -608,21 +587,47 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Heatington.Services.Serializers.CsvData.Table*
-  commentId: Overload:Heatington.Services.Serializers.CsvData.Table
-  href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData_Table
-  name: Table
-  nameWithType: CsvData.Table
-  fullName: Heatington.Services.Serializers.CsvData.Table
 - uid: Heatington.Services.Serializers.CsvData.Header*
   commentId: Overload:Heatington.Services.Serializers.CsvData.Header
   href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData_Header
   name: Header
   nameWithType: CsvData.Header
   fullName: Heatington.Services.Serializers.CsvData.Header
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: Heatington.Services.Serializers.CsvData.#ctor*
+  commentId: Overload:Heatington.Services.Serializers.CsvData.#ctor
+  href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData__ctor_System_Collections_Generic_List_System_String____System_String___
+  name: CsvData
+  nameWithType: CsvData.CsvData
+  fullName: Heatington.Services.Serializers.CsvData.CsvData
+  nameWithType.vb: CsvData.New
+  fullName.vb: Heatington.Services.Serializers.CsvData.New
+  name.vb: New
 - uid: Heatington.Services.Serializers.CsvData.Create*
   commentId: Overload:Heatington.Services.Serializers.CsvData.Create
-  href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData_Create__1_System_Collections_Generic_List___0__System_String___
+  href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData_Create__1_System_Collections_Generic_List___0__System_String___System_Globalization_CultureInfo_
   name: Create
   nameWithType: CsvData.Create
   fullName: Heatington.Services.Serializers.CsvData.Create
@@ -655,6 +660,14 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: System.Globalization.CultureInfo
+  commentId: T:System.Globalization.CultureInfo
+  parent: System.Globalization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo
+  name: CultureInfo
+  nameWithType: CultureInfo
+  fullName: System.Globalization.CultureInfo
 - uid: Heatington.Services.Serializers.CsvData
   commentId: T:Heatington.Services.Serializers.CsvData
   parent: Heatington.Services.Serializers
@@ -662,9 +675,36 @@ references:
   name: CsvData
   nameWithType: CsvData
   fullName: Heatington.Services.Serializers.CsvData
+- uid: System.Globalization
+  commentId: N:System.Globalization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Globalization
+  nameWithType: System.Globalization
+  fullName: System.Globalization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Globalization
+    name: Globalization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Globalization
+    name: Globalization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization
 - uid: Heatington.Services.Serializers.CsvData.ConvertRecords*
   commentId: Overload:Heatington.Services.Serializers.CsvData.ConvertRecords
-  href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData_ConvertRecords__1
+  href: Heatington.Services.Serializers.CsvData.html#Heatington_Services_Serializers_CsvData_ConvertRecords__1_System_Globalization_CultureInfo_
   name: ConvertRecords
   nameWithType: CsvData.ConvertRecords
   fullName: Heatington.Services.Serializers.CsvData.ConvertRecords

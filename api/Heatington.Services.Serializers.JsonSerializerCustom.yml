@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: Heatington/Services/Serializers/JsonSerializerCustom.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: JsonSerializerCustom
     path: Heatington/Services/Serializers/JsonSerializerCustom.cs
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: Heatington/Services/Serializers/JsonSerializerCustom.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Serialize
     path: Heatington/Services/Serializers/JsonSerializerCustom.cs
@@ -93,7 +93,7 @@ items:
   source:
     remote:
       path: Heatington/Services/Serializers/JsonSerializerCustom.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize
     path: Heatington/Services/Serializers/JsonSerializerCustom.cs

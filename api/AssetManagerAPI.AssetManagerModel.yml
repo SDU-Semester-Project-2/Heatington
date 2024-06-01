@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: Heatington.Microservice.AM/AssetManagerModel.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: AssetManagerModel
     path: Heatington.Microservice.AM/AssetManagerModel.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: Heatington.Microservice.AM/AssetManagerModel.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: am
     path: Heatington.Microservice.AM/AssetManagerModel.cs

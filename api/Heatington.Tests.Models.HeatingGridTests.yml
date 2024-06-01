@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Models/HeatingGridTests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatingGridTests
     path: Heatington.Tests/Models/HeatingGridTests.cs
@@ -51,7 +51,7 @@ items:
   source:
     remote:
       path: Heatington.Tests/Models/HeatingGridTests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Constructor_Sets_Properties_Correctly
     path: Heatington.Tests/Models/HeatingGridTests.cs

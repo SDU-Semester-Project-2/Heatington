@@ -1,0 +1,89 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.Serializers
+  commentId: N:Heatington.Tests.Serializers
+  id: Heatington.Tests.Serializers
+  children:
+  - Heatington.Tests.Serializers.CsvDataTests
+  - Heatington.Tests.Serializers.CsvSerializerTests
+  - Heatington.Tests.Serializers.TestMultipleConstructorsWithMultipleSelected
+  - Heatington.Tests.Serializers.TestMultipleConstructorsWithNoneSelected
+  - Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  - Heatington.Tests.Serializers.TestOneConstructor
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Tests.Serializers
+  nameWithType: Heatington.Tests.Serializers
+  fullName: Heatington.Tests.Serializers
+  type: Namespace
+  assemblies:
+  - Heatington.Tests
+references:
+- uid: Heatington.Tests.Serializers.TestOneConstructor
+  commentId: T:Heatington.Tests.Serializers.TestOneConstructor
+  parent: Heatington.Tests.Serializers
+  href: Heatington.Tests.Serializers.TestOneConstructor.html
+  name: TestOneConstructor
+  nameWithType: TestOneConstructor
+  fullName: Heatington.Tests.Serializers.TestOneConstructor
+- uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  commentId: T:Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  href: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.html
+  name: TestMultipleConstructorsWithSingleSelected
+  nameWithType: TestMultipleConstructorsWithSingleSelected
+  fullName: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+- uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithNoneSelected
+  commentId: T:Heatington.Tests.Serializers.TestMultipleConstructorsWithNoneSelected
+  href: Heatington.Tests.Serializers.TestMultipleConstructorsWithNoneSelected.html
+  name: TestMultipleConstructorsWithNoneSelected
+  nameWithType: TestMultipleConstructorsWithNoneSelected
+  fullName: Heatington.Tests.Serializers.TestMultipleConstructorsWithNoneSelected
+- uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithMultipleSelected
+  commentId: T:Heatington.Tests.Serializers.TestMultipleConstructorsWithMultipleSelected
+  href: Heatington.Tests.Serializers.TestMultipleConstructorsWithMultipleSelected.html
+  name: TestMultipleConstructorsWithMultipleSelected
+  nameWithType: TestMultipleConstructorsWithMultipleSelected
+  fullName: Heatington.Tests.Serializers.TestMultipleConstructorsWithMultipleSelected
+- uid: Heatington.Tests.Serializers.CsvDataTests
+  commentId: T:Heatington.Tests.Serializers.CsvDataTests
+  href: Heatington.Tests.Serializers.CsvDataTests.html
+  name: CsvDataTests
+  nameWithType: CsvDataTests
+  fullName: Heatington.Tests.Serializers.CsvDataTests
+- uid: Heatington.Tests.Serializers.CsvSerializerTests
+  commentId: T:Heatington.Tests.Serializers.CsvSerializerTests
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html
+  name: CsvSerializerTests
+  nameWithType: CsvSerializerTests
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests
+- uid: Heatington.Tests.Serializers
+  commentId: N:Heatington.Tests.Serializers
+  href: Heatington.html
+  name: Heatington.Tests.Serializers
+  nameWithType: Heatington.Tests.Serializers
+  fullName: Heatington.Tests.Serializers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Serializers
+    name: Serializers
+    href: Heatington.Tests.Serializers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Serializers
+    name: Serializers
+    href: Heatington.Tests.Serializers.html

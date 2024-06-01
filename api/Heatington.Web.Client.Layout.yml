@@ -16,15 +16,15 @@ items:
   assemblies:
   - Heatington.Web.Client
 references:
-- uid: Heatington.Web.Client.Layout.NavMenu
-  commentId: T:Heatington.Web.Client.Layout.NavMenu
-  href: Heatington.Web.Client.Layout.NavMenu.html
-  name: NavMenu
-  nameWithType: NavMenu
-  fullName: Heatington.Web.Client.Layout.NavMenu
 - uid: Heatington.Web.Client.Layout.MainLayout
   commentId: T:Heatington.Web.Client.Layout.MainLayout
   href: Heatington.Web.Client.Layout.MainLayout.html
   name: MainLayout
   nameWithType: MainLayout
   fullName: Heatington.Web.Client.Layout.MainLayout
+- uid: Heatington.Web.Client.Layout.NavMenu
+  commentId: T:Heatington.Web.Client.Layout.NavMenu
+  href: Heatington.Web.Client.Layout.NavMenu.html
+  name: NavMenu
+  nameWithType: NavMenu
+  fullName: Heatington.Web.Client.Layout.NavMenu

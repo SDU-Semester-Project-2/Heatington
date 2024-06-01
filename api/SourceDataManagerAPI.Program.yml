@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: Heatington.Microservice.SDM/Program.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Program
     path: Heatington.Microservice.SDM/Program.cs
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: Heatington.Microservice.SDM/Program.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Main
     path: Heatington.Microservice.SDM/Program.cs
@@ -84,7 +84,7 @@ items:
   source:
     remote:
       path: Heatington.Microservice.SDM/Program.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CreateHostBuilder
     path: Heatington.Microservice.SDM/Program.cs

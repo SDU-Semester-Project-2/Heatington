@@ -21,6 +21,7 @@ items:
 references:
 - uid: Heatington.Models.DataPoint
   commentId: T:Heatington.Models.DataPoint
+  parent: Heatington.Models
   href: Heatington.Models.DataPoint.html
   name: DataPoint
   nameWithType: DataPoint
@@ -47,6 +48,7 @@ references:
   fullName: Heatington.Models.ProductionUnit
 - uid: Heatington.Models.ResultHolder
   commentId: T:Heatington.Models.ResultHolder
+  parent: Heatington.Models
   href: Heatington.Models.ResultHolder.html
   name: ResultHolder
   nameWithType: ResultHolder

@@ -24,11 +24,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: JsonSerializerCustomTests
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 7
+    startLine: 6
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
@@ -59,11 +59,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize_DeserializeEmptyString_GetsEmptyJson
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 14
+    startLine: 13
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
@@ -95,11 +95,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize_DeserializeEmptyString_ConvertsToTheRightType
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 29
+    startLine: 28
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
@@ -131,19 +131,19 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize_DeserializeProductionUnitString_GetsProductionUnit
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 43
+    startLine: 42
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
   syntax:
     content: >-
-      [InlineData(new object[] { "    {\n        \"Name\": \"TU\",\n        \"FullName\": \"Test Unit\",\n        \"PicturePath\": \"\",\n        \"MaxHeat\": 10,\n        \"ProductionCost\": 250,\n        \"MaxElectricity\": 7,\n        \"GasConsumption\": 1.1,\n        \"Co2Emission\":8.0\n    }" })]
+      [InlineData(new object[] { "    {\n        \"Name\": \"TU\",\n        \"FullName\": \"\",\n        \"PicturePath\": \"\",\n        \"MaxHeat\": 10,\n        \"ProductionCost\": 250,\n        \"MaxElectricity\": 7,\n        \"GasConsumption\": 1.1,\n        \"Co2Emission\":8.0\n    }" })]
 
-      [InlineData(new object[] { "    {\n        \"Name\": \"TU\",\n        \"PicturePath\": \"\",\n        \"MaxHeat\": 10,\n        \"ProductionCost\": 250,\n        \"MaxElectricity\": 7,\n        \"GasConsumption\": 1.1,\n        \"Co2Emission\":8.0\n    }" })]
+      [InlineData(new object[] { "    {\n        \"Name\": \"TU\",\n        \"FullName\": \"\",\n        \"PicturePath\": \"\",\n        \"MaxHeat\": 10,\n        \"ProductionCost\": 250.0,\n        \"MaxElectricity\": 7,\n        \"GasConsumption\": 1.1,\n        \"Co2Emission\":8\n    }" })]
 
       [Theory]
 
@@ -152,9 +152,9 @@ items:
     - id: testUnitString
       type: System.String
     content.vb: >-
-      <InlineData(New Object() { "    {" & vbLf & "        ""Name"": ""TU""," & vbLf & "        ""FullName"": ""Test Unit""," & vbLf & "        ""PicturePath"": """"," & vbLf & "        ""MaxHeat"": 10," & vbLf & "        ""ProductionCost"": 250," & vbLf & "        ""MaxElectricity"": 7," & vbLf & "        ""GasConsumption"": 1.1," & vbLf & "        ""Co2Emission"":8.0" & vbLf & "    }" })>
+      <InlineData(New Object() { "    {" & vbLf & "        ""Name"": ""TU""," & vbLf & "        ""FullName"": """"," & vbLf & "        ""PicturePath"": """"," & vbLf & "        ""MaxHeat"": 10," & vbLf & "        ""ProductionCost"": 250," & vbLf & "        ""MaxElectricity"": 7," & vbLf & "        ""GasConsumption"": 1.1," & vbLf & "        ""Co2Emission"":8.0" & vbLf & "    }" })>
 
-      <InlineData(New Object() { "    {" & vbLf & "        ""Name"": ""TU""," & vbLf & "        ""PicturePath"": """"," & vbLf & "        ""MaxHeat"": 10," & vbLf & "        ""ProductionCost"": 250," & vbLf & "        ""MaxElectricity"": 7," & vbLf & "        ""GasConsumption"": 1.1," & vbLf & "        ""Co2Emission"":8.0" & vbLf & "    }" })>
+      <InlineData(New Object() { "    {" & vbLf & "        ""Name"": ""TU""," & vbLf & "        ""FullName"": """"," & vbLf & "        ""PicturePath"": """"," & vbLf & "        ""MaxHeat"": 10," & vbLf & "        ""ProductionCost"": 250.0," & vbLf & "        ""MaxElectricity"": 7," & vbLf & "        ""GasConsumption"": 1.1," & vbLf & "        ""Co2Emission"":8" & vbLf & "    }" })>
 
       <Theory>
 
@@ -181,17 +181,17 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize_DeserializeHeatingGridString_GetsHeatingGrid
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 80
+    startLine: 81
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
   syntax:
     content: >-
-      [InlineData(new object[] { "{\n    \"PicturePath\": \"\",\n    \"Name\": \"Heating Grid Test\",\n    \"Architecture\":\t\"Test description, testing architecture\",\n    \"Size\":\t\"0 homes, 2 pipes\",\n    \"City\":\t\"Funfoss\"\n}" })]
+      [InlineData(new object[] { "{\n    \"PicturePath\": \"\",\n    \"Name\": \"Heating Grid Test\",\n    \"FullName\":\"\",\n    \"Architecture\":\t\"Test description, testing architecture\",\n    \"Size\":\t\"0 homes, 2 pipes\",\n    \"City\":\t\"Funfoss\"\n}" })]
 
       [InlineData(new object[] { "{\n    \"PicturePath\": \"\",\n    \"Name\": \"Heating Grid Test\"\n}" })]
 
@@ -202,7 +202,7 @@ items:
     - id: testString
       type: System.String
     content.vb: >-
-      <InlineData(New Object() { "{" & vbLf & "    ""PicturePath"": """"," & vbLf & "    ""Name"": ""Heating Grid Test""," & vbLf & "    ""Architecture"":" & vbTab & """Test description, testing architecture""," & vbLf & "    ""Size"":" & vbTab & """0 homes, 2 pipes""," & vbLf & "    ""City"":" & vbTab & """Funfoss""" & vbLf & "}" })>
+      <InlineData(New Object() { "{" & vbLf & "    ""PicturePath"": """"," & vbLf & "    ""Name"": ""Heating Grid Test""," & vbLf & "    ""FullName"":""""," & vbLf & "    ""Architecture"":" & vbTab & """Test description, testing architecture""," & vbLf & "    ""Size"":" & vbTab & """0 homes, 2 pipes""," & vbLf & "    ""City"":" & vbTab & """Funfoss""" & vbLf & "}" })>
 
       <InlineData(New Object() { "{" & vbLf & "    ""PicturePath"": """"," & vbLf & "    ""Name"": ""Heating Grid Test""" & vbLf & "}" })>
 
@@ -231,11 +231,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize_DeserializeInt_GetsInt
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 110
+    startLine: 112
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
@@ -267,11 +267,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize_DeserializeTextIntoInt_Error
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 125
+    startLine: 127
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
@@ -303,11 +303,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Deserialize_DeserializeAnonFunc_Error
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 141
+    startLine: 143
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
@@ -339,11 +339,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Serialize_SerializeProductionUnit_Success
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 171
+    startLine: 174
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services
@@ -375,11 +375,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Serialize_SerializeHeatingGrid_Success
     path: Heatington.Tests/Services/JsonSerializerCustom.Tests.cs
-    startLine: 200
+    startLine: 206
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Services

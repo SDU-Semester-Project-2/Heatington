@@ -15,11 +15,11 @@ items:
   source:
     remote:
       path: Heatington/Services/Serializers/CsvSerializer.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CsvConstructorAttribute
     path: Heatington/Services/Serializers/CsvSerializer.cs
-    startLine: 4
+    startLine: 5
   assemblies:
   - Heatington
   namespace: Heatington.Services.Serializers

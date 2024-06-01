@@ -80,11 +80,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SelectedSeason
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 23
+    startLine: 26
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -109,11 +109,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: DialogService
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 36
+    startLine: 39
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -148,11 +148,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Http
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 37
+    startLine: 40
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -160,7 +160,7 @@ items:
     content: >-
       [Inject]
 
-      public required HttpClient Http { get; set; }
+      public HttpClient Http { get; set; }
     parameters: []
     return:
       type: System.Net.Http.HttpClient
@@ -187,11 +187,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Logger
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 39
+    startLine: 42
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -226,11 +226,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OnInitializedAsync
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 149
+    startLine: 152
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages

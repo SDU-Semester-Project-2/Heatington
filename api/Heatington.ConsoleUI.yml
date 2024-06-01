@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: Heatington.Console/ConsoleUI.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ConsoleUI
     path: Heatington.Console/ConsoleUI.cs
@@ -52,7 +52,7 @@ items:
   source:
     remote:
       path: Heatington.Console/ConsoleUI.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington.Console/ConsoleUI.cs
@@ -88,7 +88,7 @@ items:
   source:
     remote:
       path: Heatington.Console/ConsoleUI.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartUi
     path: Heatington.Console/ConsoleUI.cs

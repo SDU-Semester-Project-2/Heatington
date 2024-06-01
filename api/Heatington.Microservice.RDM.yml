@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Microservice.RDM
+  commentId: N:Heatington.Microservice.RDM
+  id: Heatington.Microservice.RDM
+  children:
+  - Heatington.Microservice.RDM.CsvFormatController
+  - Heatington.Microservice.RDM.Program
+  - Heatington.Microservice.RDM.ResultDataManagerController
+  - Heatington.Microservice.RDM.ResultDataManagerModel
+  - Heatington.Microservice.RDM.ResultDataManagerService
+  - Heatington.Microservice.RDM.Startup
+  langs:
+  - csharp
+  - vb
+  name: Heatington.Microservice.RDM
+  nameWithType: Heatington.Microservice.RDM
+  fullName: Heatington.Microservice.RDM
+  type: Namespace
+  assemblies:
+  - Heatington.Microservice.RDM
+references:
+- uid: Heatington.Microservice.RDM.CsvFormatController
+  commentId: T:Heatington.Microservice.RDM.CsvFormatController
+  href: Heatington.Microservice.RDM.CsvFormatController.html
+  name: CsvFormatController
+  nameWithType: CsvFormatController
+  fullName: Heatington.Microservice.RDM.CsvFormatController
+- uid: Heatington.Microservice.RDM.Program
+  commentId: T:Heatington.Microservice.RDM.Program
+  href: Heatington.Microservice.RDM.Program.html
+  name: Program
+  nameWithType: Program
+  fullName: Heatington.Microservice.RDM.Program
+- uid: Heatington.Microservice.RDM.ResultDataManagerController
+  commentId: T:Heatington.Microservice.RDM.ResultDataManagerController
+  href: Heatington.Microservice.RDM.ResultDataManagerController.html
+  name: ResultDataManagerController
+  nameWithType: ResultDataManagerController
+  fullName: Heatington.Microservice.RDM.ResultDataManagerController
+- uid: Heatington.Microservice.RDM.ResultDataManagerModel
+  commentId: T:Heatington.Microservice.RDM.ResultDataManagerModel
+  href: Heatington.Microservice.RDM.ResultDataManagerModel.html
+  name: ResultDataManagerModel
+  nameWithType: ResultDataManagerModel
+  fullName: Heatington.Microservice.RDM.ResultDataManagerModel
+- uid: Heatington.Microservice.RDM.ResultDataManagerService
+  commentId: T:Heatington.Microservice.RDM.ResultDataManagerService
+  href: Heatington.Microservice.RDM.ResultDataManagerService.html
+  name: ResultDataManagerService
+  nameWithType: ResultDataManagerService
+  fullName: Heatington.Microservice.RDM.ResultDataManagerService
+- uid: Heatington.Microservice.RDM.Startup
+  commentId: T:Heatington.Microservice.RDM.Startup
+  href: Heatington.Microservice.RDM.Startup.html
+  name: Startup
+  nameWithType: Startup
+  fullName: Heatington.Microservice.RDM.Startup

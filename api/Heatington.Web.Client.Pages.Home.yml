@@ -7,14 +7,11 @@ items:
   children:
   - Heatington.Web.Client.Pages.Home.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
   - Heatington.Web.Client.Pages.Home.Co2EmissionChartOptions
-  - Heatington.Web.Client.Pages.Home.DialogService
   - Heatington.Web.Client.Pages.Home.ElectricityChartOptions
   - Heatington.Web.Client.Pages.Home.HeatDemandChartOptions
   - Heatington.Web.Client.Pages.Home.Http
-  - Heatington.Web.Client.Pages.Home.Logger
   - Heatington.Web.Client.Pages.Home.OnInitializedAsync
   - Heatington.Web.Client.Pages.Home.OperationPointsChartOptions
-  - Heatington.Web.Client.Pages.Home.ProductionCostChartOptions
   langs:
   - csharp
   - vb
@@ -84,11 +81,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Co2EmissionChartOptions
     path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 64
+    startLine: 89
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -111,11 +108,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityChartOptions
     path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 65
+    startLine: 90
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -138,11 +135,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemandChartOptions
     path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 66
+    startLine: 91
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -165,46 +162,19 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OperationPointsChartOptions
     path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 69
+    startLine: 94
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
   syntax:
-    content: public ChartOptions OperationPointsChartOptions
+    content: public readonly ChartOptions OperationPointsChartOptions
     return:
       type: MudBlazor.ChartOptions
-    content.vb: Public OperationPointsChartOptions As ChartOptions
-- uid: Heatington.Web.Client.Pages.Home.ProductionCostChartOptions
-  commentId: F:Heatington.Web.Client.Pages.Home.ProductionCostChartOptions
-  id: ProductionCostChartOptions
-  parent: Heatington.Web.Client.Pages.Home
-  langs:
-  - csharp
-  - vb
-  name: ProductionCostChartOptions
-  nameWithType: Home.ProductionCostChartOptions
-  fullName: Heatington.Web.Client.Pages.Home.ProductionCostChartOptions
-  type: Field
-  source:
-    remote:
-      path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: ProductionCostChartOptions
-    path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 70
-  assemblies:
-  - Heatington.Web.Client
-  namespace: Heatington.Web.Client.Pages
-  syntax:
-    content: public ChartOptions ProductionCostChartOptions
-    return:
-      type: MudBlazor.ChartOptions
-    content.vb: Public ProductionCostChartOptions As ChartOptions
+    content.vb: Public ReadOnly OperationPointsChartOptions As ChartOptions
 - uid: Heatington.Web.Client.Pages.Home.Http
   commentId: P:Heatington.Web.Client.Pages.Home.Http
   id: Http
@@ -219,11 +189,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Http
     path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 97
+    startLine: 134
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -231,7 +201,7 @@ items:
     content: >-
       [Inject]
 
-      public HttpClient Http { get; set; }
+      public required HttpClient Http { get; set; }
     parameters: []
     return:
       type: System.Net.Http.HttpClient
@@ -240,84 +210,6 @@ items:
 
       Public Property Http As HttpClient
   overload: Heatington.Web.Client.Pages.Home.Http*
-  attributes:
-  - type: Microsoft.AspNetCore.Components.InjectAttribute
-    ctor: Microsoft.AspNetCore.Components.InjectAttribute.#ctor
-    arguments: []
-- uid: Heatington.Web.Client.Pages.Home.DialogService
-  commentId: P:Heatington.Web.Client.Pages.Home.DialogService
-  id: DialogService
-  parent: Heatington.Web.Client.Pages.Home
-  langs:
-  - csharp
-  - vb
-  name: DialogService
-  nameWithType: Home.DialogService
-  fullName: Heatington.Web.Client.Pages.Home.DialogService
-  type: Property
-  source:
-    remote:
-      path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: DialogService
-    path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 98
-  assemblies:
-  - Heatington.Web.Client
-  namespace: Heatington.Web.Client.Pages
-  syntax:
-    content: >-
-      [Inject]
-
-      public IDialogService DialogService { get; set; }
-    parameters: []
-    return:
-      type: MudBlazor.IDialogService
-    content.vb: >-
-      <Inject>
-
-      Public Property DialogService As IDialogService
-  overload: Heatington.Web.Client.Pages.Home.DialogService*
-  attributes:
-  - type: Microsoft.AspNetCore.Components.InjectAttribute
-    ctor: Microsoft.AspNetCore.Components.InjectAttribute.#ctor
-    arguments: []
-- uid: Heatington.Web.Client.Pages.Home.Logger
-  commentId: P:Heatington.Web.Client.Pages.Home.Logger
-  id: Logger
-  parent: Heatington.Web.Client.Pages.Home
-  langs:
-  - csharp
-  - vb
-  name: Logger
-  nameWithType: Home.Logger
-  fullName: Heatington.Web.Client.Pages.Home.Logger
-  type: Property
-  source:
-    remote:
-      path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
-      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
-    id: Logger
-    path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 99
-  assemblies:
-  - Heatington.Web.Client
-  namespace: Heatington.Web.Client.Pages
-  syntax:
-    content: >-
-      [Inject]
-
-      public ILogger<Home> Logger { get; set; }
-    parameters: []
-    return:
-      type: Microsoft.Extensions.Logging.ILogger{Heatington.Web.Client.Pages.Home}
-    content.vb: >-
-      <Inject>
-
-      Public Property Logger As ILogger(Of Home)
-  overload: Heatington.Web.Client.Pages.Home.Logger*
   attributes:
   - type: Microsoft.AspNetCore.Components.InjectAttribute
     ctor: Microsoft.AspNetCore.Components.InjectAttribute.#ctor
@@ -336,11 +228,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/Home.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OnInitializedAsync
     path: Heatington.Web.Client/Pages/Home.razor.cs
-    startLine: 101
+    startLine: 136
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -1112,123 +1004,6 @@ references:
     name: Http
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.net.http
-- uid: Heatington.Web.Client.Pages.Home.DialogService*
-  commentId: Overload:Heatington.Web.Client.Pages.Home.DialogService
-  href: Heatington.Web.Client.Pages.Home.html#Heatington_Web_Client_Pages_Home_DialogService
-  name: DialogService
-  nameWithType: Home.DialogService
-  fullName: Heatington.Web.Client.Pages.Home.DialogService
-- uid: MudBlazor.IDialogService
-  commentId: T:MudBlazor.IDialogService
-  parent: MudBlazor
-  isExternal: true
-  name: IDialogService
-  nameWithType: IDialogService
-  fullName: MudBlazor.IDialogService
-- uid: Heatington.Web.Client.Pages.Home.Logger*
-  commentId: Overload:Heatington.Web.Client.Pages.Home.Logger
-  href: Heatington.Web.Client.Pages.Home.html#Heatington_Web_Client_Pages_Home_Logger
-  name: Logger
-  nameWithType: Home.Logger
-  fullName: Heatington.Web.Client.Pages.Home.Logger
-- uid: Microsoft.Extensions.Logging.ILogger{Heatington.Web.Client.Pages.Home}
-  commentId: T:Microsoft.Extensions.Logging.ILogger{Heatington.Web.Client.Pages.Home}
-  parent: Microsoft.Extensions.Logging
-  definition: Microsoft.Extensions.Logging.ILogger`1
-  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
-  name: ILogger<Home>
-  nameWithType: ILogger<Home>
-  fullName: Microsoft.Extensions.Logging.ILogger<Heatington.Web.Client.Pages.Home>
-  nameWithType.vb: ILogger(Of Home)
-  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of Heatington.Web.Client.Pages.Home)
-  name.vb: ILogger(Of Home)
-  spec.csharp:
-  - uid: Microsoft.Extensions.Logging.ILogger`1
-    name: ILogger
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
-  - name: <
-  - uid: Heatington.Web.Client.Pages.Home
-    name: Home
-    href: Heatington.Web.Client.Pages.Home.html
-  - name: '>'
-  spec.vb:
-  - uid: Microsoft.Extensions.Logging.ILogger`1
-    name: ILogger
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: Heatington.Web.Client.Pages.Home
-    name: Home
-    href: Heatington.Web.Client.Pages.Home.html
-  - name: )
-- uid: Microsoft.Extensions.Logging.ILogger`1
-  commentId: T:Microsoft.Extensions.Logging.ILogger`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
-  name: ILogger<TCategoryName>
-  nameWithType: ILogger<TCategoryName>
-  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
-  nameWithType.vb: ILogger(Of TCategoryName)
-  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
-  name.vb: ILogger(Of TCategoryName)
-  spec.csharp:
-  - uid: Microsoft.Extensions.Logging.ILogger`1
-    name: ILogger
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
-  - name: <
-  - name: TCategoryName
-  - name: '>'
-  spec.vb:
-  - uid: Microsoft.Extensions.Logging.ILogger`1
-    name: ILogger
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TCategoryName
-  - name: )
-- uid: Microsoft.Extensions.Logging
-  commentId: N:Microsoft.Extensions.Logging
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/microsoft
-  name: Microsoft.Extensions.Logging
-  nameWithType: Microsoft.Extensions.Logging
-  fullName: Microsoft.Extensions.Logging
-  spec.csharp:
-  - uid: Microsoft
-    name: Microsoft
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft
-  - name: .
-  - uid: Microsoft.Extensions
-    name: Extensions
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
-  - name: .
-  - uid: Microsoft.Extensions.Logging
-    name: Logging
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
-  spec.vb:
-  - uid: Microsoft
-    name: Microsoft
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft
-  - name: .
-  - uid: Microsoft.Extensions
-    name: Extensions
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
-  - name: .
-  - uid: Microsoft.Extensions.Logging
-    name: Logging
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
 - uid: System.Threading.Tasks.Task
   commentId: T:System.Threading.Tasks.Task
   parent: System.Threading.Tasks

@@ -137,6 +137,12 @@ references:
   - uid: Heatington.Web.Client.Pages.Modules.ModuleInfo
     name: ModuleInfo
     href: Heatington.Web.Client.Pages.Modules.ModuleInfo.html
+- uid: Heatington.Web.Client.Pages.DataVisualizer
+  commentId: T:Heatington.Web.Client.Pages.DataVisualizer
+  href: Heatington.Web.Client.Pages.DataVisualizer.html
+  name: DataVisualizer
+  nameWithType: DataVisualizer
+  fullName: Heatington.Web.Client.Pages.DataVisualizer
 - uid: Heatington.Web.Client.Pages.About
   commentId: T:Heatington.Web.Client.Pages.About
   href: Heatington.Web.Client.Pages.About.html
@@ -165,9 +171,3 @@ references:
   - uid: Heatington.Web.Client.Pages.About.TeamMember
     name: TeamMember
     href: Heatington.Web.Client.Pages.About.TeamMember.html
-- uid: Heatington.Web.Client.Pages.DataVisualizer
-  commentId: T:Heatington.Web.Client.Pages.DataVisualizer
-  href: Heatington.Web.Client.Pages.DataVisualizer.html
-  name: DataVisualizer
-  nameWithType: DataVisualizer
-  fullName: Heatington.Web.Client.Pages.DataVisualizer

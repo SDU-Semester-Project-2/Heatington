@@ -5,6 +5,7 @@ items:
   id: Heatington.Tests.SourceDataManager
   children:
   - Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  - Heatington.Tests.SourceDataManager.StubDataSource
   langs:
   - csharp
   - vb
@@ -15,6 +16,12 @@ items:
   assemblies:
   - Heatington.Tests
 references:
+- uid: Heatington.Tests.SourceDataManager.StubDataSource
+  commentId: T:Heatington.Tests.SourceDataManager.StubDataSource
+  href: Heatington.Tests.SourceDataManager.StubDataSource.html
+  name: StubDataSource
+  nameWithType: StubDataSource
+  fullName: Heatington.Tests.SourceDataManager.StubDataSource
 - uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest
   commentId: T:Heatington.Tests.SourceDataManager.SourceDataManagerTest
   href: Heatington.Tests.SourceDataManager.SourceDataManagerTest.html
