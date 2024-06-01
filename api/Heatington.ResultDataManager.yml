@@ -17,7 +17,30 @@ items:
 references:
 - uid: Heatington.ResultDataManager.RDM
   commentId: T:Heatington.ResultDataManager.RDM
+  parent: Heatington.ResultDataManager
   href: Heatington.ResultDataManager.RDM.html
   name: RDM
   nameWithType: RDM
   fullName: Heatington.ResultDataManager.RDM
+- uid: Heatington.ResultDataManager
+  commentId: N:Heatington.ResultDataManager
+  href: Heatington.html
+  name: Heatington.ResultDataManager
+  nameWithType: Heatington.ResultDataManager
+  fullName: Heatington.ResultDataManager
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.ResultDataManager
+    name: ResultDataManager
+    href: Heatington.ResultDataManager.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.ResultDataManager
+    name: ResultDataManager
+    href: Heatington.ResultDataManager.html

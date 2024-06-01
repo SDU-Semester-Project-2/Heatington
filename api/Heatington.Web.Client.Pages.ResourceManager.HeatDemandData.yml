@@ -19,11 +19,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemandData
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 212
+    startLine: 215
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -54,11 +54,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: StartDate
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 214
+    startLine: 217
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -95,11 +95,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: EndDate
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 216
+    startLine: 219
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -136,11 +136,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatDemand
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 218
+    startLine: 221
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages
@@ -177,11 +177,11 @@ items:
   source:
     remote:
       path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricityPrice
     path: Heatington.Web.Client/Pages/ResourceManager.razor.cs
-    startLine: 220
+    startLine: 223
   assemblies:
   - Heatington.Web.Client
   namespace: Heatington.Web.Client.Pages

@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: Heatington.Microservice.OPT/Controllers/OptimizerController.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OptimizerController
     path: Heatington.Microservice.OPT/Controllers/OptimizerController.cs
@@ -246,7 +246,7 @@ items:
   source:
     remote:
       path: Heatington.Microservice.OPT/Controllers/OptimizerController.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: Get
     path: Heatington.Microservice.OPT/Controllers/OptimizerController.cs

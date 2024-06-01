@@ -1,0 +1,567 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  commentId: T:Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  id: TestMultipleConstructorsWithSingleSelected
+  parent: Heatington.Tests.Serializers
+  children:
+  - Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32)
+  - Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32,System.String)
+  - Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32,System.String,System.DateTime)
+  langs:
+  - csharp
+  - vb
+  name: TestMultipleConstructorsWithSingleSelected
+  nameWithType: TestMultipleConstructorsWithSingleSelected
+  fullName: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  type: Class
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvData.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: TestMultipleConstructorsWithSingleSelected
+    path: Heatington.Tests/Controllers/Serializers/CsvData.Tests.cs
+    startLine: 29
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: 'public class TestMultipleConstructorsWithSingleSelected : TestOneConstructor, IEquatable<TestOneConstructor>'
+    content.vb: Public Class TestMultipleConstructorsWithSingleSelected Inherits TestOneConstructor Implements IEquatable(Of TestOneConstructor)
+  inheritance:
+  - System.Object
+  - Heatington.Tests.Serializers.TestOneConstructor
+  implements:
+  - System.IEquatable{Heatington.Tests.Serializers.TestOneConstructor}
+  inheritedMembers:
+  - Heatington.Tests.Serializers.TestOneConstructor.A
+  - Heatington.Tests.Serializers.TestOneConstructor.B
+  - Heatington.Tests.Serializers.TestOneConstructor.C
+  - Heatington.Tests.Serializers.TestOneConstructor.Equals(System.Object)
+  - Heatington.Tests.Serializers.TestOneConstructor.Equals(Heatington.Tests.Serializers.TestOneConstructor)
+  - Heatington.Tests.Serializers.TestOneConstructor.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32,System.String,System.DateTime)
+  commentId: M:Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32,System.String,System.DateTime)
+  id: '#ctor(System.Int32,System.String,System.DateTime)'
+  parent: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  langs:
+  - csharp
+  - vb
+  name: TestMultipleConstructorsWithSingleSelected(int, string, DateTime)
+  nameWithType: TestMultipleConstructorsWithSingleSelected.TestMultipleConstructorsWithSingleSelected(int, string, DateTime)
+  fullName: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.TestMultipleConstructorsWithSingleSelected(int, string, System.DateTime)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvData.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington.Tests/Controllers/Serializers/CsvData.Tests.cs
+    startLine: 31
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: public TestMultipleConstructorsWithSingleSelected(int A, string B, DateTime C)
+    parameters:
+    - id: A
+      type: System.Int32
+    - id: B
+      type: System.String
+    - id: C
+      type: System.DateTime
+    content.vb: Public Sub New(A As Integer, B As String, C As Date)
+  overload: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor*
+  nameWithType.vb: TestMultipleConstructorsWithSingleSelected.New(Integer, String, Date)
+  fullName.vb: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.New(Integer, String, Date)
+  name.vb: New(Integer, String, Date)
+- uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32,System.String)
+  commentId: M:Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32,System.String)
+  id: '#ctor(System.Int32,System.String)'
+  parent: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  langs:
+  - csharp
+  - vb
+  name: TestMultipleConstructorsWithSingleSelected(int, string)
+  nameWithType: TestMultipleConstructorsWithSingleSelected.TestMultipleConstructorsWithSingleSelected(int, string)
+  fullName: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.TestMultipleConstructorsWithSingleSelected(int, string)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvData.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington.Tests/Controllers/Serializers/CsvData.Tests.cs
+    startLine: 33
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: public TestMultipleConstructorsWithSingleSelected(int A, string B)
+    parameters:
+    - id: A
+      type: System.Int32
+    - id: B
+      type: System.String
+    content.vb: Public Sub New(A As Integer, B As String)
+  overload: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor*
+  nameWithType.vb: TestMultipleConstructorsWithSingleSelected.New(Integer, String)
+  fullName.vb: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.New(Integer, String)
+  name.vb: New(Integer, String)
+- uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32)
+  commentId: M:Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+  langs:
+  - csharp
+  - vb
+  name: TestMultipleConstructorsWithSingleSelected(int)
+  nameWithType: TestMultipleConstructorsWithSingleSelected.TestMultipleConstructorsWithSingleSelected(int)
+  fullName: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.TestMultipleConstructorsWithSingleSelected(int)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvData.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington.Tests/Controllers/Serializers/CsvData.Tests.cs
+    startLine: 36
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: public TestMultipleConstructorsWithSingleSelected(int A)
+    parameters:
+    - id: A
+      type: System.Int32
+    content.vb: Public Sub New(A As Integer)
+  overload: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor*
+  nameWithType.vb: TestMultipleConstructorsWithSingleSelected.New(Integer)
+  fullName.vb: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.New(Integer)
+  name.vb: New(Integer)
+references:
+- uid: Heatington.Tests.Serializers
+  commentId: N:Heatington.Tests.Serializers
+  href: Heatington.html
+  name: Heatington.Tests.Serializers
+  nameWithType: Heatington.Tests.Serializers
+  fullName: Heatington.Tests.Serializers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Serializers
+    name: Serializers
+    href: Heatington.Tests.Serializers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Serializers
+    name: Serializers
+    href: Heatington.Tests.Serializers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Heatington.Tests.Serializers.TestOneConstructor
+  commentId: T:Heatington.Tests.Serializers.TestOneConstructor
+  parent: Heatington.Tests.Serializers
+  href: Heatington.Tests.Serializers.TestOneConstructor.html
+  name: TestOneConstructor
+  nameWithType: TestOneConstructor
+  fullName: Heatington.Tests.Serializers.TestOneConstructor
+- uid: System.IEquatable{Heatington.Tests.Serializers.TestOneConstructor}
+  commentId: T:System.IEquatable{Heatington.Tests.Serializers.TestOneConstructor}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<TestOneConstructor>
+  nameWithType: IEquatable<TestOneConstructor>
+  fullName: System.IEquatable<Heatington.Tests.Serializers.TestOneConstructor>
+  nameWithType.vb: IEquatable(Of TestOneConstructor)
+  fullName.vb: System.IEquatable(Of Heatington.Tests.Serializers.TestOneConstructor)
+  name.vb: IEquatable(Of TestOneConstructor)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Heatington.Tests.Serializers.TestOneConstructor
+    name: TestOneConstructor
+    href: Heatington.Tests.Serializers.TestOneConstructor.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Tests.Serializers.TestOneConstructor
+    name: TestOneConstructor
+    href: Heatington.Tests.Serializers.TestOneConstructor.html
+  - name: )
+- uid: Heatington.Tests.Serializers.TestOneConstructor.A
+  commentId: P:Heatington.Tests.Serializers.TestOneConstructor.A
+  parent: Heatington.Tests.Serializers.TestOneConstructor
+  href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_A
+  name: A
+  nameWithType: TestOneConstructor.A
+  fullName: Heatington.Tests.Serializers.TestOneConstructor.A
+- uid: Heatington.Tests.Serializers.TestOneConstructor.B
+  commentId: P:Heatington.Tests.Serializers.TestOneConstructor.B
+  parent: Heatington.Tests.Serializers.TestOneConstructor
+  href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_B
+  name: B
+  nameWithType: TestOneConstructor.B
+  fullName: Heatington.Tests.Serializers.TestOneConstructor.B
+- uid: Heatington.Tests.Serializers.TestOneConstructor.C
+  commentId: P:Heatington.Tests.Serializers.TestOneConstructor.C
+  parent: Heatington.Tests.Serializers.TestOneConstructor
+  href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_C
+  name: C
+  nameWithType: TestOneConstructor.C
+  fullName: Heatington.Tests.Serializers.TestOneConstructor.C
+- uid: Heatington.Tests.Serializers.TestOneConstructor.Equals(System.Object)
+  commentId: M:Heatington.Tests.Serializers.TestOneConstructor.Equals(System.Object)
+  parent: Heatington.Tests.Serializers.TestOneConstructor
+  isExternal: true
+  href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_Equals_System_Object_
+  name: Equals(object)
+  nameWithType: TestOneConstructor.Equals(object)
+  fullName: Heatington.Tests.Serializers.TestOneConstructor.Equals(object)
+  nameWithType.vb: TestOneConstructor.Equals(Object)
+  fullName.vb: Heatington.Tests.Serializers.TestOneConstructor.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: Heatington.Tests.Serializers.TestOneConstructor.Equals(System.Object)
+    name: Equals
+    href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: Heatington.Tests.Serializers.TestOneConstructor.Equals(System.Object)
+    name: Equals
+    href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_Equals_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Heatington.Tests.Serializers.TestOneConstructor.Equals(Heatington.Tests.Serializers.TestOneConstructor)
+  commentId: M:Heatington.Tests.Serializers.TestOneConstructor.Equals(Heatington.Tests.Serializers.TestOneConstructor)
+  parent: Heatington.Tests.Serializers.TestOneConstructor
+  href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_Equals_Heatington_Tests_Serializers_TestOneConstructor_
+  name: Equals(TestOneConstructor)
+  nameWithType: TestOneConstructor.Equals(TestOneConstructor)
+  fullName: Heatington.Tests.Serializers.TestOneConstructor.Equals(Heatington.Tests.Serializers.TestOneConstructor)
+  spec.csharp:
+  - uid: Heatington.Tests.Serializers.TestOneConstructor.Equals(Heatington.Tests.Serializers.TestOneConstructor)
+    name: Equals
+    href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_Equals_Heatington_Tests_Serializers_TestOneConstructor_
+  - name: (
+  - uid: Heatington.Tests.Serializers.TestOneConstructor
+    name: TestOneConstructor
+    href: Heatington.Tests.Serializers.TestOneConstructor.html
+  - name: )
+  spec.vb:
+  - uid: Heatington.Tests.Serializers.TestOneConstructor.Equals(Heatington.Tests.Serializers.TestOneConstructor)
+    name: Equals
+    href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_Equals_Heatington_Tests_Serializers_TestOneConstructor_
+  - name: (
+  - uid: Heatington.Tests.Serializers.TestOneConstructor
+    name: TestOneConstructor
+    href: Heatington.Tests.Serializers.TestOneConstructor.html
+  - name: )
+- uid: Heatington.Tests.Serializers.TestOneConstructor.GetHashCode
+  commentId: M:Heatington.Tests.Serializers.TestOneConstructor.GetHashCode
+  parent: Heatington.Tests.Serializers.TestOneConstructor
+  href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_GetHashCode
+  name: GetHashCode()
+  nameWithType: TestOneConstructor.GetHashCode()
+  fullName: Heatington.Tests.Serializers.TestOneConstructor.GetHashCode()
+  spec.csharp:
+  - uid: Heatington.Tests.Serializers.TestOneConstructor.GetHashCode
+    name: GetHashCode
+    href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_GetHashCode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Heatington.Tests.Serializers.TestOneConstructor.GetHashCode
+    name: GetHashCode
+    href: Heatington.Tests.Serializers.TestOneConstructor.html#Heatington_Tests_Serializers_TestOneConstructor_GetHashCode
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor*
+  commentId: Overload:Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.#ctor
+  href: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.html#Heatington_Tests_Serializers_TestMultipleConstructorsWithSingleSelected__ctor_System_Int32_System_String_System_DateTime_
+  name: TestMultipleConstructorsWithSingleSelected
+  nameWithType: TestMultipleConstructorsWithSingleSelected.TestMultipleConstructorsWithSingleSelected
+  fullName: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.TestMultipleConstructorsWithSingleSelected
+  nameWithType.vb: TestMultipleConstructorsWithSingleSelected.New
+  fullName.vb: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date

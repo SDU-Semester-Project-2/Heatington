@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: AM
     path: Heatington/AssetManager/AM.cs
@@ -64,7 +64,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/AssetManager/AM.cs
@@ -103,7 +103,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: HeatingGridInformation
     path: Heatington/AssetManager/AM.cs
@@ -132,7 +132,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnits
     path: Heatington/AssetManager/AM.cs
@@ -161,7 +161,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: LoadAssets
     path: Heatington/AssetManager/AM.cs
@@ -189,7 +189,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadHeatingUnits
     path: Heatington/AssetManager/AM.cs
@@ -217,7 +217,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AM.cs
@@ -226,13 +226,13 @@ items:
   - Heatington
   namespace: Heatington.AssetManager
   syntax:
-    content: public void WriteHeatingUnit(Guid unitId, ProductionUnit heatingUnitNewbBody)
+    content: public void WriteHeatingUnit(Guid unitId, ProductionUnit heatingUnitNewBody)
     parameters:
     - id: unitId
       type: System.Guid
-    - id: heatingUnitNewbBody
+    - id: heatingUnitNewBody
       type: Heatington.Models.ProductionUnit
-    content.vb: Public Sub WriteHeatingUnit(unitId As Guid, heatingUnitNewbBody As ProductionUnit)
+    content.vb: Public Sub WriteHeatingUnit(unitId As Guid, heatingUnitNewBody As ProductionUnit)
   overload: Heatington.AssetManager.AM.WriteHeatingUnit*
 - uid: Heatington.AssetManager.AM.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit)
   commentId: M:Heatington.AssetManager.AM.WriteHeatingUnit(Heatington.AssetManager.ProductionUnitsEnum,Heatington.Models.ProductionUnit)
@@ -248,7 +248,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AM.cs
@@ -257,13 +257,13 @@ items:
   - Heatington
   namespace: Heatington.AssetManager
   syntax:
-    content: public void WriteHeatingUnit(ProductionUnitsEnum productionUnitKey, ProductionUnit heatingUnitNewbBody)
+    content: public void WriteHeatingUnit(ProductionUnitsEnum productionUnitKey, ProductionUnit heatingUnitNewBody)
     parameters:
     - id: productionUnitKey
       type: Heatington.AssetManager.ProductionUnitsEnum
-    - id: heatingUnitNewbBody
+    - id: heatingUnitNewBody
       type: Heatington.Models.ProductionUnit
-    content.vb: Public Sub WriteHeatingUnit(productionUnitKey As ProductionUnitsEnum, heatingUnitNewbBody As ProductionUnit)
+    content.vb: Public Sub WriteHeatingUnit(productionUnitKey As ProductionUnitsEnum, heatingUnitNewBody As ProductionUnit)
   overload: Heatington.AssetManager.AM.WriteHeatingUnit*
 - uid: Heatington.AssetManager.AM.WriteHeatingUnit(Heatington.Models.ProductionUnit)
   commentId: M:Heatington.AssetManager.AM.WriteHeatingUnit(Heatington.Models.ProductionUnit)
@@ -279,7 +279,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingUnit
     path: Heatington/AssetManager/AM.cs
@@ -308,7 +308,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: AddHeatingUnit
     path: Heatington/AssetManager/AM.cs
@@ -339,7 +339,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/AM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ToString
     path: Heatington/AssetManager/AM.cs

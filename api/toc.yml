@@ -75,6 +75,21 @@ items:
   items:
   - uid: Heatington.Microservice.OPT.Services.DependenciesService
     name: DependenciesService
+- uid: Heatington.Microservice.RDM
+  name: Heatington.Microservice.RDM
+  items:
+  - uid: Heatington.Microservice.RDM.CsvFormatController
+    name: CsvFormatController
+  - uid: Heatington.Microservice.RDM.Program
+    name: Program
+  - uid: Heatington.Microservice.RDM.ResultDataManagerController
+    name: ResultDataManagerController
+  - uid: Heatington.Microservice.RDM.ResultDataManagerModel
+    name: ResultDataManagerModel
+  - uid: Heatington.Microservice.RDM.ResultDataManagerService
+    name: ResultDataManagerService
+  - uid: Heatington.Microservice.RDM.Startup
+    name: Startup
 - uid: Heatington.Models
   name: Heatington.Models
   items:
@@ -116,6 +131,8 @@ items:
     name: CsvData
   - uid: Heatington.Services.Serializers.CsvSerializer
     name: CsvSerializer
+  - uid: Heatington.Services.Serializers.JsonSerializerCustom
+    name: JsonSerializerCustom
 - uid: Heatington.SourceDataManager
   name: Heatington.SourceDataManager
   items:
@@ -124,13 +141,58 @@ items:
 - uid: Heatington.Tests
   name: Heatington.Tests
   items:
-  - uid: Heatington.Tests.UnitTest1
-    name: UnitTest1
+  - uid: Heatington.Tests.OPTTests
+    name: OPTTests
+  - uid: Heatington.Tests.UseTestDirectory
+    name: UseTestDirectory
+- uid: Heatington.Tests.AssetManager
+  name: Heatington.Tests.AssetManager
+  items:
+  - uid: Heatington.Tests.AssetManager.AssetManagerTest
+    name: AssetManagerTest
 - uid: Heatington.Tests.Controllers
   name: Heatington.Tests.Controllers
   items:
+  - uid: Heatington.Tests.Controllers.CsvControllerTests
+    name: CsvControllerTests
   - uid: Heatington.Tests.Controllers.FileControllerTests
     name: FileControllerTests
+  - uid: Heatington.Tests.Controllers.JsonControllerTests
+    name: JsonControllerTests
+- uid: Heatington.Tests.Models
+  name: Heatington.Tests.Models
+  items:
+  - uid: Heatington.Tests.Models.HeatingGridTests
+    name: HeatingGridTests
+  - uid: Heatington.Tests.Models.ProductionUnitTest
+    name: ProductionUnitTest
+- uid: Heatington.Tests.Serializers
+  name: Heatington.Tests.Serializers
+  items:
+  - uid: Heatington.Tests.Serializers.CsvDataTests
+    name: CsvDataTests
+  - uid: Heatington.Tests.Serializers.CsvSerializerTests
+    name: CsvSerializerTests
+  - uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithMultipleSelected
+    name: TestMultipleConstructorsWithMultipleSelected
+  - uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithNoneSelected
+    name: TestMultipleConstructorsWithNoneSelected
+  - uid: Heatington.Tests.Serializers.TestMultipleConstructorsWithSingleSelected
+    name: TestMultipleConstructorsWithSingleSelected
+  - uid: Heatington.Tests.Serializers.TestOneConstructor
+    name: TestOneConstructor
+- uid: Heatington.Tests.Services
+  name: Heatington.Tests.Services
+  items:
+  - uid: Heatington.Tests.Services.JsonSerializerCustomTests
+    name: JsonSerializerCustomTests
+- uid: Heatington.Tests.SourceDataManager
+  name: Heatington.Tests.SourceDataManager
+  items:
+  - uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest
+    name: SourceDataManagerTest
+  - uid: Heatington.Tests.SourceDataManager.StubDataSource
+    name: StubDataSource
 - uid: Heatington.Web.Client
   name: Heatington.Web.Client
   items:

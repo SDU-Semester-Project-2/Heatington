@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ProductionUnitsEnum
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -45,7 +45,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GasBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -71,7 +71,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: OilBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -97,7 +97,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: GasMotor
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -123,7 +123,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ElectricBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs
@@ -149,7 +149,7 @@ items:
   source:
     remote:
       path: Heatington/AssetManager/ProductionUnitsEnum.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: CustomBoiler
     path: Heatington/AssetManager/ProductionUnitsEnum.cs

@@ -5,6 +5,7 @@ items:
   id: JsonControllerTests
   parent: Heatington.Tests.Controllers
   children:
+  - Heatington.Tests.Controllers.JsonControllerTests.#ctor(Xunit.Abstractions.ITestOutputHelper)
   - Heatington.Tests.Controllers.JsonControllerTests.ReadHeatingGridFromFile_ReadData_ReadsCorrectJson
   - Heatington.Tests.Controllers.JsonControllerTests.ReadProductionUnitFromFile_ReadData_ReadsCorrectJson
   - Heatington.Tests.Controllers.JsonControllerTests.WriteHeatingGridToFile_WriteData_WritesCorrectJson
@@ -19,11 +20,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/JsonController.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: JsonControllerTests
     path: Heatington.Tests/Controllers/JsonController.Tests.cs
-    startLine: 8
+    startLine: 10
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Controllers
@@ -37,6 +38,7 @@ items:
   - System.IDisposable
   inheritedMembers:
   - Heatington.Tests.UseTestDirectory.TestsDirPath
+  - Heatington.Tests.UseTestDirectory.ClearTestsDirectory
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetHashCode
@@ -44,6 +46,38 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: Heatington.Tests.Controllers.JsonControllerTests.#ctor(Xunit.Abstractions.ITestOutputHelper)
+  commentId: M:Heatington.Tests.Controllers.JsonControllerTests.#ctor(Xunit.Abstractions.ITestOutputHelper)
+  id: '#ctor(Xunit.Abstractions.ITestOutputHelper)'
+  parent: Heatington.Tests.Controllers.JsonControllerTests
+  langs:
+  - csharp
+  - vb
+  name: JsonControllerTests(ITestOutputHelper)
+  nameWithType: JsonControllerTests.JsonControllerTests(ITestOutputHelper)
+  fullName: Heatington.Tests.Controllers.JsonControllerTests.JsonControllerTests(Xunit.Abstractions.ITestOutputHelper)
+  type: Constructor
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/JsonController.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: .ctor
+    path: Heatington.Tests/Controllers/JsonController.Tests.cs
+    startLine: 14
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Controllers
+  syntax:
+    content: public JsonControllerTests(ITestOutputHelper testOutputHelper)
+    parameters:
+    - id: testOutputHelper
+      type: Xunit.Abstractions.ITestOutputHelper
+    content.vb: Public Sub New(testOutputHelper As ITestOutputHelper)
+  overload: Heatington.Tests.Controllers.JsonControllerTests.#ctor*
+  nameWithType.vb: JsonControllerTests.New(ITestOutputHelper)
+  fullName.vb: Heatington.Tests.Controllers.JsonControllerTests.New(Xunit.Abstractions.ITestOutputHelper)
+  name.vb: New(ITestOutputHelper)
 - uid: Heatington.Tests.Controllers.JsonControllerTests.ReadProductionUnitFromFile_ReadData_ReadsCorrectJson
   commentId: M:Heatington.Tests.Controllers.JsonControllerTests.ReadProductionUnitFromFile_ReadData_ReadsCorrectJson
   id: ReadProductionUnitFromFile_ReadData_ReadsCorrectJson
@@ -58,11 +92,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/JsonController.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadProductionUnitFromFile_ReadData_ReadsCorrectJson
     path: Heatington.Tests/Controllers/JsonController.Tests.cs
-    startLine: 10
+    startLine: 19
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Controllers
@@ -96,11 +130,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/JsonController.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteProductionUnitToFile_WriteData_WritesCorrectJson
     path: Heatington.Tests/Controllers/JsonController.Tests.cs
-    startLine: 27
+    startLine: 47
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Controllers
@@ -134,11 +168,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/JsonController.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: ReadHeatingGridFromFile_ReadData_ReadsCorrectJson
     path: Heatington.Tests/Controllers/JsonController.Tests.cs
-    startLine: 47
+    startLine: 82
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Controllers
@@ -172,11 +206,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/Controllers/JsonController.Tests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteHeatingGridToFile_WriteData_WritesCorrectJson
     path: Heatington.Tests/Controllers/JsonController.Tests.cs
-    startLine: 64
+    startLine: 113
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.Controllers
@@ -260,6 +294,25 @@ references:
   name: TestsDirPath
   nameWithType: UseTestDirectory.TestsDirPath
   fullName: Heatington.Tests.UseTestDirectory.TestsDirPath
+- uid: Heatington.Tests.UseTestDirectory.ClearTestsDirectory
+  commentId: M:Heatington.Tests.UseTestDirectory.ClearTestsDirectory
+  parent: Heatington.Tests.UseTestDirectory
+  href: Heatington.Tests.UseTestDirectory.html#Heatington_Tests_UseTestDirectory_ClearTestsDirectory
+  name: ClearTestsDirectory()
+  nameWithType: UseTestDirectory.ClearTestsDirectory()
+  fullName: Heatington.Tests.UseTestDirectory.ClearTestsDirectory()
+  spec.csharp:
+  - uid: Heatington.Tests.UseTestDirectory.ClearTestsDirectory
+    name: ClearTestsDirectory
+    href: Heatington.Tests.UseTestDirectory.html#Heatington_Tests_UseTestDirectory_ClearTestsDirectory
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Heatington.Tests.UseTestDirectory.ClearTestsDirectory
+    name: ClearTestsDirectory
+    href: Heatington.Tests.UseTestDirectory.html#Heatington_Tests_UseTestDirectory_ClearTestsDirectory
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -508,6 +561,44 @@ references:
   - uid: Heatington.Tests
     name: Tests
     href: Heatington.Tests.html
+- uid: Heatington.Tests.Controllers.JsonControllerTests.#ctor*
+  commentId: Overload:Heatington.Tests.Controllers.JsonControllerTests.#ctor
+  href: Heatington.Tests.Controllers.JsonControllerTests.html#Heatington_Tests_Controllers_JsonControllerTests__ctor_Xunit_Abstractions_ITestOutputHelper_
+  name: JsonControllerTests
+  nameWithType: JsonControllerTests.JsonControllerTests
+  fullName: Heatington.Tests.Controllers.JsonControllerTests.JsonControllerTests
+  nameWithType.vb: JsonControllerTests.New
+  fullName.vb: Heatington.Tests.Controllers.JsonControllerTests.New
+  name.vb: New
+- uid: Xunit.Abstractions.ITestOutputHelper
+  commentId: T:Xunit.Abstractions.ITestOutputHelper
+  parent: Xunit.Abstractions
+  isExternal: true
+  name: ITestOutputHelper
+  nameWithType: ITestOutputHelper
+  fullName: Xunit.Abstractions.ITestOutputHelper
+- uid: Xunit.Abstractions
+  commentId: N:Xunit.Abstractions
+  isExternal: true
+  name: Xunit.Abstractions
+  nameWithType: Xunit.Abstractions
+  fullName: Xunit.Abstractions
+  spec.csharp:
+  - uid: Xunit
+    name: Xunit
+    isExternal: true
+  - name: .
+  - uid: Xunit.Abstractions
+    name: Abstractions
+    isExternal: true
+  spec.vb:
+  - uid: Xunit
+    name: Xunit
+    isExternal: true
+  - name: .
+  - uid: Xunit.Abstractions
+    name: Abstractions
+    isExternal: true
 - uid: Heatington.Tests.Controllers.JsonControllerTests.ReadProductionUnitFromFile_ReadData_ReadsCorrectJson*
   commentId: Overload:Heatington.Tests.Controllers.JsonControllerTests.ReadProductionUnitFromFile_ReadData_ReadsCorrectJson
   href: Heatington.Tests.Controllers.JsonControllerTests.html#Heatington_Tests_Controllers_JsonControllerTests_ReadProductionUnitFromFile_ReadData_ReadsCorrectJson

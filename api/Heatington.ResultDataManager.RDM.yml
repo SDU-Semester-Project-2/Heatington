@@ -7,6 +7,10 @@ items:
   children:
   - Heatington.ResultDataManager.RDM.#ctor(Heatington.Controllers.CsvController)
   - Heatington.ResultDataManager.RDM.FetchOptimizationData(Heatington.Optimizer.OPT)
+  - Heatington.ResultDataManager.RDM.FetchOptimizationData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  - Heatington.ResultDataManager.RDM.FormatResults
+  - Heatington.ResultDataManager.RDM.FormatResults(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  - Heatington.ResultDataManager.RDM.FormatedResults
   - Heatington.ResultDataManager.RDM.WriteDataToCsv
   langs:
   - csharp
@@ -18,11 +22,11 @@ items:
   source:
     remote:
       path: Heatington/ResultDataManager/RDM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: RDM
     path: Heatington/ResultDataManager/RDM.cs
-    startLine: 8
+    startLine: 6
   assemblies:
   - Heatington
   namespace: Heatington.ResultDataManager
@@ -53,11 +57,11 @@ items:
   source:
     remote:
       path: Heatington/ResultDataManager/RDM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington/ResultDataManager/RDM.cs
-    startLine: 8
+    startLine: 6
   assemblies:
   - Heatington
   namespace: Heatington.ResultDataManager
@@ -71,6 +75,33 @@ items:
   nameWithType.vb: RDM.New(CsvController)
   fullName.vb: Heatington.ResultDataManager.RDM.New(Heatington.Controllers.CsvController)
   name.vb: New(CsvController)
+- uid: Heatington.ResultDataManager.RDM.FormatedResults
+  commentId: F:Heatington.ResultDataManager.RDM.FormatedResults
+  id: FormatedResults
+  parent: Heatington.ResultDataManager.RDM
+  langs:
+  - csharp
+  - vb
+  name: FormatedResults
+  nameWithType: RDM.FormatedResults
+  fullName: Heatington.ResultDataManager.RDM.FormatedResults
+  type: Field
+  source:
+    remote:
+      path: Heatington/ResultDataManager/RDM.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FormatedResults
+    path: Heatington/ResultDataManager/RDM.cs
+    startLine: 9
+  assemblies:
+  - Heatington
+  namespace: Heatington.ResultDataManager
+  syntax:
+    content: public List<FormatedResultHolder> FormatedResults
+    return:
+      type: System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+    content.vb: Public FormatedResults As List(Of FormatedResultHolder)
 - uid: Heatington.ResultDataManager.RDM.FetchOptimizationData(Heatington.Optimizer.OPT)
   commentId: M:Heatington.ResultDataManager.RDM.FetchOptimizationData(Heatington.Optimizer.OPT)
   id: FetchOptimizationData(Heatington.Optimizer.OPT)
@@ -85,11 +116,11 @@ items:
   source:
     remote:
       path: Heatington/ResultDataManager/RDM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FetchOptimizationData
     path: Heatington/ResultDataManager/RDM.cs
-    startLine: 13
+    startLine: 11
   assemblies:
   - Heatington
   namespace: Heatington.ResultDataManager
@@ -100,6 +131,100 @@ items:
       type: Heatington.Optimizer.OPT
     content.vb: Public Sub FetchOptimizationData(opt As OPT)
   overload: Heatington.ResultDataManager.RDM.FetchOptimizationData*
+- uid: Heatington.ResultDataManager.RDM.FetchOptimizationData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  commentId: M:Heatington.ResultDataManager.RDM.FetchOptimizationData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  id: FetchOptimizationData(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  parent: Heatington.ResultDataManager.RDM
+  langs:
+  - csharp
+  - vb
+  name: FetchOptimizationData(List<ResultHolder>)
+  nameWithType: RDM.FetchOptimizationData(List<ResultHolder>)
+  fullName: Heatington.ResultDataManager.RDM.FetchOptimizationData(System.Collections.Generic.List<Heatington.Models.ResultHolder>)
+  type: Method
+  source:
+    remote:
+      path: Heatington/ResultDataManager/RDM.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FetchOptimizationData
+    path: Heatington/ResultDataManager/RDM.cs
+    startLine: 16
+  assemblies:
+  - Heatington
+  namespace: Heatington.ResultDataManager
+  syntax:
+    content: public void FetchOptimizationData(List<ResultHolder> rawResults)
+    parameters:
+    - id: rawResults
+      type: System.Collections.Generic.List{Heatington.Models.ResultHolder}
+    content.vb: Public Sub FetchOptimizationData(rawResults As List(Of ResultHolder))
+  overload: Heatington.ResultDataManager.RDM.FetchOptimizationData*
+  nameWithType.vb: RDM.FetchOptimizationData(List(Of ResultHolder))
+  fullName.vb: Heatington.ResultDataManager.RDM.FetchOptimizationData(System.Collections.Generic.List(Of Heatington.Models.ResultHolder))
+  name.vb: FetchOptimizationData(List(Of ResultHolder))
+- uid: Heatington.ResultDataManager.RDM.FormatResults(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  commentId: M:Heatington.ResultDataManager.RDM.FormatResults(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  id: FormatResults(System.Collections.Generic.List{Heatington.Models.ResultHolder})
+  parent: Heatington.ResultDataManager.RDM
+  langs:
+  - csharp
+  - vb
+  name: FormatResults(List<ResultHolder>)
+  nameWithType: RDM.FormatResults(List<ResultHolder>)
+  fullName: Heatington.ResultDataManager.RDM.FormatResults(System.Collections.Generic.List<Heatington.Models.ResultHolder>)
+  type: Method
+  source:
+    remote:
+      path: Heatington/ResultDataManager/RDM.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FormatResults
+    path: Heatington/ResultDataManager/RDM.cs
+    startLine: 21
+  assemblies:
+  - Heatington
+  namespace: Heatington.ResultDataManager
+  syntax:
+    content: public List<FormatedResultHolder> FormatResults(List<ResultHolder> rawResults)
+    parameters:
+    - id: rawResults
+      type: System.Collections.Generic.List{Heatington.Models.ResultHolder}
+    return:
+      type: System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+    content.vb: Public Function FormatResults(rawResults As List(Of ResultHolder)) As List(Of FormatedResultHolder)
+  overload: Heatington.ResultDataManager.RDM.FormatResults*
+  nameWithType.vb: RDM.FormatResults(List(Of ResultHolder))
+  fullName.vb: Heatington.ResultDataManager.RDM.FormatResults(System.Collections.Generic.List(Of Heatington.Models.ResultHolder))
+  name.vb: FormatResults(List(Of ResultHolder))
+- uid: Heatington.ResultDataManager.RDM.FormatResults
+  commentId: M:Heatington.ResultDataManager.RDM.FormatResults
+  id: FormatResults
+  parent: Heatington.ResultDataManager.RDM
+  langs:
+  - csharp
+  - vb
+  name: FormatResults()
+  nameWithType: RDM.FormatResults()
+  fullName: Heatington.ResultDataManager.RDM.FormatResults()
+  type: Method
+  source:
+    remote:
+      path: Heatington/ResultDataManager/RDM.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: FormatResults
+    path: Heatington/ResultDataManager/RDM.cs
+    startLine: 39
+  assemblies:
+  - Heatington
+  namespace: Heatington.ResultDataManager
+  syntax:
+    content: public List<FormatedResultHolder> FormatResults()
+    return:
+      type: System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+    content.vb: Public Function FormatResults() As List(Of FormatedResultHolder)
+  overload: Heatington.ResultDataManager.RDM.FormatResults*
 - uid: Heatington.ResultDataManager.RDM.WriteDataToCsv
   commentId: M:Heatington.ResultDataManager.RDM.WriteDataToCsv
   id: WriteDataToCsv
@@ -114,11 +239,11 @@ items:
   source:
     remote:
       path: Heatington/ResultDataManager/RDM.cs
-      branch: SP2-5-data-visualization-dv
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: WriteDataToCsv
     path: Heatington/ResultDataManager/RDM.cs
-    startLine: 36
+    startLine: 57
   assemblies:
   - Heatington
   namespace: Heatington.ResultDataManager
@@ -424,6 +549,104 @@ references:
   - uid: Heatington.Controllers
     name: Controllers
     href: Heatington.Controllers.html
+- uid: System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.FormatedResultHolder}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<FormatedResultHolder>
+  nameWithType: List<FormatedResultHolder>
+  fullName: System.Collections.Generic.List<Heatington.Models.FormatedResultHolder>
+  nameWithType.vb: List(Of FormatedResultHolder)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.FormatedResultHolder)
+  name.vb: List(Of FormatedResultHolder)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.FormatedResultHolder
+    name: FormatedResultHolder
+    href: Heatington.Models.FormatedResultHolder.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.FormatedResultHolder
+    name: FormatedResultHolder
+    href: Heatington.Models.FormatedResultHolder.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: Heatington.ResultDataManager.RDM.FetchOptimizationData*
   commentId: Overload:Heatington.ResultDataManager.RDM.FetchOptimizationData
   href: Heatington.ResultDataManager.RDM.html#Heatington_ResultDataManager_RDM_FetchOptimizationData_Heatington_Optimizer_OPT_
@@ -459,6 +682,45 @@ references:
   - uid: Heatington.Optimizer
     name: Optimizer
     href: Heatington.Optimizer.html
+- uid: System.Collections.Generic.List{Heatington.Models.ResultHolder}
+  commentId: T:System.Collections.Generic.List{Heatington.Models.ResultHolder}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ResultHolder>
+  nameWithType: List<ResultHolder>
+  fullName: System.Collections.Generic.List<Heatington.Models.ResultHolder>
+  nameWithType.vb: List(Of ResultHolder)
+  fullName.vb: System.Collections.Generic.List(Of Heatington.Models.ResultHolder)
+  name.vb: List(Of ResultHolder)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Heatington.Models.ResultHolder
+    name: ResultHolder
+    href: Heatington.Models.ResultHolder.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Heatington.Models.ResultHolder
+    name: ResultHolder
+    href: Heatington.Models.ResultHolder.html
+  - name: )
+- uid: Heatington.ResultDataManager.RDM.FormatResults*
+  commentId: Overload:Heatington.ResultDataManager.RDM.FormatResults
+  href: Heatington.ResultDataManager.RDM.html#Heatington_ResultDataManager_RDM_FormatResults_System_Collections_Generic_List_Heatington_Models_ResultHolder__
+  name: FormatResults
+  nameWithType: RDM.FormatResults
+  fullName: Heatington.ResultDataManager.RDM.FormatResults
 - uid: Heatington.ResultDataManager.RDM.WriteDataToCsv*
   commentId: Overload:Heatington.ResultDataManager.RDM.WriteDataToCsv
   href: Heatington.ResultDataManager.RDM.html#Heatington_ResultDataManager_RDM_WriteDataToCsv

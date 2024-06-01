@@ -6,7 +6,8 @@ items:
   parent: Heatington.Tests.SourceDataManager
   children:
   - Heatington.Tests.SourceDataManager.SourceDataManagerTest.#ctor
-  - Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  - Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(System.String[])
+  - Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData(System.String[])
   langs:
   - csharp
   - vb
@@ -17,11 +18,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: SourceDataManagerTest
     path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
-    startLine: 9
+    startLine: 22
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.SourceDataManager
@@ -52,11 +53,11 @@ items:
   source:
     remote:
       path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: .ctor
     path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
-    startLine: 14
+    startLine: 27
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.SourceDataManager
@@ -67,25 +68,25 @@ items:
   nameWithType.vb: SourceDataManagerTest.New()
   fullName.vb: Heatington.Tests.SourceDataManager.SourceDataManagerTest.New()
   name.vb: New()
-- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
-  commentId: M:Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
-  id: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(System.String[])
+  commentId: M:Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(System.String[])
+  id: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(System.String[])
   parent: Heatington.Tests.SourceDataManager.SourceDataManagerTest
   langs:
   - csharp
   - vb
-  name: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully()
-  nameWithType: SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully()
-  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully()
+  name: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(params string[])
+  nameWithType: SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(params string[])
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(params string[])
   type: Method
   source:
     remote:
       path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
-      branch: SP2-110-Create-Tests-for-JsonController
+      branch: SP2-111-unit-testing
       repo: https://github.com/SDU-Semester-Project-2/Heatington.git
     id: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
     path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
-    startLine: 20
+    startLine: 33
   assemblies:
   - Heatington.Tests
   namespace: Heatington.Tests.SourceDataManager
@@ -103,7 +104,10 @@ items:
 
       [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05", "2/8/23 7:00", "2/8/23 8:00", "6.79", "1191.07", "2/8/23 8:00", "2/8/23 9:00", "6.81", "1191.09" })]
 
-      public Task FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully()
+      public Task FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(params string[] data)
+    parameters:
+    - id: data
+      type: System.String[]
     return:
       type: System.Threading.Tasks.Task
     content.vb: >-
@@ -119,12 +123,79 @@ items:
 
       <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05", "2/8/23 7:00", "2/8/23 8:00", "6.79", "1191.07", "2/8/23 8:00", "2/8/23 9:00", "6.81", "1191.09" })>
 
-      Public Function FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully() As Task
+      Public Function FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(ParamArray data As String()) As Task
   overload: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully*
   attributes:
   - type: Xunit.TheoryAttribute
     ctor: Xunit.TheoryAttribute.#ctor
     arguments: []
+  nameWithType.vb: SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(ParamArray String())
+  fullName.vb: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(ParamArray String())
+  name.vb: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully(ParamArray String())
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData(System.String[])
+  commentId: M:Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData(System.String[])
+  id: VerifyDataPoints_ShouldMatchExpectedData(System.String[])
+  parent: Heatington.Tests.SourceDataManager.SourceDataManagerTest
+  langs:
+  - csharp
+  - vb
+  name: VerifyDataPoints_ShouldMatchExpectedData(params string[])
+  nameWithType: SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData(params string[])
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData(params string[])
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: VerifyDataPoints_ShouldMatchExpectedData
+    path: Heatington.Tests/SourceDataManager/SourceDataManagerTests.cs
+    startLine: 81
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.SourceDataManager
+  syntax:
+    content: >-
+      [Theory]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94" })]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97" })]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01" })]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05" })]
+
+      [InlineData(new object[] { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05", "2/8/23 7:00", "2/8/23 8:00", "6.79", "1191.07", "2/8/23 8:00", "2/8/23 9:00", "6.81", "1191.09" })]
+
+      public Task VerifyDataPoints_ShouldMatchExpectedData(params string[] data)
+    parameters:
+    - id: data
+      type: System.String[]
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <Theory>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94" })>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97" })>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01" })>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05" })>
+
+      <InlineData(New Object() { "2/8/23 0:00", "2/8/23 1:00", "6.62", "1190.94", "2/8/23 1:00", "2/8/23 2:00", "6.65", "1190.99", "2/8/23 2:00", "2/8/23 3:00", "6.69", "1190.97", "2/8/23 3:00", "2/8/23 4:00", "6.71", "1190.99", "2/8/23 4:00", "2/8/23 5:00", "6.73", "1191.01", "2/8/23 5:00", "2/8/23 6:00", "6.75", "1191.03", "2/8/23 6:00", "2/8/23 7:00", "6.77", "1191.05", "2/8/23 7:00", "2/8/23 8:00", "6.79", "1191.07", "2/8/23 8:00", "2/8/23 9:00", "6.81", "1191.09" })>
+
+      Public Function VerifyDataPoints_ShouldMatchExpectedData(ParamArray data As String()) As Task
+  overload: Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData(ParamArray String())
+  fullName.vb: Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData(ParamArray String())
+  name.vb: VerifyDataPoints_ShouldMatchExpectedData(ParamArray String())
 references:
 - uid: Heatington.Tests.SourceDataManager
   commentId: N:Heatington.Tests.SourceDataManager
@@ -404,10 +475,33 @@ references:
   name.vb: New
 - uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully*
   commentId: Overload:Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
-  href: Heatington.Tests.SourceDataManager.SourceDataManagerTest.html#Heatington_Tests_SourceDataManager_SourceDataManagerTest_FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+  href: Heatington.Tests.SourceDataManager.SourceDataManagerTest.html#Heatington_Tests_SourceDataManager_SourceDataManagerTest_FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully_System_String___
   name: FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
   nameWithType: SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
   fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.FetchTimeSeriesDataAsync_ShouldFetchDataSuccessfully
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
 - uid: System.Threading.Tasks.Task
   commentId: T:System.Threading.Tasks.Task
   parent: System.Threading.Tasks
@@ -453,3 +547,9 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData*
+  commentId: Overload:Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData
+  href: Heatington.Tests.SourceDataManager.SourceDataManagerTest.html#Heatington_Tests_SourceDataManager_SourceDataManagerTest_VerifyDataPoints_ShouldMatchExpectedData_System_String___
+  name: VerifyDataPoints_ShouldMatchExpectedData
+  nameWithType: SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData
+  fullName: Heatington.Tests.SourceDataManager.SourceDataManagerTest.VerifyDataPoints_ShouldMatchExpectedData

@@ -1,0 +1,879 @@
+### YamlMime:ManagedReference
+items:
+- uid: Heatington.Tests.Serializers.CsvSerializerTests
+  commentId: T:Heatington.Tests.Serializers.CsvSerializerTests
+  id: CsvSerializerTests
+  parent: Heatington.Tests.Serializers
+  children:
+  - Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  - Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString(Heatington.Services.Serializers.CsvData,System.String)
+  - Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  - Heatington.Tests.Serializers.CsvSerializerTests.GetCsvTestsWithHeader
+  - Heatington.Tests.Serializers.CsvSerializerTests.GetTests
+  - Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException(System.String)
+  - Heatington.Tests.Serializers.CsvSerializerTests.SerializeTests
+  - Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(System.String,Heatington.Services.Serializers.CsvData)
+  - Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(System.String,Heatington.Services.Serializers.CsvData)
+  langs:
+  - csharp
+  - vb
+  name: CsvSerializerTests
+  nameWithType: CsvSerializerTests
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests
+  type: Class
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: CsvSerializerTests
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 4
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: public class CsvSerializerTests
+    content.vb: Public Class CsvSerializerTests
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.GetTests
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.GetTests
+  id: GetTests
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: GetTests()
+  nameWithType: CsvSerializerTests.GetTests()
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.GetTests()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: GetTests
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 6
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: public static IEnumerable<object[]> GetTests()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Object[]}
+    content.vb: Public Shared Function GetTests() As IEnumerable(Of Object())
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.GetTests*
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(System.String,Heatington.Services.Serializers.CsvData)
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(System.String,Heatington.Services.Serializers.CsvData)
+  id: ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(System.String,Heatington.Services.Serializers.CsvData)
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(string, CsvData)
+  nameWithType: CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(string, CsvData)
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(string, Heatington.Services.Serializers.CsvData)
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 106
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: >-
+      [Theory]
+
+      [MemberData("GetTests", new object[] { })]
+
+      public void ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(string rawData, CsvData expected)
+    parameters:
+    - id: rawData
+      type: System.String
+    - id: expected
+      type: Heatington.Services.Serializers.CsvData
+    content.vb: >-
+      <Theory>
+
+      <MemberData("GetTests", New Object() { })>
+
+      Public Sub ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(rawData As String, expected As CsvData)
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(String, CsvData)
+  fullName.vb: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(String, Heatington.Services.Serializers.CsvData)
+  name.vb: ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData(String, CsvData)
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  id: EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData()
+  nameWithType: CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData()
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 119
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: >-
+      [Fact]
+
+      public void EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData()
+    content.vb: >-
+      <Fact>
+
+      Public Sub EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData()
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.GetCsvTestsWithHeader
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.GetCsvTestsWithHeader
+  id: GetCsvTestsWithHeader
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: GetCsvTestsWithHeader()
+  nameWithType: CsvSerializerTests.GetCsvTestsWithHeader()
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.GetCsvTestsWithHeader()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: GetCsvTestsWithHeader
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 133
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: public static IEnumerable<object[]> GetCsvTestsWithHeader()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Object[]}
+    content.vb: Public Shared Function GetCsvTestsWithHeader() As IEnumerable(Of Object())
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.GetCsvTestsWithHeader*
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(System.String,Heatington.Services.Serializers.CsvData)
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(System.String,Heatington.Services.Serializers.CsvData)
+  id: ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(System.String,Heatington.Services.Serializers.CsvData)
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(string, CsvData)
+  nameWithType: CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(string, CsvData)
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(string, Heatington.Services.Serializers.CsvData)
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 233
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: >-
+      [Theory]
+
+      [MemberData("GetCsvTestsWithHeader", new object[] { })]
+
+      public void ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(string rawData, CsvData expected)
+    parameters:
+    - id: rawData
+      type: System.String
+    - id: expected
+      type: Heatington.Services.Serializers.CsvData
+    content.vb: >-
+      <Theory>
+
+      <MemberData("GetCsvTestsWithHeader", New Object() { })>
+
+      Public Sub ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(rawData As String, expected As CsvData)
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(String, CsvData)
+  fullName.vb: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(String, Heatington.Services.Serializers.CsvData)
+  name.vb: ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData(String, CsvData)
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException(System.String)
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException(System.String)
+  id: InvalidCsv_Deserialize_ThrowsException(System.String)
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: InvalidCsv_Deserialize_ThrowsException(string)
+  nameWithType: CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException(string)
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException(string)
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: InvalidCsv_Deserialize_ThrowsException
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 246
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: >-
+      [Theory]
+
+      [InlineData(new object[] { "abc,d\"ef,ghi\njklm,nopqr,st" })]
+
+      [InlineData(new object[] { "abc,def,ghi\njklm,\"no\"pqr\",st" })]
+
+      [InlineData(new object[] { "abc,def,ghi\njklm,\"no\"\"\"pqr\",st" })]
+
+      [InlineData(new object[] { "abc,def,ghi\njklm,\"nopqr,st" })]
+
+      public void InvalidCsv_Deserialize_ThrowsException(string rawData)
+    parameters:
+    - id: rawData
+      type: System.String
+    content.vb: >-
+      <Theory>
+
+      <InlineData(New Object() { "abc,d""ef,ghi" & vbLf & "jklm,nopqr,st" })>
+
+      <InlineData(New Object() { "abc,def,ghi" & vbLf & "jklm,""no""pqr"",st" })>
+
+      <InlineData(New Object() { "abc,def,ghi" & vbLf & "jklm,""no""""""pqr"",st" })>
+
+      <InlineData(New Object() { "abc,def,ghi" & vbLf & "jklm,""nopqr,st" })>
+
+      Public Sub InvalidCsv_Deserialize_ThrowsException(rawData As String)
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException(String)
+  fullName.vb: Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException(String)
+  name.vb: InvalidCsv_Deserialize_ThrowsException(String)
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  id: EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData()
+  nameWithType: CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData()
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 273
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: >-
+      [Fact]
+
+      public void EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData()
+    content.vb: >-
+      <Fact>
+
+      Public Sub EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData()
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData*
+  attributes:
+  - type: Xunit.FactAttribute
+    ctor: Xunit.FactAttribute.#ctor
+    arguments: []
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.SerializeTests
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.SerializeTests
+  id: SerializeTests
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: SerializeTests()
+  nameWithType: CsvSerializerTests.SerializeTests()
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.SerializeTests()
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: SerializeTests
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 287
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: public static IEnumerable<object[]> SerializeTests()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Object[]}
+    content.vb: Public Shared Function SerializeTests() As IEnumerable(Of Object())
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.SerializeTests*
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString(Heatington.Services.Serializers.CsvData,System.String)
+  commentId: M:Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString(Heatington.Services.Serializers.CsvData,System.String)
+  id: EmptyCsvWithHeader_Serialize_ReturnsCorrectString(Heatington.Services.Serializers.CsvData,System.String)
+  parent: Heatington.Tests.Serializers.CsvSerializerTests
+  langs:
+  - csharp
+  - vb
+  name: EmptyCsvWithHeader_Serialize_ReturnsCorrectString(CsvData, string)
+  nameWithType: CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString(CsvData, string)
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString(Heatington.Services.Serializers.CsvData, string)
+  type: Method
+  source:
+    remote:
+      path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+      branch: SP2-111-unit-testing
+      repo: https://github.com/SDU-Semester-Project-2/Heatington.git
+    id: EmptyCsvWithHeader_Serialize_ReturnsCorrectString
+    path: Heatington.Tests/Controllers/Serializers/CsvSerializer.Tests.cs
+    startLine: 373
+  assemblies:
+  - Heatington.Tests
+  namespace: Heatington.Tests.Serializers
+  syntax:
+    content: >-
+      [Theory]
+
+      [MemberData("SerializeTests", new object[] { })]
+
+      public void EmptyCsvWithHeader_Serialize_ReturnsCorrectString(CsvData csv, string expected)
+    parameters:
+    - id: csv
+      type: Heatington.Services.Serializers.CsvData
+    - id: expected
+      type: System.String
+    content.vb: >-
+      <Theory>
+
+      <MemberData("SerializeTests", New Object() { })>
+
+      Public Sub EmptyCsvWithHeader_Serialize_ReturnsCorrectString(csv As CsvData, expected As String)
+  overload: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString(CsvData, String)
+  fullName.vb: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString(Heatington.Services.Serializers.CsvData, String)
+  name.vb: EmptyCsvWithHeader_Serialize_ReturnsCorrectString(CsvData, String)
+references:
+- uid: Heatington.Tests.Serializers
+  commentId: N:Heatington.Tests.Serializers
+  href: Heatington.html
+  name: Heatington.Tests.Serializers
+  nameWithType: Heatington.Tests.Serializers
+  fullName: Heatington.Tests.Serializers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Serializers
+    name: Serializers
+    href: Heatington.Tests.Serializers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Tests
+    name: Tests
+    href: Heatington.Tests.html
+  - name: .
+  - uid: Heatington.Tests.Serializers
+    name: Serializers
+    href: Heatington.Tests.Serializers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.GetTests*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.GetTests
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_GetTests
+  name: GetTests
+  nameWithType: CsvSerializerTests.GetTests
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.GetTests
+- uid: System.Collections.Generic.IEnumerable{System.Object[]}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Object[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<object[]>
+  nameWithType: IEnumerable<object[]>
+  fullName: System.Collections.Generic.IEnumerable<object[]>
+  nameWithType.vb: IEnumerable(Of Object())
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Object())
+  name.vb: IEnumerable(Of Object())
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData_System_String_Heatington_Services_Serializers_CsvData_
+  name: ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  nameWithType: CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Heatington.Services.Serializers.CsvData
+  commentId: T:Heatington.Services.Serializers.CsvData
+  parent: Heatington.Services.Serializers
+  href: Heatington.Services.Serializers.CsvData.html
+  name: CsvData
+  nameWithType: CsvData
+  fullName: Heatington.Services.Serializers.CsvData
+- uid: Heatington.Services.Serializers
+  commentId: N:Heatington.Services.Serializers
+  href: Heatington.html
+  name: Heatington.Services.Serializers
+  nameWithType: Heatington.Services.Serializers
+  fullName: Heatington.Services.Serializers
+  spec.csharp:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Serializers
+    name: Serializers
+    href: Heatington.Services.Serializers.html
+  spec.vb:
+  - uid: Heatington
+    name: Heatington
+    href: Heatington.html
+  - name: .
+  - uid: Heatington.Services
+    name: Services
+    href: Heatington.Services.html
+  - name: .
+  - uid: Heatington.Services.Serializers
+    name: Serializers
+    href: Heatington.Services.Serializers.html
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  name: EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  nameWithType: CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithoutHeader_Deserialize_ReturnsCorrectCsvData
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.GetCsvTestsWithHeader*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.GetCsvTestsWithHeader
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_GetCsvTestsWithHeader
+  name: GetCsvTestsWithHeader
+  nameWithType: CsvSerializerTests.GetCsvTestsWithHeader
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.GetCsvTestsWithHeader
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData_System_String_Heatington_Services_Serializers_CsvData_
+  name: ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  nameWithType: CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.ValidCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_InvalidCsv_Deserialize_ThrowsException_System_String_
+  name: InvalidCsv_Deserialize_ThrowsException
+  nameWithType: CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.InvalidCsv_Deserialize_ThrowsException
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  name: EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  nameWithType: CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Deserialize_ReturnsCorrectCsvData
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.SerializeTests*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.SerializeTests
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_SerializeTests
+  name: SerializeTests
+  nameWithType: CsvSerializerTests.SerializeTests
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.SerializeTests
+- uid: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString*
+  commentId: Overload:Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString
+  href: Heatington.Tests.Serializers.CsvSerializerTests.html#Heatington_Tests_Serializers_CsvSerializerTests_EmptyCsvWithHeader_Serialize_ReturnsCorrectString_Heatington_Services_Serializers_CsvData_System_String_
+  name: EmptyCsvWithHeader_Serialize_ReturnsCorrectString
+  nameWithType: CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString
+  fullName: Heatington.Tests.Serializers.CsvSerializerTests.EmptyCsvWithHeader_Serialize_ReturnsCorrectString

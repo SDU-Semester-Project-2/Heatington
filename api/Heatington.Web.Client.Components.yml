@@ -16,15 +16,15 @@ items:
   assemblies:
   - Heatington.Web.Client
 references:
-- uid: Heatington.Web.Client.Components.EditBoilerDialog
-  commentId: T:Heatington.Web.Client.Components.EditBoilerDialog
-  href: Heatington.Web.Client.Components.EditBoilerDialog.html
-  name: EditBoilerDialog
-  nameWithType: EditBoilerDialog
-  fullName: Heatington.Web.Client.Components.EditBoilerDialog
 - uid: Heatington.Web.Client.Components.AddBoilerDialog
   commentId: T:Heatington.Web.Client.Components.AddBoilerDialog
   href: Heatington.Web.Client.Components.AddBoilerDialog.html
   name: AddBoilerDialog
   nameWithType: AddBoilerDialog
   fullName: Heatington.Web.Client.Components.AddBoilerDialog
+- uid: Heatington.Web.Client.Components.EditBoilerDialog
+  commentId: T:Heatington.Web.Client.Components.EditBoilerDialog
+  href: Heatington.Web.Client.Components.EditBoilerDialog.html
+  name: EditBoilerDialog
+  nameWithType: EditBoilerDialog
+  fullName: Heatington.Web.Client.Components.EditBoilerDialog
