@@ -4,8 +4,32 @@
 
 > [How to install Docfx](./docs/introduction.md)
 
+
+
 ## _HOW TO RUN THE APP_
-### Running the Console App
+### `dotnet run`
+Open 5 terminal emulator windows and in each run following pair commands
+```shell
+# 1
+cd Heatington.Microservice.AM
+dotnet run
+# 2
+cd Heatington.Microservice.SDM
+dotnet run
+# 3
+cd Heatington.Microservice.RDM
+dotnet run
+# 4
+cd Heatington.Microservices.OPT
+dotnet run
+# 5
+cd Heatington.Microservices.Web
+dotnet run
+```
+
+
+### Make(Potentially not working)
+#### Running the Console App
 ```shell
 make run_console
 ```
