@@ -1,8 +1,8 @@
-using MudBlazor;
 using System.Net.Http.Json;
 using Heatington.Models;
 using Heatington.Optimizer;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using static System.Linq.Enumerable;
 
 namespace Heatington.Web.Client.Pages;
@@ -576,7 +576,8 @@ public partial class Home : ComponentBase
     {
         var heatDemandChartDataList = dataPoints?.Select(dataPoint => new ChartData
         {
-            XData = FormatDate(dataPoint.StartTime), YData = dataPoint.HeatDemand
+            XData = FormatDate(dataPoint.StartTime),
+            YData = dataPoint.HeatDemand
         }).ToList();
 
         return heatDemandChartDataList;
@@ -586,7 +587,8 @@ public partial class Home : ComponentBase
     {
         var electricityPriceDataList = dataPoints?.Select(dataPoint => new ChartData()
         {
-            XData = FormatDate(dataPoint.StartTime), YData = dataPoint.ElectricityPrice
+            XData = FormatDate(dataPoint.StartTime),
+            YData = dataPoint.ElectricityPrice
         }).ToList();
 
         return electricityPriceDataList;
@@ -605,7 +607,8 @@ public partial class Home : ComponentBase
                     // Boiler already exists in the dictionary, add data to the existing list
                     co2Emission[result.Boiler.FullName].Add(new ChartData
                     {
-                        XData = FormatDate(result.StartTime), YData = result.Boiler.Co2Emission,
+                        XData = FormatDate(result.StartTime),
+                        YData = result.Boiler.Co2Emission,
                     });
                 }
                 else
@@ -631,7 +634,8 @@ public partial class Home : ComponentBase
     {
         var productionCostDataList = rawResultData?.Select(item => new ChartData()
         {
-            XData = FormatDate(item.StartTime), YData = item.NetProductionCost
+            XData = FormatDate(item.StartTime),
+            YData = item.NetProductionCost
         }).ToList();
 
         return productionCostDataList;

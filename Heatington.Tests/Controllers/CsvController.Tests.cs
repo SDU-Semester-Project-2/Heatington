@@ -58,41 +58,41 @@ public class CsvControllerTests : IDisposable
         Assert.Equal(expectedOutput, actualOutput);
     }
 
-//There are issues with the date time format and the number format, on my machine (hungarian locale) the decimal seperator is ,
-/*
-    [Fact]
-    public void RegularTimeSeriesData_SaveData_WritesCorrectContent()
-    {
-        //Arrange
-        string TestFilePath = Path.Combine(_testsDirPath, Path.GetRandomFileName());
-        string expectedContent = String.Join("\n",
-            "StartTime,EndTime,HeatDemand,ElectricityPrice",
-            "08.02.2023 02.00.00,08.02.2023 03.00.00,6.98,1116.22",
-            "08.02.2023 03.00.00,08.02.2023 04.00.00,7.04,1101.12",
-            "08.02.2023 04.00.00,08.02.2023 05.00.00,7.72,1086.24",
-            "08.02.2023 05.00.00,08.02.2023 06.00.00,7.85,1109.53",
-            "08.02.2023 06.00.00,08.02.2023 07.00.00,8.15,1307.40",
-            "08.02.2023 07.00.00,08.02.2023 08.00.00,7.62,1463.30"
-        );
-        List<DataPoint>? timeSeries = new List<DataPoint>
+    //There are issues with the date time format and the number format, on my machine (hungarian locale) the decimal seperator is ,
+    /*
+        [Fact]
+        public void RegularTimeSeriesData_SaveData_WritesCorrectContent()
         {
-            new("2/8/23 2:00","2/8/23 3:00","6.98","1116.22"),
-            new("2/8/23 3:00","2/8/23 4:00","7.04","1101.12"),
-            new("2/8/23 4:00","2/8/23 5:00","7.72","1086.24"),
-            new("2/8/23 5:00","2/8/23 6:00","7.85","1109.53"),
-            new("2/8/23 6:00","2/8/23 7:00","8.15","1307.40"),
-            new("2/8/23 7:00","2/8/23 8:00","7.62","1463.30")
-        };
-        CsvController mockCsvController = new CsvController(TestFilePath);
+            //Arrange
+            string TestFilePath = Path.Combine(_testsDirPath, Path.GetRandomFileName());
+            string expectedContent = String.Join("\n",
+                "StartTime,EndTime,HeatDemand,ElectricityPrice",
+                "08.02.2023 02.00.00,08.02.2023 03.00.00,6.98,1116.22",
+                "08.02.2023 03.00.00,08.02.2023 04.00.00,7.04,1101.12",
+                "08.02.2023 04.00.00,08.02.2023 05.00.00,7.72,1086.24",
+                "08.02.2023 05.00.00,08.02.2023 06.00.00,7.85,1109.53",
+                "08.02.2023 06.00.00,08.02.2023 07.00.00,8.15,1307.40",
+                "08.02.2023 07.00.00,08.02.2023 08.00.00,7.62,1463.30"
+            );
+            List<DataPoint>? timeSeries = new List<DataPoint>
+            {
+                new("2/8/23 2:00","2/8/23 3:00","6.98","1116.22"),
+                new("2/8/23 3:00","2/8/23 4:00","7.04","1101.12"),
+                new("2/8/23 4:00","2/8/23 5:00","7.72","1086.24"),
+                new("2/8/23 5:00","2/8/23 6:00","7.85","1109.53"),
+                new("2/8/23 6:00","2/8/23 7:00","8.15","1307.40"),
+                new("2/8/23 7:00","2/8/23 8:00","7.62","1463.30")
+            };
+            CsvController mockCsvController = new CsvController(TestFilePath);
 
-        //Act
-        mockCsvController.SaveData(timeSeries);
+            //Act
+            mockCsvController.SaveData(timeSeries);
 
-        //Assert
-        string actualContent = File.ReadAllText(TestFilePath);
-        Assert.Equal(expectedContent, actualContent);
-    }
-*/
+            //Assert
+            string actualContent = File.ReadAllText(TestFilePath);
+            Assert.Equal(expectedContent, actualContent);
+        }
+    */
 
     private void ClearTestsDirectory() // NOT A TEST
     {

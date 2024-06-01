@@ -1,8 +1,8 @@
-using Heatington.Models;
-using Heatington.Optimizer;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Heatington.Models;
+using Heatington.Optimizer;
 using Xunit;
 
 namespace Heatington.Tests

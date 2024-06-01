@@ -69,7 +69,7 @@ public class AssetManagerTest
     public async void AssetManager_ModifyingHeatUnitWorksCorrectly()
     {
         //Arrange
-        ProductionUnit newProductionUnit = new ProductionUnit("TT","", "", 77, 690, 0, 4.20, 0);
+        ProductionUnit newProductionUnit = new ProductionUnit("TT", "", "", 77, 690, 0, 4.20, 0);
 
         //Act
         Task loadAssets = _assetManager.LoadAssets();
