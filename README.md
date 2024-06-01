@@ -24,8 +24,7 @@ cd Heatington.Microservice.OPT
 dotnet run
 # 5
 cd Heatington.Web
-dotnet run
-```
+
 
 
 ### Make(Potentially not working)
