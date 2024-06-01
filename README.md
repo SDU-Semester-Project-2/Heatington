@@ -20,10 +20,10 @@ dotnet run
 cd Heatington.Microservice.RDM
 dotnet run
 # 4
-cd Heatington.Microservices.OPT
+cd Heatington.Microservice.OPT
 dotnet run
 # 5
-cd Heatington.Microservices.Web
+cd Heatington.Web
 dotnet run
 ```
 
