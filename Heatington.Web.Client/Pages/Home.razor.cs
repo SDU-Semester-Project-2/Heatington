@@ -304,13 +304,16 @@ public partial class Home : ComponentBase
             InitializeProductionCostChartData();
             InitializeCo2EmissionChartData();
             InitializeOperationPointsChartData();
-            _isDataReady = true;
-            StateHasChanged();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
+        }
+        finally
+        {
+            _isDataReady = true;
+            StateHasChanged();
         }
     }
 
@@ -576,8 +579,7 @@ public partial class Home : ComponentBase
     {
         var heatDemandChartDataList = dataPoints?.Select(dataPoint => new ChartData
         {
-            XData = FormatDate(dataPoint.StartTime),
-            YData = dataPoint.HeatDemand
+            XData = FormatDate(dataPoint.StartTime), YData = dataPoint.HeatDemand
         }).ToList();
 
         return heatDemandChartDataList;
@@ -587,8 +589,7 @@ public partial class Home : ComponentBase
     {
         var electricityPriceDataList = dataPoints?.Select(dataPoint => new ChartData()
         {
-            XData = FormatDate(dataPoint.StartTime),
-            YData = dataPoint.ElectricityPrice
+            XData = FormatDate(dataPoint.StartTime), YData = dataPoint.ElectricityPrice
         }).ToList();
 
         return electricityPriceDataList;
@@ -607,8 +608,7 @@ public partial class Home : ComponentBase
                     // Boiler already exists in the dictionary, add data to the existing list
                     co2Emission[result.Boiler.FullName].Add(new ChartData
                     {
-                        XData = FormatDate(result.StartTime),
-                        YData = result.Boiler.Co2Emission,
+                        XData = FormatDate(result.StartTime), YData = result.Boiler.Co2Emission,
                     });
                 }
                 else
@@ -630,12 +630,16 @@ public partial class Home : ComponentBase
         return co2Emission;
     }
 
+
     private List<ChartData>? GetNetProductionCostSeries(List<FormatedResultHolder>? rawResultData)
     {
-        var productionCostDataList = rawResultData?.Select(item => new ChartData()
+        List<FormatedResultHolder>? filteredResultData = FilterDuplicateStartTimes(rawResultData);
+        // Console.WriteLine($"Original data length: {rawResultData?.Count}");
+        //
+        // Console.WriteLine($"Filtered data length: {filteredResultData.Count}");
+        var productionCostDataList = filteredResultData?.Select(item => new ChartData()
         {
-            XData = FormatDate(item.StartTime),
-            YData = item.NetProductionCost
+            XData = FormatDate(item.StartTime), YData = item.NetProductionCost
         }).ToList();
 
         return productionCostDataList;
@@ -754,6 +758,29 @@ public partial class Home : ComponentBase
     private void ViewMore()
     {
         NavManager.NavigateTo("/resource-manager");
+    }
+
+
+    private static List<FormatedResultHolder> FilterDuplicateStartTimes(List<FormatedResultHolder>? rawResultData)
+    {
+        List<FormatedResultHolder> filteredResults = new List<FormatedResultHolder>();
+        DateTime? previousStartTime = null;
+
+        if (rawResultData == null)
+        {
+            return filteredResults;
+        }
+
+        foreach (FormatedResultHolder item in rawResultData)
+        {
+            if (previousStartTime == null || item.StartTime != previousStartTime)
+            {
+                filteredResults.Add(item);
+                previousStartTime = item.StartTime;
+            }
+        }
+
+        return filteredResults;
     }
 
 
