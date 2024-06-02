@@ -4,37 +4,37 @@
 
 > [How to install Docfx](./docs/introduction.md)
 
-
+> [Code Documentation](https://sdu-semester-project-2.github.io/Heatington/)
 
 ## _HOW TO RUN THE APP_
 ### `dotnet run`
-Open 5 terminal emulator windows and in each run following pair commands
+Open 5 terminal emulator windows(in the root directory) and in each run following pair of commands
 ```shell
 # 1
 cd Heatington.Microservice.AM
-dotnet run
+dotnet watch
 # 2
 cd Heatington.Microservice.SDM
-dotnet run
+dotnet watch
 # 3
 cd Heatington.Microservice.RDM
-dotnet run
+dotnet watch
 # 4
 cd Heatington.Microservice.OPT
-dotnet run
+dotnet watch
 # 5
 cd Heatington.Web
-dotnet run
+dotnet watch
 ```
 
 
-### Make(Potentially not working)
+### `Make` (Potentially not working)
 #### Running the Console App
 ```shell
 make run_console
 ```
 
-### Running the Web App
+#### Running the Web App
 ```shell
 make
 ```
@@ -70,3 +70,7 @@ there is an `DEV` variable inside of `Makefile` you can set it to false to turn 
 ## Class Diagram
 
 ![class-diagram.png](Assets/class-diagram.png)
+
+## Microservices Diagram
+
+![miroservices_uml.png](Assets/microservices_uml.png)
