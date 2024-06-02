@@ -5,15 +5,18 @@
 
 <MudDialog>
     <DialogContent>
-        <MudTextField @bind-Value="productionUnit.Name" Label="Name" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="productionUnit.MaxHeat" Label="Max Heat" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="productionUnit.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="productionUnit.ProductionCost" Label="Production Costs" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="productionUnit.Co2Emission" Label="CO2 Emissions" Variant="Variant.Outlined" />
-        <MudTextField @bind-Value="productionUnit.GasConsumption" Label="Gas Consumption" Variant="Variant.Outlined" />
+        <MudTextField @bind-Value="productionUnit.Name" Label="Name" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="productionUnit.MaxHeat" Label="Max Heat" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="productionUnit.MaxElectricity" Label="Max Electricity" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="productionUnit.ProductionCost" Label="Production Costs" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="productionUnit.Co2Emission" Label="CO2 Emissions" Variant="Variant.Outlined"/>
+        <MudTextField @bind-Value="productionUnit.GasConsumption" Label="Gas Consumption" Variant="Variant.Outlined"/>
     </DialogContent>
     <DialogActions>
-        <MudButton Color="Color.Primary" Size="Size.Large" Variant="Variant.Filled" OnClick="EditBoiler">Save</MudButton>
+        <MudContainer Class="d-flex flex-column">
+            <MudButton Disabled Color="Color.Primary" Size="Size.Large" Variant="Variant.Filled" OnClick="EditBoiler">Save</MudButton>
+            <MudText Typo="Typo.caption">Work in progress</MudText>
+        </MudContainer>
     </DialogActions>
 </MudDialog>
 
@@ -25,4 +28,5 @@
     {
         MudDialog.Close(DialogResult.Ok(true));
     }
+
 }
