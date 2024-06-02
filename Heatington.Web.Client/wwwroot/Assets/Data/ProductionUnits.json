@@ -29,8 +29,8 @@
     "GasConsumption": 1.9,
     "Co2Emission": 640
   },
-  "EK": {
-    "Name": "EK",
+  "EB": {
+    "Name": "EB",
     "FullName": "Electric Boiler",
     "PicturePath": "AssetManager/electric-boiler.jpg",
     "MaxHeat": 8,
