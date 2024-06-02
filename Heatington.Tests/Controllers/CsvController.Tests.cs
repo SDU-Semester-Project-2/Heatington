@@ -7,14 +7,14 @@ namespace Heatington.Tests.Controllers;
 /// <summary>
 /// Documentation in Documents/Heatington.Tests/Controllers/FileController.Tests.md
 /// </summary>
-public class CsvControllerTests : IDisposable
+public class CsvControllerTests : UseTestDirectory
 {
     private const string TestsDirectory = "tests";
     private readonly string _testsDirPath = Path.Combine(Path.GetTempPath(), TestsDirectory);
-
+    //
     public CsvControllerTests() // NOT A TEST
     {
-        Thread.Sleep(100);
+        Thread.Sleep(1000);
         // create temporary test folder
         if (!Directory.Exists(_testsDirPath))
         {
@@ -41,15 +41,15 @@ public class CsvControllerTests : IDisposable
         );
         List<DataPoint>? expectedOutput = new List<DataPoint>
         {
-            new("2/8/23 2:00","2/8/23 3:00","6.98","1116.22"),
-            new("2/8/23 3:00","2/8/23 4:00","7.04","1101.12"),
-            new("2/8/23 4:00","2/8/23 5:00","7.72","1086.24"),
-            new("2/8/23 5:00","2/8/23 6:00","7.85","1109.53"),
-            new("2/8/23 6:00","2/8/23 7:00","8.15","1307.40"),
-            new("2/8/23 7:00","2/8/23 8:00","7.62","1463.30")
+            new("2/8/23 2:00", "2/8/23 3:00", "6.98", "1116.22"),
+            new("2/8/23 3:00", "2/8/23 4:00", "7.04", "1101.12"),
+            new("2/8/23 4:00", "2/8/23 5:00", "7.72", "1086.24"),
+            new("2/8/23 5:00", "2/8/23 6:00", "7.85", "1109.53"),
+            new("2/8/23 6:00", "2/8/23 7:00", "8.15", "1307.40"),
+            new("2/8/23 7:00", "2/8/23 8:00", "7.62", "1463.30")
         };
-        CsvController mockCsvController = new CsvController(TestFilePath);
         await File.WriteAllTextAsync(TestFilePath, fileContent);
+        CsvController mockCsvController = new CsvController(TestFilePath);
 
         //Act
         List<DataPoint>? actualOutput = await mockCsvController.GetDataAsync();
