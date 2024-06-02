@@ -125,14 +125,14 @@
 
     <!-- Heat Demand Chart -->
     <MudText Typo="Typo.h4" class="text-center">Heat Demand</MudText>
-    <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@HeatDemandSeries" @bind-SelectedIndex="Index"
+    <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@HeatDemandSeries" @bind-SelectedIndex="_index"
               XAxisLabels="@XAxisLabels" ChartOptions="HeatDemandChartOptions" Width="100%" Height="350px">
     </MudChart>
     <MudDivider FlexItem></MudDivider>
 
     <!-- Electricity Prices Chart -->
     <MudText Typo="Typo.h4" class="text-center">Electricity Prices</MudText>
-    <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@ElectricityPriceSeries" @bind-SelectedIndex="Index"
+    <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@ElectricityPriceSeries" @bind-SelectedIndex="_index"
               XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="ElectricityChartOptions"/>
     <MudDivider FlexItem></MudDivider>
 
@@ -144,7 +144,7 @@
         Net Production Cost
     </MudText>
     <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@NetProductionCostSeries"
-              @bind-SelectedIndex="Index"
+              @bind-SelectedIndex="_index"
               XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="ProductionCostChartOptions"/>
     <MudDivider FlexItem></MudDivider>
 
@@ -157,7 +157,7 @@
         @* WINTER SCENARIO  *@
         <MudTabPanel Text="Winter Scenario 1">
             <!-- Chart for CO2 Emission Scenario 1 -->
-            <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesWinter1" @bind-SelectedIndex="Index"
+            <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@Co2SeriesWinter1" @bind-SelectedIndex="_index"
                       XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
         </MudTabPanel>
 
@@ -202,7 +202,7 @@
         <MudTabPanel Text="Real Winter Scenario 1">
             <!-- Chart for CO2 Emission Scenario 1 -->
             <MudChart CanHideSeries ChartType="ChartType.Line" ChartSeries="@RealCo2SeriesWinter1"
-                      @bind-SelectedIndex="Index"
+                      @bind-SelectedIndex="_index"
                       XAxisLabels="@XAxisLabels" Width="100%" Height="350px" ChartOptions="Co2EmissionChartOptions"/>
         </MudTabPanel>
 
