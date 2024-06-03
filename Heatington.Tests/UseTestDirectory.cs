@@ -7,6 +7,7 @@ public abstract class UseTestDirectory : IDisposable
 
     public UseTestDirectory() // NOT A TEST
     {
+        Thread.Sleep(1000);
         // create temporary test folder
         if (!Directory.Exists(TestsDirPath))
         {
