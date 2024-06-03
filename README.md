@@ -6,7 +6,7 @@
 
 > [Code Documentation](https://sdu-semester-project-2.github.io/Heatington/)
 
-## _HOW TO RUN THE WEB_
+## _HOW TO RUN THE APP_
 ### `dotnet watch`
 #### Running the Console App
 ```shell
