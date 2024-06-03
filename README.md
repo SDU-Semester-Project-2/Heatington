@@ -7,11 +7,11 @@
 > [Code Documentation](https://sdu-semester-project-2.github.io/Heatington/)
 
 ## _HOW TO RUN THE APP_
-### `dotnet watch`
+### `dotnet`
 #### Running the Console App
 ```shell
 cd Heatington.Console
-dotnet watch
+dotnet run
 ```
 #### Running the Web App
 Open 5 terminal emulator windows(in the root directory) and in each run following pair of commands
