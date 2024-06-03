@@ -67,3 +67,8 @@ public class RDM(CsvController _csvController)
         _csvController.SaveData(resultsToWrite);
     }
 }
+
+public class RdmCsvResponse
+{
+    public string? result { get; set; }
+}

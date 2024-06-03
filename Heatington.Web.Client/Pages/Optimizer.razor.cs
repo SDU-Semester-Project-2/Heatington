@@ -1,6 +1,8 @@
 using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using Heatington.Models;
 using Heatington.Optimizer;
+using Heatington.ResultDataManager;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
@@ -136,7 +138,12 @@ namespace Heatington.Web.Client.Pages
                 }
 
                 string uri = GenerateOptCsvDataUri(SelectedSeason.ToLower(), SelectedScenarioInt);
-                csvContent = await Http.GetFromJsonAsync<string>(uri);
+                Console.WriteLine(uri);
+
+                RdmCsvResponse? response = await Http.GetFromJsonAsync<RdmCsvResponse>(uri);
+
+                csvContent = response?.result;
+                Console.WriteLine(csvContent);
             }
             catch (Exception e)
             {
