@@ -6,8 +6,14 @@
 
 > [Code Documentation](https://sdu-semester-project-2.github.io/Heatington/)
 
-## _HOW TO RUN THE APP_
-### `dotnet run`
+## _HOW TO RUN THE WEB_
+### `dotnet watch`
+#### Running the Console App
+```shell
+cd Heatington.Console
+dotnet watch
+```
+#### Running the Web App
 Open 5 terminal emulator windows(in the root directory) and in each run following pair of commands
 ```shell
 # 1
@@ -17,10 +23,10 @@ dotnet watch
 cd Heatington.Microservice.SDM
 dotnet watch
 # 3
-cd Heatington.Microservice.RDM
+cd Heatington.Microservice.OPT
 dotnet watch
 # 4
-cd Heatington.Microservice.OPT
+cd Heatington.Microservice.RDM
 dotnet watch
 # 5
 cd Heatington.Web
